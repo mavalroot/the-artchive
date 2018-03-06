@@ -29,3 +29,4 @@ exclude_paths:
 - tests/
 - docs/
 - requirements.php
+- environments
