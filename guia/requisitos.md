@@ -8,7 +8,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [1](https://github.com/mavalroot/artchive/issues/1) |
+| **Incidencia**  | [1](https://github.com/mavalroot/the-artchive/issues/1) |
 
 | **R02**     | **Código fuente en Github**           |
 | --------------: | :------------------- |
@@ -17,7 +17,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [2](https://github.com/mavalroot/artchive/issues/2) |
+| **Incidencia**  | [2](https://github.com/mavalroot/the-artchive/issues/2) |
 
 | **R03**     | **Estilo del código según Yii**           |
 | --------------: | :------------------- |
@@ -26,7 +26,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [3](https://github.com/mavalroot/artchive/issues/3) |
+| **Incidencia**  | [3](https://github.com/mavalroot/the-artchive/issues/3) |
 
 | **R04**     | **Tres lanzamientos**           |
 | --------------: | :------------------- |
@@ -35,7 +35,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [4](https://github.com/mavalroot/artchive/issues/4) |
+| **Incidencia**  | [4](https://github.com/mavalroot/the-artchive/issues/4) |
 
 | **R05**     | **README en el directorio raíz**           |
 | --------------: | :------------------- |
@@ -44,7 +44,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [5](https://github.com/mavalroot/artchive/issues/5) |
+| **Incidencia**  | [5](https://github.com/mavalroot/the-artchive/issues/5) |
 
 | **R06**     | **Documentación en Github Pages**           |
 | --------------: | :------------------- |
@@ -53,7 +53,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [6](https://github.com/mavalroot/artchive/issues/6) |
+| **Incidencia**  | [6](https://github.com/mavalroot/the-artchive/issues/6) |
 
 | **R07**     | **Solucionar todas las incidencias**           |
 | --------------: | :------------------- |
@@ -62,7 +62,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [7](https://github.com/mavalroot/artchive/issues/7) |
+| **Incidencia**  | [7](https://github.com/mavalroot/the-artchive/issues/7) |
 
 | **R08**     | **Usar etiquetas e hitos**           |
 | --------------: | :------------------- |
@@ -71,7 +71,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [8](https://github.com/mavalroot/artchive/issues/8) |
+| **Incidencia**  | [8](https://github.com/mavalroot/the-artchive/issues/8) |
 
 | **R09**     | **Versión más estable en la rama master**           |
 | --------------: | :------------------- |
@@ -80,7 +80,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [9](https://github.com/mavalroot/artchive/issues/9) |
+| **Incidencia**  | [9](https://github.com/mavalroot/the-artchive/issues/9) |
 
 | **R10**     | **Usar Waffle**           |
 | --------------: | :------------------- |
@@ -89,7 +89,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [10](https://github.com/mavalroot/artchive/issues/10) |
+| **Incidencia**  | [10](https://github.com/mavalroot/the-artchive/issues/10) |
 
 | **R11**     | **Iteraciones**           |
 | --------------: | :------------------- |
@@ -98,7 +98,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [11](https://github.com/mavalroot/artchive/issues/11) |
+| **Incidencia**  | [11](https://github.com/mavalroot/the-artchive/issues/11) |
 
 | **R12**     | **Validación de formularios**           |
 | --------------: | :------------------- |
@@ -107,7 +107,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [12](https://github.com/mavalroot/artchive/issues/12) |
+| **Incidencia**  | [12](https://github.com/mavalroot/the-artchive/issues/12) |
 
 | **R13**     | **Gestión de ventanas**           |
 | --------------: | :------------------- |
@@ -116,7 +116,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [13](https://github.com/mavalroot/artchive/issues/13) |
+| **Incidencia**  | [13](https://github.com/mavalroot/the-artchive/issues/13) |
 
 | **R14**     | **Manejo de eventos**           |
 | --------------: | :------------------- |
@@ -125,7 +125,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [14](https://github.com/mavalroot/artchive/issues/14) |
+| **Incidencia**  | [14](https://github.com/mavalroot/the-artchive/issues/14) |
 
 | **R15**     | **Uso del DOM**           |
 | --------------: | :------------------- |
@@ -134,7 +134,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [15](https://github.com/mavalroot/artchive/issues/15) |
+| **Incidencia**  | [15](https://github.com/mavalroot/the-artchive/issues/15) |
 
 | **R16**     | **Uso de mecanismos de almacenamiento**           |
 | --------------: | :------------------- |
@@ -143,7 +143,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [16](https://github.com/mavalroot/artchive/issues/16) |
+| **Incidencia**  | [16](https://github.com/mavalroot/the-artchive/issues/16) |
 
 | **R17**     | **Jquery**           |
 | --------------: | :------------------- |
@@ -152,7 +152,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [17](https://github.com/mavalroot/artchive/issues/17) |
+| **Incidencia**  | [17](https://github.com/mavalroot/the-artchive/issues/17) |
 
 | **R18**     | **Plugins**           |
 | --------------: | :------------------- |
@@ -161,7 +161,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [18](https://github.com/mavalroot/artchive/issues/18) |
+| **Incidencia**  | [18](https://github.com/mavalroot/the-artchive/issues/18) |
 
 | **R19**     | **Uso de AJAX**           |
 | --------------: | :------------------- |
@@ -170,7 +170,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [19](https://github.com/mavalroot/artchive/issues/19) |
+| **Incidencia**  | [19](https://github.com/mavalroot/the-artchive/issues/19) |
 
 | **R20**     | **PHP 7.1**           |
 | --------------: | :------------------- |
@@ -179,7 +179,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [20](https://github.com/mavalroot/artchive/issues/20) |
+| **Incidencia**  | [20](https://github.com/mavalroot/the-artchive/issues/20) |
 
 | **R21**     | **Yii2 Framework**           |
 | --------------: | :------------------- |
@@ -188,7 +188,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [21](https://github.com/mavalroot/artchive/issues/21) |
+| **Incidencia**  | [21](https://github.com/mavalroot/the-artchive/issues/21) |
 
 | **R22**     | **PostgreSQL**           |
 | --------------: | :------------------- |
@@ -197,7 +197,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [22](https://github.com/mavalroot/artchive/issues/22) |
+| **Incidencia**  | [22](https://github.com/mavalroot/the-artchive/issues/22) |
 
 | **R23**     | **Uso de Heroku**           |
 | --------------: | :------------------- |
@@ -206,7 +206,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [23](https://github.com/mavalroot/artchive/issues/23) |
+| **Incidencia**  | [23](https://github.com/mavalroot/the-artchive/issues/23) |
 
 | **R24**     | **Uso de Codeception**           |
 | --------------: | :------------------- |
@@ -215,7 +215,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [24](https://github.com/mavalroot/artchive/issues/24) |
+| **Incidencia**  | [24](https://github.com/mavalroot/the-artchive/issues/24) |
 
 | **R25**     | **Uso de Code Climate**           |
 | --------------: | :------------------- |
@@ -224,7 +224,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [25](https://github.com/mavalroot/artchive/issues/25) |
+| **Incidencia**  | [25](https://github.com/mavalroot/the-artchive/issues/25) |
 
 | **R26**     | **Escalabilidad de la aplicación**           |
 | --------------: | :------------------- |
@@ -233,7 +233,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [26](https://github.com/mavalroot/artchive/issues/26) |
+| **Incidencia**  | [26](https://github.com/mavalroot/the-artchive/issues/26) |
 
 | **R27**     | **Estructura en HTML5**           |
 | --------------: | :------------------- |
@@ -242,7 +242,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [27](https://github.com/mavalroot/artchive/issues/27) |
+| **Incidencia**  | [27](https://github.com/mavalroot/the-artchive/issues/27) |
 
 | **R28**     | **Presentación con CSS3**           |
 | --------------: | :------------------- |
@@ -251,7 +251,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [28](https://github.com/mavalroot/artchive/issues/28) |
+| **Incidencia**  | [28](https://github.com/mavalroot/the-artchive/issues/28) |
 
 | **R29**     | **Diseño flexible**           |
 | --------------: | :------------------- |
@@ -260,7 +260,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [29](https://github.com/mavalroot/artchive/issues/29) |
+| **Incidencia**  | [29](https://github.com/mavalroot/the-artchive/issues/29) |
 
 | **R30**     | **Incluir Animaciones**           |
 | --------------: | :------------------- |
@@ -269,7 +269,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [30](https://github.com/mavalroot/artchive/issues/30) |
+| **Incidencia**  | [30](https://github.com/mavalroot/the-artchive/issues/30) |
 
 | **R31**     | **Incluir Microdatos**           |
 | --------------: | :------------------- |
@@ -278,7 +278,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [31](https://github.com/mavalroot/artchive/issues/31) |
+| **Incidencia**  | [31](https://github.com/mavalroot/the-artchive/issues/31) |
 
 | **R32**     | **Superar pruebas de HTML5 y CSS3**           |
 | --------------: | :------------------- |
@@ -287,7 +287,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [32](https://github.com/mavalroot/artchive/issues/32) |
+| **Incidencia**  | [32](https://github.com/mavalroot/the-artchive/issues/32) |
 
 | **R33**     | **Diseño apto para diferentes resoluciones**           |
 | --------------: | :------------------- |
@@ -296,7 +296,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [33](https://github.com/mavalroot/artchive/issues/33) |
+| **Incidencia**  | [33](https://github.com/mavalroot/the-artchive/issues/33) |
 
 | **R34**     | **Diseño apto para diferentes navegadores**           |
 | --------------: | :------------------- |
@@ -305,7 +305,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [34](https://github.com/mavalroot/artchive/issues/34) |
+| **Incidencia**  | [34](https://github.com/mavalroot/the-artchive/issues/34) |
 
 | **R35**     | **Despliegue en Host**           |
 | --------------: | :------------------- |
@@ -314,7 +314,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [35](https://github.com/mavalroot/artchive/issues/35) |
+| **Incidencia**  | [35](https://github.com/mavalroot/the-artchive/issues/35) |
 
 | **R36**     | **Despliegue en local**           |
 | --------------: | :------------------- |
@@ -323,7 +323,7 @@
 | **Tipo**        | Técnico                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [36](https://github.com/mavalroot/artchive/issues/36) |
+| **Incidencia**  | [36](https://github.com/mavalroot/the-artchive/issues/36) |
 
 | **R37**     | **Registro de usuario**           |
 | --------------: | :------------------- |
@@ -332,7 +332,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [37](https://github.com/mavalroot/artchive/issues/37) |
+| **Incidencia**  | [37](https://github.com/mavalroot/the-artchive/issues/37) |
 
 | **R38**     | **Correo de confirmación**           |
 | --------------: | :------------------- |
@@ -341,7 +341,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [38](https://github.com/mavalroot/artchive/issues/38) |
+| **Incidencia**  | [38](https://github.com/mavalroot/the-artchive/issues/38) |
 
 | **R39**     | **Moderar usuarios**           |
 | --------------: | :------------------- |
@@ -350,7 +350,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [39](https://github.com/mavalroot/artchive/issues/39) |
+| **Incidencia**  | [39](https://github.com/mavalroot/the-artchive/issues/39) |
 
 | **R40**     | **Baja de usuario**           |
 | --------------: | :------------------- |
@@ -359,7 +359,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [40](https://github.com/mavalroot/artchive/issues/40) |
+| **Incidencia**  | [40](https://github.com/mavalroot/the-artchive/issues/40) |
 
 | **R41**     | **Modificar el perfil**           |
 | --------------: | :------------------- |
@@ -368,7 +368,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [41](https://github.com/mavalroot/artchive/issues/41) |
+| **Incidencia**  | [41](https://github.com/mavalroot/the-artchive/issues/41) |
 
 | **R42**     | **Subir avatar**           |
 | --------------: | :------------------- |
@@ -377,7 +377,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [42](https://github.com/mavalroot/artchive/issues/42) |
+| **Incidencia**  | [42](https://github.com/mavalroot/the-artchive/issues/42) |
 
 | **R43**     | **Ver usuarios**           |
 | --------------: | :------------------- |
@@ -386,7 +386,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [43](https://github.com/mavalroot/artchive/issues/43) |
+| **Incidencia**  | [43](https://github.com/mavalroot/the-artchive/issues/43) |
 
 | **R44**     | **Ver perfil de usuario**           |
 | --------------: | :------------------- |
@@ -395,7 +395,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [44](https://github.com/mavalroot/artchive/issues/44) |
+| **Incidencia**  | [44](https://github.com/mavalroot/the-artchive/issues/44) |
 
 | **R45**     | **Vincular creaciones a un usuario**           |
 | --------------: | :------------------- |
@@ -404,7 +404,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [45](https://github.com/mavalroot/artchive/issues/45) |
+| **Incidencia**  | [45](https://github.com/mavalroot/the-artchive/issues/45) |
 
 | **R46**     | **Recuperar contraseña**           |
 | --------------: | :------------------- |
@@ -413,7 +413,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [46](https://github.com/mavalroot/artchive/issues/46) |
+| **Incidencia**  | [46](https://github.com/mavalroot/the-artchive/issues/46) |
 
 | **R47**     | **Iniciar sesión**           |
 | --------------: | :------------------- |
@@ -422,7 +422,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [47](https://github.com/mavalroot/artchive/issues/47) |
+| **Incidencia**  | [47](https://github.com/mavalroot/the-artchive/issues/47) |
 
 | **R48**     | **Cerrar sesión**           |
 | --------------: | :------------------- |
@@ -431,7 +431,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [48](https://github.com/mavalroot/artchive/issues/48) |
+| **Incidencia**  | [48](https://github.com/mavalroot/the-artchive/issues/48) |
 
 | **R49**     | **Moderación**           |
 | --------------: | :------------------- |
@@ -440,7 +440,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [49](https://github.com/mavalroot/artchive/issues/49) |
+| **Incidencia**  | [49](https://github.com/mavalroot/the-artchive/issues/49) |
 
 | **R50**     | **Conceder permisos**           |
 | --------------: | :------------------- |
@@ -449,7 +449,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [50](https://github.com/mavalroot/artchive/issues/50) |
+| **Incidencia**  | [50](https://github.com/mavalroot/the-artchive/issues/50) |
 
 | **R51**     | **Quitar permisos**           |
 | --------------: | :------------------- |
@@ -458,7 +458,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [51](https://github.com/mavalroot/artchive/issues/51) |
+| **Incidencia**  | [51](https://github.com/mavalroot/the-artchive/issues/51) |
 
 | **R52**     | **Seguir a un usuario**           |
 | --------------: | :------------------- |
@@ -467,7 +467,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [52](https://github.com/mavalroot/artchive/issues/52) |
+| **Incidencia**  | [52](https://github.com/mavalroot/the-artchive/issues/52) |
 
 | **R53**     | **Dejar de seguir a un usuario**           |
 | --------------: | :------------------- |
@@ -476,7 +476,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [53](https://github.com/mavalroot/artchive/issues/53) |
+| **Incidencia**  | [53](https://github.com/mavalroot/the-artchive/issues/53) |
 
 | **R54**     | **Ver a quién sigues**           |
 | --------------: | :------------------- |
@@ -485,7 +485,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [54](https://github.com/mavalroot/artchive/issues/54) |
+| **Incidencia**  | [54](https://github.com/mavalroot/the-artchive/issues/54) |
 
 | **R55**     | **Ver seguidores**           |
 | --------------: | :------------------- |
@@ -494,7 +494,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [55](https://github.com/mavalroot/artchive/issues/55) |
+| **Incidencia**  | [55](https://github.com/mavalroot/the-artchive/issues/55) |
 
 | **R56**     | **Ver bandeja de entrada**           |
 | --------------: | :------------------- |
@@ -503,7 +503,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [56](https://github.com/mavalroot/artchive/issues/56) |
+| **Incidencia**  | [56](https://github.com/mavalroot/the-artchive/issues/56) |
 
 | **R57**     | **Enviar mensaje privado**           |
 | --------------: | :------------------- |
@@ -512,7 +512,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [57](https://github.com/mavalroot/artchive/issues/57) |
+| **Incidencia**  | [57](https://github.com/mavalroot/the-artchive/issues/57) |
 
 | **R58**     | **Recibir mensaje privado**           |
 | --------------: | :------------------- |
@@ -521,7 +521,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [58](https://github.com/mavalroot/artchive/issues/58) |
+| **Incidencia**  | [58](https://github.com/mavalroot/the-artchive/issues/58) |
 
 | **R59**     | **Eliminar mensaje privado**           |
 | --------------: | :------------------- |
@@ -530,7 +530,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [59](https://github.com/mavalroot/artchive/issues/59) |
+| **Incidencia**  | [59](https://github.com/mavalroot/the-artchive/issues/59) |
 
 | **R60**     | **Bloquear un usuario**           |
 | --------------: | :------------------- |
@@ -539,7 +539,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [60](https://github.com/mavalroot/artchive/issues/60) |
+| **Incidencia**  | [60](https://github.com/mavalroot/the-artchive/issues/60) |
 
 | **R61**     | **Ver notificaciones**           |
 | --------------: | :------------------- |
@@ -548,7 +548,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [61](https://github.com/mavalroot/artchive/issues/61) |
+| **Incidencia**  | [61](https://github.com/mavalroot/the-artchive/issues/61) |
 
 | **R62**     | **Recibir notificación por nuevo seguidor**           |
 | --------------: | :------------------- |
@@ -557,7 +557,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [62](https://github.com/mavalroot/artchive/issues/62) |
+| **Incidencia**  | [62](https://github.com/mavalroot/the-artchive/issues/62) |
 
 | **R63**     | **Recibir notificación por mensaje privado**           |
 | --------------: | :------------------- |
@@ -566,7 +566,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [63](https://github.com/mavalroot/artchive/issues/63) |
+| **Incidencia**  | [63](https://github.com/mavalroot/the-artchive/issues/63) |
 
 | **R64**     | **Crear personaje**           |
 | --------------: | :------------------- |
@@ -575,7 +575,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [64](https://github.com/mavalroot/artchive/issues/64) |
+| **Incidencia**  | [64](https://github.com/mavalroot/the-artchive/issues/64) |
 
 | **R65**     | **Modificar personaje**           |
 | --------------: | :------------------- |
@@ -584,7 +584,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [65](https://github.com/mavalroot/artchive/issues/65) |
+| **Incidencia**  | [65](https://github.com/mavalroot/the-artchive/issues/65) |
 
 | **R66**     | **Eliminar personaje**           |
 | --------------: | :------------------- |
@@ -593,7 +593,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [66](https://github.com/mavalroot/artchive/issues/66) |
+| **Incidencia**  | [66](https://github.com/mavalroot/the-artchive/issues/66) |
 
 | **R67**     | **Ver personajes**           |
 | --------------: | :------------------- |
@@ -602,7 +602,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [67](https://github.com/mavalroot/artchive/issues/67) |
+| **Incidencia**  | [67](https://github.com/mavalroot/the-artchive/issues/67) |
 
 | **R68**     | **Buscar un usuario**           |
 | --------------: | :------------------- |
@@ -611,7 +611,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [68](https://github.com/mavalroot/artchive/issues/68) |
+| **Incidencia**  | [68](https://github.com/mavalroot/the-artchive/issues/68) |
 
 | **R69**     | **Buscar un personaje**           |
 | --------------: | :------------------- |
@@ -620,7 +620,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [69](https://github.com/mavalroot/artchive/issues/69) |
+| **Incidencia**  | [69](https://github.com/mavalroot/the-artchive/issues/69) |
 
 | **R70**     | **Publicar un comentario**           |
 | --------------: | :------------------- |
@@ -629,7 +629,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [70](https://github.com/mavalroot/artchive/issues/70) |
+| **Incidencia**  | [70](https://github.com/mavalroot/the-artchive/issues/70) |
 
 | **R71**     | **Editar comentario**           |
 | --------------: | :------------------- |
@@ -638,7 +638,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [71](https://github.com/mavalroot/artchive/issues/71) |
+| **Incidencia**  | [71](https://github.com/mavalroot/the-artchive/issues/71) |
 
 | **R72**     | **Borrar comentario**           |
 | --------------: | :------------------- |
@@ -647,7 +647,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [72](https://github.com/mavalroot/artchive/issues/72) |
+| **Incidencia**  | [72](https://github.com/mavalroot/the-artchive/issues/72) |
 
 | **R73**     | **Crear publicaciones**           |
 | --------------: | :------------------- |
@@ -656,7 +656,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [73](https://github.com/mavalroot/artchive/issues/73) |
+| **Incidencia**  | [73](https://github.com/mavalroot/the-artchive/issues/73) |
 
 | **R74**     | **Editar publicaciones**           |
 | --------------: | :------------------- |
@@ -665,7 +665,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [74](https://github.com/mavalroot/artchive/issues/74) |
+| **Incidencia**  | [74](https://github.com/mavalroot/the-artchive/issues/74) |
 
 | **R75**     | **Borrar publicaciones**           |
 | --------------: | :------------------- |
@@ -674,7 +674,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [75](https://github.com/mavalroot/artchive/issues/75) |
+| **Incidencia**  | [75](https://github.com/mavalroot/the-artchive/issues/75) |
 
 | **R76**     | **Ver publicaciones**           |
 | --------------: | :------------------- |
@@ -683,7 +683,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [76](https://github.com/mavalroot/artchive/issues/76) |
+| **Incidencia**  | [76](https://github.com/mavalroot/the-artchive/issues/76) |
 
 | **R77**     | **Crear un árbol genealógico**           |
 | --------------: | :------------------- |
@@ -692,7 +692,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [77](https://github.com/mavalroot/artchive/issues/77) |
+| **Incidencia**  | [77](https://github.com/mavalroot/the-artchive/issues/77) |
 
 | **R78**     | **Editar un árbol genealógico**           |
 | --------------: | :------------------- |
@@ -701,7 +701,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [78](https://github.com/mavalroot/artchive/issues/78) |
+| **Incidencia**  | [78](https://github.com/mavalroot/the-artchive/issues/78) |
 
 | **R79**     | **Solicitar adhesión a un árbol genealógico**           |
 | --------------: | :------------------- |
@@ -710,7 +710,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [79](https://github.com/mavalroot/artchive/issues/79) |
+| **Incidencia**  | [79](https://github.com/mavalroot/the-artchive/issues/79) |
 
 | **R80**     | **Notificación de solicitud de árbol genealógico**           |
 | --------------: | :------------------- |
@@ -719,7 +719,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [80](https://github.com/mavalroot/artchive/issues/80) |
+| **Incidencia**  | [80](https://github.com/mavalroot/the-artchive/issues/80) |
 
 | **R81**     | **Aceptar solicitud de árbol genealógico**           |
 | --------------: | :------------------- |
@@ -728,7 +728,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [81](https://github.com/mavalroot/artchive/issues/81) |
+| **Incidencia**  | [81](https://github.com/mavalroot/the-artchive/issues/81) |
 
 | **R82**     | **Rechazar solicitud de árbol genealógico**           |
 | --------------: | :------------------- |
@@ -737,7 +737,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [82](https://github.com/mavalroot/artchive/issues/82) |
+| **Incidencia**  | [82](https://github.com/mavalroot/the-artchive/issues/82) |
 
 | **R83**     | **Eliminar un árbol genealógico**           |
 | --------------: | :------------------- |
@@ -746,7 +746,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [83](https://github.com/mavalroot/artchive/issues/83) |
+| **Incidencia**  | [83](https://github.com/mavalroot/the-artchive/issues/83) |
 
 | **R84**     | **Vincular árbol genealógico y personajes**           |
 | --------------: | :------------------- |
@@ -755,7 +755,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [84](https://github.com/mavalroot/artchive/issues/84) |
+| **Incidencia**  | [84](https://github.com/mavalroot/the-artchive/issues/84) |
 
 | **R85**     | **Generar árbol genealógico visual**           |
 | --------------: | :------------------- |
@@ -764,7 +764,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [85](https://github.com/mavalroot/artchive/issues/85) |
+| **Incidencia**  | [85](https://github.com/mavalroot/the-artchive/issues/85) |
 
 | **R86**     | **Generar personaje aleatorio**           |
 | --------------: | :------------------- |
@@ -773,7 +773,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [86](https://github.com/mavalroot/artchive/issues/86) |
+| **Incidencia**  | [86](https://github.com/mavalroot/the-artchive/issues/86) |
 
 | **R87**     | **Elegir idioma**           |
 | --------------: | :------------------- |
@@ -782,7 +782,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [87](https://github.com/mavalroot/artchive/issues/87) |
+| **Incidencia**  | [87](https://github.com/mavalroot/the-artchive/issues/87) |
 
 | **R88**     | **Sugerir traducción**           |
 | --------------: | :------------------- |
@@ -791,7 +791,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [88](https://github.com/mavalroot/artchive/issues/88) |
+| **Incidencia**  | [88](https://github.com/mavalroot/the-artchive/issues/88) |
 
 | **R89**     | **Uso de Amazon S3**           |
 | --------------: | :------------------- |
@@ -800,7 +800,7 @@
 | **Tipo**        | Funcional                |
 | **Complejidad** | Media         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [89](https://github.com/mavalroot/artchive/issues/89) |
+| **Incidencia**  | [89](https://github.com/mavalroot/the-artchive/issues/89) |
 
 | **R90**     | **Info. Registro de Usuario**           |
 | --------------: | :------------------- |
@@ -809,7 +809,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [90](https://github.com/mavalroot/artchive/issues/90) |
+| **Incidencia**  | [90](https://github.com/mavalroot/the-artchive/issues/90) |
 
 | **R91**     | **Info. Datos de Usuario**           |
 | --------------: | :------------------- |
@@ -818,7 +818,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [91](https://github.com/mavalroot/artchive/issues/91) |
+| **Incidencia**  | [91](https://github.com/mavalroot/the-artchive/issues/91) |
 
 | **R92**     | **Info. Mensajes Privados**           |
 | --------------: | :------------------- |
@@ -827,7 +827,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [92](https://github.com/mavalroot/artchive/issues/92) |
+| **Incidencia**  | [92](https://github.com/mavalroot/the-artchive/issues/92) |
 
 | **R93**     | **Info. Personajes**           |
 | --------------: | :------------------- |
@@ -836,7 +836,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
-| **Incidencia**  | [93](https://github.com/mavalroot/artchive/issues/93) |
+| **Incidencia**  | [93](https://github.com/mavalroot/the-artchive/issues/93) |
 
 | **R94**     | **Info. Comentarios**           |
 | --------------: | :------------------- |
@@ -845,7 +845,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [94](https://github.com/mavalroot/artchive/issues/94) |
+| **Incidencia**  | [94](https://github.com/mavalroot/the-artchive/issues/94) |
 
 | **R95**     | **Info. Publicaciones**           |
 | --------------: | :------------------- |
@@ -854,7 +854,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v2             |
-| **Incidencia**  | [95](https://github.com/mavalroot/artchive/issues/95) |
+| **Incidencia**  | [95](https://github.com/mavalroot/the-artchive/issues/95) |
 
 | **R96**     | **Info. Árbol genealógico**           |
 | --------------: | :------------------- |
@@ -863,7 +863,7 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [96](https://github.com/mavalroot/artchive/issues/96) |
+| **Incidencia**  | [96](https://github.com/mavalroot/the-artchive/issues/96) |
 
 | **R97**     | **Info. Sugerencias de traducción**           |
 | --------------: | :------------------- |
@@ -872,107 +872,107 @@
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
-| **Incidencia**  | [97](https://github.com/mavalroot/artchive/issues/97) |
+| **Incidencia**  | [97](https://github.com/mavalroot/the-artchive/issues/97) |
 
 
 ## Cuadro resumen
 
 | **Requisito** | **Prioridad** | **Tipo** | **Complejidad** | **Entrega** | **Incidencia** |
 | :------------ | :-----------: | :------: | :-------------: | :---------: | :------------: |
-| (**R01**) Incidencias en Github | Mínimo | Técnico | Fácil | v1 | [1](https://github.com/mavalroot/artchive/issues/1) |
-| (**R02**) Código fuente en Github | Mínimo | Técnico | Fácil | v1 | [2](https://github.com/mavalroot/artchive/issues/2) |
-| (**R03**) Estilo del código según Yii | Mínimo | Técnico | Fácil | v1 | [3](https://github.com/mavalroot/artchive/issues/3) |
-| (**R04**) Tres lanzamientos | Mínimo | Técnico | Fácil | v1 | [4](https://github.com/mavalroot/artchive/issues/4) |
-| (**R05**) README en el directorio raíz | Mínimo | Técnico | Fácil | v1 | [5](https://github.com/mavalroot/artchive/issues/5) |
-| (**R06**) Documentación en Github Pages | Mínimo | Técnico | Media | v1 | [6](https://github.com/mavalroot/artchive/issues/6) |
-| (**R07**) Solucionar todas las incidencias | Mínimo | Técnico | Difícil | v3 | [7](https://github.com/mavalroot/artchive/issues/7) |
-| (**R08**) Usar etiquetas e hitos | Mínimo | Técnico | Fácil | v1 | [8](https://github.com/mavalroot/artchive/issues/8) |
-| (**R09**) Versión más estable en la rama master | Mínimo | Técnico | Media | v3 | [9](https://github.com/mavalroot/artchive/issues/9) |
-| (**R10**) Usar Waffle | Mínimo | Técnico | Fácil | v1 | [10](https://github.com/mavalroot/artchive/issues/10) |
-| (**R11**) Iteraciones | Mínimo | Técnico | Difícil | v3 | [11](https://github.com/mavalroot/artchive/issues/11) |
-| (**R12**) Validación de formularios | Mínimo | Técnico | Fácil | v2 | [12](https://github.com/mavalroot/artchive/issues/12) |
-| (**R13**) Gestión de ventanas | Mínimo | Técnico | Media | v2 | [13](https://github.com/mavalroot/artchive/issues/13) |
-| (**R14**) Manejo de eventos | Mínimo | Técnico | Fácil | v3 | [14](https://github.com/mavalroot/artchive/issues/14) |
-| (**R15**) Uso del DOM | Mínimo | Técnico | Fácil | v3 | [15](https://github.com/mavalroot/artchive/issues/15) |
-| (**R16**) Uso de mecanismos de almacenamiento | Mínimo | Técnico | Fácil | v2 | [16](https://github.com/mavalroot/artchive/issues/16) |
-| (**R17**) Jquery | Mínimo | Técnico | Fácil | v2 | [17](https://github.com/mavalroot/artchive/issues/17) |
-| (**R18**) Plugins | Mínimo | Técnico | Fácil | v2 | [18](https://github.com/mavalroot/artchive/issues/18) |
-| (**R19**) Uso de AJAX | Mínimo | Técnico | Media | v2 | [19](https://github.com/mavalroot/artchive/issues/19) |
-| (**R20**) PHP 7.1 | Mínimo | Técnico | Fácil | v1 | [20](https://github.com/mavalroot/artchive/issues/20) |
-| (**R21**) Yii2 Framework | Mínimo | Técnico | Fácil | v1 | [21](https://github.com/mavalroot/artchive/issues/21) |
-| (**R22**) PostgreSQL | Mínimo | Técnico | Fácil | v1 | [22](https://github.com/mavalroot/artchive/issues/22) |
-| (**R23**) Uso de Heroku | Mínimo | Técnico | Media | v3 | [23](https://github.com/mavalroot/artchive/issues/23) |
-| (**R24**) Uso de Codeception | Mínimo | Técnico | Media | v1 | [24](https://github.com/mavalroot/artchive/issues/24) |
-| (**R25**) Uso de Code Climate | Mínimo | Técnico | Media | v1 | [25](https://github.com/mavalroot/artchive/issues/25) |
-| (**R26**) Escalabilidad de la aplicación | Mínimo | Técnico | Media | v3 | [26](https://github.com/mavalroot/artchive/issues/26) |
-| (**R27**) Estructura en HTML5 | Mínimo | Técnico | Fácil | v2 | [27](https://github.com/mavalroot/artchive/issues/27) |
-| (**R28**) Presentación con CSS3 | Mínimo | Técnico | Fácil | v3 | [28](https://github.com/mavalroot/artchive/issues/28) |
-| (**R29**) Diseño flexible | Mínimo | Técnico | Media | v3 | [29](https://github.com/mavalroot/artchive/issues/29) |
-| (**R30**) Incluir Animaciones | Mínimo | Técnico | Media | v3 | [30](https://github.com/mavalroot/artchive/issues/30) |
-| (**R31**) Incluir Microdatos | Mínimo | Técnico | Difícil | v3 | [31](https://github.com/mavalroot/artchive/issues/31) |
-| (**R32**) Superar pruebas de HTML5 y CSS3 | Mínimo | Técnico | Media | v3 | [32](https://github.com/mavalroot/artchive/issues/32) |
-| (**R33**) Diseño apto para diferentes resoluciones | Mínimo | Técnico | Difícil | v3 | [33](https://github.com/mavalroot/artchive/issues/33) |
-| (**R34**) Diseño apto para diferentes navegadores | Mínimo | Técnico | Difícil | v3 | [34](https://github.com/mavalroot/artchive/issues/34) |
-| (**R35**) Despliegue en Host | Mínimo | Técnico | Difícil | v3 | [35](https://github.com/mavalroot/artchive/issues/35) |
-| (**R36**) Despliegue en local | Mínimo | Técnico | Difícil | v3 | [36](https://github.com/mavalroot/artchive/issues/36) |
-| (**R37**) Registro de usuario | Mínimo | Funcional | Fácil | v1 | [37](https://github.com/mavalroot/artchive/issues/37) |
-| (**R38**) Correo de confirmación | Importante | Funcional | Media | v1 | [38](https://github.com/mavalroot/artchive/issues/38) |
-| (**R39**) Moderar usuarios | Importante | Funcional | Media | v3 | [39](https://github.com/mavalroot/artchive/issues/39) |
-| (**R40**) Baja de usuario | Mínimo | Funcional | Media | v1 | [40](https://github.com/mavalroot/artchive/issues/40) |
-| (**R41**) Modificar el perfil | Mínimo | Funcional | Fácil | v1 | [41](https://github.com/mavalroot/artchive/issues/41) |
-| (**R42**) Subir avatar | Opcional | Funcional | Media | v1 | [42](https://github.com/mavalroot/artchive/issues/42) |
-| (**R43**) Ver usuarios | Mínimo | Funcional | Fácil | v1 | [43](https://github.com/mavalroot/artchive/issues/43) |
-| (**R44**) Ver perfil de usuario | Mínimo | Funcional | Fácil | v1 | [44](https://github.com/mavalroot/artchive/issues/44) |
-| (**R45**) Vincular creaciones a un usuario | Mínimo | Funcional | Fácil | v1 | [45](https://github.com/mavalroot/artchive/issues/45) |
-| (**R46**) Recuperar contraseña | Importante | Funcional | Media | v1 | [46](https://github.com/mavalroot/artchive/issues/46) |
-| (**R47**) Iniciar sesión | Mínimo | Funcional | Fácil | v1 | [47](https://github.com/mavalroot/artchive/issues/47) |
-| (**R48**) Cerrar sesión | Mínimo | Funcional | Fácil | v1 | [48](https://github.com/mavalroot/artchive/issues/48) |
-| (**R49**) Moderación | Importante | Funcional | Media | v1 | [49](https://github.com/mavalroot/artchive/issues/49) |
-| (**R50**) Conceder permisos | Importante | Funcional | Media | v1 | [50](https://github.com/mavalroot/artchive/issues/50) |
-| (**R51**) Quitar permisos | Importante | Funcional | Media | v1 | [51](https://github.com/mavalroot/artchive/issues/51) |
-| (**R52**) Seguir a un usuario | Importante | Funcional | Media | v2 | [52](https://github.com/mavalroot/artchive/issues/52) |
-| (**R53**) Dejar de seguir a un usuario | Importante | Funcional | Media | v2 | [53](https://github.com/mavalroot/artchive/issues/53) |
-| (**R54**) Ver a quién sigues | Importante | Funcional | Fácil | v1 | [54](https://github.com/mavalroot/artchive/issues/54) |
-| (**R55**) Ver seguidores | Importante | Funcional | Fácil | v1 | [55](https://github.com/mavalroot/artchive/issues/55) |
-| (**R56**) Ver bandeja de entrada | Importante | Funcional | Media | v1 | [56](https://github.com/mavalroot/artchive/issues/56) |
-| (**R57**) Enviar mensaje privado | Importante | Funcional | Media | v1 | [57](https://github.com/mavalroot/artchive/issues/57) |
-| (**R58**) Recibir mensaje privado | Importante | Funcional | Media | v1 | [58](https://github.com/mavalroot/artchive/issues/58) |
-| (**R59**) Eliminar mensaje privado | Importante | Funcional | Media | v1 | [59](https://github.com/mavalroot/artchive/issues/59) |
-| (**R60**) Bloquear un usuario | Importante | Funcional | Media | v1 | [60](https://github.com/mavalroot/artchive/issues/60) |
-| (**R61**) Ver notificaciones | Importante | Funcional | Difícil | v1 | [61](https://github.com/mavalroot/artchive/issues/61) |
-| (**R62**) Recibir notificación por nuevo seguidor | Importante | Funcional | Difícil | v2 | [62](https://github.com/mavalroot/artchive/issues/62) |
-| (**R63**) Recibir notificación por mensaje privado | Importante | Funcional | Difícil | v2 | [63](https://github.com/mavalroot/artchive/issues/63) |
-| (**R64**) Crear personaje | Mínimo | Funcional | Fácil | v1 | [64](https://github.com/mavalroot/artchive/issues/64) |
-| (**R65**) Modificar personaje | Mínimo | Funcional | Fácil | v1 | [65](https://github.com/mavalroot/artchive/issues/65) |
-| (**R66**) Eliminar personaje | Mínimo | Funcional | Fácil | v1 | [66](https://github.com/mavalroot/artchive/issues/66) |
-| (**R67**) Ver personajes | Mínimo | Funcional | Fácil | v1 | [67](https://github.com/mavalroot/artchive/issues/67) |
-| (**R68**) Buscar un usuario | Mínimo | Funcional | Media | v1 | [68](https://github.com/mavalroot/artchive/issues/68) |
-| (**R69**) Buscar un personaje | Mínimo | Funcional | Media | v1 | [69](https://github.com/mavalroot/artchive/issues/69) |
-| (**R70**) Publicar un comentario | Importante | Funcional | Media | v2 | [70](https://github.com/mavalroot/artchive/issues/70) |
-| (**R71**) Editar comentario | Importante | Funcional | Media | v2 | [71](https://github.com/mavalroot/artchive/issues/71) |
-| (**R72**) Borrar comentario | Importante | Funcional | Difícil | v2 | [72](https://github.com/mavalroot/artchive/issues/72) |
-| (**R73**) Crear publicaciones | Importante | Funcional | Media | v2 | [73](https://github.com/mavalroot/artchive/issues/73) |
-| (**R74**) Editar publicaciones | Importante | Funcional | Media | v2 | [74](https://github.com/mavalroot/artchive/issues/74) |
-| (**R75**) Borrar publicaciones | Importante | Funcional | Media | v2 | [75](https://github.com/mavalroot/artchive/issues/75) |
-| (**R76**) Ver publicaciones | Importante | Funcional | Media | v2 | [76](https://github.com/mavalroot/artchive/issues/76) |
-| (**R77**) Crear un árbol genealógico | Importante | Funcional | Difícil | v3 | [77](https://github.com/mavalroot/artchive/issues/77) |
-| (**R78**) Editar un árbol genealógico | Importante | Funcional | Difícil | v3 | [78](https://github.com/mavalroot/artchive/issues/78) |
-| (**R79**) Solicitar adhesión a un árbol genealógico | Importante | Funcional | Difícil | v3 | [79](https://github.com/mavalroot/artchive/issues/79) |
-| (**R80**) Notificación de solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [80](https://github.com/mavalroot/artchive/issues/80) |
-| (**R81**) Aceptar solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [81](https://github.com/mavalroot/artchive/issues/81) |
-| (**R82**) Rechazar solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [82](https://github.com/mavalroot/artchive/issues/82) |
-| (**R83**) Eliminar un árbol genealógico | Importante | Funcional | Media | v3 | [83](https://github.com/mavalroot/artchive/issues/83) |
-| (**R84**) Vincular árbol genealógico y personajes | Importante | Funcional | Media | v3 | [84](https://github.com/mavalroot/artchive/issues/84) |
-| (**R85**) Generar árbol genealógico visual | Opcional | Funcional | Difícil | v3 | [85](https://github.com/mavalroot/artchive/issues/85) |
-| (**R86**) Generar personaje aleatorio | Opcional | Funcional | Difícil | v3 | [86](https://github.com/mavalroot/artchive/issues/86) |
-| (**R87**) Elegir idioma | Mínimo | Funcional | Difícil | v3 | [87](https://github.com/mavalroot/artchive/issues/87) |
-| (**R88**) Sugerir traducción | Mínimo | Funcional | Fácil | v3 | [88](https://github.com/mavalroot/artchive/issues/88) |
-| (**R89**) Uso de Amazon S3 | Importante | Funcional | Media | v2 | [89](https://github.com/mavalroot/artchive/issues/89) |
-| (**R90**) Info. Registro de Usuario | Importante | Información | Fácil | v1 | [90](https://github.com/mavalroot/artchive/issues/90) |
-| (**R91**) Info. Datos de Usuario | Importante | Información | Fácil | v1 | [91](https://github.com/mavalroot/artchive/issues/91) |
-| (**R92**) Info. Mensajes Privados | Importante | Información | Fácil | v1 | [92](https://github.com/mavalroot/artchive/issues/92) |
-| (**R93**) Info. Personajes | Importante | Información | Fácil | v1 | [93](https://github.com/mavalroot/artchive/issues/93) |
-| (**R94**) Info. Comentarios | Importante | Información | Fácil | v2 | [94](https://github.com/mavalroot/artchive/issues/94) |
-| (**R95**) Info. Publicaciones | Importante | Información | Fácil | v2 | [95](https://github.com/mavalroot/artchive/issues/95) |
-| (**R96**) Info. Árbol genealógico | Importante | Información | Fácil | v3 | [96](https://github.com/mavalroot/artchive/issues/96) |
-| (**R97**) Info. Sugerencias de traducción | Importante | Información | Fácil | v3 | [97](https://github.com/mavalroot/artchive/issues/97) |
+| (**R01**) Incidencias en Github | Mínimo | Técnico | Fácil | v1 | [1](https://github.com/mavalroot/the-artchive/issues/1) |
+| (**R02**) Código fuente en Github | Mínimo | Técnico | Fácil | v1 | [2](https://github.com/mavalroot/the-artchive/issues/2) |
+| (**R03**) Estilo del código según Yii | Mínimo | Técnico | Fácil | v1 | [3](https://github.com/mavalroot/the-artchive/issues/3) |
+| (**R04**) Tres lanzamientos | Mínimo | Técnico | Fácil | v1 | [4](https://github.com/mavalroot/the-artchive/issues/4) |
+| (**R05**) README en el directorio raíz | Mínimo | Técnico | Fácil | v1 | [5](https://github.com/mavalroot/the-artchive/issues/5) |
+| (**R06**) Documentación en Github Pages | Mínimo | Técnico | Media | v1 | [6](https://github.com/mavalroot/the-artchive/issues/6) |
+| (**R07**) Solucionar todas las incidencias | Mínimo | Técnico | Difícil | v3 | [7](https://github.com/mavalroot/the-artchive/issues/7) |
+| (**R08**) Usar etiquetas e hitos | Mínimo | Técnico | Fácil | v1 | [8](https://github.com/mavalroot/the-artchive/issues/8) |
+| (**R09**) Versión más estable en la rama master | Mínimo | Técnico | Media | v3 | [9](https://github.com/mavalroot/the-artchive/issues/9) |
+| (**R10**) Usar Waffle | Mínimo | Técnico | Fácil | v1 | [10](https://github.com/mavalroot/the-artchive/issues/10) |
+| (**R11**) Iteraciones | Mínimo | Técnico | Difícil | v3 | [11](https://github.com/mavalroot/the-artchive/issues/11) |
+| (**R12**) Validación de formularios | Mínimo | Técnico | Fácil | v2 | [12](https://github.com/mavalroot/the-artchive/issues/12) |
+| (**R13**) Gestión de ventanas | Mínimo | Técnico | Media | v2 | [13](https://github.com/mavalroot/the-artchive/issues/13) |
+| (**R14**) Manejo de eventos | Mínimo | Técnico | Fácil | v3 | [14](https://github.com/mavalroot/the-artchive/issues/14) |
+| (**R15**) Uso del DOM | Mínimo | Técnico | Fácil | v3 | [15](https://github.com/mavalroot/the-artchive/issues/15) |
+| (**R16**) Uso de mecanismos de almacenamiento | Mínimo | Técnico | Fácil | v2 | [16](https://github.com/mavalroot/the-artchive/issues/16) |
+| (**R17**) Jquery | Mínimo | Técnico | Fácil | v2 | [17](https://github.com/mavalroot/the-artchive/issues/17) |
+| (**R18**) Plugins | Mínimo | Técnico | Fácil | v2 | [18](https://github.com/mavalroot/the-artchive/issues/18) |
+| (**R19**) Uso de AJAX | Mínimo | Técnico | Media | v2 | [19](https://github.com/mavalroot/the-artchive/issues/19) |
+| (**R20**) PHP 7.1 | Mínimo | Técnico | Fácil | v1 | [20](https://github.com/mavalroot/the-artchive/issues/20) |
+| (**R21**) Yii2 Framework | Mínimo | Técnico | Fácil | v1 | [21](https://github.com/mavalroot/the-artchive/issues/21) |
+| (**R22**) PostgreSQL | Mínimo | Técnico | Fácil | v1 | [22](https://github.com/mavalroot/the-artchive/issues/22) |
+| (**R23**) Uso de Heroku | Mínimo | Técnico | Media | v3 | [23](https://github.com/mavalroot/the-artchive/issues/23) |
+| (**R24**) Uso de Codeception | Mínimo | Técnico | Media | v1 | [24](https://github.com/mavalroot/the-artchive/issues/24) |
+| (**R25**) Uso de Code Climate | Mínimo | Técnico | Media | v1 | [25](https://github.com/mavalroot/the-artchive/issues/25) |
+| (**R26**) Escalabilidad de la aplicación | Mínimo | Técnico | Media | v3 | [26](https://github.com/mavalroot/the-artchive/issues/26) |
+| (**R27**) Estructura en HTML5 | Mínimo | Técnico | Fácil | v2 | [27](https://github.com/mavalroot/the-artchive/issues/27) |
+| (**R28**) Presentación con CSS3 | Mínimo | Técnico | Fácil | v3 | [28](https://github.com/mavalroot/the-artchive/issues/28) |
+| (**R29**) Diseño flexible | Mínimo | Técnico | Media | v3 | [29](https://github.com/mavalroot/the-artchive/issues/29) |
+| (**R30**) Incluir Animaciones | Mínimo | Técnico | Media | v3 | [30](https://github.com/mavalroot/the-artchive/issues/30) |
+| (**R31**) Incluir Microdatos | Mínimo | Técnico | Difícil | v3 | [31](https://github.com/mavalroot/the-artchive/issues/31) |
+| (**R32**) Superar pruebas de HTML5 y CSS3 | Mínimo | Técnico | Media | v3 | [32](https://github.com/mavalroot/the-artchive/issues/32) |
+| (**R33**) Diseño apto para diferentes resoluciones | Mínimo | Técnico | Difícil | v3 | [33](https://github.com/mavalroot/the-artchive/issues/33) |
+| (**R34**) Diseño apto para diferentes navegadores | Mínimo | Técnico | Difícil | v3 | [34](https://github.com/mavalroot/the-artchive/issues/34) |
+| (**R35**) Despliegue en Host | Mínimo | Técnico | Difícil | v3 | [35](https://github.com/mavalroot/the-artchive/issues/35) |
+| (**R36**) Despliegue en local | Mínimo | Técnico | Difícil | v3 | [36](https://github.com/mavalroot/the-artchive/issues/36) |
+| (**R37**) Registro de usuario | Mínimo | Funcional | Fácil | v1 | [37](https://github.com/mavalroot/the-artchive/issues/37) |
+| (**R38**) Correo de confirmación | Importante | Funcional | Media | v1 | [38](https://github.com/mavalroot/the-artchive/issues/38) |
+| (**R39**) Moderar usuarios | Importante | Funcional | Media | v3 | [39](https://github.com/mavalroot/the-artchive/issues/39) |
+| (**R40**) Baja de usuario | Mínimo | Funcional | Media | v1 | [40](https://github.com/mavalroot/the-artchive/issues/40) |
+| (**R41**) Modificar el perfil | Mínimo | Funcional | Fácil | v1 | [41](https://github.com/mavalroot/the-artchive/issues/41) |
+| (**R42**) Subir avatar | Opcional | Funcional | Media | v1 | [42](https://github.com/mavalroot/the-artchive/issues/42) |
+| (**R43**) Ver usuarios | Mínimo | Funcional | Fácil | v1 | [43](https://github.com/mavalroot/the-artchive/issues/43) |
+| (**R44**) Ver perfil de usuario | Mínimo | Funcional | Fácil | v1 | [44](https://github.com/mavalroot/the-artchive/issues/44) |
+| (**R45**) Vincular creaciones a un usuario | Mínimo | Funcional | Fácil | v1 | [45](https://github.com/mavalroot/the-artchive/issues/45) |
+| (**R46**) Recuperar contraseña | Importante | Funcional | Media | v1 | [46](https://github.com/mavalroot/the-artchive/issues/46) |
+| (**R47**) Iniciar sesión | Mínimo | Funcional | Fácil | v1 | [47](https://github.com/mavalroot/the-artchive/issues/47) |
+| (**R48**) Cerrar sesión | Mínimo | Funcional | Fácil | v1 | [48](https://github.com/mavalroot/the-artchive/issues/48) |
+| (**R49**) Moderación | Importante | Funcional | Media | v1 | [49](https://github.com/mavalroot/the-artchive/issues/49) |
+| (**R50**) Conceder permisos | Importante | Funcional | Media | v1 | [50](https://github.com/mavalroot/the-artchive/issues/50) |
+| (**R51**) Quitar permisos | Importante | Funcional | Media | v1 | [51](https://github.com/mavalroot/the-artchive/issues/51) |
+| (**R52**) Seguir a un usuario | Importante | Funcional | Media | v2 | [52](https://github.com/mavalroot/the-artchive/issues/52) |
+| (**R53**) Dejar de seguir a un usuario | Importante | Funcional | Media | v2 | [53](https://github.com/mavalroot/the-artchive/issues/53) |
+| (**R54**) Ver a quién sigues | Importante | Funcional | Fácil | v1 | [54](https://github.com/mavalroot/the-artchive/issues/54) |
+| (**R55**) Ver seguidores | Importante | Funcional | Fácil | v1 | [55](https://github.com/mavalroot/the-artchive/issues/55) |
+| (**R56**) Ver bandeja de entrada | Importante | Funcional | Media | v1 | [56](https://github.com/mavalroot/the-artchive/issues/56) |
+| (**R57**) Enviar mensaje privado | Importante | Funcional | Media | v1 | [57](https://github.com/mavalroot/the-artchive/issues/57) |
+| (**R58**) Recibir mensaje privado | Importante | Funcional | Media | v1 | [58](https://github.com/mavalroot/the-artchive/issues/58) |
+| (**R59**) Eliminar mensaje privado | Importante | Funcional | Media | v1 | [59](https://github.com/mavalroot/the-artchive/issues/59) |
+| (**R60**) Bloquear un usuario | Importante | Funcional | Media | v1 | [60](https://github.com/mavalroot/the-artchive/issues/60) |
+| (**R61**) Ver notificaciones | Importante | Funcional | Difícil | v1 | [61](https://github.com/mavalroot/the-artchive/issues/61) |
+| (**R62**) Recibir notificación por nuevo seguidor | Importante | Funcional | Difícil | v2 | [62](https://github.com/mavalroot/the-artchive/issues/62) |
+| (**R63**) Recibir notificación por mensaje privado | Importante | Funcional | Difícil | v2 | [63](https://github.com/mavalroot/the-artchive/issues/63) |
+| (**R64**) Crear personaje | Mínimo | Funcional | Fácil | v1 | [64](https://github.com/mavalroot/the-artchive/issues/64) |
+| (**R65**) Modificar personaje | Mínimo | Funcional | Fácil | v1 | [65](https://github.com/mavalroot/the-artchive/issues/65) |
+| (**R66**) Eliminar personaje | Mínimo | Funcional | Fácil | v1 | [66](https://github.com/mavalroot/the-artchive/issues/66) |
+| (**R67**) Ver personajes | Mínimo | Funcional | Fácil | v1 | [67](https://github.com/mavalroot/the-artchive/issues/67) |
+| (**R68**) Buscar un usuario | Mínimo | Funcional | Media | v1 | [68](https://github.com/mavalroot/the-artchive/issues/68) |
+| (**R69**) Buscar un personaje | Mínimo | Funcional | Media | v1 | [69](https://github.com/mavalroot/the-artchive/issues/69) |
+| (**R70**) Publicar un comentario | Importante | Funcional | Media | v2 | [70](https://github.com/mavalroot/the-artchive/issues/70) |
+| (**R71**) Editar comentario | Importante | Funcional | Media | v2 | [71](https://github.com/mavalroot/the-artchive/issues/71) |
+| (**R72**) Borrar comentario | Importante | Funcional | Difícil | v2 | [72](https://github.com/mavalroot/the-artchive/issues/72) |
+| (**R73**) Crear publicaciones | Importante | Funcional | Media | v2 | [73](https://github.com/mavalroot/the-artchive/issues/73) |
+| (**R74**) Editar publicaciones | Importante | Funcional | Media | v2 | [74](https://github.com/mavalroot/the-artchive/issues/74) |
+| (**R75**) Borrar publicaciones | Importante | Funcional | Media | v2 | [75](https://github.com/mavalroot/the-artchive/issues/75) |
+| (**R76**) Ver publicaciones | Importante | Funcional | Media | v2 | [76](https://github.com/mavalroot/the-artchive/issues/76) |
+| (**R77**) Crear un árbol genealógico | Importante | Funcional | Difícil | v3 | [77](https://github.com/mavalroot/the-artchive/issues/77) |
+| (**R78**) Editar un árbol genealógico | Importante | Funcional | Difícil | v3 | [78](https://github.com/mavalroot/the-artchive/issues/78) |
+| (**R79**) Solicitar adhesión a un árbol genealógico | Importante | Funcional | Difícil | v3 | [79](https://github.com/mavalroot/the-artchive/issues/79) |
+| (**R80**) Notificación de solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [80](https://github.com/mavalroot/the-artchive/issues/80) |
+| (**R81**) Aceptar solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [81](https://github.com/mavalroot/the-artchive/issues/81) |
+| (**R82**) Rechazar solicitud de árbol genealógico | Importante | Funcional | Difícil | v3 | [82](https://github.com/mavalroot/the-artchive/issues/82) |
+| (**R83**) Eliminar un árbol genealógico | Importante | Funcional | Media | v3 | [83](https://github.com/mavalroot/the-artchive/issues/83) |
+| (**R84**) Vincular árbol genealógico y personajes | Importante | Funcional | Media | v3 | [84](https://github.com/mavalroot/the-artchive/issues/84) |
+| (**R85**) Generar árbol genealógico visual | Opcional | Funcional | Difícil | v3 | [85](https://github.com/mavalroot/the-artchive/issues/85) |
+| (**R86**) Generar personaje aleatorio | Opcional | Funcional | Difícil | v3 | [86](https://github.com/mavalroot/the-artchive/issues/86) |
+| (**R87**) Elegir idioma | Mínimo | Funcional | Difícil | v3 | [87](https://github.com/mavalroot/the-artchive/issues/87) |
+| (**R88**) Sugerir traducción | Mínimo | Funcional | Fácil | v3 | [88](https://github.com/mavalroot/the-artchive/issues/88) |
+| (**R89**) Uso de Amazon S3 | Importante | Funcional | Media | v2 | [89](https://github.com/mavalroot/the-artchive/issues/89) |
+| (**R90**) Info. Registro de Usuario | Importante | Información | Fácil | v1 | [90](https://github.com/mavalroot/the-artchive/issues/90) |
+| (**R91**) Info. Datos de Usuario | Importante | Información | Fácil | v1 | [91](https://github.com/mavalroot/the-artchive/issues/91) |
+| (**R92**) Info. Mensajes Privados | Importante | Información | Fácil | v1 | [92](https://github.com/mavalroot/the-artchive/issues/92) |
+| (**R93**) Info. Personajes | Importante | Información | Fácil | v1 | [93](https://github.com/mavalroot/the-artchive/issues/93) |
+| (**R94**) Info. Comentarios | Importante | Información | Fácil | v2 | [94](https://github.com/mavalroot/the-artchive/issues/94) |
+| (**R95**) Info. Publicaciones | Importante | Información | Fácil | v2 | [95](https://github.com/mavalroot/the-artchive/issues/95) |
+| (**R96**) Info. Árbol genealógico | Importante | Información | Fácil | v3 | [96](https://github.com/mavalroot/the-artchive/issues/96) |
+| (**R97**) Info. Sugerencias de traducción | Importante | Información | Fácil | v3 | [97](https://github.com/mavalroot/the-artchive/issues/97) |
