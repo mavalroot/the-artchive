@@ -63,4 +63,24 @@ CREATE TABLE publicaciones (
     , updated_at    timestamp(0)
 );
 
-CREATE INDEX idx_publicaciones_usuario_id ON publicaciones (usuario_id)
+CREATE INDEX idx_publicaciones_usuario_id ON publicaciones (usuario_id);
+
+DROP TABLE IF EXISTS comentarios CASCADE;
+
+CREATE TABLE comentarios (
+      id                bigserial       PRIMARY KEY
+    , usuario_id        bigint          NOT NULL REFERENCES usuarios (id)
+                                        ON DELETE NO ACTION ON UPDATE CASCADE
+    , publicacion_id    bigint          NOT NULL REFERENCES publicaciones (id)
+    , contenido         text            NOT NULL
+    , comentario_id     bigint          REFERENCES comentarios (id)
+                                        ON DELETE NO ACTION ON UPDATE CASCADE
+    , created_at        timestamp(0)    NOT NULL DEFAULT localtimestamp
+    , updated_at        timestamp(0)
+);
+
+CREATE INDEX idx_comentarios_usuario_id ON comentarios (usuario_id);
+
+CREATE INDEX idx_comentarios_publicacion_id ON comentarios (publicacion_id);
+
+CREATE INDEX idx_comentarios_comentario_id ON comentarios (comentario_id);
