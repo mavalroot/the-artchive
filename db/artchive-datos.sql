@@ -243,3 +243,47 @@ INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES
       , 'Contenido'
     )
 ;
+
+INSERT INTO parentezcos (propietario_id, nombre, tipo_parentezco_id) VALUES
+      (
+        1
+      , 'Padre'
+      , 1
+    )
+    , (
+        1
+      , 'Madre'
+      , 2
+    )
+    , (
+        2
+      , 'Padre'
+      , 1
+    )
+    , (
+        2
+      , 'Madre'
+      , 1
+    )
+;
+
+INSERT INTO parentezcos (propietario_id, nombre, tipo_parentezco_id, familiar_id) VALUES
+      (
+        1
+      , 'Hermano'
+      , 3
+      , 3
+    )
+    , (
+        1
+      , 'Hermana'
+      , 3
+      , 4
+    )
+    , (
+        2
+      , 'Hermano'
+      , 3
+      , 5
+    )
+;
