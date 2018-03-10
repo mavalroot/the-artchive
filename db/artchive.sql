@@ -101,24 +101,24 @@ CREATE INDEX idx_mensajes_privados_receptor_id ON mensajes_privados (receptor_id
 -- ÁRBOLES GENEALÓGICOS --
 --------------------------
 
-DROP TABLE IF EXISTS tipos_parentezco CASCADE;
+DROP TABLE IF EXISTS tipos_parentesco CASCADE;
 
-CREATE TABLE tipos_parentezco (
+CREATE TABLE tipos_parentesco (
       id    bigserial       PRIMARY KEY
     , tipo  varchar(255)    UNIQUE NOT NULL
 );
 
-DROP TABLE IF EXISTS parentezcos CASCADE;
+DROP TABLE IF EXISTS parentescos CASCADE;
 
-CREATE TABLE parentezcos (
+CREATE TABLE parentescos (
       propietario_id        bigint          NOT NULL REFERENCES personajes (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
     , familiar_id           bigint          REFERENCES personajes (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
-    , tipo_parentezco_id    bigint          REFERENCES tipos_parentezco (id)
+    , tipo_parentesco_id    bigint          REFERENCES tipos_parentesco (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
-    , CONSTRAINT pk_parentezcos PRIMARY KEY (propietario_id, nombre, tipo_parentezco_id)
+    , CONSTRAINT pk_parentescos PRIMARY KEY (propietario_id, nombre, tipo_parentesco_id)
 );
 
 -------------------------
