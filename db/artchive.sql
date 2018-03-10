@@ -9,15 +9,13 @@ CREATE TABLE tipos_usuario (
     , tipo  varchar(255)    UNIQUE NOT NULL
 );
 
-DROP TABLE IF EXISTS usuarios CASCADE;
-
 CREATE INDEX idx_tipos_usuario_tipo ON tipos_usuario (tipo);
 
-CREATE TABLE usuarios (
-      id                bigserial       PRIMARY KEY
-    , nickname          varchar(25)     UNIQUE NOT NULL
-    , email             varchar(255)    UNIQUE NOT NULL
-    , password          varchar(255)    NOT NULL
+DROP TABLE IF EXISTS usuarios_datos CASCADE;
+
+CREATE TABLE usuarios_datos (
+      user_id           bigint          PRIMARY KEY REFERENCES "user" (id)
+                                        ON DELETE NO ACTION ON UPDATE CASCADE
     , aficiones         varchar(255)
     , tematica_favorita varchar(255)
     , plataforma        varchar(255)
@@ -25,20 +23,17 @@ CREATE TABLE usuarios (
     , avatar            varchar(255)
     , tipo_usuario      bigint          NOT NULL REFERENCES tipos_usuario (id)
                                         ON DELETE NO ACTION ON UPDATE CASCADE
-    , auth_key          varchar(255)
-    , token_val         varchar(255)    UNIQUE
-    , created_at        timestamp(0)    NOT NULL DEFAULT localtimestamp
-    , updated_at        timestamp(0)
 );
 
-CREATE INDEX idx_usuarios_nickname ON usuarios (nickname);
-CREATE INDEX idx_usuarios_email ON usuarios (email);
+CREATE OR REPLACE VIEW usuarios_completo AS
+SELECT u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, ud.tipo_usuario, u.created_at, u.updated_at
+FROM "user" u LEFT JOIN usuarios_datos ud ON u.id = ud.user_id;
 
 DROP TABLE IF EXISTS personajes CASCADE;
 
 CREATE TABLE personajes (
       id                    bigserial       PRIMARY KEY
-    , usuario_id            bigint          NOT NULL REFERENCES usuarios (id)
+    , usuario_id            bigint          NOT NULL REFERENCES "user" (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
     , fecha_nac             timestamp(0)
@@ -56,7 +51,7 @@ DROP TABLE IF EXISTS publicaciones CASCADE;
 
 CREATE TABLE publicaciones (
       id            bigserial       PRIMARY KEY
-    , usuario_id    bigint          NOT NULL REFERENCES usuarios (id)
+    , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , contenido     text
     , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
@@ -69,7 +64,7 @@ DROP TABLE IF EXISTS comentarios CASCADE;
 
 CREATE TABLE comentarios (
       id                bigserial       PRIMARY KEY
-    , usuario_id        bigint          NOT NULL REFERENCES usuarios (id)
+    , usuario_id        bigint          NOT NULL REFERENCES "user" (id)
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , publicacion_id    bigint          NOT NULL REFERENCES publicaciones (id)
     , contenido         text            NOT NULL
@@ -89,9 +84,9 @@ DROP TABLE IF EXISTS mensajes_privados CASCADE;
 
 CREATE TABLE mensajes_privados (
       id            bigserial       PRIMARY KEY
-    , emisor_id     bigint          NOT NULL REFERENCES usuarios (id)
+    , emisor_id     bigint          NOT NULL REFERENCES "user" (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
-    , receptor_id   bigint          NOT NULL REFERENCES usuarios (id)
+    , receptor_id   bigint          NOT NULL REFERENCES "user" (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , asunto        varchar(255)    NOT NULL
     , contenido     text            NOT NULL

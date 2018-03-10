@@ -66,7 +66,7 @@ INSERT INTO apellidos_aleatorios (apellido) VALUES
     , ('Smith')
     , ('Rajoy')
 ;
-
+/*
 ---------------------
 -- DATOS DE PRUEBA --
 ---------------------
@@ -286,4 +286,4 @@ INSERT INTO parentezcos (propietario_id, nombre, tipo_parentezco_id, familiar_id
       , 3
       , 5
     )
-;
+; */
