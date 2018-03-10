@@ -2,6 +2,20 @@
 -- DATOS GENERALES --
 ---------------------
 
+DROP TABLE IF EXISTS "user" CASCADE;
+
+CREATE TABLE "user" (
+      id                    bigserial       PRIMARY KEY
+    , username              varchar(255)    NOT NULL UNIQUE
+    , auth_key              varchar(32)     NOT NULL
+    , password_hash         varchar(255)    NOT NULL
+    , password_reset_token  varchar(255)    UNIQUE
+    , email                 varchar(255)    NOT NULL UNIQUE
+    , status                smallint        DEFAULT 10 NOT NULL
+    , created_at            integer         NOT NULL
+    , updated_at            integer         NOT NULL
+);
+
 DROP TABLE IF EXISTS tipos_usuario CASCADE;
 
 CREATE TABLE tipos_usuario (
