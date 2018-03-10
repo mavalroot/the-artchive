@@ -84,3 +84,20 @@ CREATE INDEX idx_comentarios_usuario_id ON comentarios (usuario_id);
 CREATE INDEX idx_comentarios_publicacion_id ON comentarios (publicacion_id);
 
 CREATE INDEX idx_comentarios_comentario_id ON comentarios (comentario_id);
+
+DROP TABLE IF EXISTS mensajes_privados CASCADE;
+
+CREATE TABLE mensajes_privados (
+      id            bigserial       PRIMARY KEY
+    , emisor_id     bigint          NOT NULL REFERENCES usuarios (id)
+                                    ON DELETE NO ACTION ON UPDATE CASCADE
+    , receptor_id   bigint          NOT NULL REFERENCES usuarios (id)
+                                    ON DELETE NO ACTION ON UPDATE CASCADE
+    , asunto        varchar(255)    NOT NULL
+    , contenido     text            NOT NULL
+    , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
+);
+
+CREATE INDEX idx_mensajes_privados_emisor_id ON mensajes_privados (emisor_id);
+
+CREATE INDEX idx_mensajes_privados_receptor_id ON mensajes_privados (receptor_id);
