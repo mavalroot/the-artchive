@@ -1,6 +1,6 @@
-------------------------------
--- Archivo de base de datos --
-------------------------------
+---------------------
+-- DATOS GENERALES --
+---------------------
 
 DROP TABLE IF EXISTS tipos_usuario CASCADE;
 
@@ -42,7 +42,6 @@ CREATE TABLE personajes (
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
     , fecha_nac             timestamp(0)
-    , raza                  varchar(255)
     , historia              text
     , personalidad          text
     , apariencia            text
@@ -103,6 +102,10 @@ CREATE INDEX idx_mensajes_privados_emisor_id ON mensajes_privados (emisor_id);
 
 CREATE INDEX idx_mensajes_privados_receptor_id ON mensajes_privados (receptor_id);
 
+--------------------------
+-- ÁRBOLES GENEALÓGICOS --
+--------------------------
+
 DROP TABLE IF EXISTS arboles_genealogicos CASCADE;
 
 CREATE TABLE arboles_genealogicos (
@@ -129,4 +132,23 @@ CREATE TABLE parentezcos (
     , tipo_parentezco_id    bigint          REFERENCES tipos_parentezco (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , CONSTRAINT pk_parentezcos PRIMARY KEY (arbol_genealogico_id, nombre, personaje_id)
+);
+
+-------------------------
+-- GENERADOR ALEATORIO --
+-------------------------
+
+DROP TABLE IF EXISTS tipos_aleatorios CASCADE;
+
+CREATE TABLE tipos_aleatorios (
+      id    bigserial       PRIMARY KEY
+    , tipo  varchar(255)    UNIQUE NOT NULL
+);
+DROP TABLE IF EXISTS caracteristica_aleatoria CASCADE;
+
+CREATE TABLE caracteristica_aleatoria (
+      id                bigserial   PRIMARY KEY
+    , tipo_aleatorio_id bigint      NOT NULL REFERENCES tipos_aleatorios (id)
+                                    ON DELETE NO ACTION ON UPDATE CASCADE
+    , contenido         text        NOT NULL
 );
