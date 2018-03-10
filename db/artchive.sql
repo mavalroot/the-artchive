@@ -42,6 +42,7 @@ CREATE TABLE personajes (
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
     , fecha_nac             timestamp(0)
+    , raza                  varchar(255)
     , historia              text
     , personalidad          text
     , apariencia            text
@@ -101,3 +102,31 @@ CREATE TABLE mensajes_privados (
 CREATE INDEX idx_mensajes_privados_emisor_id ON mensajes_privados (emisor_id);
 
 CREATE INDEX idx_mensajes_privados_receptor_id ON mensajes_privados (receptor_id);
+
+DROP TABLE IF EXISTS arboles_genealogicos CASCADE;
+
+CREATE TABLE arboles_genealogicos (
+      id            bigserial   PRIMARY KEY
+    , personaje_id  bigint      NOT NULL REFERENCES usuarios (id)
+                                ON DELETE NO ACTION ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS tipos_parentezco CASCADE;
+
+CREATE TABLE tipos_parentezco (
+    id bigserial PRIMARY KEY
+    , tipo varchar(255) UNIQUE NOT NULL
+);
+
+DROP TABLE IF EXISTS parentezcos CASCADE;
+
+CREATE TABLE parentezcos (
+      arbol_genealogico_id  bigint          NOT NULL REFERENCES arboles_genealogicos (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
+    , nombre                varchar(255)    NOT NULL
+    , personaje_id          bigint          REFERENCES personajes (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
+    , tipo_parentezco_id    bigint          REFERENCES tipos_parentezco (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
+    , CONSTRAINT pk_parentezcos PRIMARY KEY (arbol_genealogico_id, nombre, personaje_id)
+);
