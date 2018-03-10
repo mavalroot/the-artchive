@@ -117,8 +117,8 @@ CREATE TABLE arboles_genealogicos (
 DROP TABLE IF EXISTS tipos_parentezco CASCADE;
 
 CREATE TABLE tipos_parentezco (
-    id bigserial PRIMARY KEY
-    , tipo varchar(255) UNIQUE NOT NULL
+      id    bigserial       PRIMARY KEY
+    , tipo  varchar(255)    UNIQUE NOT NULL
 );
 
 DROP TABLE IF EXISTS parentezcos CASCADE;
@@ -151,4 +151,18 @@ CREATE TABLE caracteristica_aleatoria (
     , tipo_aleatorio_id bigint      NOT NULL REFERENCES tipos_aleatorios (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , contenido         text        NOT NULL
+);
+
+DROP TABLE IF EXISTS nombre_aleatorio CASCADE;
+
+CREATE TABLE nombre_aleatorio (
+      id bigserial PRIMARY KEY
+    , nombre varchar(255) NOT NULL UNIQUE
+);
+
+DROP TABLE IF EXISTS apellido_aleatorio CASCADE;
+
+CREATE TABLE apellido_aleatorio (
+      id bigserial PRIMARY KEY
+    , apellido varchar(255) NOT NULL UNIQUE
 );
