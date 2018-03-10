@@ -49,3 +49,18 @@ CREATE TABLE personajes (
     , created_at            timestamp(0)    NOT NULL DEFAULT localtimestamp
     , updated_at            timestamp(0)
 );
+
+CREATE INDEX idx_personajes_nombre ON personajes (nombre);
+
+DROP TABLE IF EXISTS publicaciones CASCADE;
+
+CREATE TABLE publicaciones (
+      id            bigserial       PRIMARY KEY
+    , usuario_id    bigint          NOT NULL REFERENCES usuarios (id)
+                                    ON DELETE NO ACTION ON UPDATE CASCADE
+    , contenido     text
+    , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
+    , updated_at    timestamp(0)
+);
+
+CREATE INDEX idx_publicaciones_usuario_id ON publicaciones (usuario_id)
