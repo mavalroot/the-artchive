@@ -11,6 +11,8 @@ CREATE TABLE tipos_usuario (
 
 DROP TABLE IF EXISTS usuarios CASCADE;
 
+CREATE INDEX idx_tipos_usuario_tipo ON tipos_usuario (tipo);
+
 CREATE TABLE usuarios (
       id                bigserial       PRIMARY KEY
     , nickname          varchar(25)     UNIQUE NOT NULL
@@ -31,3 +33,19 @@ CREATE TABLE usuarios (
 
 CREATE INDEX idx_usuarios_nickname ON usuarios (nickname);
 CREATE INDEX idx_usuarios_email ON usuarios (email);
+
+DROP TABLE IF EXISTS personajes CASCADE;
+
+CREATE TABLE personajes (
+      id                    bigserial       PRIMARY KEY
+    , usuario_id            bigint          NOT NULL REFERENCES usuarios (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
+    , nombre                varchar(255)    NOT NULL
+    , fecha_nac             timestamp(0)
+    , historia              text
+    , personalidad          text
+    , apariencia            text
+    , hechos_destacables    text
+    , created_at            timestamp(0)    NOT NULL DEFAULT localtimestamp
+    , updated_at            timestamp(0)
+);
