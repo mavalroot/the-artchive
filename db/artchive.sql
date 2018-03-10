@@ -144,25 +144,25 @@ CREATE TABLE tipos_aleatorios (
       id    bigserial       PRIMARY KEY
     , tipo  varchar(255)    UNIQUE NOT NULL
 );
-DROP TABLE IF EXISTS caracteristica_aleatoria CASCADE;
+DROP TABLE IF EXISTS caracteristicas_aleatorias CASCADE;
 
-CREATE TABLE caracteristica_aleatoria (
+CREATE TABLE caracteristicas_aleatorias (
       id                bigserial   PRIMARY KEY
     , tipo_aleatorio_id bigint      NOT NULL REFERENCES tipos_aleatorios (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , contenido         text        NOT NULL
 );
 
-DROP TABLE IF EXISTS nombre_aleatorio CASCADE;
+DROP TABLE IF EXISTS nombres_aleatorios CASCADE;
 
-CREATE TABLE nombre_aleatorio (
+CREATE TABLE nombres_aleatorios (
       id bigserial PRIMARY KEY
     , nombre varchar(255) NOT NULL UNIQUE
 );
 
-DROP TABLE IF EXISTS apellido_aleatorio CASCADE;
+DROP TABLE IF EXISTS apellidos_aleatorios CASCADE;
 
-CREATE TABLE apellido_aleatorio (
+CREATE TABLE apellidos_aleatorios (
       id bigserial PRIMARY KEY
     , apellido varchar(255) NOT NULL UNIQUE
 );
