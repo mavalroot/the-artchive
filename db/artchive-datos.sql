@@ -8,7 +8,7 @@ INSERT INTO tipos_usuario (tipo) VALUES
     , ('admin')
 ;
 
-INSERT INTO tipos_parentezco (tipo) VALUES
+INSERT INTO tipos_parentesco (tipo) VALUES
       ('Padre')
     , ('Madre')
     , ('Hijo/a')
@@ -66,44 +66,26 @@ INSERT INTO apellidos_aleatorios (apellido) VALUES
     , ('Smith')
     , ('Rajoy')
 ;
-/*
+
 ---------------------
 -- DATOS DE PRUEBA --
 ---------------------
 
-INSERT INTO usuarios (nickname, email, password, tipo_usuario) VALUES
+INSERT INTO "user" (username, auth_key, password_hash, email) VALUES
       (
-          'juanchulo'
-        , 'juan@juan.com'
-        , crypt('1234', gen_salt('bf', 13))
-        , 1
+          'Prueba'
+        , md5(random()::text)
+        , crypt('123456', gen_salt('bf', 13))
+        , 'prueba@prueba.com'
     )
-    , (
-          'pepeguay'
-        , 'pepe@pepe.com'
-        , crypt('1234', gen_salt('bf', 13))
-        , 1
-    )
-    , (
-          'manolobombo'
-        , 'manolo@manolo.com'
-        , crypt('1234', gen_salt('bf', 13))
-        , 1
-    )
-    , (
-          'Admin'
-        , 'admin@admin.com'
-        , crypt('1234', gen_salt('bf', 13))
-        , 3
-    )
-    , (
-          'Mod'
-        , 'mod@mod.com'
-        , crypt('1234', gen_salt('bf', 13))
-        , 2
+    ,  (
+          'Prueba2'
+        , md5(random()::text)
+        , crypt('123456', gen_salt('bf', 13))
+        , 'prueba2@prueba.com'
     )
 ;
-
+/*
 INSERT INTO personajes (usuario_id, nombre) VALUES
     (
         1

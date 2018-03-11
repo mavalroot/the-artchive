@@ -12,8 +12,8 @@ CREATE TABLE "user" (
     , password_reset_token  varchar(255)    UNIQUE
     , email                 varchar(255)    NOT NULL UNIQUE
     , status                smallint        DEFAULT 10 NOT NULL
-    , created_at            integer         NOT NULL
-    , updated_at            integer         NOT NULL
+    , created_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
+    , updated_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
 );
 
 DROP TABLE IF EXISTS tipos_usuario CASCADE;
