@@ -40,6 +40,7 @@ AppAsset::register($this);
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
         ['label' => 'Usuarios', 'url' => ['/usuarios-completo/index']],
+        ['label' => 'Personajes', 'url' => ['/personajes/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -61,6 +62,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>';
+        $menuItems[] = ['label' => 'Crear personaje', 'url' => ['/personajes/create']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
