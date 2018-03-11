@@ -9,5 +9,19 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            // Hide index.php
+            'showScriptName' => false,
+            // Use pretty URLs
+            'enablePrettyUrl' => true,
+            'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
+                'usuario/ver' => 'usuarios-completo/view',
+                'usuario/modificar' => 'usuarios-datos/update',
+                'usuarios/index' => 'usuarios-completo/index',
+            ],
+
+        ],
     ],
 ];

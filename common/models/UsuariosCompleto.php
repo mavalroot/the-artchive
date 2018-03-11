@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "usuarios_completo".
  *
@@ -47,21 +49,52 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'username' => 'Username',
-            'email' => 'Email',
+            'username' => 'Nombre de usuario',
+            'email' => 'E-mail',
             'aficiones' => 'Aficiones',
-            'tematica_favorita' => 'Tematica Favorita',
+            'tematica_favorita' => 'Temática favorita',
             'plataforma' => 'Plataforma',
-            'pagina_web' => 'Pagina Web',
+            'pagina_web' => 'Página web',
             'avatar' => 'Avatar',
-            'tipo_usuario' => 'Tipo Usuario',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'tipo_usuario' => 'Tipo de suario',
+            'created_at' => 'Fecha de registro',
+            'updated_at' => 'Última actualización',
         ];
     }
 
     public static function primaryKey()
     {
         return ['username'];
+    }
+
+    /**
+     * Indica si el usuario conectado coincide con el usuario que se muestra.
+     * @return bool Devuelve true si coincide y false si no coincide.
+     */
+    public function getSelf()
+    {
+        return $this->username == Yii::$app->user->identity->username;
+    }
+
+    /**
+     * Devuelve un botón para modificar el propio perfil.
+     */
+    public function getUpdateButton()
+    {
+        if ($this->getSelf()) {
+            $button = Html::beginForm(['/usuarios-datos/update', 'id' => Yii::$app->user->id], 'get')
+            . Html::submitButton(
+                'Modificar mi perfil',
+                ['class' => 'btn btn-md btn-success']
+            )
+            . Html::endForm();
+
+            return $button;
+        }
+    }
+
+    public function getUrl()
+    {
+        return ['usuarios-completo/view', 'username' => $this->username];
     }
 }
