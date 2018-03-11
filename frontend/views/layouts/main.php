@@ -52,6 +52,14 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username], 'get')
+            . Html::submitButton(
+                'Mi perfil',
+                ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>';
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
