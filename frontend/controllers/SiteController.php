@@ -150,34 +150,34 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-     public function actionSignup()
-     {
+    public function actionSignup()
+    {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-             if ($user = $model->signup()) {
-                 $mensaje = "Para confirmar su cuenta haga click en el siguiente enlace: " .
+            if ($user = $model->signup()) {
+                $mensaje = "Para confirmar su cuenta haga click en el siguiente enlace: " .
                  Html::a('Confirmación', Yii::$app->urlManager->createAbsoluteUrl(
                      ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
                  ));
-                 $email = \Yii::$app->mailer->compose()
+                $email = \Yii::$app->mailer->compose()
                  ->setTo($user->email)
                  ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
                  ->setSubject('Confirmación de cuenta')
                  ->setTextBody($mensaje)
                  ->send();
 
-                 if($email) {
-                     Yii::$app->getSession()->setFlash('success','Se ha enviado un correo de confirmación.');
-                 } else {
-                     Yii::$app->getSession()->setFlash('warning','Ha habido un error, conctacte con el administrador.');
-                 }
-                 return $this->goHome();
+                if ($email) {
+                    Yii::$app->getSession()->setFlash('success', 'Se ha enviado un correo de confirmación.');
+                } else {
+                    Yii::$app->getSession()->setFlash('warning', 'Ha habido un error, conctacte con el administrador.');
+                }
+                return $this->goHome();
             }
         }
         return $this->render('signup', [
             'model' => $model,
         ]);
-       }
+    }
 
     /**
      * Confirmación de usuario registrado.
@@ -191,17 +191,17 @@ class SiteController extends Controller
                 'id' => $id,
                 'auth_key' => $key,
                 'status' => 0,
-            ])
+            ]
+        )
         ->one();
 
-        if(!empty($user)){
+        if (!empty($user)) {
             $user->status=10;
             $user->save();
-            Yii::$app->getSession()->setFlash('success','Cuenta activada, puede conectarse.');
-
-            } else {
-               Yii::$app->getSession()->setFlash('warning','No se ha podido activar la cuenta.');
-            }
+            Yii::$app->getSession()->setFlash('success', 'Cuenta activada, puede conectarse.');
+        } else {
+            Yii::$app->getSession()->setFlash('warning', 'No se ha podido activar la cuenta.');
+        }
 
         return $this->goHome();
     }
