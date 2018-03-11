@@ -7,6 +7,8 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "personajes".
  *
@@ -60,13 +62,13 @@ class Personajes extends \yii\db\ActiveRecord
             'id' => 'ID',
             'usuario_id' => 'Usuario ID',
             'nombre' => 'Nombre',
-            'fecha_nac' => 'Fecha Nac',
+            'fecha_nac' => 'Fecha de nacimiento',
             'historia' => 'Historia',
             'personalidad' => 'Personalidad',
             'apariencia' => 'Apariencia',
-            'hechos_destacables' => 'Hechos Destacables',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'hechos_destacables' => 'Hechos destacables',
+            'created_at' => 'Fecha de creación',
+            'updated_at' => 'Última actualización',
         ];
     }
 
@@ -108,8 +110,35 @@ class Personajes extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
+    /**
+     * Devuelve un array con la url del view de ese personaje.
+     * @return array
+     */
     public function getUrl()
     {
         return ['personajes/view', 'id' => $this->id];
+    }
+
+    /**
+     * Indica si el usuario conectado es el propietario del personaje.
+     * @return bool
+     */
+    public function getMine()
+    {
+        return $this->usuario_id == Yii::$app->user->id;
+    }
+
+    public function getUpdateButton()
+    {
+        if ($this->getMine()) {
+            $button = Html::beginForm(['/personajes/update', 'id' => $this->id], 'get')
+            . Html::submitButton(
+                'Modificar personaje',
+                ['class' => 'btn btn-md btn-success']
+            )
+            . Html::endForm();
+
+            return $button;
+        }
     }
 }
