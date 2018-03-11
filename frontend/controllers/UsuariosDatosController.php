@@ -56,10 +56,9 @@ class UsuariosDatosController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->getUser()->touch('updated_at');
             return $this->redirect($model->getMiPerfil());
         }
-
-        $model->getUser()->touch('updated_at');
 
         return $this->render('update', [
             'model' => $model,
