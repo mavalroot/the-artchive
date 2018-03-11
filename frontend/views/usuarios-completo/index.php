@@ -7,8 +7,9 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\UsuariosCompletoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Usuarios Completos';
+$this->title = 'Usuarios';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="usuarios-completo-index">
 
@@ -21,7 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'username',
+            [
+                'attribute' => 'username',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->username, $model->getUrl());
+                }
+            ],
             'email:email',
             'aficiones',
             'tematica_favorita',

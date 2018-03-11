@@ -85,6 +85,12 @@ INSERT INTO "user" (username, auth_key, password_hash, email) VALUES
         , 'prueba2@prueba.com'
     )
 ;
+
+INSERT INTO usuarios_datos (user_id, tipo_usuario) VALUES
+      (1,1)
+    , (2,1)
+;
+
 /*
 INSERT INTO personajes (usuario_id, nombre) VALUES
     (

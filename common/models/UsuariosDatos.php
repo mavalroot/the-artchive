@@ -53,11 +53,11 @@ class UsuariosDatos extends \yii\db\ActiveRecord
         return [
             'user_id' => 'User ID',
             'aficiones' => 'Aficiones',
-            'tematica_favorita' => 'Tematica Favorita',
+            'tematica_favorita' => 'Temática Favorita',
             'plataforma' => 'Plataforma',
-            'pagina_web' => 'Pagina Web',
+            'pagina_web' => 'Página Web',
             'avatar' => 'Avatar',
-            'tipo_usuario' => 'Tipo Usuario',
+            'tipo_usuario' => 'Tipo de usuario',
         ];
     }
 
@@ -74,6 +74,24 @@ class UsuariosDatos extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return User::findOne($this->user_id);
+    }
+
+    /**
+     * Devuelve el nombre del usuario.
+     * @return string Nombre de usuario.
+     */
+    public function getName()
+    {
+        return User::findOne($this->user_id)->username;
+    }
+
+    /**
+     * Devuelve un array para formar la url de "Mi Perfil".
+     * @return array
+     */
+    public function getMiPerfil()
+    {
+        return ['usuarios-completo/view', 'username' => $this->getName()];
     }
 }

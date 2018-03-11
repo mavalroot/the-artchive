@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\UsuariosCompleto */
 
 $this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios Completos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
@@ -29,5 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:datetime',
         ],
     ]) ?>
+
+    <?= $model->getUpdateButton() ?>
 
 </div>
