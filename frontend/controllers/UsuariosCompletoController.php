@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
@@ -24,6 +26,15 @@ class UsuariosCompletoController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
