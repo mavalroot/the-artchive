@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\data\ActiveDataProvider;
+
 use yii\helpers\Html;
 
 /**
@@ -100,5 +102,34 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getUrl()
     {
         return ['usuarios-completo/view', 'username' => $this->username];
+    }
+
+    /**
+     * Obtener la instancia de "User" que corresponde a este usuario.
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return User::findOne(['username' => $this->username]);
+    }
+
+    /**
+     * Devuelve los personajes de un usuario.
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPersonajes()
+    {
+        return Personajes::find()->where(['usuario_id' => $this->getUser()->id]);
+    }
+
+    /**
+     * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
+     * @return ActiveDataProvider
+     */
+    public function getMisPersonajes()
+    {
+        return $dataProvider = new ActiveDataProvider([
+            'query' => $this->getPersonajes(),
+        ]);
     }
 }

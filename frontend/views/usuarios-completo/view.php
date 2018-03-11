@@ -1,5 +1,7 @@
 <?php
 
+use yii\grid\GridView;
+
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -26,10 +28,32 @@ $this->params['breadcrumbs'][] = $this->title;
             'avatar',
             'tipo_usuario',
             'created_at:datetime',
-            'updated_at:datetime',
+            'updated_at:relativeTime',
         ],
     ]) ?>
 
     <?= $model->getUpdateButton() ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $model->getMisPersonajes(),
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            [
+                'attribute' => 'nombre',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->nombre, $model->getUrl());
+                }
+            ],
+            // 'fecha_nac',
+            // 'historia:ntext',
+            //'personalidad:ntext',
+            //'apariencia:ntext',
+            //'hechos_destacables:ntext',
+            'created_at:datetime',
+            'updated_at:relativeTime',
+        ],
+    ]); ?>
 
 </div>
