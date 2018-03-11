@@ -1,22 +1,14 @@
 <?php
 
-// $host = $username = $password = $dbname = '';
-//
-// $url = parse_url(getenv("DATABASE_URL"));
-// if (isset($url["host"]) && isset($url["user"]) && isset($url["pass"]) && isset($url["path"])) {
-//     $host = $url["host"];
-//     $username = $url["user"];
-//     $password = $url["pass"];
-//     $dbname = substr($url["path"], 1);
-// }
+$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
 
 return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'pgsql:host=localhost;dbname=artchive',
-            'username' => 'artchive',
-            'password' => 'artchive',
+            'dsn' => 'pgsql:host=' . $DATABASE_URL["host"] . ';port=' . $DATABASE_URL["port"] . ';dbname=' . ltrim($DATABASE_URL["path"], "/"),
+            'username' => $DATABASE_URL["user"],
+            'password' => $DATABASE_URL["pass"],
             'charset' => 'utf8',
         ],
         'mailer' => [
