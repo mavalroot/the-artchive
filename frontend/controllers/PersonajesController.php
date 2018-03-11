@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Personajes;
 use common\models\PersonajesSearch;
 use yii\web\Controller;
@@ -24,6 +26,21 @@ class PersonajesController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['update', 'delete'],
+                        'roles' => ['@'],
+                        'matchCallback' => function () {
+                            $personaje = Personajes::findOne($_GET['id'])->usuario_id;
+                            return Yii::$app->user->id == $personaje;
+                        }
+                    ],
                 ],
             ],
         ];

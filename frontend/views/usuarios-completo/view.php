@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'avatar',
             'tipo_usuario',
             'created_at:datetime',
-            'updated_at:datetime',
+            'updated_at:relativeTime',
         ],
     ]) ?>
 
@@ -39,16 +39,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'nombre',
-            'fecha_nac',
-            'historia:ntext',
+            [
+                'attribute' => 'nombre',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->nombre, $model->getUrl());
+                }
+            ],
+            // 'fecha_nac',
+            // 'historia:ntext',
             //'personalidad:ntext',
             //'apariencia:ntext',
             //'hechos_destacables:ntext',
-            //'created_at',
-            //'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            'created_at:datetime',
+            'updated_at:relativeTime',
         ],
     ]); ?>
 

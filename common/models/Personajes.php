@@ -7,8 +7,6 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
-use yii\behaviors\BlameableBehavior;
-
 /**
  * This is the model class for table "personajes".
  *
@@ -108,5 +106,10 @@ class Personajes extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
+    public function getUrl()
+    {
+        return ['personajes/view', 'id' => $this->id];
     }
 }
