@@ -46,6 +46,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Usuarios', 'url' => ['/usuarios-completo/index']],
             ['label' => 'Personajes', 'url' => ['/personajes/index']],
+            ['label' => 'Publicaciones', 'url' => ['/publicaciones/index']],
         ],
     ];
     if (Yii::$app->user->isGuest) {
