@@ -20,6 +20,7 @@ return [
                 'usuario/ver' => 'usuarios-completo/view',
                 'usuario/modificar' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
+                'usuarios/personajes' => 'usuarios-completo/personajes',
             ],
 
         ],

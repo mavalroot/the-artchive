@@ -35,8 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'hechos_destacables:ntext',
             'created_at:datetime',
             'updated_at:relativeTime',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
