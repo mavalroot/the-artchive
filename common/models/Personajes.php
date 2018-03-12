@@ -128,31 +128,23 @@ class Personajes extends \yii\db\ActiveRecord
         return $this->usuario_id == Yii::$app->user->id;
     }
 
-    public function getUpdateButton()
+    /**
+     * Muestra los botones de Modificar y borrar si el usuario conectado es el
+     * propietario del personaje.
+     */
+    public function getButtons()
     {
-        if ($this->getMine()) {
-            $button = Html::beginForm(['/personajes/update', 'id' => $this->id], 'get')
-            . Html::submitButton(
-                'Modificar personaje',
-                ['class' => 'btn btn-md btn-success']
-            )
-            . Html::endForm();
-
-            return $button;
-        }
-    }
-
-    public function getDeleteButton()
-    {
-        if ($this->getMine()) {
-            $button = Html::beginForm(['/personajes/delete', 'id' => $this->id], 'post')
-            . Html::submitButton(
-                'Eliminar personaje',
-                ['class' => 'btn btn-md btn-danger']
-            )
-            . Html::endForm();
-
-            return $button;
-        }
+        if ($this->getMine()): ?>
+            <p>
+                <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to delete this item?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </p>
+        <?php endif;
     }
 }
