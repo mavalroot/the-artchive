@@ -1,9 +1,13 @@
 <?php
 
+use yii\data\ActiveDataProvider;
+
 use yii\grid\GridView;
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+
+use common\models\Personajes;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
@@ -20,7 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'username',
-            'email:email',
+            [
+                'attribute' => 'email',
+                'value' => function ($model) {
+                    return $model->isSelf() ? $model->email : '';
+                }
+            ],
             'aficiones',
             'tematica_favorita',
             'plataforma',
@@ -34,8 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $model->getUpdateButton() ?>
 
+    <h2>Personajes recientes</h2>
     <?= GridView::widget([
-        'dataProvider' => $model->getMisPersonajes(),
+        'dataProvider' => new ActiveDataProvider([
+            'query' => $model->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
+            'sort'=> false,
+            'pagination' => false,
+        ]),
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -46,14 +60,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->nombre, $model->getUrl());
                 }
             ],
-            // 'fecha_nac',
-            // 'historia:ntext',
-            //'personalidad:ntext',
-            //'apariencia:ntext',
-            //'hechos_destacables:ntext',
             'created_at:datetime',
             'updated_at:relativeTime',
         ],
     ]); ?>
+
+    <?= Html::a('Ver personajes', ['personajes', 'username' => $model->username], ['class' => 'btn btn-success']);
+    /* Html::a('Ver personajes', ['personajes/index', 'id' => $model->getUser()->id], ['class' => 'btn btn-success'])*/ ?>
 
 </div>

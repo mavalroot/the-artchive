@@ -123,7 +123,7 @@ class Personajes extends \yii\db\ActiveRecord
      * Indica si el usuario conectado es el propietario del personaje.
      * @return bool
      */
-    public function getMine()
+    public function isMine()
     {
         return $this->usuario_id == Yii::$app->user->id;
     }
@@ -134,7 +134,7 @@ class Personajes extends \yii\db\ActiveRecord
      */
     public function getButtons()
     {
-        if ($this->getMine()): ?>
+        if ($this->isMine()): ?>
             <p>
                 <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
                 <?= Html::a('Borrar', ['delete', 'id' => $this->id], [

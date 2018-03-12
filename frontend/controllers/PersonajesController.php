@@ -52,10 +52,13 @@ class PersonajesController extends Controller
      * Lists all Personajes models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = null)
     {
         $searchModel = new PersonajesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (isset($id)) {
+            $dataProvider->query->where(['usuario_id' => $id]);
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
