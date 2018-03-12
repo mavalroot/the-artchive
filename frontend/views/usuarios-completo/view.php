@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'email',
                 'value' => function ($model) {
-                    return $model->isSelf() ? $model->email : '---';
+                    return $model->isSelf() ? $model->email : '';
                 }
             ],
             'aficiones',
