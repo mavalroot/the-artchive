@@ -140,7 +140,7 @@ class Personajes extends \yii\db\ActiveRecord
                 <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
                     'class' => 'btn btn-danger',
                     'data' => [
-                        'confirm' => 'Are you sure you want to delete this item?',
+                        'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
                         'method' => 'post',
                     ],
                 ]) ?>
