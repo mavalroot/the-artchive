@@ -73,7 +73,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      * Indica si el usuario conectado coincide con el usuario que se muestra.
      * @return bool Devuelve true si coincide y false si no coincide.
      */
-    public function getSelf()
+    public function isSelf()
     {
         return $this->username == Yii::$app->user->identity->username;
     }
@@ -83,7 +83,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getUpdateButton()
     {
-        if ($this->getSelf()) {
+        if ($this->isSelf()) {
             $button = Html::beginForm(['/usuarios-datos/update', 'id' => Yii::$app->user->id], 'get')
             . Html::submitButton(
                 'Modificar mi perfil',
@@ -106,7 +106,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     /**
      * Obtener la instancia de "User" que corresponde a este usuario.
-     * @return \yii\db\ActiveQuery
+     * @return User
      */
     public function getUser()
     {
@@ -115,7 +115,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     /**
      * Devuelve los personajes de un usuario.
-     * @return \yii\db\ActiveQuery
+     * @return Personajes
      */
     public function getPersonajes()
     {
