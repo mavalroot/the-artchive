@@ -37,8 +37,10 @@ class PersonajesController extends Controller
                         'actions' => ['update', 'delete'],
                         'roles' => ['@'],
                         'matchCallback' => function () {
-                            $personaje = Personajes::findOne($_GET['id'])->usuario_id;
-                            return Yii::$app->user->id == $personaje;
+                            $personaje = Personajes::findOne($_GET['id']);
+                            if ($personaje) {
+                                return Yii::$app->user->id == $personaje->usuario_id;
+                            }
                         }
                     ],
                 ],
