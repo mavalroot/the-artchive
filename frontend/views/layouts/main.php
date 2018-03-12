@@ -46,6 +46,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Usuarios', 'url' => ['/usuarios-completo/index']],
             ['label' => 'Personajes', 'url' => ['/personajes/index']],
+            ['label' => 'Publicaciones', 'url' => ['/publicaciones/index']],
         ],
     ];
     if (Yii::$app->user->isGuest) {
@@ -64,7 +65,7 @@ AppAsset::register($this);
             'label' => 'Crear',
             'items' => [
                 ['label' => 'Personaje', 'url' => ['/personajes/create']],
-                ['label' => 'Publicación', 'url' => ['#']],
+                ['label' => 'Publicación', 'url' => ['/publicaciones/create']],
             ],
         ];
         $menuItems[] = '<li>'
