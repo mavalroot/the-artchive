@@ -84,7 +84,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getUpdateButton()
     {
         if ($this->isSelf()) {
-            $button = Html::beginForm(['/usuarios-datos/update', 'id' => Yii::$app->user->id], 'get')
+            $button = Html::beginForm(['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username], 'get')
             . Html::submitButton(
                 'Modificar mi perfil',
                 ['class' => 'btn btn-md btn-success']

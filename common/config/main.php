@@ -18,7 +18,7 @@ return [
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
                 'usuario/ver/<username>' => 'usuarios-completo/view',
-                'usuario/modificar/<id:\d>' => 'usuarios-datos/update',
+                'usuario/modificar/<username>' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
                 'usuarios/personajes/<username>' => 'usuarios-completo/personajes',
             ],

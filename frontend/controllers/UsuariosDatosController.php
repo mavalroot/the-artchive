@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 
+use common\models\User;
 use common\models\UsuariosDatos;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -36,7 +37,7 @@ class UsuariosDatosController extends Controller
                         'actions' => ['update'],
                         'roles' => ['@'],
                         'matchCallback' => function () {
-                            return Yii::$app->user->id == Yii::$app->request->get('id');
+                            return Yii::$app->user->identity->username == Yii::$app->request->get('username');
                         }
                     ],
                 ],
@@ -47,12 +48,13 @@ class UsuariosDatosController extends Controller
     /**
      * Updates an existing UsuariosDatos model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id
+     * @param string $username
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($username)
     {
+        $id = User::findOne(['username' => $username])->id;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
