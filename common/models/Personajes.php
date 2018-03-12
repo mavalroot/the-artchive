@@ -141,4 +141,18 @@ class Personajes extends \yii\db\ActiveRecord
             return $button;
         }
     }
+
+    public function getDeleteButton()
+    {
+        if ($this->getMine()) {
+            $button = Html::beginForm(['/personajes/delete', 'id' => $this->id], 'post')
+            . Html::submitButton(
+                'Eliminar personaje',
+                ['class' => 'btn btn-md btn-danger']
+            )
+            . Html::endForm();
+
+            return $button;
+        }
+    }
 }

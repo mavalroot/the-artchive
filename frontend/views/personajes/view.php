@@ -29,5 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <?= $model->getUpdateButton() ?>
+    <?= $model->getDeleteButton() ?>
 
 </div>
