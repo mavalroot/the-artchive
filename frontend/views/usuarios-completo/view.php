@@ -60,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= Html::a('Ver personajes', ['personajes', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Ver personajes', ['personajes', 'username' => $model->username], ['class' => 'btn btn-success']);
+    /* Html::a('Ver personajes', ['personajes/index', 'id' => $model->getUser()->id], ['class' => 'btn btn-success'])*/ ?>
 
 </div>

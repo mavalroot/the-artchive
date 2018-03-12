@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\PersonajesSearch;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
@@ -28,11 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->nombre, $model->getUrl());
                 }
             ],
-            // 'fecha_nac',
-            // 'historia:ntext',
-            //'personalidad:ntext',
-            //'apariencia:ntext',
-            //'hechos_destacables:ntext',
             'created_at:datetime',
             'updated_at:relativeTime',
         ],

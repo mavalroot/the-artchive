@@ -17,10 +17,10 @@ return [
             'enablePrettyUrl' => true,
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
-                'usuario/ver' => 'usuarios-completo/view',
-                'usuario/modificar' => 'usuarios-datos/update',
+                'usuario/ver/<username>' => 'usuarios-completo/view',
+                'usuario/modificar/<id:\d>' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
-                'usuarios/personajes' => 'usuarios-completo/personajes',
+                'usuarios/personajes/<username>' => 'usuarios-completo/personajes',
             ],
 
         ],

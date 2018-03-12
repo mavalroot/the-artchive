@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="usuarios-completo-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php echo $this->render('_search', ['model' => $searchModel]);?>
+    <?php /*echo $this->render('_search', ['model' => $searchModel]);*/ ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->username, $model->getUrl());
                 }
             ],
-            'email:email',
+            // 'email:email',
             'aficiones',
             'tematica_favorita',
             'plataforma',
-            //'pagina_web',
+            'pagina_web:url',
             //'avatar',
             //'tipo_usuario',
             'created_at:datetime',
