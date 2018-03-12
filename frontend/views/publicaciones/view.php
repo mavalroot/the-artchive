@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
 
-$this->title = $model->id;
+$this->title = $model->getUsuario()->one()->username;
 $this->params['breadcrumbs'][] = ['label' => 'Publicaciones', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'usuario_id',
+            'titulo',
             'contenido:ntext',
             'created_at',
             'updated_at',

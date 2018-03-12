@@ -19,7 +19,7 @@ class PublicacionesSearch extends Publicaciones
     {
         return [
             [['id', 'usuario_id'], 'integer'],
-            [['contenido', 'created_at', 'updated_at'], 'safe'],
+            [['titulo', 'contenido', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -65,7 +65,8 @@ class PublicacionesSearch extends Publicaciones
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['ilike', 'contenido', $this->contenido]);
+        $query->andFilterWhere(['ilike', 'titulo', $this->titulo])
+            ->andFilterWhere(['ilike', 'contenido', $this->contenido]);
 
         return $dataProvider;
     }

@@ -64,7 +64,7 @@ AppAsset::register($this);
             'label' => 'Crear',
             'items' => [
                 ['label' => 'Personaje', 'url' => ['/personajes/create']],
-                ['label' => 'Publicación', 'url' => ['#']],
+                ['label' => 'Publicación', 'url' => ['/publicaciones/create']],
             ],
         ];
         $menuItems[] = '<li>'

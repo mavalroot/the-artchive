@@ -67,6 +67,7 @@ CREATE TABLE publicaciones (
       id            bigserial       PRIMARY KEY
     , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
+    , titulo        varchar(255)    NOT NULL
     , contenido     text
     , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
     , updated_at    timestamp(0)
