@@ -54,8 +54,7 @@ class UsuariosDatosController extends Controller
      */
     public function actionUpdate($username)
     {
-        $id = User::findOne(['username' => $username])->id;
-        $model = $this->findModel($id);
+        $model = $this->findModel($username);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->getUser()->touch('updated_at');
@@ -70,12 +69,14 @@ class UsuariosDatosController extends Controller
     /**
      * Finds the UsuariosDatos model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $username
      * @return UsuariosDatos the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($username)
     {
+        $id = User::findOne(['username' => $username])->id;
+
         if (($model = UsuariosDatos::findOne($id)) !== null) {
             return $model;
         }
