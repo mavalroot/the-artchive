@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "mensajes_privados".
  *
@@ -54,13 +56,13 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'emisor_id' => 'Emisor ID',
-            'receptor_id' => 'Receptor ID',
+            'emisor_id' => 'Emisor',
+            'receptor_id' => 'Receptor',
             'asunto' => 'Asunto',
             'contenido' => 'Contenido',
             'visto' => 'Visto',
             'leido' => 'Leido',
-            'created_at' => 'Created At',
+            'created_at' => 'Fecha de envío',
         ];
     }
 
@@ -78,5 +80,10 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     public function getReceptor()
     {
         return $this->hasOne(User::className(), ['id' => 'receptor_id']);
+    }
+
+    public function getUrl($label)
+    {
+        return Html::a($label, ['mensajes-privados/view', 'id' => $this->id]);
     }
 }

@@ -53,14 +53,6 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username], 'get')
-            . Html::submitButton(
-                'Mi perfil',
-                ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>';
         $menuItems[] = [
             'label' => 'Crear',
             'items' => [
@@ -76,6 +68,14 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+        $menuItems[] = [
+            'label' => Yii::$app->user->identity->username,
+            'items' => [
+                ['label' => 'Inbox', 'url' => ['/mensajes/inbox']],
+                ['label' => 'Perfil', 'url' => ['/usuario/ver/' . Yii::$app->user->identity->username]],
+
+            ],
+        ];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

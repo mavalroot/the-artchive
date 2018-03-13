@@ -42,12 +42,13 @@ class MensajesPrivadosSearch extends MensajesPrivados
      */
     public function search($params)
     {
-        $query = MensajesPrivados::find();
+        $query = MensajesPrivados::find()->orderBy(['created_at' => SORT_DESC]);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => false,
         ]);
 
         $this->load($params);

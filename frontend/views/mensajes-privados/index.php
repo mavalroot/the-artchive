@@ -21,9 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
             [
                 'attribute' => 'emisor_id',
@@ -32,11 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->getEmisor()->one()->username, $model->getEmisor()->one()->getUrl());
                 }
             ],
-            'asunto',
+            [
+                'attribute' => 'asunto',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->getUrl($model->asunto);
+                }
+            ],
             // 'contenido:ntext',
             //'visto:boolean',
             //'leido:boolean',
-            'created_at:relativetime',
+            'created_at:datetime',
         ],
     ]); ?>
 </div>
