@@ -56,8 +56,8 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'emisor_id' => 'Emisor',
-            'receptor_id' => 'Receptor',
+            'emisor_id' => 'Enviado por',
+            'receptor_id' => 'Enviado a',
             'asunto' => 'Asunto',
             'contenido' => 'Contenido',
             'visto' => 'Visto',
