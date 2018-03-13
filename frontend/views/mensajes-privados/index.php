@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="mensajes-privados-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>
         <?= Html::a('Create Mensajes Privados', ['create'], ['class' => 'btn btn-success']) ?>
@@ -25,16 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'emisor_id',
-            'receptor_id',
+            [
+                'attribute' => 'emisor_id',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->getEmisor()->one()->username;
+                }
+            ],
             'asunto',
-            'contenido:ntext',
+            // 'contenido:ntext',
             //'visto:boolean',
             //'leido:boolean',
-            //'created_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            'created_at:datetime',
         ],
     ]); ?>
 </div>
