@@ -91,6 +91,11 @@ INSERT INTO usuarios_datos (user_id, tipo_usuario) VALUES
     , (2,1)
 ;
 
+INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES
+      (1, 2, 'Prueba 1', 'Contenido 1')
+    , (2, 1, 'Prueba 2', 'Contenido 2')
+;
+
 /*
 INSERT INTO personajes (usuario_id, nombre) VALUES
     (

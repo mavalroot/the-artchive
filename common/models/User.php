@@ -186,4 +186,13 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * Devuelve un array con la url del view de ese usuario.
+     * @return array
+     */
+    public function getUrl()
+    {
+        return ['usuarios-completo/view', 'username' => $this->username];
+    }
 }
