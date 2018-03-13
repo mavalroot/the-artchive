@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\MensajesPrivadosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Mensajes Privados';
+$this->title = 'Inbox';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mensajes-privados-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>
-        <?= Html::a('Create Mensajes Privados', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Enviar mensaje privado', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -29,14 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'emisor_id',
                 'format' => 'raw',
                 'value' => function ($model) {
-                    return $model->getEmisor()->one()->username;
+                    return Html::a($model->getEmisor()->one()->username, $model->getEmisor()->one()->getUrl());
                 }
             ],
             'asunto',
             // 'contenido:ntext',
             //'visto:boolean',
             //'leido:boolean',
-            'created_at:datetime',
+            'created_at:relativetime',
         ],
     ]); ?>
 </div>

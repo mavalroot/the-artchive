@@ -21,6 +21,7 @@ return [
                 'usuario/modificar/<username>' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
                 'usuarios/personajes/<username>' => 'usuarios-completo/personajes',
+                'mensajes/inbox' => 'mensajes-privados/index',
             ],
 
         ],
