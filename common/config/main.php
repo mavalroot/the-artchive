@@ -22,6 +22,8 @@ return [
                 'usuarios/index' => 'usuarios-completo/index',
                 'usuarios/personajes/<username>' => 'usuarios-completo/personajes',
                 'mensajes/inbox' => 'mensajes-privados/index',
+                'mensajes/view/<id:\d>' => 'mensajes-privados/view',
+                'mensajes/sent' => 'mensajes-privados/sent',
             ],
 
         ],
