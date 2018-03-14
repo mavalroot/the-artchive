@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 
-            'receptor_id',
+            'receptor_name',
             [
                 'attribute' => 'asunto',
                 'format' => 'raw',

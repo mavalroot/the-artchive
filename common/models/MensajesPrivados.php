@@ -20,6 +20,8 @@ use yii\helpers\Html;
  * @property bool $visto
  * @property bool $leido
  * @property string $created_at
+ * @property string $emisor_name
+ * @property string $receptor_name
  *
  * @property User $emisor
  * @property User $receptor
@@ -27,6 +29,8 @@ use yii\helpers\Html;
  */
 class MensajesPrivados extends \yii\db\ActiveRecord
 {
+    public $emisor_name;
+    public $receptor_name;
     /**
      * @inheritdoc
      */
@@ -46,7 +50,7 @@ class MensajesPrivados extends \yii\db\ActiveRecord
             [['emisor_id', 'receptor_id'], 'integer'],
             [['contenido'], 'string'],
             [['visto', 'leido'], 'boolean'],
-            [['created_at', 'receptor_name'], 'safe'],
+            [['created_at', 'receptor_name', 'emisor_name'], 'safe'],
             [['asunto'], 'string', 'max' => 255],
             [['emisor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_id' => 'id']],
             [['receptor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['receptor_id' => 'id']],
@@ -60,13 +64,15 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'emisor_id' => 'Enviado por',
-            'receptor_id' => 'Enviado a',
+            'emisor_id' => 'Emisor ID',
+            'receptor_id' => 'Receptor ID',
             'asunto' => 'Asunto',
             'contenido' => 'Contenido',
             'visto' => 'Visto',
             'leido' => 'Leido',
             'created_at' => 'Fecha de envío',
+            'emisor_name' => 'Emisor',
+            'receptor_name' => 'Receptor',
         ];
     }
 
