@@ -81,18 +81,16 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     /**
      * Devuelve un botón para modificar el propio perfil.
      */
-    public function getUpdateButton()
+    public function getButtons()
     {
+        $buttons = '';
         if ($this->isSelf()) {
-            $button = Html::beginForm(['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username], 'get')
-            . Html::submitButton(
-                'Modificar mi perfil',
-                ['class' => 'btn btn-md btn-success']
-            )
-            . Html::endForm();
-
-            return $button;
+            $buttons .= Html::a('Modificar mi perfil', ['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username], ['class' => 'btn btn-md btn-success']);
+        } else {
+            $buttons .= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-md btn-info']);
         }
+
+        return $buttons;
     }
 
     /**

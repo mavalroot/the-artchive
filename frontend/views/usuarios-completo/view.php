@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?= $model->getUpdateButton() ?>
+    <?= $model->getButtons() ?>
 
     <h2>Personajes recientes</h2>
     <?= GridView::widget([
