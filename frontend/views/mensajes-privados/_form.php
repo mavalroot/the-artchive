@@ -12,19 +12,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'emisor_id')->textInput() ?>
-
-    <?= $form->field($model, 'receptor_id')->textInput() ?>
+    <?= Html::label('Usuario', 'emisor_name') ?>
+    <?= Html::textInput('emisor_name', (Yii::$app->request->get('username') ?: ''), ['class' => 'form-control']) ?>
 
     <?= $form->field($model, 'asunto')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'contenido')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'visto')->checkbox() ?>
-
-    <?= $form->field($model, 'leido')->checkbox() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use common\models\MensajesPrivados;
 use common\models\MensajesPrivadosSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -105,6 +106,13 @@ class MensajesPrivadosController extends Controller
     public function actionCreate()
     {
         $model = new MensajesPrivados();
+        $model->emisor_id = Yii::$app->user->id;
+
+        $receptor = User::findOne(['username' => Yii::$app->request->post('emisor_name')]);
+
+        if ($receptor) {
+            $model->receptor_id = $receptor->id;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

@@ -25,13 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 
-            [
-                'attribute' => 'receptor_id',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::a($model->getEmisor()->one()->username, $model->getEmisor()->one()->getUrl());
-                }
-            ],
+            'receptor_id',
             [
                 'attribute' => 'asunto',
                 'format' => 'raw',

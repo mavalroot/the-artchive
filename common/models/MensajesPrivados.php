@@ -4,6 +4,9 @@ namespace common\models;
 
 use Yii;
 
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+
 use yii\helpers\Html;
 
 /**
@@ -20,6 +23,7 @@ use yii\helpers\Html;
  *
  * @property User $emisor
  * @property User $receptor
+ *
  */
 class MensajesPrivados extends \yii\db\ActiveRecord
 {
@@ -42,7 +46,7 @@ class MensajesPrivados extends \yii\db\ActiveRecord
             [['emisor_id', 'receptor_id'], 'integer'],
             [['contenido'], 'string'],
             [['visto', 'leido'], 'boolean'],
-            [['created_at'], 'safe'],
+            [['created_at', 'receptor_name'], 'safe'],
             [['asunto'], 'string', 'max' => 255],
             [['emisor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_id' => 'id']],
             [['receptor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['receptor_id' => 'id']],
@@ -63,6 +67,19 @@ class MensajesPrivados extends \yii\db\ActiveRecord
             'visto' => 'Visto',
             'leido' => 'Leido',
             'created_at' => 'Fecha de envío',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'value' => new Expression('NOW()'),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                ],
+            ],
         ];
     }
 
