@@ -8,7 +8,7 @@ use common\models\PersonajesSearch;
 /* @var $model common\models\UsuariosCompleto */
 
 $this->title = 'Personajes de ' . $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->username, 'url' => ['view', 'username' => $model->username]];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>

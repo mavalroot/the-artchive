@@ -13,7 +13,7 @@ use common\models\Personajes;
 /* @var $model common\models\UsuariosCompleto */
 
 $this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?= $model->getUpdateButton() ?>
+    <?= $model->getButtons() ?>
 
     <h2>Personajes recientes</h2>
     <?= GridView::widget([

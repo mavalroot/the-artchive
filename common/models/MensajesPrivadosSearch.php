@@ -19,9 +19,14 @@ class MensajesPrivadosSearch extends MensajesPrivados
     {
         return [
             [['id', 'emisor_id', 'receptor_id'], 'integer'],
-            [['asunto', 'contenido', 'created_at'], 'safe'],
+            [['asunto', 'contenido', 'created_at', 'receptor_name', 'emisor_name'], 'safe'],
             [['visto', 'leido'], 'boolean'],
         ];
+    }
+
+    public function attributes()
+    {
+        return array_merge(parent::attributes(), ['emisor_name', 'receptor_name']);
     }
 
     /**
@@ -42,7 +47,7 @@ class MensajesPrivadosSearch extends MensajesPrivados
      */
     public function search($params)
     {
-        $query = MensajesPrivados::find()->orderBy(['created_at' => SORT_DESC]);
+        $query = MensajesPrivados::find()->leftJoin('user r', 'receptor_id = r.id')->leftJoin('user e', 'emisor_id = e.id')->select('r.username AS receptor_name, e.username AS emisor_name, mensajes_privados.*')->orderBy(['created_at' => SORT_DESC]);
 
         // add conditions that should always apply here
 
