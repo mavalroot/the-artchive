@@ -72,7 +72,7 @@ AppAsset::register($this);
             'label' => Yii::$app->user->identity->username,
             'items' => [
                 ['label' => 'Inbox', 'url' => ['/mensajes/inbox']],
-                ['label' => 'Perfil', 'url' => ['/usuario/ver/' . Yii::$app->user->identity->username]],
+                ['label' => 'Perfil', 'url' => ['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]],
 
             ],
         ];

@@ -6,8 +6,11 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
 
+$owner = $model->getUsuario()->one()->username;
+
 $this->title = $model->nombre;
-$this->params['breadcrumbs'][] = ['label' => 'Personajes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
+$this->params['breadcrumbs'][] = ['label' => 'Personajes de ' . $owner, 'url' => ['/usuarios-completo/personajes', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="personajes-view">

@@ -17,10 +17,11 @@ return [
             'enablePrettyUrl' => true,
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
-                'usuario/ver/<username>' => 'usuarios-completo/view',
+                'u/<username>' => 'usuarios-completo/view',
                 'usuario/modificar/<username>' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
-                'usuarios/personajes/<username>' => 'usuarios-completo/personajes',
+                'u/<username>/pjs' => 'usuarios-completo/personajes',
+                'pj/<id:\d>' => 'personajes/view',
                 'mensajes/inbox' => 'mensajes-privados/index',
                 'mensajes/view/<id:\d>' => 'mensajes-privados/view',
                 'mensajes/sent' => 'mensajes-privados/sent',
