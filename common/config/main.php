@@ -25,6 +25,7 @@ return [
                 'mensajes/inbox' => 'mensajes-privados/index',
                 'mensajes/view/<id:\d>' => 'mensajes-privados/view',
                 'mensajes/sent' => 'mensajes-privados/sent',
+                '<username>/followers' => 'seguidores/index',
             ],
 
         ],

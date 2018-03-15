@@ -94,15 +94,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve un array con la url del view de ese usuario.
-     * @return array
-     */
-    public function getUrl()
-    {
-        return ['usuarios-completo/view', 'username' => $this->username];
-    }
-
-    /**
      * Obtener la instancia de "User" que corresponde a este usuario.
      * @return User
      */
@@ -129,5 +120,14 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return $dataProvider = new ActiveDataProvider([
             'query' => $this->getPersonajes(),
         ]);
+    }
+
+    /**
+     * Devuelve botones para ver seguidores y seguidos
+     * @return string
+     */
+    public function getFollowButtons()
+    {
+        return Html::a($this->getUser()->getFollowers()->count() . ' seguidores', ['seguidores/index', 'username' => $this->username]);
     }
 }

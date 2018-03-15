@@ -95,6 +95,10 @@ CREATE INDEX idx_comentarios_publicacion_id ON comentarios (publicacion_id);
 
 CREATE INDEX idx_comentarios_comentario_id ON comentarios (comentario_id);
 
+-----------------------
+-- MENSAJES PRIVADOS --
+-----------------------
+
 DROP TABLE IF EXISTS mensajes_privados CASCADE;
 
 CREATE TABLE mensajes_privados (
@@ -114,6 +118,19 @@ CREATE TABLE mensajes_privados (
 CREATE INDEX idx_mensajes_privados_emisor_id ON mensajes_privados (emisor_id);
 
 CREATE INDEX idx_mensajes_privados_receptor_id ON mensajes_privados (receptor_id);
+
+----------------
+-- SEGUIDORES --
+----------------
+
+DROP TABLE IF EXISTS seguidores CASCADE;
+
+CREATE TABLE seguidores (
+      id            bigserial   PRIMARY KEY
+    , user_id       bigint      NOT NULL REFERENCES "user" (id)
+    , seguidor_id   bigint      NOT NULL REFERENCES "user" (id)
+    , CONSTRAINT follow_only_once UNIQUE (user_id, seguidor_id)
+);
 
 --------------------------
 -- ÁRBOLES GENEALÓGICOS --
