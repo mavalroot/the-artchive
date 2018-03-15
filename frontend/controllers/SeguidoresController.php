@@ -56,6 +56,28 @@ class SeguidoresController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
+    public function actionFollowing($username)
+    {
+        $user = User::findOne(['username' => $username]);
+
+        if ($user) {
+            $id = $user->id;
+        }
+
+        if (isset($id)) {
+            $searchModel = new SeguidoresSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $dataProvider->query->where(['seguidor_id' => $id]);
+
+
+            return $this->render('following', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
     /**
      * Displays a single Seguidores model.
      * @param integer $id

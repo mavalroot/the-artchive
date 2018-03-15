@@ -128,6 +128,10 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getFollowButtons()
     {
-        return Html::a($this->getUser()->getFollowers()->count() . ' seguidores', ['seguidores/index', 'username' => $this->username]);
+        $buttons = '';
+        $buttons .= Html::a($this->getUser()->getFollowers()->count() . ' seguidores', ['seguidores/index', 'username' => $this->username]);
+        $buttons .= ' || ' . Html::a($this->getUser()->getFollows()->count() . ' siguiendo', ['seguidores/following', 'username' => $this->username]);
+
+        return $buttons;
     }
 }
