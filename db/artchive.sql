@@ -132,6 +132,18 @@ CREATE TABLE seguidores (
     , CONSTRAINT follow_only_once UNIQUE (user_id, seguidor_id)
 );
 
+--------------------
+-- NOTIFICACIONES --
+--------------------
+
+DROP TABLE IF EXISTS notificaciones CASCADE;
+
+CREATE TABLE notificaciones (
+      id bigserial PRIMARY KEY
+    , user_id bigint NOT NULL REFERENCES "user" (id)
+    , notificacion varchar(255)
+);
+
 --------------------------
 -- ÁRBOLES GENEALÓGICOS --
 --------------------------
