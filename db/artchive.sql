@@ -105,8 +105,9 @@ CREATE TABLE mensajes_privados (
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , asunto        varchar(255)    NOT NULL
     , contenido     text            NOT NULL
-    , visto         boolean         NOT NULL DEFAULT FALSE
     , leido         boolean         NOT NULL DEFAULT FALSE
+    , del_e         boolean         NOT NULL DEFAULT FALSE
+    , del_r         boolean         NOT NULL DEFAULT FALSE
     , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
 );
 
