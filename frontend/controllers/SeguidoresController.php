@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Seguidores;
 use common\models\SeguidoresSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,15 +34,26 @@ class SeguidoresController extends Controller
      * Lists all Seguidores models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($username)
     {
-        $searchModel = new SeguidoresSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $user = User::findOne(['username' => $username]);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if ($user) {
+            $id = $user->id;
+        }
+
+        if (isset($id)) {
+            $searchModel = new SeguidoresSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $dataProvider->query->where(['user_id' => $id]);
+
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 
     /**
