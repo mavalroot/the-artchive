@@ -1,5 +1,7 @@
 <?php
 return [
+    'id' => 'artchive',
+    'name' => 'Artchive',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
