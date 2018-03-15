@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'visto:boolean',
             //'leido:boolean',
             'created_at:datetime',
+            ['class' => 'yii\grid\ActionColumn',  'template'=> ' {delete}'],
         ],
     ]); ?>
 </div>

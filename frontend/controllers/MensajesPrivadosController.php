@@ -61,7 +61,7 @@ class MensajesPrivadosController extends Controller
     {
         $searchModel = new MensajesPrivadosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id]);
+        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id, 'del_r' => false]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -77,7 +77,7 @@ class MensajesPrivadosController extends Controller
     {
         $searchModel = new MensajesPrivadosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['emisor_id' => Yii::$app->user->id]);
+        $dataProvider->query->where(['emisor_id' => Yii::$app->user->id, 'del_e' => false]);
 
         return $this->render('sent', [
             'searchModel' => $searchModel,
@@ -87,14 +87,19 @@ class MensajesPrivadosController extends Controller
 
     /**
      * Displays a single MensajesPrivados model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
+        $mensaje = $this->findModel($id);
+
+        if (($mensaje->imEmisor() && $mensaje->del_e) || ($mensaje->imReceptor() && $mensaje->del_r)) {
+            return $this->redirect(['index']);
+        }
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $mensaje,
         ]);
     }
 
@@ -126,13 +131,25 @@ class MensajesPrivadosController extends Controller
     /**
      * Deletes an existing MensajesPrivados model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $mensaje = $this->findModel($id);
+
+        if ($mensaje->imEmisor()) {
+            $mensaje->del_e = true;
+            $mensaje->save();
+        }
+        if ($mensaje->imReceptor()) {
+            $mensaje->del_r = true;
+            $mensaje->save();
+        }
+        if ($mensaje->del_r && $mensaje->del_e) {
+            $mensaje->delete();
+        }
 
         return $this->redirect(['index']);
     }
@@ -140,7 +157,7 @@ class MensajesPrivadosController extends Controller
     /**
      * Finds the MensajesPrivados model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return MensajesPrivados the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

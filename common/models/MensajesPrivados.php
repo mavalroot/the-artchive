@@ -17,8 +17,9 @@ use yii\helpers\Html;
  * @property int $receptor_id
  * @property string $asunto
  * @property string $contenido
- * @property bool $visto
  * @property bool $leido
+ * @property bool $del_e
+ * @property bool $del_r
  * @property string $created_at
  * @property string $emisor_name
  * @property string $receptor_name
@@ -49,7 +50,7 @@ class MensajesPrivados extends \yii\db\ActiveRecord
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
             [['emisor_id', 'receptor_id'], 'integer'],
             [['contenido'], 'string'],
-            [['visto', 'leido'], 'boolean'],
+            [['leido', 'del_e', 'del_r'], 'boolean'],
             [['created_at', 'receptor_name', 'emisor_name'], 'safe'],
             [['asunto'], 'string', 'max' => 255],
             [['emisor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_id' => 'id']],
@@ -68,7 +69,6 @@ class MensajesPrivados extends \yii\db\ActiveRecord
             'receptor_id' => 'Receptor ID',
             'asunto' => 'Asunto',
             'contenido' => 'Contenido',
-            'visto' => 'Visto',
             'leido' => 'Leido',
             'created_at' => 'Fecha de envío',
             'emisor_name' => 'Emisor',
@@ -105,8 +105,31 @@ class MensajesPrivados extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'receptor_id']);
     }
 
+    /**
+     * Devuelve la url en forma de hipervinculo de este mensaje para verlo en detalle.
+     * @param  string $label Parámetro que indica el nombre del link.
+     * @return string        Hipervínculo.
+     */
     public function getUrl($label)
     {
         return Html::a($label, ['mensajes-privados/view', 'id' => $this->id]);
+    }
+
+    /**
+     * Indica si el usuario conectado es el emisor de este mensaje.
+     * @return bool
+     */
+    public function imEmisor()
+    {
+        return $this->getEmisor()->one()->id == Yii::$app->user->id;
+    }
+
+    /**
+     * Indica si el usuario conectado es el receptor de este mensaje.
+     * @return bool
+     */
+    public function imReceptor()
+    {
+        return $this->getReceptor()->one()->id == Yii::$app->user->id;
     }
 }

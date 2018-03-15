@@ -20,7 +20,7 @@ class MensajesPrivadosSearch extends MensajesPrivados
         return [
             [['id', 'emisor_id', 'receptor_id'], 'integer'],
             [['asunto', 'contenido', 'created_at', 'receptor_name', 'emisor_name'], 'safe'],
-            [['visto', 'leido'], 'boolean'],
+            [['del_e', 'del_r', 'leido'], 'boolean'],
         ];
     }
 
@@ -69,7 +69,8 @@ class MensajesPrivadosSearch extends MensajesPrivados
             'id' => $this->id,
             'emisor_id' => $this->emisor_id,
             'receptor_id' => $this->receptor_id,
-            'visto' => $this->visto,
+            'del_e' => $this->del_e,
+            'del_r' => $this->del_r,
             'leido' => $this->leido,
             'created_at' => $this->created_at,
         ]);
