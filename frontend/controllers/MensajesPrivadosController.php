@@ -142,11 +142,12 @@ class MensajesPrivadosController extends Controller
         if ($mensaje->imEmisor()) {
             $mensaje->del_e = true;
             $mensaje->save();
-        } elseif ($mensaje->imReceptor()) {
+        }
+        if ($mensaje->imReceptor()) {
             $mensaje->del_r = true;
             $mensaje->save();
         }
-        if (($mensaje->del_r && $mensaje->del_e) || ($mensaje->imEmisor() && $mensaje->imReceptor())) {
+        if ($mensaje->del_r && $mensaje->del_e) {
             $mensaje->delete();
         }
 
