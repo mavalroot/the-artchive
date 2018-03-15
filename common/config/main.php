@@ -20,7 +20,7 @@ return [
                 'u/<username>' => 'usuarios-completo/view',
                 'usuario/modificar/<username>' => 'usuarios-datos/update',
                 'usuarios/index' => 'usuarios-completo/index',
-                'u/<username>/pjs' => 'usuarios-completo/personajes',
+                '<username>/pjs' => 'usuarios-completo/personajes',
                 'pj/<id:\d>' => 'personajes/view',
                 'mensajes/inbox' => 'mensajes-privados/index',
                 'mensajes/view/<id:\d>' => 'mensajes-privados/view',
