@@ -127,9 +127,9 @@ DROP TABLE IF EXISTS seguidores CASCADE;
 
 CREATE TABLE seguidores (
       id            bigserial   PRIMARY KEY
-    , user_name     bigint      NOT NULL REFERENCES "user" (username)
-    , seguidor_name bigint      NOT NULL REFERENCES "user" (username)
-    , CONSTRAINT follow_only_once UNIQUE (user_name, seguidor_name)
+    , user_id       bigint      NOT NULL REFERENCES "user" (id)
+    , seguidor_id   bigint      NOT NULL REFERENCES "user" (id)
+    , CONSTRAINT follow_only_once UNIQUE (user_id, seguidor_id)
 );
 
 --------------------------
