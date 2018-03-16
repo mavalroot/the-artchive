@@ -15,6 +15,8 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
+    <?= $form->field($model, 'id') ?>
+
     <?= $form->field($model, 'username') ?>
 
     <?= $form->field($model, 'email') ?>
@@ -23,17 +25,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tematica_favorita') ?>
 
-    <?= $form->field($model, 'plataforma') ?>
+    <?php // echo $form->field($model, 'plataforma') ?>
 
-    <?php // echo $form->field($model, 'pagina_web')?>
+    <?php // echo $form->field($model, 'pagina_web') ?>
 
-    <?php // echo $form->field($model, 'avatar')?>
+    <?php // echo $form->field($model, 'avatar') ?>
 
-    <?php // echo $form->field($model, 'tipo_usuario')?>
+    <?php // echo $form->field($model, 'tipo') ?>
 
-    <?php // echo $form->field($model, 'created_at')?>
+    <?php // echo $form->field($model, 'seguidores') ?>
 
-    <?php // echo $form->field($model, 'updated_at')?>
+    <?php // echo $form->field($model, 'siguiendo') ?>
+
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

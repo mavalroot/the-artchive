@@ -13,14 +13,13 @@ use common\models\Personajes;
 /* @var $model common\models\UsuariosCompleto */
 
 $this->title = $model->username;
-// $this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
+    <?= $model->getFollowButtons() ?>
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $model->getFollowButtons() ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -36,7 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'plataforma',
             'pagina_web',
             'avatar',
-            'tipo_usuario',
+            'tipo',
+            'seguidores',
+            'siguiendo',
             'created_at:datetime',
             'updated_at:relativeTime',
         ],
@@ -46,14 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h2>Personajes recientes</h2>
     <?= GridView::widget([
-        'dataProvider' => new ActiveDataProvider([
-            'query' => $model->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
-            'sort'=> false,
-            'pagination' => false,
-        ]),
+        'dataProvider' => $model->getMisPersonajes(),
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             [
                 'attribute' => 'nombre',
                 'format' => 'raw',
@@ -66,7 +61,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= Html::a('Ver personajes', ['personajes', 'username' => $model->username], ['class' => 'btn btn-success']);
-    /* Html::a('Ver personajes', ['personajes/index', 'id' => $model->getUser()->id], ['class' => 'btn btn-success'])*/ ?>
+    <?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
 
 </div>
