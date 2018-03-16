@@ -31,6 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'user_id',
             'notificacion',
+            'tipo_notificacion_id',
+            'created_at',
         ],
     ]) ?>
 

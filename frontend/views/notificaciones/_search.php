@@ -21,6 +21,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'notificacion') ?>
 
+    <?= $form->field($model, 'tipo_notificacion_id') ?>
+
+    <?= $form->field($model, 'created_at') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

@@ -18,8 +18,8 @@ class NotificacionesSearch extends Notificaciones
     public function rules()
     {
         return [
-            [['id', 'user_id'], 'integer'],
-            [['notificacion'], 'safe'],
+            [['id', 'user_id', 'tipo_notificacion_id'], 'integer'],
+            [['notificacion', 'created_at'], 'safe'],
         ];
     }
 
@@ -61,6 +61,8 @@ class NotificacionesSearch extends Notificaciones
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
+            'tipo_notificacion_id' => $this->tipo_notificacion_id,
+            'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['ilike', 'notificacion', $this->notificacion]);

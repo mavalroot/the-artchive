@@ -46,6 +46,7 @@ class Notificaciones extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => 'User ID',
             'notificacion' => 'Notificacion',
+            'created_at' => 'Recibido'
         ];
     }
 
