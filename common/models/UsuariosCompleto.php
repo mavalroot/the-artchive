@@ -62,7 +62,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'plataforma' => 'Plataforma',
             'pagina_web' => 'Página web',
             'avatar' => 'Avatar',
-            'tipo' => 'Tipo',
+            'tipo' => 'Tipo de usuario',
             'seguidores' => 'Seguidores',
             'siguiendo' => 'Siguiendo',
             'created_at' => 'Fecha de registro',
