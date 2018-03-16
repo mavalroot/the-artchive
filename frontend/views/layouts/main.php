@@ -76,9 +76,14 @@ AppAsset::register($this);
 
             ],
         ];
+        $menuItems[] = [
+            'label' => '<span class="glyphicon glyphicon-bell"></span>',
+            'url' => ['/notificaciones/index']
+        ];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => $menuItems,
     ]);
     NavBar::end();
