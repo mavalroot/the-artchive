@@ -31,21 +31,14 @@ class MensajesPrivadosController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index', 'sent', 'create'],
-                        'roles' => ['@'],
-                    ],
+                    ['allow' => true, 'roles' => ['@']],
                     [
                         'allow' => true,
                         'actions' => ['view', 'delete'],
-                        'roles' => ['@'],
                         'matchCallback' => function () {
                             $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
                             $id = Yii::$app->user->id;
-                            if ($mensaje) {
-                                return $id == $mensaje->receptor_id || $id == $mensaje->emisor_id;
-                            }
+                            return $mensaje && ($id == $mensaje->receptor_id || $id == $mensaje->emisor_id);
                         }
                     ],
                 ],
