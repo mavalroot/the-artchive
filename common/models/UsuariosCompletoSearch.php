@@ -18,8 +18,8 @@ class UsuariosCompletoSearch extends UsuariosCompleto
     public function rules()
     {
         return [
-            [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'safe'],
-            [['tipo_usuario', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
+            [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar', 'tipo'], 'safe'],
         ];
     }
 
@@ -59,7 +59,9 @@ class UsuariosCompletoSearch extends UsuariosCompleto
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'tipo_usuario' => $this->tipo_usuario,
+            'id' => $this->id,
+            'seguidores' => $this->seguidores,
+            'siguiendo' => $this->siguiendo,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
@@ -70,7 +72,8 @@ class UsuariosCompletoSearch extends UsuariosCompleto
             ->andFilterWhere(['ilike', 'tematica_favorita', $this->tematica_favorita])
             ->andFilterWhere(['ilike', 'plataforma', $this->plataforma])
             ->andFilterWhere(['ilike', 'pagina_web', $this->pagina_web])
-            ->andFilterWhere(['ilike', 'avatar', $this->avatar]);
+            ->andFilterWhere(['ilike', 'avatar', $this->avatar])
+            ->andFilterWhere(['ilike', 'tipo', $this->tipo]);
 
         return $dataProvider;
     }

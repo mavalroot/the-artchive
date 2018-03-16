@@ -195,14 +195,4 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return ['usuarios-completo/view', 'username' => $this->username];
     }
-
-    public function getFollowers()
-    {
-        return $this->hasMany(Seguidores::className(), ['user_id' => 'id']);
-    }
-
-    public function getFollows()
-    {
-        return $this->hasMany(Seguidores::className(), ['seguidor_id' => 'id']);
-    }
 }

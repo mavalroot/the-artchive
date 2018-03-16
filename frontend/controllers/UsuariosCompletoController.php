@@ -135,11 +135,4 @@ class UsuariosCompletoController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-    public function actionPersonajes($username)
-    {
-        return $this->render('personajes', [
-            'model' => $this->findModel($username),
-        ]);
-    }
 }

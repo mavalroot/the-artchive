@@ -11,6 +11,7 @@ use yii\helpers\Html;
 /**
  * This is the model class for table "usuarios_completo".
  *
+ * @property int $id
  * @property string $username
  * @property string $email
  * @property string $aficiones
@@ -18,7 +19,9 @@ use yii\helpers\Html;
  * @property string $plataforma
  * @property string $pagina_web
  * @property string $avatar
- * @property int $tipo_usuario
+ * @property string $tipo
+ * @property int $seguidores
+ * @property int $siguiendo
  * @property int $created_at
  * @property int $updated_at
  */
@@ -40,7 +43,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return [
             [['username'], 'required'],
             [['tipo_usuario', 'created_at', 'updated_at'], 'default', 'value' => null],
-            [['tipo_usuario', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
             [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
         ];
     }
@@ -51,6 +54,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'username' => 'Nombre de usuario',
             'email' => 'E-mail',
             'aficiones' => 'Aficiones',
@@ -58,7 +62,9 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'plataforma' => 'Plataforma',
             'pagina_web' => 'Página web',
             'avatar' => 'Avatar',
-            'tipo_usuario' => 'Tipo de suario',
+            'tipo' => 'Tipo de usuario',
+            'seguidores' => 'Seguidores',
+            'siguiendo' => 'Siguiendo',
             'created_at' => 'Fecha de registro',
             'updated_at' => 'Última actualización',
         ];
@@ -108,7 +114,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getPersonajes()
     {
-        return Personajes::find()->where(['usuario_id' => $this->getUser()->id]);
+        return Personajes::find()->where(['usuario_id' => $this->id]);
     }
 
     /**
@@ -118,7 +124,8 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getMisPersonajes()
     {
         return $dataProvider = new ActiveDataProvider([
-            'query' => $this->getPersonajes(),
+            'query' => $this->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
+            'sort' => false,
         ]);
     }
 
@@ -129,8 +136,8 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getFollowButtons()
     {
         $buttons = '';
-        $buttons .= Html::a($this->getUser()->getFollowers()->count() . ' seguidores', ['seguidores/index', 'username' => $this->username]);
-        $buttons .= ' || ' . Html::a($this->getUser()->getFollows()->count() . ' siguiendo', ['seguidores/following', 'username' => $this->username]);
+        $buttons .= Html::a($this->seguidores . ' seguidores', ['seguidores/index', 'username' => $this->username]);
+        $buttons .= ' || ' . Html::a($this->siguiendo . ' siguiendo', ['seguidores/following', 'username' => $this->username]);
 
         return $buttons;
     }

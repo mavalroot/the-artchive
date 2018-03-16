@@ -7,36 +7,32 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\PersonajesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$username = Yii::$app->request->get('username');
+
 $this->title = 'Personajes';
+$this->params['breadcrumbs'][] = ['label' => $username, 'url' => ['usuarios-completo/view', 'username' => $username]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="personajes-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Personajes', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            [
+                'attribute' => 'nombre',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->nombre, $model->getUrl());
+                }
+            ],
+            'created_at:datetime',
+            'updated_at:relativetime',
 
-            'id',
-            'usuario_id',
-            'nombre',
-            'fecha_nac',
-            'historia:ntext',
-            //'personalidad:ntext',
-            //'apariencia:ntext',
-            //'hechos_destacables:ntext',
-            //'created_at',
-            //'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

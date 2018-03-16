@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 
 use common\models\Personajes;
 use common\models\PersonajesSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -50,20 +51,28 @@ class PersonajesController extends Controller
 
     /**
      * Lists all Personajes models.
+     * @param string $username
      * @return mixed
      */
-    public function actionIndex($id = null)
+    public function actionIndex($username)
     {
-        $searchModel = new PersonajesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        if (isset($id)) {
-            $dataProvider->query->where(['usuario_id' => $id]);
-        }
+        $user = User::findOne(['username' => $username]);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if ($user) {
+            $id = $user->id;
+        }
+        if (isset($id)) {
+            $searchModel = new PersonajesSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            $dataProvider->query->where(['usuario_id' => $id]);
+
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
     }
 
     /**

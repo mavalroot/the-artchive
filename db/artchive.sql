@@ -39,9 +39,9 @@ CREATE TABLE usuarios_datos (
                                         ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE OR REPLACE VIEW usuarios_completo AS
+/* CREATE OR REPLACE VIEW usuarios_completo AS
 SELECT u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, ud.tipo_usuario, u.created_at, u.updated_at
-FROM "user" u LEFT JOIN usuarios_datos ud ON u.id = ud.user_id;
+FROM "user" u LEFT JOIN usuarios_datos ud ON u.id = ud.user_id; */
 
 DROP TABLE IF EXISTS personajes CASCADE;
 
@@ -209,3 +209,16 @@ CREATE TABLE apellidos_aleatorios (
       id bigserial PRIMARY KEY
     , apellido varchar(255) NOT NULL UNIQUE
 );
+
+------------
+-- VISTAS --
+------------
+
+CREATE OR REPLACE VIEW usuarios_completo AS
+SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at
+FROM "user" u
+LEFT JOIN usuarios_datos ud ON u.id = ud.user_id
+LEFT JOIN seguidores seg ON seg.user_id = u.id
+LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
+LEFT JOIN tipos_usuario tu ON tu.id = ud.tipo_usuario
+GROUP BY u.id, ud.user_id, tu.id;
