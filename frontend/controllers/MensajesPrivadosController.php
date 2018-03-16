@@ -38,7 +38,7 @@ class MensajesPrivadosController extends Controller
                         'matchCallback' => function () {
                             $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
                             $id = Yii::$app->user->id;
-                            return $mensaje && ($id == $mensaje->receptor_id || $id == $mensaje->emisor_id);
+                            return $id == $mensaje->receptor_id || $id == $mensaje->emisor_id;
                         }
                     ],
                 ],
