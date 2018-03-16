@@ -136,12 +136,21 @@ CREATE TABLE seguidores (
 -- NOTIFICACIONES --
 --------------------
 
+DROP TABLE IF EXISTS tipos_notificaciones CASCADE;
+
+CREATE TABLE tipos_notificaciones (
+      id    bigserial       PRIMARY KEY
+    , tipo  varchar(255)    UNIQUE NOT NULL
+);
+
 DROP TABLE IF EXISTS notificaciones CASCADE;
 
 CREATE TABLE notificaciones (
-      id bigserial PRIMARY KEY
-    , user_id bigint NOT NULL REFERENCES "user" (id)
-    , notificacion varchar(255)
+      id                    bigserial       PRIMARY KEY
+    , user_id               bigint          NOT NULL REFERENCES "user" (id)
+    , notificacion          varchar(255)
+    , tipo_notificacion_id  bigint          NOT NULL REFERENCES tipos_notificaciones (id)
+    , created_at            timestamp(0)    NOT NULL DEFAULT localtimestamp
 );
 
 --------------------------
