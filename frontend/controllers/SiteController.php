@@ -257,14 +257,17 @@ class SiteController extends Controller
     }
 
     /**
-     * [actionDeleteAccount description]
-     * @return [type] [description]
+     * Da de baja un usuario
+     *
+     * @return mixed
      */
     public function actionDeleteAccount()
     {
         $model = new DeleteAccountForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            // return $this->goHome();
         }
 
         return $this->render('deleteAccount', [

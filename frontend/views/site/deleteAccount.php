@@ -1,14 +1,14 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \frontend\models\DeleteAccountForm */
 
 use yii\helpers\Html;
-
 use yii\widgets\ActiveForm;
 
 $this->title = 'Delete Account';
 $this->params['breadcrumbs'][] = $this->title;
-var_dump(Yii::$app->request->post());
 ?>
 <div class="site-delete-account">
     <h1><?= Html::encode($this->title) ?></h1>
