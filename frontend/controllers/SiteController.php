@@ -262,6 +262,18 @@ class SiteController extends Controller
      */
     public function actionDelete()
     {
+        if (Yii::$app->request->post('delete')) {
+            // Recibe parámetros.
+            // TODO:
+            // Comprobar: username = username del usuario activo
+            // "Borrar" user.
+            // Comprobar: personajes = 1
+            // Borrar personajes.
+            // Comprobar: publicaciones = 1
+            // Borrar publicaciones.
+            // Borrar mensajes privados.
+        }
+
         return $this->render('delete');
     }
 }

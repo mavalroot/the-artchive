@@ -28,4 +28,10 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
+    <h1>Delete Account</h1>
+    <p>
+        Mensaje de advertencia.
+    </p>
+    <?= Html::a('Delete account', ['site/delete'], ['class' => 'btn btn-danger']); ?>
+
 </div>

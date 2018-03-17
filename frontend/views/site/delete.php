@@ -12,17 +12,23 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-delete-account">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Mensaje</p>
+    <p>Mensaje de advertencia.</p>
 
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(); ?>
-
-                <?= Html::label('Username', 'username') ?>
-                <?= Html::textInput('username') ?>
+                <p>
+                    <?= Html::label('Username', 'username');  ?>
+                    <?= Html::textInput('delete[username]') ?>
+                </p>
+                <p>Mensaje informativo.</p>
+                <p>
+                    <?= Html::checkbox('delete[personajes]', true, ['label' => 'Eliminar personajes']) ?>
+                    <?= Html::checkbox('delete[publicaciones]', true, ['label' => 'Eliminar publicaciones']) ?>
+                </p>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Delete Account', ['class' => 'btn btn-danger']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
