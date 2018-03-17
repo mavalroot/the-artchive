@@ -56,19 +56,11 @@ class DeleteAccountController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $user = $this->findModel($model->username);
             if ($this->actionDesactivarUsuario($user)) {
-                $this->actionBorrarRastro($user);
-
-                if ($model->personajes === '1') {
-                    $this->actionBorrarPjs($user);
-                }
-                if ($model->publicaciones === '1') {
-                    $this->actionBorrarPublicaciones($user);
-                }
-
+                $this->actionBorrarOpciones($model->personajes, $model->publicaciones);
                 Yii::$app->getSession()->setFlash('success', 'Se ha dado de baja satisfactoriamente.');
-                return $this->goHome();
+            } else {
+                Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
             }
-            Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
             return $this->goHome();
         }
 
@@ -89,6 +81,7 @@ class DeleteAccountController extends Controller
         $user->email = Yii::$app->security->generateRandomString();
         $user->status = 0;
         if ($user->save()) {
+            $this->actionBorrarRastro($user);
             return true;
         }
         return false;
@@ -113,6 +106,21 @@ class DeleteAccountController extends Controller
     }
 
     /**
+     * Maneja el borrado de personajes o de publicaciones
+     * @param  string $personajes    '0' no borra. '1' borra.
+     * @param  string $publicaciones '0' no borra. '1' borra.
+     */
+    public function actionBorrarOpciones($personajes, $publicaciones)
+    {
+        if ($personajes === '1') {
+            $this->actionBorrarPjs($user);
+        }
+        if ($publicaciones === '1') {
+            $this->actionBorrarPublicaciones($user);
+        }
+    }
+
+    /**
      * Borra todo rastro del usuario.
      * @param  User $user
      */
@@ -123,7 +131,7 @@ class DeleteAccountController extends Controller
         $datos->delete();
         Seguidores::deleteAll(['user_id' => $id]);
         Seguidores::deleteAll(['seguidor_id' => $id]);
-        MensajesPrivados::updateAll(['del_e' => true], 'emisor_id = '. $id);
+        MensajesPrivados::updateAll(['del_e' => true], 'emisor_id = ' . $id);
         MensajesPrivados::updateAll(['del_r' => true], 'receptor_id = ' . $id);
         Notificaciones::deleteAll(['user_id' => $id]);
     }
