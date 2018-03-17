@@ -10,8 +10,8 @@ CREATE TABLE "user" (
     , auth_key              varchar(32)     NOT NULL
     , password_hash         varchar(255)    NOT NULL
     , password_reset_token  varchar(255)    UNIQUE
-    , email                 varchar(255)    NOT NULL UNIQUE
-    , status                smallint        DEFAULT 10 NOT NULL
+    , email                 varchar(255)    UNIQUE
+    , status                smallint        DEFAULT 20 NOT NULL
     , created_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
     , updated_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
 );
@@ -215,7 +215,7 @@ CREATE TABLE apellidos_aleatorios (
 ------------
 
 CREATE OR REPLACE VIEW usuarios_completo AS
-SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at
+SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
 FROM "user" u
 LEFT JOIN usuarios_datos ud ON u.id = ud.user_id
 LEFT JOIN seguidores seg ON seg.user_id = u.id

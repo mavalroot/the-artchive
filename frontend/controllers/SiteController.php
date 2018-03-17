@@ -190,7 +190,7 @@ class SiteController extends Controller
             [
                 'id' => $id,
                 'auth_key' => $key,
-                'status' => 0,
+                'status' => 20,
             ]
         )
         ->one();
@@ -253,5 +253,9 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionDeleteAccount()
+    {
     }
 }
