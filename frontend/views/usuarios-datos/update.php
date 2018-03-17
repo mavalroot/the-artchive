@@ -21,6 +21,6 @@ $this->params['breadcrumbs'][] = 'Modificar';
     <p>
         Mensaje de advertencia.
     </p>
-    <?= Html::a('Delete account', ['site/delete-account'], ['class' => 'btn btn-danger']); ?>
+    <?= Html::a('Delete account', ['delete-account/index'], ['class' => 'btn btn-danger']); ?>
 
 </div>

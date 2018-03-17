@@ -10,6 +10,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 
 use common\models\User;
+use common\models\Personajes;
+use common\models\Seguidores;
+use common\models\Publicaciones;
 use common\models\UsuariosDatos;
 use frontend\models\DeleteAccountForm;
 
@@ -50,9 +53,21 @@ class DeleteAccountController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $user = $this->findModel($model->username);
-            $this->actionDesactivarUsuario($user);
+            if ($this->actionDesactivarUsuario($user)) {
+                $this->actionBorrarDatos($user);
+                $this->actionBorrarSeguidores($user);
 
-            Yii::$app->getSession()->setFlash('success', 'Se ha dado de baja satisfactoriamente.');
+                if ($model->personajes === '1') {
+                    $this->actionBorrarPjs($user);
+                }
+                if ($model->publicaciones === '1') {
+                    $this->actionBorrarPublicaciones($user);
+                }
+
+                Yii::$app->getSession()->setFlash('success', 'Se ha dado de baja satisfactoriamente.');
+                return $this->goHome();
+            }
+            Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
             return $this->goHome();
         }
 
@@ -69,13 +84,13 @@ class DeleteAccountController extends Controller
      */
     public function actionDesactivarUsuario($user)
     {
-        // $user->username = '--' . $user->id . '--';
-        // $user->email = Yii::$app->security->generateRandomString();
-        // $user->status = 0;
-        // if ($user->save()) {
-        //     return true;
-        // }
-        // return false;
+        $user->username = '--' . $user->id . '--';
+        $user->email = Yii::$app->security->generateRandomString();
+        $user->status = 0;
+        if ($user->save()) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -85,7 +100,7 @@ class DeleteAccountController extends Controller
     public function actionBorrarDatos($user)
     {
         $datos = UsuariosDatos::findOne($user->id);
-        // $datos->delete();
+        $datos->delete();
     }
 
     /**
@@ -94,6 +109,7 @@ class DeleteAccountController extends Controller
      */
     public function actionBorrarPjs($user)
     {
+        Personajes::deleteAll(['usuario_id' => $user->id]);
     }
 
     /**
@@ -102,6 +118,17 @@ class DeleteAccountController extends Controller
      */
     public function actionBorrarPublicaciones($user)
     {
+        Publicaciones::deleteAll(['usuario_id' => $user->id]);
+    }
+
+    /**
+     * Borra las entradas de la tabla Seguidores que correspondan a dicho usuario.
+     * @param  User $user
+     */
+    public function actionBorrarSeguidores($user)
+    {
+        Seguidores::deleteAll(['user_id' => $user->id]);
+        Seguidores::deleteAll(['seguidor_id' => $user->id]);
     }
 
     /**
