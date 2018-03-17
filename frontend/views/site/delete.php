@@ -4,6 +4,8 @@
 
 use yii\helpers\Html;
 
+use yii\widgets\ActiveForm;
+
 $this->title = 'Delete Account';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,9 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
+            <?php $form = ActiveForm::begin(); ?>
 
-                <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+                <?= Html::label('Username', 'username') ?>
+                <?= Html::textInput('username') ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary']) ?>

@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 use yii\helpers\Html;
 
 use common\models\LoginForm;
+use frontend\models\DeleteAccountForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -255,7 +256,12 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionDeleteAccount()
+    /**
+     * [actionDeleteAccount description]
+     * @return [type] [description]
+     */
+    public function actionDelete()
     {
+        return $this->render('delete');
     }
 }
