@@ -11,7 +11,7 @@ CREATE TABLE "user" (
     , password_hash         varchar(255)    NOT NULL
     , password_reset_token  varchar(255)    UNIQUE
     , email                 varchar(255)    UNIQUE
-    , status                smallint        DEFAULT 20 NOT NULL
+    , status                smallint        DEFAULT 10 NOT NULL
     , created_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
     , updated_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
 );

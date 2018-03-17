@@ -14,6 +14,8 @@ use common\models\Personajes;
 use common\models\Seguidores;
 use common\models\Publicaciones;
 use common\models\UsuariosDatos;
+use common\models\Notificaciones;
+use common\models\MensajesPrivados;
 use frontend\models\DeleteAccountForm;
 
 class DeleteAccountController extends Controller
@@ -54,8 +56,7 @@ class DeleteAccountController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $user = $this->findModel($model->username);
             if ($this->actionDesactivarUsuario($user)) {
-                $this->actionBorrarDatos($user);
-                $this->actionBorrarSeguidores($user);
+                $this->actionBorrarRastro($user);
 
                 if ($model->personajes === '1') {
                     $this->actionBorrarPjs($user);
@@ -94,16 +95,6 @@ class DeleteAccountController extends Controller
     }
 
     /**
-     * Borra los datos asociados a un usuario de la tabla usuarios_datos.
-     * @param  User $user
-     */
-    public function actionBorrarDatos($user)
-    {
-        $datos = UsuariosDatos::findOne($user->id);
-        $datos->delete();
-    }
-
-    /**
      * Borra los personajes del usuario si al darse de baja así lo especificó.
      * @param  User $user
      */
@@ -122,13 +113,19 @@ class DeleteAccountController extends Controller
     }
 
     /**
-     * Borra las entradas de la tabla Seguidores que correspondan a dicho usuario.
+     * Borra todo rastro del usuario.
      * @param  User $user
      */
-    public function actionBorrarSeguidores($user)
+    public function actionBorrarRastro($user)
     {
-        Seguidores::deleteAll(['user_id' => $user->id]);
-        Seguidores::deleteAll(['seguidor_id' => $user->id]);
+        $id = $user->id;
+        $datos = UsuariosDatos::findOne($id);
+        $datos->delete();
+        Seguidores::deleteAll(['user_id' => $id]);
+        Seguidores::deleteAll(['seguidor_id' => $id]);
+        MensajesPrivados::updateAll(['del_e' => true], 'emisor_id = '. $id);
+        MensajesPrivados::updateAll(['del_r' => true], 'receptor_id = ' . $id);
+        Notificaciones::deleteAll(['user_id' => $id]);
     }
 
     /**
