@@ -8,6 +8,7 @@ use yii\widgets\ActiveForm;
 
 $this->title = 'Delete Account';
 $this->params['breadcrumbs'][] = $this->title;
+var_dump(Yii::$app->request->post());
 ?>
 <div class="site-delete-account">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -18,13 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(); ?>
                 <p>
-                    <?= Html::label('Username', 'username');  ?>
-                    <?= Html::textInput('delete[username]') ?>
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                 </p>
                 <p>Mensaje informativo.</p>
                 <p>
-                    <?= Html::checkbox('delete[personajes]', true, ['label' => 'Eliminar personajes']) ?>
-                    <?= Html::checkbox('delete[publicaciones]', true, ['label' => 'Eliminar publicaciones']) ?>
+                    <?= $form->field($model, 'personajes')->checkbox(['label' => 'Eliminar personajes']) ?>
+                    <?= $form->field($model, 'publicaciones')->checkbox(['label' => 'Eliminar publicaciones']) ?>
                 </p>
 
                 <div class="form-group">

@@ -29,7 +29,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup', 'delete-account'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -37,7 +37,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'delete-account'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -260,20 +260,15 @@ class SiteController extends Controller
      * [actionDeleteAccount description]
      * @return [type] [description]
      */
-    public function actionDelete()
+    public function actionDeleteAccount()
     {
-        if (Yii::$app->request->post('delete')) {
-            // Recibe parámetros.
-            // TODO:
-            // Comprobar: username = username del usuario activo
-            // "Borrar" user.
-            // Comprobar: personajes = 1
-            // Borrar personajes.
-            // Comprobar: publicaciones = 1
-            // Borrar publicaciones.
-            // Borrar mensajes privados.
+        $model = new DeleteAccountForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
         }
 
-        return $this->render('delete');
+        return $this->render('deleteAccount', [
+            'model' => $model,
+        ]);
     }
 }
