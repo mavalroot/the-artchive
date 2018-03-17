@@ -10,7 +10,6 @@ use yii\filters\AccessControl;
 use yii\helpers\Html;
 
 use common\models\LoginForm;
-use frontend\models\DeleteAccountForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -252,25 +251,6 @@ class SiteController extends Controller
         }
 
         return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Da de baja un usuario
-     *
-     * @return mixed
-     */
-    public function actionDeleteAccount()
-    {
-        $model = new DeleteAccountForm();
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-
-            // return $this->goHome();
-        }
-
-        return $this->render('deleteAccount', [
             'model' => $model,
         ]);
     }
