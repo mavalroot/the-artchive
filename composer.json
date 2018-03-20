@@ -27,7 +27,8 @@
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1",
         "purrweb/yii2-heroku": "^1.0",
-        "yiisoft/yii2-shell": "~2.0.0"
+        "yiisoft/yii2-shell": "~2.0.0",
+        "yiisoft/yii2-apidoc": "dev-master"
     },
     "config": {
         "process-timeout": 1800,
@@ -39,6 +40,10 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ricpelo/yii2-apidoc"
         }
     ],
     "scripts": {
