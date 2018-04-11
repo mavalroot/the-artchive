@@ -1,3 +1,15 @@
 # Glosario de términos
 
-Indicar y definir uno por uno.
+| Término               | Significado |
+| --------------------- | ----------- |
+| Usuario               | |
+| User                  | |
+| Personaje             | |
+| Pj                    | |
+| Creaciones            | |
+| Publicaciones         | |
+| Notificaciones        | |
+| Seguir / Follow       | |
+| Siguiendo / Following | |
+| Mensajes privados     | |
+| Árbol genealógico     | |

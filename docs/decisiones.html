@@ -4,12 +4,12 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="language" content="en" />
-        <link href="./assets/f8108213/css/bootstrap.css" rel="stylesheet">
-<link href="./assets/4ba972b5/solarized_light.css" rel="stylesheet">
-<link href="./assets/4b1f05d0/style.css" rel="stylesheet">
-<script src="./assets/ed675027/jquery.js"></script>
-<script src="./assets/f8108213/js/bootstrap.js"></script>
-<script src="./assets/686f0903/jssearch.js"></script>    <title>Decisiones adoptadas - Decisiones adoptadas - Guía del proyecto</title>
+        <link href="./assets/d356890a/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/96b6d3c0/solarized_light.css" rel="stylesheet">
+<link href="./assets/405da80b/style.css" rel="stylesheet">
+<script src="./assets/a1dc72/jquery.js"></script>
+<script src="./assets/d356890a/js/bootstrap.js"></script>
+<script src="./assets/e3fe518c/jssearch.js"></script>    <title>Decisiones adoptadas - Decisiones adoptadas - Guía del proyecto</title>
 </head>
 <body>
 
@@ -48,7 +48,14 @@
 <a class="list-group-item" href="#navigation-32" data-toggle="collapse" data-parent="#navigation">Conclusiones <b class="caret"></b></a><div id="navigation-32" class="submenu panel-collapse collapse"><a class="list-group-item" href="./conclusiones.html">Conclusiones</a></div>
 <a class="list-group-item" href="#navigation-33" data-toggle="collapse" data-parent="#navigation">Anexos <b class="caret"></b></a><div id="navigation-33" class="submenu panel-collapse collapse"><a class="list-group-item" href="./anexos.html">Anexos</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <h1>Decisiones adoptadas <span id="decisiones-adoptadas"></span><a href="#decisiones-adoptadas" class="hashlink">&para;</a></h1><p>Explicar, indicando en cada caso su justificación.</p>
+        <h1>Decisiones adoptadas <span id="decisiones-adoptadas"></span><a href="#decisiones-adoptadas" class="hashlink">&para;</a></h1><ul>
+<li>Se usará la tabla "user" que nos proporciona la plantilla avanzada de yii2 para almacenar los datos de registro, y la tabla usuarios_datos se usará para almacenar los datos personales de cada usuario.</li>
+<li>Se ha creado una VIEW usuarios_completo que mezclará ambas partes de usuarios para facilitar la visualización.</li>
+<li>Para crear los árboles genealógicos no se creará una tabla como tal, sino que con la tabla de parentescos se irán formando.</li>
+<li>El email del usuario será privado (sólo el dueño de la cuenta puede ver su propio email).</li>
+<li>El id del usuario no será visible siempre que pueda evitarse, se usará el username como parámetro.</li>
+<li>Para la baja de usuario se comenzó construyendo el deleteAccount directamente en site y siteController, pero se tomó la decisión de apartarlo para mayor eficencia, creando la vista delete-account y su propio controlador.</li>
+</ul>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
 </div>
@@ -57,7 +64,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Tue, 20 Mar 2018 18:35:21 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Wed, 11 Apr 2018 17:20:38 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {
