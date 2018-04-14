@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'nombre',
                 'format' => 'raw',
                 'value' => function ($model) {
-                    return Html::a($model->nombre, $model->getUrl());
+                    return $model->getUrl();
                 }
             ],
             'created_at:datetime',
