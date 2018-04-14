@@ -37,7 +37,7 @@ AppAsset::register($this);
     ]);
     ?>
     <div class="col-sm-3">
-     <form role="search" action="/site/search" method="get">
+     <form role="search" action="/search" method="get">
        <div id="sb-nav">
          <input type="text" class="form-control" placeholder="Buscar" name="st">
          <select class="btn" name="src">
