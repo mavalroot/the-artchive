@@ -267,40 +267,34 @@ class SiteController extends Controller
      */
     public function actionSearch($s = '', $t = 'user')
     {
-        $mensaje = false;
         $dataProvider = false;
         $columnas = [];
         if ($t == 'pj') {
             $attr = 'nombre';
-            $query = Personajes::find()->where([$attr => $s])->orderBy('nombre ASC');
+            $query = Personajes::find()->where([$attr => $s])->orderBy("$attr ASC");
         } else {
             $attr = 'username';
-            $query = User::find()->where([$attr => $s]);
+            $query = User::find()->where([$attr => $s])->orderBy("$attr ASC");
         }
 
         if ($query->count() == 0) {
-            $mensaje = "No se ha encontrado ningún $t.";
+            Yii::$app->session->setFlash('info', "No se ha encontrado ningún $t.");
+            return $this->render('search');
         }
-
-        if ($mensaje) {
-            Yii::$app->session->setFlash('info', $mensaje);
-        } else {
-            $dataProvider = new ActiveDataProvider([
+        $dataProvider = new ActiveDataProvider([
                 'query' => $query,
                 'pagination' => [
                     'pageSize' => 10,
                 ],
             ]);
-            $columnas[] = [
+        $columnas[] = [
                 'attribute' => $attr,
                 'format' => 'raw',
                 'value' => function ($model) {
                     return $model->getUrl();
                 }
             ];
-            $columnas[] = 'created_at:datetime';
-        }
-
+        $columnas[] = 'created_at:datetime';
 
         return $this->render('search', [
             'dataProvider' => $dataProvider,
