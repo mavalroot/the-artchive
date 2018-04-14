@@ -35,6 +35,20 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    ?>
+    <div class="col-sm-3">
+     <form role="search" action="/site/search" method="get">
+       <div id="sb-nav">
+         <input type="text" class="form-control" placeholder="Buscar" name="st">
+         <select class="btn" name="src">
+               <option value="user">Usuario</option>
+               <option value="pj">Personaje</option>
+           </select>
+           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+         </div>
+     </form>
+   </div>
+    <?php
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],

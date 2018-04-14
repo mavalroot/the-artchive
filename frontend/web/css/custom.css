@@ -1,0 +1,22 @@
+#sb-nav {
+  display: flex;
+  margin-top: 8px;
+}
+
+#sb-nav > input {
+  border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+  width: 130px;
+  flex-grow: 1;
+}
+
+#sb-nav > button {
+  border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+}
+
+#sb-nav > select {
+  border-radius: 0px;
+  min-width: 80px;
+  padding: 6px 0px;
+}

@@ -3,6 +3,8 @@ namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
+use yii\helpers\Html;
+
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
@@ -194,6 +196,6 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getUrl()
     {
-        return ['usuarios-completo/view', 'username' => $this->username];
+        return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
     }
 }

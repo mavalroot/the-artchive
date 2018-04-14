@@ -116,7 +116,7 @@ class Personajes extends \yii\db\ActiveRecord
      */
     public function getUrl()
     {
-        return ['personajes/view', 'id' => $this->id];
+        return Html::a($this->nombre, ['personajes/view', 'id' => $this->id]);
     }
 
     /**

@@ -4,6 +4,29 @@
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
+    <div class="form-inline">
+        <form class="" action="site/search" method="get">
+            <input type="text" class="form-control" name="s" value="" placeholder="Buscar" />
+            <button type="submit" name="button" class="btn btn-md btn-info">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <select class="btn" name="t">
+                <option value="user">Usuario</option>
+                <option value="pj">Personaje</option>
+            </select>
+        </form>
+    </div>
+
+   <div class="col-sm-3 col-md-3">
+       <form class="navbar-form" role="search">
+       <div class="input-group">
+           <input type="text" class="form-control" placeholder="Search" name="q">
+           <div class="input-group-btn">
+               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+           </div>
+       </div>
+       </form>
+   </div>
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>

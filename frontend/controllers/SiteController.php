@@ -2,14 +2,17 @@
 namespace frontend\controllers;
 
 use Yii;
+
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\helpers\Html;
 
+use common\models\User;
 use common\models\LoginForm;
+use common\models\Personajes;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -155,10 +158,9 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                $mensaje = "Para confirmar su cuenta haga click en el siguiente enlace: " .
-                 Html::a('Confirmación', Yii::$app->urlManager->createAbsoluteUrl(
-                     ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
-                 ));
+                $mensaje = "Para confirmar su cuenta haga click en el siguiente enlace: <a href=\"".Yii::$app->urlManager->createAbsoluteUrl(
+                    ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
+                )."\">Confirmación</a>";
                 $email = \Yii::$app->mailer->compose()
                  ->setTo($user->email)
                  ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
@@ -252,6 +254,41 @@ class SiteController extends Controller
 
         return $this->render('resetPassword', [
             'model' => $model,
+        ]);
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionSearch($st = '', $src = 'user')
+    {
+        $columnas = [];
+        if ($src == 'pj') {
+            $attr = 'nombre';
+            $query = Personajes::find()->where(['like', $attr, $st])->orderBy("$attr ASC");
+        } else {
+            $attr = 'username';
+            $query = User::find()->where([$attr => $st])->orderBy("$attr ASC");
+        }
+        if ($query->count() == 0) {
+            Yii::$app->session->setFlash('info', "No se ha encontrado ningún $src.");
+            return $this->render('search');
+        }
+
+        $columnas[] = [
+                'attribute' => $attr,
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->getUrl();
+                }
+            ];
+        $columnas[] = 'created_at:datetime';
+
+        return $this->render('search', [
+            'query' => $query,
+            'columnas' => $columnas,
         ]);
     }
 }
