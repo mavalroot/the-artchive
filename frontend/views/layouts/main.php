@@ -36,15 +36,17 @@ AppAsset::register($this);
         ],
     ]);
     ?>
-    <div class="col-sm-3 col-md-3">
-       <form class="navbar-form" role="search" action="site/search" method="get">
-       <div class="input-group">
-           <input type="text" class="form-control" placeholder="Buscar" name="s" >
-           <div class="input-group-btn">
-               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-           </div>
-       </div>
-       </form>
+    <div class="col-sm-3">
+     <form role="search" action="/site/search" method="get">
+       <div id="sb-nav">
+         <input type="text" class="form-control" placeholder="Buscar" name="st">
+         <select class="btn" name="src">
+               <option value="user">Usuario</option>
+               <option value="pj">Personaje</option>
+           </select>
+           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+         </div>
+     </form>
    </div>
     <?php
     $menuItems = [

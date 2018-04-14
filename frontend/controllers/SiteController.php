@@ -6,7 +6,6 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\data\ActiveDataProvider;
 
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -265,28 +264,21 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionSearch($s = '', $t = 'user')
+    public function actionSearch($st = '', $src = 'user')
     {
         $columnas = [];
-        if ($t == 'pj') {
+        if ($src == 'pj') {
             $attr = 'nombre';
-            $query = Personajes::find()->where(['like', $attr, $s])->orderBy("$attr ASC");
+            $query = Personajes::find()->where(['like', $attr, $st])->orderBy("$attr ASC");
         } else {
             $attr = 'username';
-            $query = User::find()->where([$attr => $s])->orderBy("$attr ASC");
+            $query = User::find()->where([$attr => $st])->orderBy("$attr ASC");
         }
-
         if ($query->count() == 0) {
-            Yii::$app->session->setFlash('info', "No se ha encontrado ningún $t.");
+            Yii::$app->session->setFlash('info', "No se ha encontrado ningún $src.");
             return $this->render('search');
         }
 
-        $dataProvider = new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => [
-                    'pageSize' => 10,
-                ],
-            ]);
         $columnas[] = [
                 'attribute' => $attr,
                 'format' => 'raw',
@@ -297,7 +289,7 @@ class SiteController extends Controller
         $columnas[] = 'created_at:datetime';
 
         return $this->render('search', [
-            'dataProvider' => $dataProvider,
+            'query' => $query,
             'columnas' => $columnas,
         ]);
     }
