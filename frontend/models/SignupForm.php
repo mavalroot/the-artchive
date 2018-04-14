@@ -53,7 +53,9 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        $user->status = 20;
+        // $user->status = 20;
+        $user->status = 10; // Temporalmente, para poder hacer registros sin necesitar correo de confirmación
+
 
         if ($user->save()) {
             $datos = new UsuariosDatos();
