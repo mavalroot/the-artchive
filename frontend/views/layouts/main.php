@@ -47,6 +47,8 @@ AppAsset::register($this);
             ],
         ];
     } else {
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones', 'url' => ['/notificaciones/index']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes/inbox']];
         $menuItemsLeft[] = [
             'label' => '<span class="glyphicon glyphicon-pencil"></span> Crear',
             'items' => [
@@ -54,8 +56,6 @@ AppAsset::register($this);
                 ['label' => 'Publicación', 'url' => ['/publicaciones/create']],
             ],
         ];
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones', 'url' => ['/notificaciones/index']];
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes/inbox']];
         $menuItemsRight[] = [
             'label' => Yii::$app->user->identity->username,
             'items' => [
@@ -111,6 +111,7 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-right">by <a href="http://www.mavalroot.es/">mavalroot</a></p>
     </div>
 </footer>
 
