@@ -29,75 +29,73 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' => false,
+        'brandUrl' => false,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    ?>
-    <div class="col-sm-3">
-     <form role="search" action="/search" method="get">
-       <div id="sb-nav">
-         <input type="text" class="form-control" placeholder="Buscar" name="st">
-         <select class="btn" name="src">
-               <option value="user">Usuario</option>
-               <option value="pj">Personaje</option>
-           </select>
-           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-         </div>
-     </form>
-   </div>
-    <?php
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    $menuItems[] = [
-        'label' => 'Depuración',
-        'items' => [
-            ['label' => 'Usuarios', 'url' => ['/usuarios-completo/index']],
-            ['label' => 'Personajes', 'url' => ['/personajes/index']],
-            ['label' => 'Publicaciones', 'url' => ['/publicaciones/index']],
-        ],
+    $menuItemsLeft = [
+        ['label' => '<span class="glyphicon glyphicon-home"></span> Inicio', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItemsRight[] = [
+            'label' => '¿No tienes cuenta?',
+            'items' => [
+                ['label' => 'Signup', 'url' => ['/site/signup']],
+                ['label' => 'Login', 'url' => ['/site/login']],
+            ],
+        ];
     } else {
-        $menuItems[] = [
-            'label' => 'Crear',
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones', 'url' => ['/notificaciones/index']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes/inbox']];
+        $menuItemsLeft[] = [
+            'label' => '<span class="glyphicon glyphicon-pencil"></span> Crear',
             'items' => [
                 ['label' => 'Personaje', 'url' => ['/personajes/create']],
                 ['label' => 'Publicación', 'url' => ['/publicaciones/create']],
             ],
         ];
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-        $menuItems[] = [
+        $menuItemsRight[] = [
             'label' => Yii::$app->user->identity->username,
             'items' => [
-                ['label' => 'Inbox', 'url' => ['/mensajes/inbox']],
                 ['label' => 'Perfil', 'url' => ['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]],
+                [
+                    'label' => 'Logout',
+                    'url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']
+                 ],
             ],
-        ];
-        $menuItems[] = [
-            'label' => '<span class="glyphicon glyphicon-bell"></span>',
-            'url' => ['/notificaciones/index']
         ];
     }
     echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'encodeLabels' => false,
+        'items' => $menuItemsLeft,
+    ]);
+    echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
-        'items' => $menuItems,
+        'items' => $menuItemsRight,
     ]);
+    ?>
+    <ul id="w1" class="navbar-nav navbar-right nav">
+               <li>
+                  <div class="col-sm-3">
+                     <form role="search" action="/search" method="get">
+                        <div id="sb-nav">
+                           <input class="form-control" placeholder="Buscar" name="st" type="text">
+                           <select class="btn hidden-sm" name="src">
+                              <option value="user">Usuario</option>
+                              <option value="pj">Personaje</option>
+                           </select>
+                           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                     </form>
+                  </div>
+               </li>
+      </ul>
+    <?php
     NavBar::end();
     ?>
 
@@ -113,6 +111,7 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-right">by <a href="http://www.mavalroot.es/">mavalroot</a></p>
     </div>
 </footer>
 
