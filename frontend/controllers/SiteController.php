@@ -267,11 +267,10 @@ class SiteController extends Controller
      */
     public function actionSearch($s = '', $t = 'user')
     {
-        $dataProvider = false;
         $columnas = [];
         if ($t == 'pj') {
             $attr = 'nombre';
-            $query = Personajes::find()->where([$attr => $s])->orderBy("$attr ASC");
+            $query = Personajes::find()->where(['like', $attr, $s])->orderBy("$attr ASC");
         } else {
             $attr = 'username';
             $query = User::find()->where([$attr => $s])->orderBy("$attr ASC");
@@ -281,6 +280,7 @@ class SiteController extends Controller
             Yii::$app->session->setFlash('info', "No se ha encontrado ningún $t.");
             return $this->render('search');
         }
+
         $dataProvider = new ActiveDataProvider([
                 'query' => $query,
                 'pagination' => [
