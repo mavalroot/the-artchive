@@ -123,10 +123,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getMisPersonajes()
     {
-        return $dataProvider = new ActiveDataProvider([
+        $dataProvider = new ActiveDataProvider([
             'query' => $this->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
+            'pagination' => false,
             'sort' => false,
         ]);
+
+        return $dataProvider;
     }
 
     /**

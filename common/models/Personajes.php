@@ -29,6 +29,8 @@ use yii\helpers\Html;
  */
 class Personajes extends \yii\db\ActiveRecord
 {
+    public $creator;
+
     /**
      * @inheritdoc
      */
@@ -69,6 +71,7 @@ class Personajes extends \yii\db\ActiveRecord
             'hechos_destacables' => 'Hechos destacables',
             'created_at' => 'Fecha de creación',
             'updated_at' => 'Última actualización',
+            'creator' => 'Creador'
         ];
     }
 
@@ -146,5 +149,10 @@ class Personajes extends \yii\db\ActiveRecord
                 ]) ?>
             </p>
         <?php endif;
+    }
+
+    public function getCreator()
+    {
+        return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
     }
 }
