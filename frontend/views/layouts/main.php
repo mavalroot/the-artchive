@@ -48,7 +48,7 @@ AppAsset::register($this);
         ];
     } else {
         $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones', 'url' => ['/notificaciones/index']];
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes/inbox']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes-privados/index']];
         $menuItemsLeft[] = [
             'label' => '<span class="glyphicon glyphicon-pencil"></span> Crear',
             'items' => [
