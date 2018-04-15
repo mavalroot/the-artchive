@@ -14,18 +14,14 @@ use kartik\date\DatePicker;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
-        <label class="control-label">
-            Fecha de nacimiento
-            <?= DatePicker::widget([
-                'model' => $model,
-                'attribute' => 'fecha_nac',
-                'options' => ['placeholder' => 'Enter birth date ...'],
-                'pluginOptions' => [
-                    'autoclose'=>true
-                ]
-            ]); ?>
-        </label>
+        <?= $form->field($model, 'fecha_nac')->widget(DatePicker::classname(), [
+            'options' => ['placeholder' => 'Elija fecha de nacimiento...'],
+            'pluginOptions' => [
+                'autoclose'=> true
+            ]
+        ]); ?>
     </div>
 
     <?= $form->field($model, 'historia')->textarea(['rows' => 6]) ?>
