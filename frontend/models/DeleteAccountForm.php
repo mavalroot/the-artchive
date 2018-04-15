@@ -44,6 +44,8 @@ class DeleteAccountForm extends Model
         $model->email = Yii::$app->security->generateRandomString();
         $model->status = 0;
 
+        $this->username = $model->username;
+
         return $model->save();
     }
 
@@ -72,8 +74,7 @@ class DeleteAccountForm extends Model
 
     public function borrarRastro()
     {
-        $model = $this->getUser();
-        $id = $model->id;
+        $id = $this->getUser()->id;
         $datos = UsuariosDatos::findOne($id);
         $datos->delete();
         Seguidores::deleteAll(['user_id' => $id]);

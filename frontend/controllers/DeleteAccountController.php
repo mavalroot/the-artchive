@@ -21,7 +21,7 @@ class DeleteAccountController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'baja' => ['post'],
+                    'delete' => ['post'],
                 ],
             ],
             'access' => [
@@ -45,6 +45,15 @@ class DeleteAccountController extends Controller
     {
         $model = new DeleteAccountForm();
 
+        return $this->render('index', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDelete()
+    {
+        $model = new DeleteAccountForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->desactivarUsuario()) {
                 $model->borrarTodo();
@@ -54,9 +63,5 @@ class DeleteAccountController extends Controller
             }
             return $this->goHome();
         }
-
-        return $this->render('index', [
-            'model' => $model,
-        ]);
     }
 }
