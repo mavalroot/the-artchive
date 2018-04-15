@@ -258,7 +258,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Busca un usuario o un personaje
      *
      * @return mixed
      */
@@ -267,25 +267,21 @@ class SiteController extends Controller
         $columnas = [];
         if ($src == 'pj') {
             $attr = 'nombre';
-            $query = Personajes::find()->where(['like', $attr, $st])->orderBy("$attr ASC");
+            $query = Personajes::find()->select('personajes.*, user.username as creator')->joinWith(['usuario'])->where(['like', $attr, $st]);
+            $columnas[] = ['attribute' => 'creator', 'format' => 'raw', 'value' => function ($model) {
+                return $model->getCreator();
+            }];
         } else {
             $attr = 'username';
             $query = User::find()->where([$attr => $st])->orderBy("$attr ASC");
         }
         if ($query->count() == 0) {
-            Yii::$app->session->setFlash('info', "No se ha encontrado ningún $src.");
             return $this->render('search');
         }
-
-        $columnas[] = [
-                'attribute' => $attr,
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return $model->getUrl();
-                }
-            ];
+        $columnas[] = ['attribute' => $attr, 'format' => 'raw', 'value' => function ($model) {
+            return $model->getUrl();
+        }];
         $columnas[] = 'created_at:date';
-
         return $this->render('search', [
             'query' => $query,
             'columnas' => $columnas,

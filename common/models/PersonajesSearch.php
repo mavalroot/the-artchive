@@ -19,7 +19,7 @@ class PersonajesSearch extends Personajes
     {
         return [
             [['id', 'usuario_id'], 'integer'],
-            [['nombre', 'fecha_nac', 'historia', 'personalidad', 'apariencia', 'hechos_destacables', 'created_at', 'updated_at'], 'safe'],
+            [['nombre', 'fecha_nac', 'historia', 'personalidad', 'apariencia', 'hechos_destacables', 'created_at', 'updated_at', 'creator'], 'safe'],
         ];
     }
 
