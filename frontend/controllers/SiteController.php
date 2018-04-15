@@ -284,7 +284,7 @@ class SiteController extends Controller
                     return $model->getUrl();
                 }
             ];
-        $columnas[] = 'created_at:datetime';
+        $columnas[] = 'created_at:date';
 
         return $this->render('search', [
             'query' => $query,

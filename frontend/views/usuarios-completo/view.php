@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'tipo',
             'seguidores',
             'siguiendo',
-            'created_at:datetime',
+            'created_at:date',
             'updated_at:relativeTime',
         ],
     ]) ?>
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getUrl();
                 }
             ],
-            'created_at:datetime',
+            'created_at:date',
             'updated_at:relativeTime',
         ],
     ]); ?>
