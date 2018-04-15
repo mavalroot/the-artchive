@@ -13,7 +13,7 @@ use common\models\UsuariosCompletoSearch;
  */
 class Search extends Model
 {
-    public $search_term;
+    public $searchTerm;
 
     /**
      * {@inheritdoc}
@@ -32,7 +32,7 @@ class Search extends Model
         $searchModel = new PersonajesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->where(['nombre' => $this->search_term]);
+        $dataProvider->query->where(['nombre' => $this->$searchTerm]);
 
         return $dataProvider;
     }
@@ -64,7 +64,7 @@ class Search extends Model
         $searchModel = new UsuariosCompletoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->where(['username' => $this->search_term]);
+        $dataProvider->query->where(['username' => $this->$searchTerm]);
         return $dataProvider;
     }
 
