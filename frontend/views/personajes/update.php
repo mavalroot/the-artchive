@@ -5,9 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
 
+
+$owner = $model->getUsuario()->one()->username;
+
 $this->title = 'Modificar personaje: ' . $model->nombre;
-$this->params['breadcrumbs'][] = ['label' => 'Personajes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->nombre, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
+$this->params['breadcrumbs'][] = ['label' => 'Personajes de ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = 'Modificar';
 ?>
 <div class="personajes-update">
