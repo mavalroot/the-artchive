@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
@@ -12,10 +13,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fecha_nac')->textInput() ?>
+    <div class="form-group">
+        <label class="control-label">
+            Fecha de nacimiento
+            <?= DatePicker::widget([
+                'model' => $model,
+                'attribute' => 'fecha_nac',
+                'options' => ['placeholder' => 'Enter birth date ...'],
+                'pluginOptions' => [
+                    'autoclose'=>true
+                ]
+            ]); ?>
+        </label>
+    </div>
 
     <?= $form->field($model, 'historia')->textarea(['rows' => 6]) ?>
 
