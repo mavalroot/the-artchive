@@ -1,12 +1,8 @@
 <?php
 namespace frontend\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-
-use common\models\Personajes;
-use common\models\User;
 
 use frontend\models\Search;
 
@@ -49,6 +45,6 @@ class SearchController extends Controller
 
     protected function findModel($st)
     {
-        return new Search(['search_term' => $st]);
+        return new Search(['searchTerm' => $st]);
     }
 }

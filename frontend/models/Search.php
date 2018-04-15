@@ -32,7 +32,7 @@ class Search extends Model
         $searchModel = new PersonajesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->where(['nombre' => $this->$searchTerm]);
+        $dataProvider->query->where(['nombre' => $this->searchTerm]);
 
         return $dataProvider;
     }
@@ -64,7 +64,7 @@ class Search extends Model
         $searchModel = new UsuariosCompletoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->where(['username' => $this->$searchTerm]);
+        $dataProvider->query->where(['username' => $this->searchTerm]);
         return $dataProvider;
     }
 
