@@ -8,6 +8,8 @@ use yii\web\Controller;
 use common\models\Personajes;
 use common\models\User;
 
+use frontend\models\Search;
+
 /**
  * Asfasd
  */
@@ -30,27 +32,23 @@ class SearchController extends Controller
 
     public function actionSearch($st = '', $src = 'user')
     {
-        $columnas = [];
+        $model = $this->findModel($st);
         if ($src == 'pj') {
-            $attr = 'nombre';
-            $query = Personajes::find()->select('personajes.*, user.username as creator')->joinWith(['usuario'])->where(['like', $attr, $st]);
-            $columnas[] = ['attribute' => 'creator', 'format' => 'raw', 'value' => function ($model) {
-                return $model->getCreator();
-            }];
+            $dataProvider = $model->searchPj();
+            $columnas = $model->getPjColumns();
         } else {
-            $attr = 'username';
-            $query = User::find()->where([$attr => $st])->orderBy("$attr ASC");
+            $dataProvider = $model->searchUser();
+            $columnas = $model->getUserColumns();
         }
-        if ($query->count() == 0) {
-            return $this->render('search');
-        }
-        $columnas[] = ['attribute' => $attr, 'format' => 'raw', 'value' => function ($model) {
-            return $model->getUrl();
-        }];
-        $columnas[] = 'created_at:date';
+
         return $this->render('search', [
-            'query' => $query,
+            'dataProvider' => $dataProvider,
             'columnas' => $columnas,
         ]);
+    }
+
+    protected function findModel($st)
+    {
+        return new Search(['search_term' => $st]);
     }
 }
