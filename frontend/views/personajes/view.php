@@ -21,12 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'nombre',
-            'fecha_nac',
+            'fecha_nac:date',
             'historia:ntext',
             'personalidad:ntext',
             'apariencia:ntext',
             'hechos_destacables:ntext',
-            'created_at:datetime',
+            'created_at:date',
             'updated_at:relativeTime',
         ],
     ]) ?>
