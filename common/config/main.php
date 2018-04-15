@@ -28,7 +28,7 @@ return [
                 'signup' => 'site/signup',
                 'request-reset-password' => 'site/request-password-reset',
                 'reset-password' => 'site/password-reset',
-                'search' => 'site/search',
+                'search' => 'search/search',
                 'alerts' => 'notificaciones/index',
                 'delete-account' => 'delete-account/index',
                 'usuarios/index' => 'usuarios-completo/index',

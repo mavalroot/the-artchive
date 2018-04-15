@@ -10,9 +10,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-use common\models\User;
 use common\models\LoginForm;
-use common\models\Personajes;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -254,37 +252,6 @@ class SiteController extends Controller
 
         return $this->render('resetPassword', [
             'model' => $model,
-        ]);
-    }
-
-    /**
-     * Busca un usuario o un personaje
-     *
-     * @return mixed
-     */
-    public function actionSearch($st = '', $src = 'user')
-    {
-        $columnas = [];
-        if ($src == 'pj') {
-            $attr = 'nombre';
-            $query = Personajes::find()->select('personajes.*, user.username as creator')->joinWith(['usuario'])->where(['like', $attr, $st]);
-            $columnas[] = ['attribute' => 'creator', 'format' => 'raw', 'value' => function ($model) {
-                return $model->getCreator();
-            }];
-        } else {
-            $attr = 'username';
-            $query = User::find()->where([$attr => $st])->orderBy("$attr ASC");
-        }
-        if ($query->count() == 0) {
-            return $this->render('search');
-        }
-        $columnas[] = ['attribute' => $attr, 'format' => 'raw', 'value' => function ($model) {
-            return $model->getUrl();
-        }];
-        $columnas[] = 'created_at:date';
-        return $this->render('search', [
-            'query' => $query,
-            'columnas' => $columnas,
         ]);
     }
 }
