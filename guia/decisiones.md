@@ -6,3 +6,4 @@
 - El email del usuario será privado (sólo el dueño de la cuenta puede ver su propio email).
 - El id del usuario no será visible siempre que pueda evitarse, se usará el username como parámetro.
 - Para la baja de usuario se comenzó construyendo el deleteAccount directamente en site y siteController, pero se tomó la decisión de apartarlo para mayor eficencia, creando la vista delete-account y su propio controlador.
+- Para las búsquedas, igual que las bajas de usuario, se comenzó construyendo directamente en site y site controller, pero se tomó la decisión de apartarlo para mayor eficiencia.
