@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use common\models\User;
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
@@ -31,17 +32,29 @@ class PublicacionesController extends Controller
 
     /**
      * Lists all Publicaciones models.
+     * @param  string $username Nombre de usuario del propietario de
+     * las publicaciones.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($username)
     {
-        $searchModel = new PublicacionesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $user = User::findOne(['username' => $username]);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if ($user) {
+            $id = $user->id;
+        }
+        if (isset($id)) {
+            $searchModel = new PublicacionesSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            $dataProvider->query->where(['usuario_id' => $id]);
+
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
     }
 
     /**
