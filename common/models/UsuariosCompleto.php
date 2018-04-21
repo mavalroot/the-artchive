@@ -117,6 +117,11 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return Personajes::find()->where(['usuario_id' => $this->id]);
     }
 
+    public function getPublicaciones()
+    {
+        return Publicaciones::find()->where(['usuario_id' => $this->id]);
+    }
+
     /**
      * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
      * @return ActiveDataProvider
@@ -129,6 +134,16 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'sort' => false,
         ]);
 
+        return $dataProvider;
+    }
+
+    public function getMisPublicaciones()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => $this->getPublicaciones()->orderBy(['updated_at' => SORT_DESC])->limit(3),
+            'pagination' => false,
+            'sort' => false,
+        ]);
         return $dataProvider;
     }
 
