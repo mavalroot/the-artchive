@@ -137,7 +137,7 @@ class Personajes extends \yii\db\ActiveRecord
      */
     public function getButtons()
     {
-        if ($this->isMine()): ?>
+        if ($this->isMine()) : ?>
             <p>
                 <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
                 <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
