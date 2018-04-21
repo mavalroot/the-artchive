@@ -6,35 +6,27 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
 
-$this->title = $model->getUsuario()->one()->username;
-$this->params['breadcrumbs'][] = ['label' => 'Publicaciones', 'url' => ['index']];
+$owner = $model->getUsuario()->one()->username;
+
+$this->title = $model->titulo;
+$this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
+$this->params['breadcrumbs'][] = ['label' => 'Publicaciones de ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="publicaciones-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'usuario_id',
             'titulo',
+            'created_at:datetime',
             'contenido:ntext',
-            'created_at',
-            'updated_at',
+            'updated_at:relativetime',
         ],
     ]) ?>
+
+    <?php $model->getButtons() ?>
 
 </div>

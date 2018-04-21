@@ -5,10 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
 
-$this->title = 'Update Publicaciones: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'Publicaciones', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$owner = $model->getUsuario()->one()->username;
+
+$this->title = 'Modificar publicación: ' . $model->titulo;
+$this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
+$this->params['breadcrumbs'][] = ['label' => 'Publicaciones de ' . $owner, 'url' => ['index', 'username' => $owner]];
+$this->params['breadcrumbs'][] = 'Modificar';
 ?>
 <div class="publicaciones-update">
 
