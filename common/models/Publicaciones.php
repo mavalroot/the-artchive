@@ -7,6 +7,8 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "publicaciones".
  *
@@ -89,5 +91,14 @@ class Publicaciones extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
+    /**
+     * Devuelve un array con la url del view de esa publicación.
+     * @return array
+     */
+    public function getUrl()
+    {
+        return Html::a($this->titulo, ['publicaciones/view', 'id' => $this->id]);
     }
 }

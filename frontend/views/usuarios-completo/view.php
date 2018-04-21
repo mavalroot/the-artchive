@@ -45,22 +45,45 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $model->getButtons() ?>
 
-    <h2>Personajes recientes</h2>
-    <?= GridView::widget([
-        'dataProvider' => $model->getMisPersonajes(),
-        'columns' => [
-            [
-                'attribute' => 'nombre',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return $model->getUrl();
-                }
-            ],
-            'created_at:date',
-            'updated_at:relativeTime',
-        ],
-    ]); ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Personajes recientes</h2>
+            <?= GridView::widget([
+                'dataProvider' => $model->getMisPersonajes(),
+                'columns' => [
+                    [
+                        'attribute' => 'nombre',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return $model->getUrl();
+                        }
+                    ],
+                    'created_at:date',
+                    'updated_at:relativeTime',
+                ],
+            ]); ?>
 
-    <?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
+        </div>
+        <div class="col-sm-6">
+            <h2>Publicaciones recientes</h2>
+            <?= GridView::widget([
+                'dataProvider' => $model->getMisPublicaciones(),
+                'columns' => [
+                    [
+                        'attribute' => 'titulo',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return $model->getUrl();
+                        }
+                    ],
+                    'created_at:date',
+                    'updated_at:relativeTime',
+                ],
+            ]); ?>
+
+            <?= Html::a('Ver publicaciones', ['publicaciones/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
 
 </div>
