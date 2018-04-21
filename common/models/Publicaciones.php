@@ -101,4 +101,33 @@ class Publicaciones extends \yii\db\ActiveRecord
     {
         return Html::a($this->titulo, ['publicaciones/view', 'id' => $this->id]);
     }
+
+    /**
+     * Indica si el usuario conectado es el propietario de la publicación.
+     * @return bool
+     */
+    public function isMine()
+    {
+        return $this->usuario_id == Yii::$app->user->id;
+    }
+
+    /**
+     * Muestra los botones de Modificar y borrar si el usuario conectado es el
+     * propietario de la publicación.
+     */
+    public function getButtons()
+    {
+        if ($this->isMine()): ?>
+            <p>
+                <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => '¿Seguro que desea borrar la publicación? No podrá ser recuperada.',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </p>
+        <?php endif;
+    }
 }
