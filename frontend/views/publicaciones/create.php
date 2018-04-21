@@ -6,7 +6,6 @@ use yii\helpers\Html;
 /* @var $model common\models\Publicaciones */
 
 $this->title = 'Crear publicación';
-// $this->params['breadcrumbs'][] = ['label' => 'Publicaciones', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="publicaciones-create">
