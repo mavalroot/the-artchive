@@ -17,12 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if ($model->siguiendo()): ?>
         <form name="unfollow" method="post">
             <input type="hidden" name="id" value="<?= $model->id ?>">
-            <button type="submit">Dejar de seguir</button>
+            <button type="submit" class="btn btn-sm btn-secondary">Dejar de seguir</button>
         </form>
     <?php else: ?>
         <form name="follow" method="post">
             <input type="hidden" name="id" value="<?= $model->id ?>">
-            <button type="submit">Seguir</button>
+            <button type="submit" class="btn btn-sm btn-primary">Seguir</button>
         </form>
     <?php endif; ?>
 
