@@ -67,7 +67,7 @@ class UsuariosCompletoController extends Controller
      * Comienza a seguir a un usuario.
      * @return bool         True si no ha habido ningún error, falso si sí.
      */
-    public function actionSeguir()
+    public function actionFollow()
     {
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
@@ -76,6 +76,15 @@ class UsuariosCompletoController extends Controller
             $seguir->seguidor_id = Yii::$app->user->id;
 
             return $seguir->validate() && $seguir->save();
+        }
+    }
+
+    public function actionUnfollow()
+    {
+        $id = Yii::$app->request->post('id');
+        if (isset($id)) {
+            $seguir = Seguidores::findOne(['user_id' => $id, 'seguidor_id' => Yii::$app->user->id]);
+            return $seguir->delete();
         }
     }
 

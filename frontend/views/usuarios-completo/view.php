@@ -99,21 +99,21 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <?php
-
 $js = <<< JS
-$('form[name="follow"]').on('submit', function(e) {
-    e.preventDefault();
-    let that = $(this);
-    $.post('usuarios-completo/seguir', $(this).serialize(), function(data) {
-        if (data) {
-            // that.empty();
-            // that.append('<input type="button" name="" value="Ya sigues a este usuario" disabled>');
-            $("#follow-actions").load(location.href+" #follow-actions>*","");
-        }
+function follow(name) {
+    $('#follow-actions').on('submit','form[name="'+name+'"]', function(e) {
+        e.preventDefault();
+        let that = $(this);
+        $.post('usuarios-completo/'+name, $(this).serialize(), function(data) {
+            if (data) {
+                $("#follow-actions").load(location.href+" #follow-actions>*","");
+            }
+        });
     });
+}
 
-
-});
+follow('follow');
+follow('unfollow');
 JS;
 
 $this->registerJs($js);
