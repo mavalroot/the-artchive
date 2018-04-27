@@ -1,7 +1,6 @@
 <?php
 use yii\grid\GridView;
 
-use common\models\UsuariosCompleto;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -14,12 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="usuarios-completo-view">
 
     <div id="follow-actions">
-    <?php if ($model->siguiendo()): ?>
+    <?php if (!$model->isSelf() && $model->siguiendo()) : ?>
         <form name="unfollow" method="post">
             <input type="hidden" name="id" value="<?= $model->id ?>">
             <button type="submit" class="btn btn-sm btn-secondary">Dejar de seguir</button>
         </form>
-    <?php else: ?>
+    <?php elseif (!$model->isSelf() && !$model->siguiendo()) : ?>
         <form name="follow" method="post">
             <input type="hidden" name="id" value="<?= $model->id ?>">
             <button type="submit" class="btn btn-sm btn-primary">Seguir</button>
