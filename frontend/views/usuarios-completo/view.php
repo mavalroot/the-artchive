@@ -1,13 +1,8 @@
 <?php
-
-use yii\data\ActiveDataProvider;
-
 use yii\grid\GridView;
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
-use common\models\Personajes;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
@@ -17,7 +12,21 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
-    <?= $model->getFollowButtons() ?>
+    <div id="follow-actions">
+    <?php if (!$model->isSelf() && $model->siguiendo()) : ?>
+        <form name="unfollow" method="post">
+            <input type="hidden" name="id" value="<?= $model->id ?>">
+            <button type="submit" class="btn btn-sm btn-secondary">Dejar de seguir</button>
+        </form>
+    <?php elseif (!$model->isSelf() && !$model->siguiendo()) : ?>
+        <form name="follow" method="post">
+            <input type="hidden" name="id" value="<?= $model->id ?>">
+            <button type="submit" class="btn btn-sm btn-primary">Seguir</button>
+        </form>
+    <?php endif; ?>
+
+        <?= $model->getFollowButtons() ?>
+    </div>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
@@ -87,3 +96,23 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+
+<?php
+$js = <<< JS
+function follow(name) {
+    $('#follow-actions').on('submit','form[name="'+name+'"]', function(e) {
+        e.preventDefault();
+        let that = $(this);
+        $.post('usuarios-completo/'+name, $(this).serialize(), function(data) {
+            if (data) {
+                $("#follow-actions").load(location.href+" #follow-actions>*","");
+            }
+        });
+    });
+}
+
+follow('follow');
+follow('unfollow');
+JS;
+
+$this->registerJs($js);
