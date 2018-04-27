@@ -13,16 +13,19 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
+    <div id="follow-actions">
     <?php if ($model->siguiendo()): ?>
-        <input type="button" name="" value="Ya sigues a este usuario" disabled>
+        <form name="unfollow" method="post">
+            <input type="hidden" name="id" value="<?= $model->id ?>">
+            <button type="submit">Dejar de seguir</button>
+        </form>
     <?php else: ?>
-        <form name="seguir" method="post">
+        <form name="follow" method="post">
             <input type="hidden" name="id" value="<?= $model->id ?>">
             <button type="submit">Seguir</button>
         </form>
     <?php endif; ?>
 
-    <div id="follow-buttons">
         <?= $model->getFollowButtons() ?>
     </div>
     <h1><?= Html::encode($this->title) ?></h1>
@@ -98,16 +101,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 
 $js = <<< JS
-$('form[name="seguir"]').on('submit', function(e) {
+$('form[name="follow"]').on('submit', function(e) {
     e.preventDefault();
+    let that = $(this);
     $.post('usuarios-completo/seguir', $(this).serialize(), function(data) {
-        $('#follow-buttons').empty();
-        $('#follow-buttons').append(data);
-        alert(data);
+        if (data) {
+            // that.empty();
+            // that.append('<input type="button" name="" value="Ya sigues a este usuario" disabled>');
+            $("#follow-actions").load(location.href+" #follow-actions>*","");
+        }
     });
 
-    $(this).empty();
-    $(this).append('<input type="button" name="" value="Ya sigues a este usuario" disabled>');
+
 });
 JS;
 

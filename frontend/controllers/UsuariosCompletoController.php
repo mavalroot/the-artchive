@@ -71,15 +71,11 @@ class UsuariosCompletoController extends Controller
     {
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
-            $model = UsuariosCompleto::findOne(['id' => $id]);
             $seguir = new Seguidores();
             $seguir->user_id = $id;
             $seguir->seguidor_id = Yii::$app->user->id;
-            if ($seguir->validate() && $seguir->save()) {
-                echo $model->getFollowButtons();
-            } else {
-                echo 'hubo un error';
-            }
+
+            return $seguir->validate() && $seguir->save();
         }
     }
 
