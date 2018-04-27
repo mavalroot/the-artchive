@@ -159,4 +159,18 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
         return $buttons;
     }
+
+    /**
+     * Indica si el usuario actual está siguiendo a este usuario.
+     * @return [type] [description]
+     */
+    public function siguiendo()
+    {
+        return Seguidores::find()
+        ->where([
+            'user_id' => $this->id,
+            'seguidor_id' => Yii::$app->user->id
+        ])
+        ->count() !== 0;
+    }
 }

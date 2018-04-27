@@ -1,13 +1,8 @@
 <?php
-
-use yii\data\ActiveDataProvider;
-
 use yii\grid\GridView;
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
-use common\models\Personajes;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
@@ -16,6 +11,12 @@ $this->title = $model->username;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
+
+    <?php if ($model->siguiendo()): ?>
+        Te estoy siguiendo
+    <?php else: ?>
+        No te estoy siguiendo
+    <?php endif; ?>
 
     <?= $model->getFollowButtons() ?>
     <h1><?= Html::encode($this->title) ?></h1>
