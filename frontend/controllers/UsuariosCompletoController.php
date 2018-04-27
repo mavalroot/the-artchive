@@ -23,12 +23,6 @@ class UsuariosCompletoController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'seguir' => ['POST'],
-                ],
-            ],
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
@@ -71,18 +65,21 @@ class UsuariosCompletoController extends Controller
 
     /**
      * Comienza a seguir a un usuario.
-     * @param  int      $id Id del usuario al que se va a seguir
      * @return bool         True si no ha habido ningún error, falso si sí.
      */
-    public function actionSeguir($id)
+    public function actionSeguir()
     {
-        $seguir = new Seguidores();
-        $seguir->user_id = $id;
-        $seguir->seguidor_id = Yii::$app->user->id;
-        if ($seguir->validate() && $seguir->save()) {
-            echo 'siguiendo';
-        } else {
-            echo 'hubo un error';
+        $id = Yii::$app->request->post('id');
+        if (isset($id)) {
+            $model = UsuariosCompleto::findOne(['id' => $id]);
+            $seguir = new Seguidores();
+            $seguir->user_id = $id;
+            $seguir->seguidor_id = Yii::$app->user->id;
+            if ($seguir->validate() && $seguir->save()) {
+                echo $model->getFollowButtons();
+            } else {
+                echo 'hubo un error';
+            }
         }
     }
 

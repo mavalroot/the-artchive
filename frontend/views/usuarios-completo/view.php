@@ -1,6 +1,7 @@
 <?php
 use yii\grid\GridView;
 
+use common\models\UsuariosCompleto;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -21,7 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </form>
     <?php endif; ?>
 
-    <?= $model->getFollowButtons() ?>
+    <div id="follow-buttons">
+        <?= $model->getFollowButtons() ?>
+    </div>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
@@ -98,8 +101,13 @@ $js = <<< JS
 $('form[name="seguir"]').on('submit', function(e) {
     e.preventDefault();
     $.post('usuarios-completo/seguir', $(this).serialize(), function(data) {
+        $('#follow-buttons').empty();
+        $('#follow-buttons').append(data);
         alert(data);
     });
+
+    $(this).empty();
+    $(this).append('<input type="button" name="" value="Ya sigues a este usuario" disabled>');
 });
 JS;
 
