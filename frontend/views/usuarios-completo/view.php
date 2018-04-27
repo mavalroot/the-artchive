@@ -13,9 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="usuarios-completo-view">
 
     <?php if ($model->siguiendo()): ?>
-        Te estoy siguiendo
+        <input type="button" name="" value="Ya sigues a este usuario" disabled>
     <?php else: ?>
-        No te estoy siguiendo
+        <form name="seguir" method="post">
+            <input type="hidden" name="id" value="<?= $model->id ?>">
+            <button type="submit">Seguir</button>
+        </form>
     <?php endif; ?>
 
     <?= $model->getFollowButtons() ?>
@@ -88,3 +91,16 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+
+<?php
+
+$js = <<< JS
+$('form[name="seguir"]').on('submit', function(e) {
+    e.preventDefault();
+    $.post('usuarios-completo/seguir', $(this).serialize(), function(data) {
+        alert(data);
+    });
+});
+JS;
+
+$this->registerJs($js);

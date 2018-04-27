@@ -162,7 +162,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     /**
      * Indica si el usuario actual está siguiendo a este usuario.
-     * @return [type] [description]
+     * @return bool True si ya lo está siguiendo o false si no.
      */
     public function siguiendo()
     {

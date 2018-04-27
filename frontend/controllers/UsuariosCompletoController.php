@@ -3,13 +3,14 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use common\models\Seguidores;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
@@ -25,7 +26,7 @@ class UsuariosCompletoController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'seguir' => ['POST'],
                 ],
             ],
             'access' => [
@@ -69,55 +70,20 @@ class UsuariosCompletoController extends Controller
     }
 
     /**
-     * Creates a new UsuariosCompleto model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * Comienza a seguir a un usuario.
+     * @param  int      $id Id del usuario al que se va a seguir
+     * @return bool         True si no ha habido ningún error, falso si sí.
      */
-    public function actionCreate()
+    public function actionSeguir($id)
     {
-        $model = new UsuariosCompleto();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->username]);
+        $seguir = new Seguidores();
+        $seguir->user_id = $id;
+        $seguir->seguidor_id = Yii::$app->user->id;
+        if ($seguir->validate() && $seguir->save()) {
+            echo 'siguiendo';
+        } else {
+            echo 'hubo un error';
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing UsuariosCompleto model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $username
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($username)
-    {
-        $model = $this->findModel($username);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'username' => $model->username]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing UsuariosCompleto model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**
