@@ -32,9 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?php if ($model->isMine()): ?>
-        <input id="export" data-name="<?= $model->nombre ?>" value="Guardar como pdf" class="btn btn-sm btn-primary" />
-    <?php endif; ?>
+    <?= $model->getExportButton() ?>
 
 
 </div>

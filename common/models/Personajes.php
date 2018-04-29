@@ -151,8 +151,23 @@ class Personajes extends \yii\db\ActiveRecord
         <?php endif;
     }
 
+    /**
+     * Muestra el creador del personaje como un link
+     * @return string
+     */
     public function getCreator()
     {
         return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
+    }
+
+    /**
+     * Muestra el botón para exportar a pdf.
+     * @return string
+     */
+    public function getExportButton()
+    {
+        if ($this->isMine()) {
+            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $this->nombre, 'class' => 'btn btn-sm btn-primary']);
+        }
     }
 }
