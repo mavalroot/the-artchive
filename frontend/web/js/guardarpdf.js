@@ -9,7 +9,9 @@ function guardar(nombre) {
   var data = [];
   let tr = $('table tbody tr');
   $.each(tr, function(index, value) {
-      data.push({title: value.cells[0].innerText, content: value.cells[1].innerText})
+      if (index != tr.length-1) {
+          data.push({title: value.cells[0].innerText, content: value.cells[1].innerText})
+      }
   });
   header(nombre);
   table(columns, data);
