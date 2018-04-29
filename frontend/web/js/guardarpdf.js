@@ -1,7 +1,7 @@
 
-var doc = new jsPDF('p', 'pt');
 
 function guardar(nombre) {
+  var doc = new jsPDF('p', 'pt');
   var columns = [
     {title: "Título", dataKey: "title"},
     {title: "Contenido", dataKey: "content"}
@@ -13,13 +13,13 @@ function guardar(nombre) {
           data.push({title: value.cells[0].innerText, content: value.cells[1].innerText})
       }
   });
-  header(nombre);
-  table(columns, data);
-  copyright();
+  header(doc, nombre);
+  table(doc, columns, data);
+  copyright(doc);
   doc.save(nombre + '.pdf');
 }
 
-function header(nombre) {
+function header(doc, nombre) {
   doc.autoTableSetDefaults({
         addPageContent: function(data) {
             doc.setFontSize(20);
@@ -29,13 +29,13 @@ function header(nombre) {
     });
 }
 
-function copyright(data) {
+function copyright(doc) {
     var baseUrl = window.location.origin;
     doc.setFontSize(10);
     doc.text(40,doc.autoTableEndPosY()+20, '© Artchive ' + (new Date()).getFullYear() + ' || ' + baseUrl);
 }
 
-function table(columns, data) {
+function table(doc, columns, data) {
   doc.autoTable(columns, data, {
       border: true,
         showHeader: 'never',
