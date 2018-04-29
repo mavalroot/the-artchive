@@ -1,18 +1,23 @@
+
+var doc = new jsPDF('p', 'pt');
+
 function guardar(nombre) {
   var columns = [
-        {title: "Título", dataKey: "title"},
-        {title: "Contenido", dataKey: "content"}
-    ];
-
+    {title: "Título", dataKey: "title"},
+    {title: "Contenido", dataKey: "content"}
+  ];
   var data = [];
-
   let tr = $('table tbody tr');
   $.each(tr, function(index, value) {
       data.push({title: value.cells[0].innerText, content: value.cells[1].innerText})
   });
+  header(nombre);
+  table(columns, data);
+  copyright();
+  doc.save(nombre + '.pdf');
+}
 
-  var doc = new jsPDF('p', 'pt');
-
+function header(nombre) {
   doc.autoTableSetDefaults({
         addPageContent: function(data) {
             doc.setFontSize(20);
@@ -20,22 +25,26 @@ function guardar(nombre) {
         },
         margin: {top: 60}
     });
+}
 
+function copyright(data) {
+    var baseUrl = window.location.origin;
+    doc.setFontSize(10);
+    doc.text(40,doc.autoTableEndPosY()+20, '© Artchive ' + (new Date()).getFullYear() + ' || ' + baseUrl);
+}
+
+function table(columns, data) {
   doc.autoTable(columns, data, {
       border: true,
         showHeader: 'never',
         columnStyles: {
-            title: {fillColor: [41, 128, 185], textColor: 255, fontStyle: 'bold'},
+            title: {fillColor: [60, 60, 60], textColor: 255, fontStyle: 'bold'},
             content: {columnWidth: 'auto'}
         },
         styles: {
             overflow: 'linebreak',
-            columnWidth: 'wrap',
-            lineWidth: '1',
-            lineColor: '0',
-            textColor: '0'},
+            columnWidth: 'wrap'},
     });
-  doc.save(nombre + '.pdf');
 }
 
 $(document).ready(function() {
