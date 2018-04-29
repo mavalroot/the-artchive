@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="personajes-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php $model->getButtons() ?>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -31,6 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?php $model->getButtons() ?>
+    <?php if ($model->isMine()): ?>
+        <input id="export" data-name="<?= $model->nombre ?>" value="Guardar como pdf" class="btn btn-sm btn-primary" />
+    <?php endif; ?>
+
 
 </div>
