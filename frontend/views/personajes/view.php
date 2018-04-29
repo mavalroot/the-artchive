@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="personajes-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php $model->getButtons() ?>
+    <div class="btn-group">
+        <?= $model->getButtons() ?>
+    </div>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -33,6 +35,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <?= $model->getExportButton() ?>
-
-
 </div>

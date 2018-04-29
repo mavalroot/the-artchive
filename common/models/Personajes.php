@@ -137,18 +137,18 @@ class Personajes extends \yii\db\ActiveRecord
      */
     public function getButtons()
     {
-        if ($this->isMine()) : ?>
-            <p>
-                <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
-                <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
-                        'method' => 'post',
-                    ],
-                ]) ?>
-            </p>
-        <?php endif;
+        if ($this->isMine()) {
+            $botones =
+            Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-sm btn-success']) .
+            Html::a('Borrar', ['delete', 'id' => $this->id], [
+                'class' => 'btn btn-sm btn-danger',
+                'data' => [
+                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
+                    'method' => 'post',
+                ],
+            ]);
+            return $botones;
+        }
     }
 
     /**
