@@ -137,22 +137,37 @@ class Personajes extends \yii\db\ActiveRecord
      */
     public function getButtons()
     {
-        if ($this->isMine()) : ?>
-            <p>
-                <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
-                <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
-                        'method' => 'post',
-                    ],
-                ]) ?>
-            </p>
-        <?php endif;
+        if ($this->isMine()) {
+            $botones =
+            Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-sm btn-success']) .
+            Html::a('Borrar', ['delete', 'id' => $this->id], [
+                'class' => 'btn btn-sm btn-danger',
+                'data' => [
+                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
+                    'method' => 'post',
+                ],
+            ]);
+            return $botones;
+        }
     }
 
+    /**
+     * Muestra el creador del personaje como un link
+     * @return string
+     */
     public function getCreator()
     {
         return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
+    }
+
+    /**
+     * Muestra el botón para exportar a pdf.
+     * @return string
+     */
+    public function getExportButton()
+    {
+        if ($this->isMine()) {
+            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $this->nombre, 'class' => 'btn btn-sm btn-primary']);
+        }
     }
 }

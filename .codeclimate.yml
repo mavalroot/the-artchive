@@ -28,5 +28,6 @@ exclude_paths:
 - views/
 - tests/
 - docs/
+- frontend/web/js/plugins
 - requirements.php
 - environments
