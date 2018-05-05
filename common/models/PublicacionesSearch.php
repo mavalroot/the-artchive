@@ -19,7 +19,7 @@ class PublicacionesSearch extends Publicaciones
     {
         return [
             [['id', 'usuario_id'], 'integer'],
-            [['titulo', 'contenido', 'created_at', 'updated_at'], 'safe'],
+            [['titulo', 'contenido', 'created_at', 'updated_at', 'creator'], 'safe'],
         ];
     }
 
@@ -41,7 +41,8 @@ class PublicacionesSearch extends Publicaciones
      */
     public function search($params)
     {
-        $query = Publicaciones::find();
+        $query = Publicaciones::find()->select('publicaciones.*, user.username as creator')->joinWith('usuario');
+
 
         // add conditions that should always apply here
 
@@ -56,6 +57,11 @@ class PublicacionesSearch extends Publicaciones
             // $query->where('0=1');
             return $dataProvider;
         }
+
+        $dataProvider->sort->attributes['creator'] = [
+            'asc' => ['creator' => SORT_ASC],
+            'desc' => ['creator' => SORT_DESC],
+        ];
 
         // grid filtering conditions
         $query->andFilterWhere([

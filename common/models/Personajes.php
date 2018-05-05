@@ -71,7 +71,7 @@ class Personajes extends \yii\db\ActiveRecord
             'hechos_destacables' => 'Hechos destacables',
             'created_at' => 'Fecha de creación',
             'updated_at' => 'Última actualización',
-            'creator' => 'Creador'
+            'creator' => 'Creado por'
         ];
     }
 

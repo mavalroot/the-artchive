@@ -67,6 +67,13 @@ $this->title = 'My Yii Application';
                     'dataProvider' => $publicaciones,
                     'columns' => [
                         [
+                            'attribute' => 'creator',
+                            'format' => 'raw',
+                            'value' => function ($model) {
+                                return $model->getCreator();
+                            }
+                        ],
+                        [
                             'attribute' => 'titulo',
                             'format' => 'raw',
                             'value' => function ($model) {

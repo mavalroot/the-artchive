@@ -24,6 +24,8 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \yii\db\ActiveRecord
 {
+    public $creator;
+
     /**
      * @inheritdoc
      */
@@ -60,6 +62,7 @@ class Publicaciones extends \yii\db\ActiveRecord
             'contenido' => 'Contenido',
             'created_at' => 'Fecha de creación',
             'updated_at' => 'Última actualización',
+            'creator' => 'Creado por'
         ];
     }
 
@@ -110,6 +113,16 @@ class Publicaciones extends \yii\db\ActiveRecord
     {
         return $this->usuario_id == Yii::$app->user->id;
     }
+
+    /**
+     * Muestra el creador de la publicación como un link
+     * @return string
+     */
+    public function getCreator()
+    {
+        return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
+    }
+
 
     /**
      * Muestra los botones de Modificar y borrar si el usuario conectado es el
