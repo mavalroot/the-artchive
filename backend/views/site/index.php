@@ -11,7 +11,10 @@ $this->title = 'My Yii Application';
     <div class="body-content">
         <div class="row">
             <div class="col-lg-6">
-                <h2>Actividad reciente</h2>
+                <h2>
+                    Actividad reciente
+                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -19,7 +22,10 @@ $this->title = 'My Yii Application';
                     fugiat nulla pariatur.</p>
                 </div>
             <div class="col-lg-6">
-                <h2>Últimos usuarios</h2>
+                <h2>
+                    Últimos usuarios
+                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
 
                 <?= GridView::widget([
                     'dataProvider' => $usuarios,
@@ -38,7 +44,10 @@ $this->title = 'My Yii Application';
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <h2>Últimos pjs</h2>
+                <h2>
+                    Últimos pjs
+                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
 
                 <?= GridView::widget([
                     'dataProvider' => $personajes,
@@ -61,7 +70,10 @@ $this->title = 'My Yii Application';
                 ]); ?>
             </div>
             <div class="col-lg-6">
-                <h2>Últimas publicaciones</h2>
+                <h2>
+                    Últimas publicaciones
+                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
 
                 <?= GridView::widget([
                     'dataProvider' => $publicaciones,

@@ -14,6 +14,8 @@ CREATE TABLE "user" (
     , status                smallint        DEFAULT 10 NOT NULL
     , created_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
     , updated_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
+    , tipo_usuario          bigint          DEFAULT 1 NOT NULL REFERENCES tipos_usuario (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS tipos_usuario CASCADE;
@@ -35,8 +37,6 @@ CREATE TABLE usuarios_datos (
     , plataforma        varchar(255)
     , pagina_web        varchar(255)
     , avatar            varchar(255)
-    , tipo_usuario      bigint          NOT NULL REFERENCES tipos_usuario (id)
-                                        ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 /* CREATE OR REPLACE VIEW usuarios_completo AS
@@ -220,5 +220,5 @@ FROM "user" u
 LEFT JOIN usuarios_datos ud ON u.id = ud.user_id
 LEFT JOIN seguidores seg ON seg.user_id = u.id
 LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
-LEFT JOIN tipos_usuario tu ON tu.id = ud.tipo_usuario
+LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
 GROUP BY u.id, ud.user_id, tu.id;

@@ -13,9 +13,7 @@ use Yii;
  * @property string $plataforma
  * @property string $pagina_web
  * @property string $avatar
- * @property int $tipo_usuario
  *
- * @property TiposUsuario $tipoUsuario
  * @property User $user
  */
 class UsuariosDatos extends \yii\db\ActiveRecord
@@ -36,11 +34,9 @@ class UsuariosDatos extends \yii\db\ActiveRecord
         return [
             [['user_id'], 'required'],
             [['user_id'], 'default', 'value' => null],
-            [['tipo_usuario'], 'default', 'value' => 1],
-            [['user_id', 'tipo_usuario'], 'integer'],
+            [['user_id'], 'integer'],
             [['aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
             [['user_id'], 'unique'],
-            [['tipo_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => TiposUsuario::className(), 'targetAttribute' => ['tipo_usuario' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -59,14 +55,6 @@ class UsuariosDatos extends \yii\db\ActiveRecord
             'avatar' => 'Avatar',
             'tipo_usuario' => 'Tipo de usuario',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTipoUsuario()
-    {
-        return $this->hasOne(TiposUsuario::className(), ['id' => 'tipo_usuario']);
     }
 
     /**

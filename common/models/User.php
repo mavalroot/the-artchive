@@ -81,6 +81,8 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_WAITING],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_WAITING]],
+            [['tipo_usuario'], 'default', 'value' => 1],
+            [['tipo_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => TiposUsuario::className(), 'targetAttribute' => ['tipo_usuario' => 'id']],
         ];
     }
 
@@ -222,14 +224,5 @@ class User extends ActiveRecord implements IdentityInterface
     public function getUrl()
     {
         return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
-    }
-
-    /**
-     * Devuelve el tipo de usuario
-     * @return string
-     */
-    public function getTipo()
-    {
-        return UsuariosDatos::findOne($this->id)->tipo_usuario;
     }
 }

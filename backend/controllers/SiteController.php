@@ -39,7 +39,7 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                         'matchCallback' => function () {
-                            return Yii::$app->user->identity->getTipo() != 1;
+                            return Yii::$app->user->identity->tipo_usuario != 1;
                         }
                     ]
                 ],
