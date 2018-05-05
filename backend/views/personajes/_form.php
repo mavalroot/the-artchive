@@ -20,7 +20,8 @@ use kartik\date\DatePicker;
         <?= $form->field($model, 'fecha_nac')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'Elija fecha de nacimiento...'],
             'pluginOptions' => [
-                'autoclose'=> true
+                'autoclose'=> true,
+                'format' => 'yyyy-mm-dd',
             ]
         ]); ?>
     </div>

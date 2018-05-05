@@ -50,7 +50,7 @@ CREATE TABLE personajes (
     , usuario_id            bigint          NOT NULL REFERENCES "user" (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
-    , fecha_nac             timestamp(0)
+    , fecha_nac             date
     , historia              text
     , personalidad          text
     , apariencia            text
