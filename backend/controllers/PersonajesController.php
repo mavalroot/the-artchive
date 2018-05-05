@@ -58,24 +58,6 @@ class PersonajesController extends Controller
     }
 
     /**
-     * Creates a new Personajes model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Personajes();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
      * Updates an existing Personajes model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
