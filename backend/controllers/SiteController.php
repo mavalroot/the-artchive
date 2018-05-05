@@ -3,9 +3,17 @@ namespace backend\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\data\ActiveDataProvider;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\PersonajesSearch;
+use common\models\UsuariosCompleto;
+use common\models\Personajes;
+use common\models\Publicaciones;
+use common\models\PublicacionesSearch;
+use common\models\UsuariosCompletoSearch;
 
 /**
  * Site controller
@@ -68,7 +76,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $params['usuarios'] = new UsuariosCompletoSearch();
+        $params['personajes'] = new PersonajesSearch();
+        $params['publicaciones'] = new PublicacionesSearch();
+
+        foreach ($params as $key => $value) {
+            $params[$key] = $params[$key]->search(Yii::$app->request->queryParams);
+            $params[$key]->query->orderBy(['created_at' => SORT_DESC])->limit(5);
+            $params[$key]->sort = false;
+        }
+
+        return $this->render('index', $params);
     }
 
     /**
