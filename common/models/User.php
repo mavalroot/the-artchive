@@ -25,8 +25,22 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    /**
+     * El usuario está dado de baja.
+     * @var int
+     */
     const STATUS_DELETED = 0;
+
+    /**
+     * El usuario está activo.
+     * @var int
+     */
     const STATUS_ACTIVE = 10;
+
+    /**
+     * El usuario espera confirmación.
+     * @var int
+     */
     const STATUS_WAITING = 20;
 
 
@@ -210,6 +224,10 @@ class User extends ActiveRecord implements IdentityInterface
         return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
     }
 
+    /**
+     * Devuelve el tipo de usuario
+     * @return string
+     */
     public function getTipo()
     {
         return UsuariosDatos::findOne($this->id)->tipo_usuario;

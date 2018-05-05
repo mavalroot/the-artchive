@@ -24,6 +24,10 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \yii\db\ActiveRecord
 {
+    /**
+     * Creador de la publicación.
+     * @var string
+     */
     public $creator;
 
     /**

@@ -29,6 +29,10 @@ use yii\helpers\Html;
  */
 class Personajes extends \yii\db\ActiveRecord
 {
+    /**
+     * Creador del personaje
+     * @var string
+     */
     public $creator;
 
     /**

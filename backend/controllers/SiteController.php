@@ -3,15 +3,11 @@ namespace backend\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\data\ActiveDataProvider;
 
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\PersonajesSearch;
-use common\models\UsuariosCompleto;
-use common\models\Personajes;
-use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use common\models\UsuariosCompletoSearch;
 
