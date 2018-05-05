@@ -24,7 +24,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-6">
                 <h2>
                     Últimos usuarios
-                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                    <a href="usuarios-completo/index" class="btn btn-sm btn-info">Ver todo</a>
                 </h2>
 
                 <?= GridView::widget([
@@ -46,7 +46,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-6">
                 <h2>
                     Últimos pjs
-                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                    <a href="personajes/index" class="btn btn-sm btn-info">Ver todo</a>
                 </h2>
 
                 <?= GridView::widget([
@@ -72,7 +72,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-6">
                 <h2>
                     Últimas publicaciones
-                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                    <a href="publicaciones/index" class="btn btn-sm btn-info">Ver todo</a>
                 </h2>
 
                 <?= GridView::widget([
