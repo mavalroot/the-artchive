@@ -37,7 +37,8 @@ $this->title = 'My Yii Application';
                                 return $model->getUrl();
                             }
                         ],
-                        'email:email'
+                        'email:email',
+                        'status'
                     ],
                 ]); ?>
             </div>
@@ -96,6 +97,9 @@ $this->title = 'My Yii Application';
                 ]); ?>
             </div>
         </div>
-
+        <div class="row">
+            <h2>Otras gestiones:</h2>
+            <a href="">Gestionar baneos</a>
         </div>
+    </div>
 </div>

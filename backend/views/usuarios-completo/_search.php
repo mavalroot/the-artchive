@@ -10,40 +10,20 @@ use yii\widgets\ActiveForm;
 
 <div class="usuarios-completo-search">
 
+    <h2>+ Buscar:</h2>
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="col-sm-6">
+        <?= $form->field($model, 'username') ?>
+    </div>
+    <div class="col-sm-6">
+        <?= $form->field($model, 'email') ?>
+    </div>
 
-    <?= $form->field($model, 'username') ?>
-
-    <?= $form->field($model, 'email') ?>
-
-    <?= $form->field($model, 'aficiones') ?>
-
-    <?= $form->field($model, 'tematica_favorita') ?>
-
-    <?php // echo $form->field($model, 'plataforma') ?>
-
-    <?php // echo $form->field($model, 'pagina_web') ?>
-
-    <?php // echo $form->field($model, 'avatar') ?>
-
-    <?php // echo $form->field($model, 'tipo') ?>
-
-    <?php // echo $form->field($model, 'seguidores') ?>
-
-    <?php // echo $form->field($model, 'siguiendo') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <div class="form-group">
+    <div class="form-group text-center">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
