@@ -90,11 +90,18 @@ INSERT INTO "user" (username, auth_key, password_hash, email) VALUES
         , crypt('123456', gen_salt('bf', 13))
         , 'prueba2@prueba.com'
     )
+    ,  (
+          'Admin'
+        , md5(random()::text)
+        , crypt('123456', gen_salt('bf', 13))
+        , 'admin@prueba.com'
+    )
 ;
 
 INSERT INTO usuarios_datos (user_id, tipo_usuario) VALUES
       (1,1)
     , (2,1)
+    , (3,3)
 ;
 
 INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES

@@ -209,4 +209,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
     }
+
+    public function getTipo()
+    {
+        return UsuariosDatos::findOne($this->id)->tipo_usuario;
+    }
 }

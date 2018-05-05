@@ -3,6 +3,8 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
+
+var_dump(Yii::$app->user->identity->getTipo());
 ?>
 <div class="site-index">
 
