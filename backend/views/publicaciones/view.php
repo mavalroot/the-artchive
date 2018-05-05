@@ -37,8 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getCreator()->one()->getUrl();
                 }
             ],
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:relativetime',
         ],
     ]) ?>
 

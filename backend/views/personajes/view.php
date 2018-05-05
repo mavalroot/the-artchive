@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'nombre',
-            'fecha_nac',
+            'fecha_nac:date',
             'historia:ntext',
             'personalidad:ntext',
             'apariencia:ntext',
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getCreator()->one()->getUrl();
                 }
             ],
-            'created_at:date',
+            'created_at:datetime',
             'updated_at:relativetime',
         ],
     ]) ?>
