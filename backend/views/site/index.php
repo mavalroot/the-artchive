@@ -28,7 +28,7 @@ $this->title = 'My Yii Application';
                             'attribute' => 'username',
                             'format' => 'raw',
                             'value' => function ($model) {
-                                return $model->getUser()->getUrl();
+                                return $model->getUrl();
                             }
                         ],
                         'email:email'
