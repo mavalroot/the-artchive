@@ -596,8 +596,8 @@
         <td>The template used for composing each cell in the action column.</td>
         <td><a href="yii-grid-actioncolumn.html">yii\grid\ActionColumn</a></td>
     </tr>
-            <tr id="$urlCreator">
-        <td><a href="yii-grid-actioncolumn.html#$urlCreator-detail">$urlCreator</a></td>
+            <tr id="$GetUrlCreator">
+        <td><a href="yii-grid-actioncolumn.html#$GetUrlCreator-detail">$GetUrlCreator</a></td>
         <td><a href="http://www.php.net/language.types.callable">callable</a></td>
         <td>A callback that creates a button URL using the specified model information.</td>
         <td><a href="yii-grid-actioncolumn.html">yii\grid\ActionColumn</a></td>
@@ -853,7 +853,7 @@ editable (here assuming you have a status field that indicates that):</p>
     <div class="doc-description">
         <p>The ID of the controller that should handle the actions specified here.
 If not set, it will use the currently active controller. This property is mainly used by
-<a href="yii-grid-actioncolumn.html#$urlCreator-detail">$urlCreator</a> to create URLs for different actions. The value of this property will be prefixed
+<a href="yii-grid-actioncolumn.html#$GetUrlCreator-detail">$GetUrlCreator</a> to create URLs for different actions. The value of this property will be prefixed
 to each action name to form the route of the action.</p>
 
             </div>
@@ -908,13 +908,13 @@ the callback <code>buttons['view']</code>. If a callback cannot be found, the to
     <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <a href="yii-grid-actioncolumn.html#$template-detail">$template</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'{view}&nbsp;{update}&nbsp;{delete}'</span></div>
 
 
-    <div class="detail-header h3" id="$urlCreator-detail">
+    <div class="detail-header h3" id="$GetUrlCreator-detail">
         <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="yii-grid-actioncolumn.html#$urlCreator-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        <a class="tool-link hash" href="yii-grid-actioncolumn.html#$GetUrlCreator-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
                     <a href="https://github.com/yiisoft/yii2/edit/master/framework/grid/ActionColumn.php#L123" class="tool-link" title="edit on github"><span class="glyphicon glyphicon-pencil"></span></a>
             <a href="https://github.com/yiisoft/yii2/blob/master/framework/grid/ActionColumn.php#L123" class="tool-link" title="view source on github"><span class="glyphicon glyphicon-eye-open"></span></a>
         
-        $urlCreator        <span class="detail-header-tag small">
+        $GetUrlCreator        <span class="detail-header-tag small">
             public                                                property
                     </span>
     </div>
@@ -932,7 +932,7 @@ Since 2.0.10 it can accept additional parameter, which refers to the column inst
 
             </div>
 
-    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.callable">callable</a></span> <a href="yii-grid-actioncolumn.html#$urlCreator-detail">$urlCreator</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
+    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.callable">callable</a></span> <a href="yii-grid-actioncolumn.html#$GetUrlCreator-detail">$GetUrlCreator</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
 
 
     <div class="detail-header h3" id="$visibleButtons-detail">

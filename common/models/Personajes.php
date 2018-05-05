@@ -155,11 +155,16 @@ class Personajes extends \yii\db\ActiveRecord
         }
     }
 
+    public function getCreator()
+    {
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
     /**
      * Muestra el creador del personaje como un link
      * @return string
      */
-    public function getCreator()
+    public function GetUrlCreator()
     {
         return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
     }

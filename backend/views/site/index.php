@@ -56,7 +56,7 @@ $this->title = 'My Yii Application';
                             'attribute' => 'creator',
                             'format' => 'raw',
                             'value' => function ($model) {
-                                return $model->getCreator();
+                                return $model->GetUrlCreator();
                             }
                         ],
                         [
@@ -82,7 +82,7 @@ $this->title = 'My Yii Application';
                             'attribute' => 'creator',
                             'format' => 'raw',
                             'value' => function ($model) {
-                                return $model->getCreator();
+                                return $model->GetUrlCreator();
                             }
                         ],
                         [

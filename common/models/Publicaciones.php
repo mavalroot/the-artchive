@@ -118,11 +118,16 @@ class Publicaciones extends \yii\db\ActiveRecord
         return $this->usuario_id == Yii::$app->user->id;
     }
 
+    public function getCreator()
+    {
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
     /**
      * Muestra el creador de la publicación como un link
      * @return string
      */
-    public function getCreator()
+    public function GetUrlCreator()
     {
         return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
     }
