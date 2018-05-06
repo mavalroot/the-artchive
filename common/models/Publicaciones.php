@@ -7,7 +7,10 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
+use yii\helpers\Url;
 use yii\helpers\Html;
+
+use common\utilities\Historial;
 
 /**
  * This is the model class for table "publicaciones".
@@ -24,6 +27,7 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \yii\db\ActiveRecord
 {
+    use Historial;
     /**
      * Creador de la publicación.
      * @var string
@@ -151,5 +155,28 @@ class Publicaciones extends \yii\db\ActiveRecord
                 ]) ?>
             </p>
         <?php endif;
+    }
+
+    public function getHistorialUrl()
+    {
+        return Url::to(['publicaciones/view', 'id' => $this->id]);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if ($insert) {
+            Historial::crearHistorial('Ha creado una publicación', $this->getHistorialUrl());
+        } else {
+            Historial::crearHistorial('Ha modificado una publicación', $this->getHistorialUrl());
+        }
+    }
+
+    public function beforeDelete()
+    {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+        Historial::crearHistorial('Ha borrado su publicación', false);
+        return true;
     }
 }
