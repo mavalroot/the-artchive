@@ -168,7 +168,7 @@ class Personajes extends \yii\db\ActiveRecord
      * Muestra el creador del personaje como un link
      * @return string
      */
-    public function GetUrlCreator()
+    public function getUrlCreator()
     {
         return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
     }

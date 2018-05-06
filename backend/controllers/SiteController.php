@@ -78,7 +78,7 @@ class SiteController extends Controller
         $params['publicaciones'] = new PublicacionesSearch();
         $params['reciente'] = new ActividadRecienteSearch();
 
-        foreach ($params as $key => $value) {
+        foreach (array_keys($params) as $key) {
             $params[$key] = $params[$key]->search(Yii::$app->request->queryParams);
             $params[$key]->query->orderBy(['created_at' => SORT_DESC])->limit(5);
             $params[$key]->sort = false;

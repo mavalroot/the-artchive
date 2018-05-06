@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'creator',
                 'format' => 'raw',
                 'value' => function ($model) {
-                    return $model->GetUrlCreator();
+                    return $model->getUrlCreator();
                 }
             ],
             [
