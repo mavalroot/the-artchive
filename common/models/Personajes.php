@@ -203,7 +203,7 @@ class Personajes extends \yii\db\ActiveRecord
         if (!parent::beforeDelete()) {
             return false;
         }
-        Historial::crearHistorial('Ha borrado su personaje\"' . $this->nombre . '\".', false);
+        Historial::crearHistorial('Ha borrado su personaje"' . $this->nombre . '".', false);
         return true;
     }
 }
