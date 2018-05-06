@@ -10,6 +10,7 @@ use common\models\LoginForm;
 use common\models\PersonajesSearch;
 use common\models\PublicacionesSearch;
 use common\models\UsuariosCompletoSearch;
+use common\models\ActividadRecienteSearch;
 
 /**
  * Site controller
@@ -75,11 +76,13 @@ class SiteController extends Controller
         $params['usuarios'] = new UsuariosCompletoSearch();
         $params['personajes'] = new PersonajesSearch();
         $params['publicaciones'] = new PublicacionesSearch();
+        $params['reciente'] = new ActividadRecienteSearch();
 
         foreach ($params as $key => $value) {
             $params[$key] = $params[$key]->search(Yii::$app->request->queryParams);
             $params[$key]->query->orderBy(['created_at' => SORT_DESC])->limit(5);
             $params[$key]->sort = false;
+            $params[$key]->pagination = false;
         }
 
         return $this->render('index', $params);
