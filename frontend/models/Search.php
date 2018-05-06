@@ -51,7 +51,7 @@ class Search extends Model
             'attribute' => 'creator',
             'format' => 'raw',
             'value' => function ($model) {
-                return $model->getCreator();
+                return $model->getUrlCreator();
             }
         ];
         $columns[] = 'created_at:date';

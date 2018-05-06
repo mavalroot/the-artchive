@@ -106,7 +106,7 @@ Array
         (
             [line] => 32
             [file] => ./common/models/Personajes.php
-            [message] => Property $creator conflicts with a defined getter getCreator in common\models\Personajes.
+            [message] => Property $creator conflicts with a defined getter getUrlCreator in common\models\Personajes.
         )
 
     [18] => Array

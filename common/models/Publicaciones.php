@@ -7,7 +7,10 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
+use yii\helpers\Url;
 use yii\helpers\Html;
+
+use common\utilities\Historial;
 
 /**
  * This is the model class for table "publicaciones".
@@ -24,6 +27,13 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \yii\db\ActiveRecord
 {
+    use Historial;
+    /**
+     * Creador de la publicación.
+     * @var string
+     */
+    public $creator;
+
     /**
      * @inheritdoc
      */
@@ -60,6 +70,7 @@ class Publicaciones extends \yii\db\ActiveRecord
             'contenido' => 'Contenido',
             'created_at' => 'Fecha de creación',
             'updated_at' => 'Última actualización',
+            'creator' => 'Creado por'
         ];
     }
 
@@ -111,6 +122,21 @@ class Publicaciones extends \yii\db\ActiveRecord
         return $this->usuario_id == Yii::$app->user->id;
     }
 
+    public function getCreator()
+    {
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
+    /**
+     * Muestra el creador de la publicación como un link
+     * @return string
+     */
+    public function getUrlCreator()
+    {
+        return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
+    }
+
+
     /**
      * Muestra los botones de Modificar y borrar si el usuario conectado es el
      * propietario de la publicación.
@@ -129,5 +155,32 @@ class Publicaciones extends \yii\db\ActiveRecord
                 ]) ?>
             </p>
         <?php endif;
+    }
+
+    public function getHistorialUrl()
+    {
+        return Url::to(['publicaciones/view', 'id' => $this->id]);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if ($insert) {
+            Historial::crearHistorial('Ha creado una publicación.', $this->getHistorialUrl());
+        } else {
+            Historial::crearHistorial('Ha modificado una publicación.', $this->getHistorialUrl());
+        }
+        return true;
+    }
+
+    public function beforeDelete()
+    {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+        Historial::crearHistorial('Ha borrado su publicación "' . $this->titulo . '".', false);
+        return true;
     }
 }

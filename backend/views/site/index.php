@@ -1,53 +1,129 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\grid\GridView;
 
 $this->title = 'My Yii Application';
+
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
     <div class="body-content">
-
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-6">
+                <h2>
+                    Actividad reciente
+                    <a href="actividad-reciente/index" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
+                    <div class="table-responsive">
+                        <?= GridView::widget([
+                            'dataProvider' => $reciente,
+                            'columns' => [
+                                [
+                                    'attribute' => 'creator',
+                                    'format' => 'raw',
+                                    'value' => function ($model) {
+                                        return $model->getUrlCreator();
+                                    }
+                                ],
+                                [
+                                    'attribute' => 'mensaje',
+                                    'format' => 'raw',
+                                    'value' => function ($model) {
+                                        if ($model->url) {
+                                            return "<a href=\"$model->url\">$model->mensaje</a>";
+                                        }
+                                        return $model->mensaje;
+                                    }
+                                ],
+                                'created_at:relativetime',
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                            ],
+                        ]); ?>
+                    </div>
+                </div>
+            <div class="col-lg-6">
+                <h2>
+                    Últimos usuarios
+                    <a href="usuarios-completo/index" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
+                <div class="table-responsive">
+                    <?= GridView::widget([
+                        'dataProvider' => $usuarios,
+                        'columns' => [
+                            [
+                                'attribute' => 'username',
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    return $model->getUrl();
+                                }
+                            ],
+                            'email:email',
+                            'status'
+                        ],
+                    ]); ?>
+                </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>
+                    Últimos pjs
+                    <a href="personajes/index" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
+                <div class="table-responsive">
+                    <?= GridView::widget([
+                        'dataProvider' => $personajes,
+                        'columns' => [
+                            [
+                                'attribute' => 'creator',
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    return $model->getUrlCreator();
+                                }
+                            ],
+                            [
+                                'attribute' => 'nombre',
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    return $model->getUrl();
+                                }
+                            ],
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2>
+                    Últimas publicaciones
+                    <a href="publicaciones/index" class="btn btn-sm btn-info">Ver todo</a>
+                </h2>
+                <div class="table-responsive">
+                    <?= GridView::widget([
+                        'dataProvider' => $publicaciones,
+                        'columns' => [
+                            [
+                                'attribute' => 'creator',
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    return $model->getUrlCreator();
+                                }
+                            ],
+                            [
+                                'attribute' => 'titulo',
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    return $model->getUrl();
+                                }
+                            ],
+                        ],
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2>Otras gestiones:</h2>
+            <a href="">Gestionar baneos</a>
+        </div>
     </div>
 </div>

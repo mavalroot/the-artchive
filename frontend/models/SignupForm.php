@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 use yii\base\Model;
+
 use common\models\User;
 use common\models\UsuariosDatos;
 
@@ -58,14 +59,23 @@ class SignupForm extends Model
 
 
         if ($user->save()) {
-            $datos = new UsuariosDatos();
-            $datos->user_id = $user->id;
-            $datos->save();
+            $this->crearDatos($user->id);
             return $user;
         } else {
             return null;
         }
 
         return $user->save() ? $user : null;
+    }
+
+    /**
+     * Crea los datos asociados al nuevo usuario.
+     * @param  int $id Id del usuario registrado.
+     */
+    public function crearDatos($id)
+    {
+        $datos = new UsuariosDatos();
+        $datos->user_id = $id;
+        $datos->save();
     }
 }

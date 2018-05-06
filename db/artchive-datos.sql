@@ -77,24 +77,34 @@ INSERT INTO tipos_notificaciones (tipo) VALUES
 -- DATOS DE PRUEBA --
 ---------------------
 
-INSERT INTO "user" (username, auth_key, password_hash, email) VALUES
+INSERT INTO "user" (username, auth_key, password_hash, email, tipo_usuario) VALUES
       (
           'Prueba'
         , md5(random()::text)
         , crypt('123456', gen_salt('bf', 13))
         , 'prueba@prueba.com'
+        , 1
     )
     ,  (
           'Prueba2'
         , md5(random()::text)
         , crypt('123456', gen_salt('bf', 13))
         , 'prueba2@prueba.com'
+        , 1
+    )
+    ,  (
+          'Admin'
+        , md5(random()::text)
+        , crypt('123456', gen_salt('bf', 13))
+        , 'admin@prueba.com'
+        , 3
     )
 ;
 
-INSERT INTO usuarios_datos (user_id, tipo_usuario) VALUES
-      (1,1)
-    , (2,1)
+INSERT INTO usuarios_datos (user_id) VALUES
+      (1)
+    , (2)
+    , (3)
 ;
 
 INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES

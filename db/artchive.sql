@@ -14,6 +14,8 @@ CREATE TABLE "user" (
     , status                smallint        DEFAULT 10 NOT NULL
     , created_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
     , updated_at            integer         NOT NULL DEFAULT extract('epoch' from localtimestamp)::int
+    , tipo_usuario          bigint          DEFAULT 1 NOT NULL REFERENCES tipos_usuario (id)
+                                            ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS tipos_usuario CASCADE;
@@ -35,8 +37,6 @@ CREATE TABLE usuarios_datos (
     , plataforma        varchar(255)
     , pagina_web        varchar(255)
     , avatar            varchar(255)
-    , tipo_usuario      bigint          NOT NULL REFERENCES tipos_usuario (id)
-                                        ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 /* CREATE OR REPLACE VIEW usuarios_completo AS
@@ -50,7 +50,7 @@ CREATE TABLE personajes (
     , usuario_id            bigint          NOT NULL REFERENCES "user" (id)
                                             ON DELETE NO ACTION ON UPDATE CASCADE
     , nombre                varchar(255)    NOT NULL
-    , fecha_nac             timestamp(0)
+    , fecha_nac             date
     , historia              text
     , personalidad          text
     , apariencia            text
@@ -210,6 +210,16 @@ CREATE TABLE apellidos_aleatorios (
     , apellido varchar(255) NOT NULL UNIQUE
 );
 
+DROP TABLE IF EXISTS actividad_reciente CASCADE;
+
+CREATE TABLE actividad_reciente (
+      id bigserial PRIMARY KEY
+    , mensaje varchar(255) NOT NULL
+    , url varchar(255)
+    , created_at timestamp(0) NOT NULL DEFAULT localtimestamp
+    , created_by bigint NOT NULL REFERENCES "user" (id)
+);
+
 ------------
 -- VISTAS --
 ------------
@@ -220,5 +230,5 @@ FROM "user" u
 LEFT JOIN usuarios_datos ud ON u.id = ud.user_id
 LEFT JOIN seguidores seg ON seg.user_id = u.id
 LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
-LEFT JOIN tipos_usuario tu ON tu.id = ud.tipo_usuario
+LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
 GROUP BY u.id, ud.user_id, tu.id;

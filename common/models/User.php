@@ -25,8 +25,22 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    /**
+     * El usuario está dado de baja.
+     * @var int
+     */
     const STATUS_DELETED = 0;
+
+    /**
+     * El usuario está activo.
+     * @var int
+     */
     const STATUS_ACTIVE = 10;
+
+    /**
+     * El usuario espera confirmación.
+     * @var int
+     */
     const STATUS_WAITING = 20;
 
 
@@ -67,6 +81,8 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_WAITING],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_WAITING]],
+            [['tipo_usuario'], 'default', 'value' => 1],
+            [['tipo_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => TiposUsuario::className(), 'targetAttribute' => ['tipo_usuario' => 'id']],
         ];
     }
 

@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "phpoffice/phpspreadsheet": "dev-master",
-        "kartik-v/yii2-widget-datepicker": "^1.4"
+        "kartik-v/yii2-widget-datepicker": "^1.4",
+        "kartik-v/yii2-widget-datetimepicker": "^1.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
