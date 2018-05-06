@@ -19,7 +19,7 @@ class ActividadRecienteSearch extends ActividadReciente
     {
         return [
             [['id', 'created_by'], 'integer'],
-            [['mensaje', 'url', 'created_at'], 'safe'],
+            [['mensaje', 'url', 'created_at', 'creator'], 'safe'],
         ];
     }
 
@@ -41,7 +41,8 @@ class ActividadRecienteSearch extends ActividadReciente
      */
     public function search($params)
     {
-        $query = ActividadReciente::find();
+        $query = ActividadReciente::find()->select('actividad_reciente.*, user.username as creator')->joinWith('createdBy');
+
 
         // add conditions that should always apply here
 
@@ -56,6 +57,11 @@ class ActividadRecienteSearch extends ActividadReciente
             // $query->where('0=1');
             return $dataProvider;
         }
+
+        $dataProvider->sort->attributes['creator'] = [
+            'asc' => ['creator' => SORT_ASC],
+            'desc' => ['creator' => SORT_DESC],
+        ];
 
         // grid filtering conditions
         $query->andFilterWhere([

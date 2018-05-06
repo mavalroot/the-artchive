@@ -18,6 +18,12 @@ use Yii;
 class ActividadReciente extends \yii\db\ActiveRecord
 {
     /**
+     * Creador de la actividad
+     * @var string
+     */
+    public $creator;
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()
@@ -47,10 +53,11 @@ class ActividadReciente extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'mensaje' => 'Mensaje',
+            'mensaje' => 'Acción',
             'url' => 'Url',
-            'created_at' => 'Created At',
+            'created_at' => '',
             'created_by' => 'Created By',
+            'creator' => 'Usuario',
         ];
     }
 

@@ -19,12 +19,15 @@ $this->title = 'My Yii Application';
                 <?= GridView::widget([
                     'dataProvider' => $reciente,
                     'columns' => [
-                        'created_by',
+                        'creator',
                         [
-                            'attribute' => 'Mensaje',
+                            'attribute' => 'mensaje',
                             'format' => 'raw',
                             'value' => function ($model) {
-                                return "<a href=\"$model->url\">$model->mensaje</a>";
+                                if ($model->url) {
+                                    return "<a href=\"$model->url\">$model->mensaje</a>";
+                                }
+                                return $model->mensaje;
                             }
                         ],
                         'created_at:relativetime',
