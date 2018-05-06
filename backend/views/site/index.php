@@ -19,7 +19,13 @@ $this->title = 'My Yii Application';
                         <?= GridView::widget([
                             'dataProvider' => $reciente,
                             'columns' => [
-                                'creator',
+                                [
+                                    'attribute' => 'creator',
+                                    'format' => 'raw',
+                                    'value' => function ($model) {
+                                        return $model->GetUrlCreator();
+                                    }
+                                ],
                                 [
                                     'attribute' => 'mensaje',
                                     'format' => 'raw',

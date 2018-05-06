@@ -17,9 +17,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            'creator',
+            [
+                'attribute' => 'creator',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->GetUrlCreator();
+                }
+            ],
             [
                 'attribute' => 'mensaje',
                 'format' => 'raw',

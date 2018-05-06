@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "actividad_reciente".
  *
@@ -67,5 +69,14 @@ class ActividadReciente extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * Muestra el creador del personaje como un link
+     * @return string
+     */
+    public function GetUrlCreator()
+    {
+        return Html::a($this->createdBy->username, ['/usuarios-completo/view', 'username' => $this->createdBy->username]);
     }
 }

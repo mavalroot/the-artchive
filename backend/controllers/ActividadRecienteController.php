@@ -37,6 +37,9 @@ class ActividadRecienteController extends Controller
     {
         $searchModel = new ActividadRecienteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort = [
+            'defaultOrder' => ['created_at' => SORT_DESC]
+        ];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
