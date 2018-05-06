@@ -7,7 +7,10 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
+use yii\helpers\Url;
 use yii\helpers\Html;
+
+use common\utilities\Historial;
 
 /**
  * This is the model class for table "personajes".
@@ -29,6 +32,7 @@ use yii\helpers\Html;
  */
 class Personajes extends \yii\db\ActiveRecord
 {
+    use Historial;
     /**
      * Creador del personaje
      * @var string
@@ -178,5 +182,28 @@ class Personajes extends \yii\db\ActiveRecord
         if ($this->isMine()) {
             return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $this->nombre, 'class' => 'btn btn-sm btn-primary']);
         }
+    }
+
+    public function getHistorialUrl()
+    {
+        return Url::to(['personajes/view', 'id' => $this->id]);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if ($insert) {
+            Historial::crearHistorial('Ha creado un personaje', $this->getHistorialUrl());
+        } else {
+            Historial::crearHistorial('Ha modificado un personaje', $this->getHistorialUrl());
+        }
+    }
+
+    public function beforeDelete()
+    {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+        Historial::crearHistorial('Ha borrado su personaje', false);
+        return true;
     }
 }
