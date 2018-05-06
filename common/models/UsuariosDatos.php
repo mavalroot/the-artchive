@@ -4,6 +4,10 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Url;
+
+use common\utilities\Historial;
+
 /**
  * This is the model class for table "usuarios_datos".
  *
@@ -18,6 +22,7 @@ use Yii;
  */
 class UsuariosDatos extends \yii\db\ActiveRecord
 {
+    use Historial;
     /**
      * @inheritdoc
      */
@@ -81,5 +86,28 @@ class UsuariosDatos extends \yii\db\ActiveRecord
     public function getMiPerfil()
     {
         return ['usuarios-completo/view', 'username' => $this->getName()];
+    }
+
+    public function getHistorialUrl()
+    {
+        return Url::to(['usuarios-completos/view', 'username' => $this->getName()]);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if ($insert) {
+            Historial::crearHistorial('Se ha registrado.', $this->getHistorialUrl());
+        } else {
+            Historial::crearHistorial('Ha modificado su perfil.', $this->getHistorialUrl());
+        }
+    }
+
+    public function beforeDelete()
+    {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+        Historial::crearHistorial('"' . $this->getName() . '" se ha dado de baja.', false);
+        return true;
     }
 }

@@ -165,9 +165,9 @@ class Publicaciones extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes)
     {
         if ($insert) {
-            Historial::crearHistorial('Ha creado una publicación', $this->getHistorialUrl());
+            Historial::crearHistorial('Ha creado una publicación.', $this->getHistorialUrl());
         } else {
-            Historial::crearHistorial('Ha modificado una publicación', $this->getHistorialUrl());
+            Historial::crearHistorial('Ha modificado una publicación.', $this->getHistorialUrl());
         }
     }
 
@@ -176,7 +176,7 @@ class Publicaciones extends \yii\db\ActiveRecord
         if (!parent::beforeDelete()) {
             return false;
         }
-        Historial::crearHistorial('Ha borrado su publicación', false);
+        Historial::crearHistorial('Ha borrado su publicación "' . $this->titulo . '".', false);
         return true;
     }
 }
