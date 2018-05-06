@@ -210,6 +210,16 @@ CREATE TABLE apellidos_aleatorios (
     , apellido varchar(255) NOT NULL UNIQUE
 );
 
+DROP TABLE IF EXISTS actividad_reciente CASCADE;
+
+CREATE TABLE actividad_reciente (
+      id bigserial PRIMARY KEY
+    , mensaje varchar(255) NOT NULL
+    , url varchar(255) NOT NULL
+    , created_at timestamp(0) NOT NULL DEFAULT localtimestamp
+    , created_by bigint NOT NULL REFERENCES "user" (id)
+);
+
 ------------
 -- VISTAS --
 ------------
