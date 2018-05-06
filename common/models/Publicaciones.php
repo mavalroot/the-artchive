@@ -162,13 +162,17 @@ class Publicaciones extends \yii\db\ActiveRecord
         return Url::to(['publicaciones/view', 'id' => $this->id]);
     }
 
-    public function afterSave($insert, $changedAttributes)
+    public function beforeSave($insert)
     {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
         if ($insert) {
             Historial::crearHistorial('Ha creado una publicación.', $this->getHistorialUrl());
         } else {
             Historial::crearHistorial('Ha modificado una publicación.', $this->getHistorialUrl());
         }
+        return true;
     }
 
     public function beforeDelete()

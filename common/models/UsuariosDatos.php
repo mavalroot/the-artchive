@@ -93,13 +93,17 @@ class UsuariosDatos extends \yii\db\ActiveRecord
         return Url::to(['usuarios-completos/view', 'username' => $this->getName()]);
     }
 
-    public function afterSave($insert, $changedAttributes)
+    public function beforeSave($insert)
     {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
         if ($insert) {
             Historial::crearHistorial('Se ha registrado.', $this->getHistorialUrl());
         } else {
             Historial::crearHistorial('Ha modificado su perfil.', $this->getHistorialUrl());
         }
+        return true;
     }
 
     public function beforeDelete()

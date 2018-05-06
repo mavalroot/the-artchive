@@ -189,13 +189,17 @@ class Personajes extends \yii\db\ActiveRecord
         return Url::to(['personajes/view', 'id' => $this->id]);
     }
 
-    public function afterSave($insert, $changedAttributes)
+    public function beforeSave($insert)
     {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
         if ($insert) {
             Historial::crearHistorial('Ha creado un personaje', $this->getHistorialUrl());
         } else {
             Historial::crearHistorial('Ha modificado un personaje', $this->getHistorialUrl());
         }
+        return true;
     }
 
     public function beforeDelete()
