@@ -55,7 +55,7 @@ class ActividadReciente extends \yii\db\ActiveRecord
             'id' => 'ID',
             'mensaje' => 'Acción',
             'url' => 'Url',
-            'created_at' => '',
+            'created_at' => 'Fecha',
             'created_by' => 'Created By',
             'creator' => 'Usuario',
         ];

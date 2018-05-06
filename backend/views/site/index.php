@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-6">
                 <h2>
                     Actividad reciente
-                    <a href="" class="btn btn-sm btn-info">Ver todo</a>
+                    <a href="actividad-reciente/index" class="btn btn-sm btn-info">Ver todo</a>
                 </h2>
 
                 <?= GridView::widget([
