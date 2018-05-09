@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\User;
+use common\models\Comentarios;
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
@@ -65,8 +66,10 @@ class PublicacionesController extends Controller
      */
     public function actionView($id)
     {
+        $comentarios = Comentarios::find()->where(['publicacion_id' => $id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'comentarios' => $comentarios,
         ]);
     }
 

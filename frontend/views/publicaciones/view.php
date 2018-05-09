@@ -29,4 +29,31 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php $model->getButtons() ?>
 
+    <div id="toggle">
+        Mostar/Ocultar comentarios
+    </div>
+    <div class="publicacion-comentarios">
+        <?php foreach ($comentarios as $comentario): ?>
+            <div class="comentario" id="com<?= $comentario->id ?>">
+                <div class="comentario-head">
+                    <span class="username">
+                        <?= $comentario->getUsername() ?>
+                    </span>
+                    <small>
+                        [<?= Yii::$app->formatter->asDateTime($comentario->created_at) ?>]
+                    </small>
+                </div>
+                <div class="contenido">
+                    <div class="permalink">
+                        <?= $comentario->getPermalink() ?>
+                    </div>
+                    <div class="responde">
+                        <?= $comentario->getRespuestaUrl() ?>
+                    </div>
+                    <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
 </div>

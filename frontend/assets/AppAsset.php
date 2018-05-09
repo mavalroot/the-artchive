@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
         'js/plugins/jspdf.min.js',
         'js/plugins/jspdf.plugin.autotable.js',
         'js/guardarpdf.js',
+        'js/toggle.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

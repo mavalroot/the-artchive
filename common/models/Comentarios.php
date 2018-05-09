@@ -4,6 +4,9 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Url;
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "comentarios".
  *
@@ -93,5 +96,28 @@ class Comentarios extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
+    public function getUsername()
+    {
+        $user = $this->getUsuario()->one()->username;
+        return Html::a($user, ['usuarios-completo/view', 'username' => $user]);
+    }
+
+    public function getPermalink()
+    {
+        return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
+    }
+
+    public function isQuote()
+    {
+        return $this->getComentario()->one() !== null;
+    }
+
+    public function getRespuestaUrl()
+    {
+        if ($this->isQuote()) {
+            return $this->getComentario()->one()->getPermalink();
+        }
     }
 }

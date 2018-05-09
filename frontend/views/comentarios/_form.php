@@ -15,14 +15,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'usuario_id')->textInput() ?>
 
     <?= $form->field($model, 'publicacion_id')->textInput() ?>
-
-    <?= $form->field($model, 'contenido')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'comentario_id')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'contenido')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
