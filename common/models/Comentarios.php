@@ -42,7 +42,7 @@ class Comentarios extends \yii\db\ActiveRecord
             [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer'],
-            [['contenido'], 'string'],
+            [['contenido'], 'string', 'max' => 500],
             [['created_at', 'updated_at'], 'safe'],
             [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
             [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],

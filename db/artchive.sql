@@ -82,7 +82,7 @@ CREATE TABLE comentarios (
     , usuario_id        bigint          NOT NULL REFERENCES "user" (id)
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , publicacion_id    bigint          NOT NULL REFERENCES publicaciones (id)
-    , contenido         text            NOT NULL
+    , contenido         varchar(500)    NOT NULL
     , comentario_id     bigint          REFERENCES comentarios (id)
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , created_at        timestamp(0)    NOT NULL DEFAULT localtimestamp
