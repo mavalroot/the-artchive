@@ -117,7 +117,9 @@ class Comentarios extends \yii\db\ActiveRecord
 
     public function getRespuestaUrl()
     {
-        return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->comentario_id]);
+        if ($this->comentario_id) {
+            return Html::a('#' . $this->comentario_id, [Url::to(), '#' => 'com' . $this->comentario_id]);
+        }
     }
 
     public function isMine()
