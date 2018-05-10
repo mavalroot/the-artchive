@@ -12,7 +12,7 @@ use common\models\ActividadReciente;
  */
 trait Historial
 {
-    public function crearHistorial($message, $url)
+    public static function crearHistorial($message, $url)
     {
         $actividad = new ActividadReciente();
         $actividad->mensaje = $message;
