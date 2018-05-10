@@ -39,38 +39,12 @@
 </div>
 
 <?php
-$url = Yii::$app->request->baseUrl. '/comentarios/create';
+$crear = Yii::$app->request->baseUrl. '/comentarios/create';
+$responder = Yii::$app->request->baseUrl. '/comentarios/responder';
 
 $js = <<< JS
-function publicar() {
-    $('#nuevo-comentario').on('submit','form[name="nuevo-comentario"]', function(e) {
-        e.preventDefault();
-        let that = $(this);
-        $.post("$url", $(this).serialize(), function(data) {
-            $('#error').empty();
-            if (data !== 'true') {
-                $('#error').append(data);
-            }
-            $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-            $("#toggle").load(location.href+" #toggle>*","");
-            $("form[name='nuevo-comentario']").load(location.href+" form[name='nuevo-comentario']>*","");
-        });
-    });
-}
-
-publicar();
+publicar("$crear");
+responder("$responder");
 JS;
 
 $this->registerJs($js);
-
-$url = Yii::$app->request->baseUrl. '/comentarios/responder';
-$js2 = <<< JS
-$('#publicacion-comentarios').on('click','a[name="responder-comentario"]', function() {
-    let ide = $(this).parent().children('input[name="id"]').val();
-    $.post("$url", {id: ide}, function(data) {
-        $('form[name="nuevo-comentario"]').prepend(data);
-    });
-});
-JS;
-
-$this->registerJs($js2);

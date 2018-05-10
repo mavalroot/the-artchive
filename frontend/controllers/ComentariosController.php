@@ -80,19 +80,13 @@ class ComentariosController extends Controller
                 $imploded = implode('<br />', $values);
                 return $imploded;
             }
-            // echo var_dump($model->validate());
-            // echo var_dump($model->getErrors());
         }
-
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        //     return $this->redirect(['view', 'id' => $model->id]);
-        // }
-
-        // return $this->render('create', [
-        //     'model' => $model,
-        // ]);
     }
 
+    /**
+     * Responder
+     * @return [type] [description]
+     */
     public function actionResponder()
     {
         if (Yii::$app->request->post('id')) {
@@ -102,9 +96,7 @@ class ComentariosController extends Controller
                 <span id="limpiar"><span class="glyphicon glyphicon-remove-sign"></span></span>
                 <input type="hidden" name="comentario_id" value="<?= $id ?>"/>
                 <script type="text/javascript">
-                    $('#limpiar').on('click', function() {
-                        $('p[class="quote-respuesta"]').remove()
-                    });
+                    limpiar();
                 </script>
             </p>
             <?php
