@@ -17,15 +17,21 @@
             </div>
             <div class="comentario-botones">
                     <input type="hidden" name="id" value="<?= $comentario->id ?>">
-                    <a href="#nuevo-comentario" class="btn btn-sm" name="responder-comentario">Responder</a>
-                <!-- Editar / Borrar / Responder -->
+                    <a href="#nuevo-comentario" class="btn btn-xs btn-info" name="responder-comentario">Responder</a>
+                    <?php if ($comentario->isMine() && !$comentario->isDeleted()): ?>
+                        <a href="#" name="borrar-comentario" class="btn btn-xs btn-danger">Borrar</a>
+                    <?php endif; ?>
             </div>
             <div class="comentario-body">
                 <div class="quote">
                     <?= $comentario->getRespuestaUrl() ?>
                 </div>
                 <div class="contenido">
-                    <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
+                    <?php if ($comentario->isDeleted()): ?>
+                        <?= Yii::$app->formatter->asRaw($comentario->contenido); ?>
+                    <?php else: ?>
+                        <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -48,10 +54,12 @@
 <?php
 $crear = Yii::$app->request->baseUrl. '/comentarios/create';
 $responder = Yii::$app->request->baseUrl. '/comentarios/responder';
+$eliminar = Yii::$app->request->baseUrl. '/comentarios/delete';
 
 $js = <<< JS
 publicar("$crear");
 responder("$responder");
+eliminar("$eliminar");
 JS;
 
 $this->registerJs($js);

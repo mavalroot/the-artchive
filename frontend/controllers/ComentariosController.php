@@ -130,11 +130,18 @@ class ComentariosController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        if (Yii::$app->request->post('id')) {
+            $id = Yii::$app->request->post('id');
+            $model = $this->findModel($id);
+            if ($model->isMine() && !$model->isDeleted()) {
+                $model->contenido = '<em class="text-danger">Este comentario ha sido borrado por su <strong>autor</strong>.</em>';
+                $model->deleted = true;
+                return $model->save();
+            }
+        }
+        return false;
     }
 
     /**

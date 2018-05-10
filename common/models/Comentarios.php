@@ -41,6 +41,8 @@ class Comentarios extends \yii\db\ActiveRecord
         return [
             [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
+            [['deleted'], 'default', 'value' => false],
+            ['deleted', 'boolean'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer'],
             [['contenido'], 'string', 'max' => 500],
             [['created_at', 'updated_at'], 'safe'],
@@ -119,5 +121,15 @@ class Comentarios extends \yii\db\ActiveRecord
         if ($this->isQuote()) {
             return $this->getComentario()->one()->getPermalink();
         }
+    }
+
+    public function isMine()
+    {
+        return $this->usuario_id == Yii::$app->user->id;
+    }
+
+    public function isDeleted()
+    {
+        return $this->deleted;
     }
 }

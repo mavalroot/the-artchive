@@ -87,6 +87,7 @@ CREATE TABLE comentarios (
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , created_at        timestamp(0)    NOT NULL DEFAULT localtimestamp
     , updated_at        timestamp(0)
+    , deleted           boolean         DEFAULT FALSE
 );
 
 CREATE INDEX idx_comentarios_usuario_id ON comentarios (usuario_id);
