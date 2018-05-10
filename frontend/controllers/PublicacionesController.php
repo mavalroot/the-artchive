@@ -66,7 +66,7 @@ class PublicacionesController extends Controller
      */
     public function actionView($id)
     {
-        $comentarios = Comentarios::find()->where(['publicacion_id' => $id])->all();
+        $comentarios = Comentarios::find()->where(['publicacion_id' => $id])->orderBy('created_at ASC')->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
             'comentarios' => $comentarios,
