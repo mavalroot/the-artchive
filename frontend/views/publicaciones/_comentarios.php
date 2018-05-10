@@ -13,7 +13,8 @@
                 </small>
             </div>
             <div class="comentario-botones">
-                <input class="btn btn-sm" type="button" name="responder-comentario" value="Responder">
+                    <input type="hidden" name="id" value="<?= $comentario->id ?>">
+                    <a href="#nuevo-comentario" class="btn btn-sm" name="responder-comentario">Responder</a>
                 <!-- Editar / Borrar / Responder -->
             </div>
             <div class="comentario-body">
@@ -32,9 +33,9 @@
     <form name="nuevo-comentario" method="post">
         <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
         <textarea name="contenido" class="form-control" rows="5"></textarea>
-        <p id="error" class="text-danger"></p>
         <input type="submit" class="btn btn-success" value="Enviar">
     </form>
+    <p id="error" class="text-danger"></p>
 </div>
 
 <?php
@@ -46,14 +47,13 @@ function publicar() {
         e.preventDefault();
         let that = $(this);
         $.post("$url", $(this).serialize(), function(data) {
-            if (data) {
-                $('#error').empty();
-                if (data !== 'true') {
-                    $('#error').append(data);
-                }
-                $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-                $("#toggle").load(location.href+" #toggle>*","");
+            $('#error').empty();
+            if (data !== 'true') {
+                $('#error').append(data);
             }
+            $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
+            $("#toggle").load(location.href+" #toggle>*","");
+            $("form[name='nuevo-comentario']").load(location.href+" form[name='nuevo-comentario']>*","");
         });
     });
 }
@@ -62,3 +62,15 @@ publicar();
 JS;
 
 $this->registerJs($js);
+
+$url = Yii::$app->request->baseUrl. '/comentarios/responder';
+$js2 = <<< JS
+$('#publicacion-comentarios').on('click','a[name="responder-comentario"]', function() {
+    let ide = $(this).parent().children('input[name="id"]').val();
+    $.post("$url", {id: ide}, function(data) {
+        $('form[name="nuevo-comentario"]').prepend(data);
+    });
+});
+JS;
+
+$this->registerJs($js2);

@@ -69,6 +69,9 @@ class ComentariosController extends Controller
             $model->usuario_id = Yii::$app->user->id;
             $model->publicacion_id = Yii::$app->request->post('publicacion_id');
             $model->contenido = Yii::$app->request->post('contenido');
+            if (Yii::$app->request->post('comentario_id')) {
+                $model->comentario_id = Yii::$app->request->post('comentario_id');
+            }
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 return 'true';
@@ -88,6 +91,24 @@ class ComentariosController extends Controller
         // return $this->render('create', [
         //     'model' => $model,
         // ]);
+    }
+
+    public function actionResponder()
+    {
+        if (Yii::$app->request->post('id')) {
+            $id = Yii::$app->request->post('id'); ?>
+            <p class="quote-respuesta">
+                <span>Responder a: <a href="#com<?= $id ?>">#<?= $id ?></a></span>
+                <span id="limpiar"><span class="glyphicon glyphicon-remove-sign"></span></span>
+                <input type="hidden" name="comentario_id" value="<?= $id ?>"/>
+                <script type="text/javascript">
+                    $('#limpiar').on('click', function() {
+                        $('p[class="quote-respuesta"]').remove()
+                    });
+                </script>
+            </p>
+            <?php
+        }
     }
 
     /**
