@@ -103,7 +103,11 @@ class Comentarios extends \yii\db\ActiveRecord
 
     public function getUsername()
     {
-        return;
+        $user = $this->getUsuario()->one();
+        if ($user->status == 10) {
+            return Html::a($user->username, ['usuarios-completo/view', 'username' => $user->username]);
+        }
+        return $user->username;
     }
 
     public function getPermalink()

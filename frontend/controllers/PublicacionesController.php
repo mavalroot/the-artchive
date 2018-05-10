@@ -68,10 +68,17 @@ class PublicacionesController extends Controller
      */
     public function actionView($id)
     {
-        $query = Comentarios::find()->select('co.*, count(co.id) as quoted')->from('comentarios co')->joinWith('comentarios qu')->where(['co.publicacion_id' => $id])->groupBy('co.id')->orderBy('co.created_at ASC');
+        $query = Comentarios::find()
+        ->select('co.*, count(co.id) as quoted')
+        ->from('comentarios co')
+        ->joinWith('comentarios qu')
+        ->where(['co.publicacion_id' => $id])
+        ->groupBy('co.id')
+        ->orderBy('co.created_at ASC');
+        
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->setPageSize(10);
+        $pages->setPageSize(5);
         $comentarios = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
