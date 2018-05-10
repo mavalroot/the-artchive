@@ -64,15 +64,15 @@ class ComentariosController extends Controller
      */
     public function actionCreate()
     {
-        if (Yii::$app->request->post()) {
+        $post = Yii::$app->request->post();
+        if ($post) {
             $model = new Comentarios();
             $model->usuario_id = Yii::$app->user->id;
-            $model->publicacion_id = Yii::$app->request->post('publicacion_id');
-            $model->contenido = Yii::$app->request->post('contenido');
+            $model->publicacion_id = $post['publicacion_id'];
+            $model->contenido = $post['contenido'];
             if (Yii::$app->request->post('comentario_id')) {
-                $model->comentario_id = Yii::$app->request->post('comentario_id');
+                $model->comentario_id = $post['comentario_id'];
             }
-            $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 return 'true';
             } else {
@@ -101,26 +101,6 @@ class ComentariosController extends Controller
             </p>
             <?php
         }
-    }
-
-    /**
-     * Updates an existing Comentarios model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
