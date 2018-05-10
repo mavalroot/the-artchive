@@ -64,15 +64,26 @@ class ComentariosController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Comentarios();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->post()) {
+            $model = new Comentarios();
+            $model->usuario_id = Yii::$app->user->id;
+            $model->publicacion_id = Yii::$app->request->post('publicacion_id');
+            $model->contenido = Yii::$app->request->post('contenido');
+            $model->load(Yii::$app->request->post());
+            if ($model->save()) {
+                return 'correcto';
+            }
+            // echo var_dump($model->validate());
+            // echo var_dump($model->getErrors());
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->id]);
+        // }
+
+        // return $this->render('create', [
+        //     'model' => $model,
+        // ]);
     }
 
     /**

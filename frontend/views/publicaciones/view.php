@@ -29,11 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php $model->getButtons() ?>
 
-    <div id="toggle">
-        <h3>Mostar/Ocultar <?= count($model->getComentarios()->all()) ?> comentarios</h3>
-    </div>
     <?= $this->render('_comentarios', [
         'comentarios' => $comentarios,
+        'model' => $model,
     ]) ?>
 
 </div>
