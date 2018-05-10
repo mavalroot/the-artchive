@@ -66,11 +66,12 @@ class ComentariosController extends Controller
     {
         $post = Yii::$app->request->post();
         if ($post) {
-            $model = new Comentarios();
-            $model->usuario_id = Yii::$app->user->id;
-            $model->publicacion_id = $post['publicacion_id'];
-            $model->contenido = $post['contenido'];
-            if (Yii::$app->request->post('comentario_id')) {
+            $model = new Comentarios([
+                'usuario_id' => Yii::$app->user->id,
+                'publicacion_id' => $post['publicacion_id'],
+                'contenido' => $post['contenido'],
+            ]);
+            if ($post['comentario_id']) {
                 $model->comentario_id = $post['comentario_id'];
             }
             if ($model->save()) {
@@ -116,7 +117,7 @@ class ComentariosController extends Controller
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if ($model->isMine() && !$model->isDeleted()) {
-                $model->contenido = '<em class="text-danger">Este comentario ha sido borrado por su <strong>autor</strong>.</em>';
+                $model->contenido = '<em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em>';
                 $model->deleted = true;
                 return $model->save();
             }
