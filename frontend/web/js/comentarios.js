@@ -4,7 +4,7 @@ function publicar(url) {
         let that = $(this);
         $.post(url, $(this).serialize(), function(data) {
             $('#error').empty();
-            if (data !== 'true') {
+            if (data) {
                 $('#error').append(data);
             } else {
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
@@ -30,7 +30,7 @@ function eliminar(url) {
         $.post(url, {id: ide}, function(data) {
             if (data) {
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-            } 
+            }
         });
     });
 }

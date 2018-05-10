@@ -64,23 +64,22 @@ class ComentariosController extends Controller
      */
     public function actionCreate()
     {
-        $post = Yii::$app->request->post();
-        if ($post) {
+        if (Yii::$app->request->isAjax) {
+            $post = Yii::$app->request->post();
             $model = new Comentarios([
                 'usuario_id' => Yii::$app->user->id,
                 'publicacion_id' => $post['publicacion_id'],
                 'contenido' => $post['contenido'],
             ]);
-            if ($post['comentario_id']) {
+            if (isset($post['comentario_id'])) {
                 $model->comentario_id = $post['comentario_id'];
             }
-            if ($model->save()) {
-                return 'true';
-            } else {
+            if (!$model->save()) {
                 $values = array_map('array_pop', $model->getErrors());
                 $imploded = implode('<br />', $values);
                 return $imploded;
             }
+            return false;
         }
     }
 
@@ -90,7 +89,7 @@ class ComentariosController extends Controller
      */
     public function actionResponder()
     {
-        if (Yii::$app->request->post('id')) {
+        if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id'); ?>
             <p class="quote-respuesta">
                 <span>Responder a: <a href="#com<?= $id ?>">#<?= $id ?></a></span>
@@ -113,7 +112,7 @@ class ComentariosController extends Controller
      */
     public function actionDelete()
     {
-        if (Yii::$app->request->post('id')) {
+        if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if ($model->isMine() && !$model->isDeleted()) {
