@@ -18,7 +18,9 @@ function responder(url) {
     $('#publicacion-comentarios').on('click','a[name="responder-comentario"]', function() {
         let ide = $(this).parent().children('input[name="id"]').val();
         $.post(url, {id: ide}, function(data) {
-            $('form[name="nuevo-comentario"]').prepend(data);
+            if (data) {
+                $('form[name="nuevo-comentario"]').prepend(data);
+            }
         });
     });
 }

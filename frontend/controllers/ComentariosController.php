@@ -79,8 +79,8 @@ class ComentariosController extends Controller
                 $imploded = implode('<br />', $values);
                 return $imploded;
             }
-            return false;
         }
+        return false;
     }
 
     /**
@@ -101,6 +101,7 @@ class ComentariosController extends Controller
             </p>
             <?php
         }
+        return false;
     }
 
     /**
