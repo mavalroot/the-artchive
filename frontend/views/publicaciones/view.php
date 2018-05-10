@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_comentarios', [
         'comentarios' => $comentarios,
         'model' => $model,
+        'pagination' => $pagination,
     ]) ?>
 
 </div>

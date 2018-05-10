@@ -1,3 +1,6 @@
+<?php use yii\widgets\LinkPager;
+
+?>
 <div id="toggle">
     <h3>Mostar/Ocultar <?= count($model->getComentarios()->all()) ?> comentarios</h3>
 </div>
@@ -27,6 +30,10 @@
             </div>
         </div>
     <?php endforeach; ?>
+    <?= LinkPager::widget([
+        'pagination' => $pagination,
+    ]);
+    ?>
 </div>
 <div id="nuevo-comentario">
     <h3>Publicar comentario</h3>
