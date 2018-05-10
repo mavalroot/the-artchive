@@ -3,7 +3,10 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\data\Pagination;
+
 use common\models\User;
+use common\models\Comentarios;
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
@@ -65,8 +68,18 @@ class PublicacionesController extends Controller
      */
     public function actionView($id)
     {
+        $query = Comentarios::find()->where(['publicacion_id' => $id])->orderBy('created_at ASC');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(10);
+        $comentarios = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'comentarios' => $comentarios,
+            'pagination' => $pages,
         ]);
     }
 
