@@ -28,12 +28,15 @@ function responder(url) {
 function eliminar(url) {
     $('#publicacion-comentarios').on('click','a[name="borrar-comentario"]', function(e) {
         e.preventDefault();
-        let ide = $(this).parent().children('input[name="id"]').val();
-        $.post(url, {id: ide}, function(data) {
-            if (data) {
-                $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-            }
-        });
+        let confirmar = confirm('¿Seguro?');
+        if (confirmar) {
+            let ide = $(this).parent().children('input[name="id"]').val();
+            $.post(url, {id: ide}, function(data) {
+                if (data) {
+                    $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
+                }
+            });
+        }
     });
 }
 

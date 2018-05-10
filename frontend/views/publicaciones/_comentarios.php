@@ -1,4 +1,6 @@
-<?php use yii\widgets\LinkPager;
+<?php
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 ?>
 <div id="toggle">
