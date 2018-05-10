@@ -52,6 +52,7 @@ function publicar() {
                     $('#error').append(data);
                 }
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
+                $("#toggle").load(location.href+" #toggle>*","");
             }
         });
     });
