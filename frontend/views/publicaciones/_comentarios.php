@@ -29,7 +29,7 @@
                 <div class="contenido">
                     <?php if ($comentario->isDeleted()) : ?>
                         <?= Yii::$app->formatter->asRaw($comentario->contenido); ?>
-                    <?php else: ?>
+                    <?php else : ?>
                         <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
                     <?php endif; ?>
                 </div>
