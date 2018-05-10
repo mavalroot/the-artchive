@@ -24,7 +24,9 @@
             </div>
             <div class="comentario-body">
                 <div class="quote">
-                    <?= $comentario->getRespuestaUrl() ?>
+                    <?php if ($comentario->quoted > 0): ?>
+                        <?= $comentario->getRespuestaUrl() ?>
+                    <?php endif; ?>
                 </div>
                 <div class="contenido">
                     <?php if ($comentario->isDeleted()) : ?>

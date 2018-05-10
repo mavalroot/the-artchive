@@ -25,6 +25,7 @@ use yii\helpers\Html;
  */
 class Comentarios extends \yii\db\ActiveRecord
 {
+    public $quoted;
     /**
      * {@inheritdoc}
      */
@@ -102,8 +103,7 @@ class Comentarios extends \yii\db\ActiveRecord
 
     public function getUsername()
     {
-        $user = $this->getUsuario()->one()->username;
-        return Html::a($user, ['usuarios-completo/view', 'username' => $user]);
+        return;
     }
 
     public function getPermalink()
@@ -111,16 +111,9 @@ class Comentarios extends \yii\db\ActiveRecord
         return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
     }
 
-    public function isQuote()
-    {
-        return $this->getComentario()->one() !== null;
-    }
-
     public function getRespuestaUrl()
     {
-        if ($this->isQuote()) {
-            return $this->getComentario()->one()->getPermalink();
-        }
+        return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->comentario_id]);
     }
 
     public function isMine()
