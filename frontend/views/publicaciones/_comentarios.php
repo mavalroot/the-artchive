@@ -26,14 +26,15 @@
             </div>
         </div>
     <?php endforeach; ?>
-    <div id="nuevo-comentario">
-        <h3>Publicar comentario</h3>
-        <form name="nuevo-comentario" method="post">
-            <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
-            <textarea name="contenido" class="form-control" rows="5"></textarea>
-            <input type="submit" class="btn btn-success" value="Enviar">
-        </form>
-    </div>
+</div>
+<div id="nuevo-comentario">
+    <h3>Publicar comentario</h3>
+    <form name="nuevo-comentario" method="post">
+        <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
+        <textarea name="contenido" class="form-control" rows="5"></textarea>
+        <p id="error" class="text-danger"></p>
+        <input type="submit" class="btn btn-success" value="Enviar">
+    </form>
 </div>
 
 <?php
@@ -41,12 +42,15 @@ $url = Yii::$app->request->baseUrl. '/comentarios/create';
 
 $js = <<< JS
 function publicar() {
-    $('#publicacion-comentarios').on('submit','form[name="nuevo-comentario"]', function(e) {
+    $('#nuevo-comentario').on('submit','form[name="nuevo-comentario"]', function(e) {
         e.preventDefault();
         let that = $(this);
         $.post("$url", $(this).serialize(), function(data) {
             if (data) {
-                alert(data);
+                $('#error').empty();
+                if (data !== 'true') {
+                    $('#error').append(data);
+                }
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
             }
         });

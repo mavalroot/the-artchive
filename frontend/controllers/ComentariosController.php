@@ -71,7 +71,11 @@ class ComentariosController extends Controller
             $model->contenido = Yii::$app->request->post('contenido');
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
-                return 'correcto';
+                return 'true';
+            } else {
+                $values = array_map('array_pop', $model->getErrors());
+                $imploded = implode('<br />', $values);
+                return $imploded;
             }
             // echo var_dump($model->validate());
             // echo var_dump($model->getErrors());
