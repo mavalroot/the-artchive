@@ -63,6 +63,7 @@ class NotificacionesSearch extends Notificaciones
             'user_id' => $this->user_id,
             'tipo_notificacion_id' => $this->tipo_notificacion_id,
             'created_at' => $this->created_at,
+            'seen' => $this->seen,
         ]);
 
         $query->andFilterWhere(['ilike', 'notificacion', $this->notificacion]);

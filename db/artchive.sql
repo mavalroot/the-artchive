@@ -151,6 +151,7 @@ CREATE TABLE notificaciones (
     , user_id               bigint          NOT NULL REFERENCES "user" (id)
     , notificacion          varchar(255)
     , tipo_notificacion_id  bigint          NOT NULL REFERENCES tipos_notificaciones (id)
+    , seen                  boolean         NOT NULL DEFAULT FALSE
     , created_at            timestamp(0)    NOT NULL DEFAULT localtimestamp
 );
 

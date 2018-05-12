@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property int $user_id
  * @property string $notificacion
+ * @property boolean $seen
  *
  * @property User $user
  */
@@ -32,6 +33,7 @@ class Notificaciones extends \yii\db\ActiveRecord
             [['user_id'], 'required'],
             [['user_id'], 'default', 'value' => null],
             [['user_id'], 'integer'],
+            [['seen'], 'boolean'],
             [['notificacion'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];

@@ -112,10 +112,15 @@ INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES
     , (2, 1, 'Prueba 2', 'Contenido 2')
 ;
 
+
+INSERT INTO tipos_notificaciones (tipo) VALUES
+    ('Mensajes privados')
+;
+
 INSERT INTO notificaciones (user_id, notificacion, tipo_notificacion_id) VALUES
 (
       1
-    , '<a href="#">Has recibido un mensaje privado</a>'
+    , '<a href="/inbox/view/2">Has recibido un mensaje privado</a>'
     , 1
     )
 ;
