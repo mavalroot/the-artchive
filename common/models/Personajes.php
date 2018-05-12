@@ -6,11 +6,7 @@ use Yii;
 
 use yii\db\Expression;
 use yii\db\ActiveRecord;
-
-use yii\helpers\Url;
 use yii\helpers\Html;
-
-use common\utilities\Historial;
 
 /**
  * This is the model class for table "personajes".
@@ -30,9 +26,8 @@ use common\utilities\Historial;
  * @property EsFamiliar[] $esFamiliar
  * @property User $usuario
  */
-class Personajes extends \yii\db\ActiveRecord
+class Personajes extends \common\utilities\ArtchiveBase
 {
-    use Historial;
     /**
      * Creador del personaje
      * @var string
@@ -121,22 +116,9 @@ class Personajes extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
-    /**
-     * Devuelve un array con la url del view de ese personaje.
-     * @return array
-     */
-    public function getUrl()
+    public function getDataName()
     {
-        return Html::a($this->nombre, ['personajes/view', 'id' => $this->id]);
-    }
-
-    /**
-     * Indica si el usuario conectado es el propietario del personaje.
-     * @return bool
-     */
-    public function isMine()
-    {
-        return $this->usuario_id == Yii::$app->user->id;
+        return 'nombre';
     }
 
     /**
@@ -157,57 +139,5 @@ class Personajes extends \yii\db\ActiveRecord
             ]);
             return $botones;
         }
-    }
-
-    public function getCreator()
-    {
-        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
-    }
-
-    /**
-     * Muestra el creador del personaje como un link
-     * @return string
-     */
-    public function getUrlCreator()
-    {
-        return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
-    }
-
-    /**
-     * Muestra el botón para exportar a pdf.
-     * @return string
-     */
-    public function getExportButton()
-    {
-        if ($this->isMine()) {
-            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $this->nombre, 'class' => 'btn btn-sm btn-primary']);
-        }
-    }
-
-    public function getHistorialUrl()
-    {
-        return Url::to(['personajes/view', 'id' => $this->id]);
-    }
-
-    public function beforeSave($insert)
-    {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-        if ($insert) {
-            Historial::crearHistorial('Ha creado un personaje', $this->getHistorialUrl());
-        } else {
-            Historial::crearHistorial('Ha modificado un personaje', $this->getHistorialUrl());
-        }
-        return true;
-    }
-
-    public function beforeDelete()
-    {
-        if (!parent::beforeDelete()) {
-            return false;
-        }
-        Historial::crearHistorial('Ha borrado su personaje"' . $this->nombre . '".', false);
-        return true;
     }
 }
