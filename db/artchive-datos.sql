@@ -68,9 +68,9 @@ INSERT INTO apellidos_aleatorios (apellido) VALUES
 ;
 
 INSERT INTO tipos_notificaciones (tipo) VALUES
-      ('Mensaje Privado')
-    , ('Comentario')
-    , ('Relaciones')
+      ('mensajes privados')
+    , ('comentarios')
+    , ('relaciones')
 ;
 
 ---------------------
@@ -110,11 +110,6 @@ INSERT INTO usuarios_datos (user_id) VALUES
 INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES
       (1, 2, 'Prueba 1', 'Contenido 1')
     , (2, 1, 'Prueba 2', 'Contenido 2')
-;
-
-
-INSERT INTO tipos_notificaciones (tipo) VALUES
-    ('Mensajes privados')
 ;
 
 INSERT INTO notificaciones (user_id, notificacion, tipo_notificacion_id) VALUES

@@ -23,7 +23,7 @@ use yii\helpers\Html;
  * @property Publicaciones $publicacion
  * @property User $usuario
  */
-class Comentarios extends \yii\db\ActiveRecord
+class Comentarios extends \common\utilities\Notis
 {
     public $quoted;
     /**
@@ -130,5 +130,20 @@ class Comentarios extends \yii\db\ActiveRecord
     public function isDeleted()
     {
         return $this->deleted;
+    }
+
+    public function getNotificacionVistaId()
+    {
+        return $this->publicacion_id;
+    }
+
+    public function getNotificacionUrl()
+    {
+        return Url::to(['publicaciones/view', 'id' => $this->getNotificacionVistaId(), '#' => 'com' . $this->id]);
+    }
+
+    public function getNotificacionContenido()
+    {
+        return 'Tu publicación ha recibido un comentario.';
     }
 }

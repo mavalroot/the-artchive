@@ -28,7 +28,7 @@ use yii\helpers\Html;
  * @property User $receptor
  *
  */
-class MensajesPrivados extends \yii\db\ActiveRecord
+class MensajesPrivados extends \common\utilities\Notis
 {
     public $emisor_name;
     public $receptor_name;
@@ -131,5 +131,20 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     public function imReceptor()
     {
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
+    }
+
+    public function getNotificacionReceptor()
+    {
+        return 'receptor_id';
+    }
+
+    public function getNotificacionVistaId()
+    {
+        return $this->id;
+    }
+
+    public function getNotificacionContenido()
+    {
+        return 'Has recibido un mensaje privado.';
     }
 }
