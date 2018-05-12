@@ -14,6 +14,11 @@ use common\models\User;
  */
 class ArtchiveBase extends \yii\db\ActiveRecord
 {
+    public function getGuardarHistorial()
+    {
+        return true;
+    }
+
     public function getDataName()
     {
         return 'data-name';
@@ -109,10 +114,12 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
-        if ($insert) {
-            Historial::crearHistorial($this->getHistorialMessage('insert'), $this->getUrl());
-        } else {
-            Historial::crearHistorial($this->getHistorialMessage('update'), $this->getUrl());
+        if ($this->getGuardarHistorial()) {
+            if ($insert) {
+                Historial::crearHistorial($this->getHistorialMessage('insert'), $this->getUrl());
+            } else {
+                Historial::crearHistorial($this->getHistorialMessage('update'), $this->getUrl());
+            }
         }
         return true;
     }
@@ -122,7 +129,9 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         if (!parent::beforeDelete()) {
             return false;
         }
-        Historial::crearHistorial($this->getHistorialMessage('delete') . $this->nombre . '".', false);
+        if ($this->getGuardarHistorial()) {
+            Historial::crearHistorial($this->getHistorialMessage('delete') . $this->{$this->getDataName()} . '".', false);
+        }
         return true;
     }
 }

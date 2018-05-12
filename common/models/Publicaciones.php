@@ -25,7 +25,7 @@ use common\utilities\Historial;
  * @property Comentarios[] $comentarios
  * @property User $usuario
  */
-class Publicaciones extends \yii\db\ActiveRecord
+class Publicaciones extends \common\utilities\ArtchiveBase
 {
     use Historial;
     /**
@@ -104,36 +104,9 @@ class Publicaciones extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
-    /**
-     * Devuelve un array con la url del view de esa publicación.
-     * @return array
-     */
-    public function getUrl()
+    public function getDataName()
     {
-        return Html::a($this->titulo, ['publicaciones/view', 'id' => $this->id]);
-    }
-
-    /**
-     * Indica si el usuario conectado es el propietario de la publicación.
-     * @return bool
-     */
-    public function isMine()
-    {
-        return $this->usuario_id == Yii::$app->user->id;
-    }
-
-    public function getCreator()
-    {
-        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
-    }
-
-    /**
-     * Muestra el creador de la publicación como un link
-     * @return string
-     */
-    public function getUrlCreator()
-    {
-        return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
+        return 'titulo';
     }
 
 
@@ -155,32 +128,5 @@ class Publicaciones extends \yii\db\ActiveRecord
                 ]) ?>
             </p>
         <?php endif;
-    }
-
-    public function getHistorialUrl()
-    {
-        return Url::to(['publicaciones/view', 'id' => $this->id]);
-    }
-
-    public function beforeSave($insert)
-    {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-        if ($insert) {
-            Historial::crearHistorial('Ha creado una publicación.', $this->getHistorialUrl());
-        } else {
-            Historial::crearHistorial('Ha modificado una publicación.', $this->getHistorialUrl());
-        }
-        return true;
-    }
-
-    public function beforeDelete()
-    {
-        if (!parent::beforeDelete()) {
-            return false;
-        }
-        Historial::crearHistorial('Ha borrado su publicación "' . $this->titulo . '".', false);
-        return true;
     }
 }
