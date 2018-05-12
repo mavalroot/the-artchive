@@ -1175,7 +1175,7 @@ Callback should return the actual fields set, which should be saved into the ses
 <p>For example:</p>
 <pre><code class="hljs php language-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(<span class="hljs-variable">$session</span>)</span> </span>{
     <span class="hljs-keyword">return</span> [
-        <span class="hljs-string">'user_id'</span> =&gt; Yii::<span class="hljs-variable">$app</span>-&gt;user-&gt;id,
+        <span class="hljs-string">'usuario_id'</span> =&gt; Yii::<span class="hljs-variable">$app</span>-&gt;user-&gt;id,
         <span class="hljs-string">'ip'</span> =&gt; <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">'REMOTE_ADDR'</span>],
         <span class="hljs-string">'is_trusted'</span> =&gt; <span class="hljs-variable">$session</span>-&gt;get(<span class="hljs-string">'is_trusted'</span>, <span class="hljs-keyword">false</span>),
     ];

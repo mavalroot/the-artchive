@@ -68,9 +68,10 @@ INSERT INTO apellidos_aleatorios (apellido) VALUES
 ;
 
 INSERT INTO tipos_notificaciones (tipo) VALUES
-      ('Mensaje Privado')
-    , ('Comentario')
-    , ('Relaciones')
+      ('mensajes privados')
+    , ('comentarios')
+    , ('relaciones')
+    , ('seguidores')
 ;
 
 ---------------------
@@ -101,7 +102,7 @@ INSERT INTO "user" (username, auth_key, password_hash, email, tipo_usuario) VALU
     )
 ;
 
-INSERT INTO usuarios_datos (user_id) VALUES
+INSERT INTO usuarios_datos (usuario_id) VALUES
       (1)
     , (2)
     , (3)
@@ -112,10 +113,10 @@ INSERT INTO mensajes_privados (emisor_id, receptor_id, asunto, contenido) VALUES
     , (2, 1, 'Prueba 2', 'Contenido 2')
 ;
 
-INSERT INTO notificaciones (user_id, notificacion, tipo_notificacion_id) VALUES
+INSERT INTO notificaciones (usuario_id, notificacion, tipo_notificacion_id) VALUES
 (
       1
-    , '<a href="#">Has recibido un mensaje privado</a>'
+    , '<a href="/inbox/view/2">Has recibido un mensaje privado</a>'
     , 1
     )
 ;

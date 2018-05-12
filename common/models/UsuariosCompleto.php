@@ -168,7 +168,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     {
         return Seguidores::find()
         ->where([
-            'user_id' => $this->id,
+            'usuario_id' => $this->id,
             'seguidor_id' => Yii::$app->user->id
         ])
         ->count() !== 0;

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            'user_id',
+            'usuario_id',
         ],
     ]); ?>
 </div>

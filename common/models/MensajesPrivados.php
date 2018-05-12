@@ -28,7 +28,7 @@ use yii\helpers\Html;
  * @property User $receptor
  *
  */
-class MensajesPrivados extends \yii\db\ActiveRecord
+class MensajesPrivados extends \common\utilities\BaseNotis
 {
     public $emisor_name;
     public $receptor_name;
@@ -106,16 +106,6 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve la url en forma de hipervinculo de este mensaje para verlo en detalle.
-     * @param  string $label Parámetro que indica el nombre del link.
-     * @return string        Hipervínculo.
-     */
-    public function getUrl($label)
-    {
-        return Html::a($label, ['mensajes-privados/view', 'id' => $this->id]);
-    }
-
-    /**
      * Indica si el usuario conectado es el emisor de este mensaje.
      * @return bool
      */
@@ -131,5 +121,20 @@ class MensajesPrivados extends \yii\db\ActiveRecord
     public function imReceptor()
     {
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
+    }
+
+    public function isHistorialSaved()
+    {
+        return false;
+    }
+
+    public function getUnName()
+    {
+        return 'un mensaje privado';
+    }
+
+    public function getNotificacionReceptor()
+    {
+        return $this->receptor_id;
     }
 }

@@ -23,7 +23,7 @@ use yii\helpers\Html;
  * @property Publicaciones $publicacion
  * @property User $usuario
  */
-class Comentarios extends \yii\db\ActiveRecord
+class Comentarios extends \common\utilities\BaseNotis
 {
     public $quoted;
     /**
@@ -130,5 +130,26 @@ class Comentarios extends \yii\db\ActiveRecord
     public function isDeleted()
     {
         return $this->deleted;
+    }
+
+    public function getUnName()
+    {
+        return 'un comentario';
+    }
+
+    public function getNotificacionReceptor()
+    {
+        $publicacion = Publicaciones::findOne($this->publicacion_id);
+        return $publicacion->usuario_id;
+    }
+
+    public function getUpdateMessage()
+    {
+        return 'Ha eliminado ' . $this->getUnName() . '.';
+    }
+
+    public function getRawUrl()
+    {
+        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
     }
 }

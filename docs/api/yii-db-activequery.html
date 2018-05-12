@@ -1848,7 +1848,7 @@ Otherwise, the condition will be used in the WHERE part of a query.</p>
 <p>Use this method to specify additional conditions when declaring a relation in the <a href="yii-db-activerecord.html">yii\db\ActiveRecord</a> class:</p>
 <pre><code class="hljs php language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getActiveUsers</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;hasMany(User::className(), [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'user_id'</span>])
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;hasMany(User::className(), [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'usuario_id'</span>])
                 -&gt;onCondition([<span class="hljs-string">'active'</span> =&gt; <span class="hljs-keyword">true</span>]);
 }
 </code></pre>

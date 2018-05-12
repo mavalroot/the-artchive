@@ -1254,7 +1254,7 @@ The method will properly quote the column name and escape values in the range.</
 <p>To create a composite <code>IN</code> condition you can use and array for the column name and value, where the values are indexed by the column name:
 <code>['in', ['id', 'name'], [['id' =&gt; 1, 'name' =&gt; 'foo'], ['id' =&gt; 2, 'name' =&gt; 'bar']] ]</code>.</p>
 <p>You may also specify a sub-query that is used to get the values for the <code>IN</code>-condition:
-<code>['in', 'user_id', (new Query())-&gt;select('id')-&gt;from('users')-&gt;where(['active' =&gt; 1])]</code></p>
+<code>['in', 'usuario_id', (new Query())-&gt;select('id')-&gt;from('users')-&gt;where(['active' =&gt; 1])]</code></p>
 </li>
 <li><p><strong>not in</strong>: similar to the <code>in</code> operator except that <code>IN</code> is replaced with <code>NOT IN</code> in the generated condition.</p>
 </li>
