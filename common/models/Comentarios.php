@@ -150,6 +150,6 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getNotificacionUrl()
     {
-        Url::a(['publicaciones/view', 'id' => $this->getNotificacionReceptor()]);
+        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
     }
 }

@@ -56,7 +56,8 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     public function getExportButton()
     {
         if ($this->isMine()) {
-            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $this->{$this->getDataName()}, 'class' => 'btn btn-sm btn-primary']);
+            $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
+            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $data, 'class' => 'btn btn-sm btn-primary']);
         }
     }
 
@@ -66,7 +67,8 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getUrlLabel()
     {
-        return $this->{$this->getDataName()};
+        $label = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : 'Link';
+        return $label;
     }
 
     /**
@@ -99,7 +101,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     public function getRawUrl()
     {
         $name = str_replace('_', '-', static::tableName());
-        Url::to([
+        return Url::to([
             "$name/view",
             $this->getUrlParam() => $this->{$this->getUrlParam()}
         ]);
@@ -177,7 +179,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
             case 'update':
                 return "Ha modificado $name.";
             case 'delete':
-                return "Ha borrado $name: \"";
+                return "Ha borrado $name";
             default:
                 break;
         }
@@ -267,8 +269,9 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         if (!parent::beforeDelete()) {
             return false;
         }
+        $data = isset($this->{$this->getDataName()}) ? ': "' . $this->{$this->getDataName()} . '"' : '';
         if ($this->getGuardarHistorial()) {
-            Historial::crearHistorial($this->getHistorialMessage('delete') . $this->{$this->getDataName()} . '".', false);
+            Historial::crearHistorial($this->getHistorialMessage('delete') . "$data.", false);
         }
         return true;
     }
