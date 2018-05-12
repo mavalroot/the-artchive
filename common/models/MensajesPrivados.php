@@ -28,7 +28,7 @@ use yii\helpers\Html;
  * @property User $receptor
  *
  */
-class MensajesPrivados extends \common\utilities\Notis
+class MensajesPrivados extends \common\utilities\ArtchiveBase
 {
     public $emisor_name;
     public $receptor_name;
@@ -106,16 +106,6 @@ class MensajesPrivados extends \common\utilities\Notis
     }
 
     /**
-     * Devuelve la url en forma de hipervinculo de este mensaje para verlo en detalle.
-     * @param  string $label Parámetro que indica el nombre del link.
-     * @return string        Hipervínculo.
-     */
-    public function getUrl($label)
-    {
-        return Html::a($label, ['mensajes-privados/view', 'id' => $this->id]);
-    }
-
-    /**
      * Indica si el usuario conectado es el emisor de este mensaje.
      * @return bool
      */
@@ -133,18 +123,18 @@ class MensajesPrivados extends \common\utilities\Notis
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
     }
 
+    public function getUnName()
+    {
+        return 'un mensaje privado';
+    }
+
+    public function getEnviarNotificacion()
+    {
+        return true;
+    }
+
     public function getNotificacionReceptor()
     {
-        return 'receptor_id';
-    }
-
-    public function getNotificacionVistaId()
-    {
-        return $this->id;
-    }
-
-    public function getNotificacionContenido()
-    {
-        return 'Has recibido un mensaje privado.';
+        return $this->receptor_id;
     }
 }
