@@ -72,7 +72,7 @@ class UsuariosCompletoController extends Controller
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
             $seguir = new Seguidores();
-            $seguir->user_id = $id;
+            $seguir->usuario_id = $id;
             $seguir->seguidor_id = Yii::$app->user->id;
 
             return $seguir->validate() && $seguir->save();
@@ -83,7 +83,7 @@ class UsuariosCompletoController extends Controller
     {
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
-            $seguir = Seguidores::findOne(['user_id' => $id, 'seguidor_id' => Yii::$app->user->id]);
+            $seguir = Seguidores::findOne(['usuario_id' => $id, 'seguidor_id' => Yii::$app->user->id]);
             return $seguir->delete();
         }
     }

@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "seguidores".
  *
  * @property int $id
- * @property int $user_id
+ * @property int $usuario_id
  * @property int $seguidor_id
  *
  * @property User $user
@@ -30,11 +30,11 @@ class Seguidores extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'seguidor_id'], 'required'],
-            [['user_id', 'seguidor_id'], 'default', 'value' => null],
-            [['user_id', 'seguidor_id'], 'integer'],
-            [['user_id', 'seguidor_id'], 'unique', 'targetAttribute' => ['user_id', 'seguidor_id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['usuario_id', 'seguidor_id'], 'required'],
+            [['usuario_id', 'seguidor_id'], 'default', 'value' => null],
+            [['usuario_id', 'seguidor_id'], 'integer'],
+            [['usuario_id', 'seguidor_id'], 'unique', 'targetAttribute' => ['usuario_id', 'seguidor_id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
             [['seguidor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['seguidor_id' => 'id']],
         ];
     }
@@ -46,7 +46,7 @@ class Seguidores extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
+            'usuario_id' => 'User ID',
             'seguidor_id' => 'Seguidor ID',
         ];
     }
@@ -56,7 +56,7 @@ class Seguidores extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
     /**

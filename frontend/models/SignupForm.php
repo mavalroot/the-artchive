@@ -75,7 +75,7 @@ class SignupForm extends Model
     public function crearDatos($id)
     {
         $datos = new UsuariosDatos();
-        $datos->user_id = $id;
+        $datos->usuario_id = $id;
         $datos->save();
     }
 }

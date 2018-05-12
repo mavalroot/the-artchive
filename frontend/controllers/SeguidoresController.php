@@ -45,7 +45,7 @@ class SeguidoresController extends Controller
         if (isset($id)) {
             $searchModel = new SeguidoresSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            $dataProvider->query->where(['user_id' => $id]);
+            $dataProvider->query->where(['usuario_id' => $id]);
 
 
             return $this->render('index', [

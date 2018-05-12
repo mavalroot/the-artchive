@@ -38,7 +38,7 @@ class NotificacionesController extends Controller
         $searchModel = new NotificacionesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->where(['user_id' => Yii::$app->user->id]);
+        $dataProvider->query->where(['usuario_id' => Yii::$app->user->id]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

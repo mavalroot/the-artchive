@@ -18,7 +18,7 @@ class SeguidoresSearch extends Seguidores
     public function rules()
     {
         return [
-            [['id', 'user_id', 'seguidor_id'], 'integer'],
+            [['id', 'usuario_id', 'seguidor_id'], 'integer'],
         ];
     }
 
@@ -59,7 +59,7 @@ class SeguidoresSearch extends Seguidores
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
+            'usuario_id' => $this->usuario_id,
             'seguidor_id' => $this->seguidor_id,
         ]);
 

@@ -50,7 +50,7 @@ class Notis extends \yii\db\ActiveRecord
         $receptor = $this->{$this->getNotificacionReceptor()};
         $noti = new Notificaciones([
             'notificacion' => $contenido,
-            'user_id' => $receptor,
+            'usuario_id' => $receptor,
             'tipo_notificacion_id' => $this->getNotificacionTipo(),
         ]);
         return $noti->save();

@@ -30,7 +30,7 @@ CREATE INDEX idx_tipos_usuario_tipo ON tipos_usuario (tipo);
 DROP TABLE IF EXISTS usuarios_datos CASCADE;
 
 CREATE TABLE usuarios_datos (
-      user_id           bigint          PRIMARY KEY REFERENCES "user" (id)
+      usuario_id           bigint          PRIMARY KEY REFERENCES "user" (id)
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , aficiones         varchar(255)
     , tematica_favorita varchar(255)
@@ -41,7 +41,7 @@ CREATE TABLE usuarios_datos (
 
 /* CREATE OR REPLACE VIEW usuarios_completo AS
 SELECT u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, ud.tipo_usuario, u.created_at, u.updated_at
-FROM "user" u LEFT JOIN usuarios_datos ud ON u.id = ud.user_id; */
+FROM "user" u LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id; */
 
 DROP TABLE IF EXISTS personajes CASCADE;
 
@@ -128,9 +128,9 @@ DROP TABLE IF EXISTS seguidores CASCADE;
 
 CREATE TABLE seguidores (
       id            bigserial   PRIMARY KEY
-    , user_id       bigint      NOT NULL REFERENCES "user" (id)
+    , usuario_id       bigint      NOT NULL REFERENCES "user" (id)
     , seguidor_id   bigint      NOT NULL REFERENCES "user" (id)
-    , CONSTRAINT follow_only_once UNIQUE (user_id, seguidor_id)
+    , CONSTRAINT follow_only_once UNIQUE (usuario_id, seguidor_id)
 );
 
 --------------------
@@ -148,7 +148,7 @@ DROP TABLE IF EXISTS notificaciones CASCADE;
 
 CREATE TABLE notificaciones (
       id                    bigserial       PRIMARY KEY
-    , user_id               bigint          NOT NULL REFERENCES "user" (id)
+    , usuario_id               bigint          NOT NULL REFERENCES "user" (id)
     , notificacion          varchar(255)
     , tipo_notificacion_id  bigint          NOT NULL REFERENCES tipos_notificaciones (id)
     , seen                  boolean         NOT NULL DEFAULT FALSE
@@ -229,8 +229,8 @@ CREATE TABLE actividad_reciente (
 CREATE OR REPLACE VIEW usuarios_completo AS
 SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
 FROM "user" u
-LEFT JOIN usuarios_datos ud ON u.id = ud.user_id
-LEFT JOIN seguidores seg ON seg.user_id = u.id
+LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id
+LEFT JOIN seguidores seg ON seg.usuario_id = u.id
 LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
 LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
-GROUP BY u.id, ud.user_id, tu.id;
+GROUP BY u.id, ud.usuario_id, tu.id;

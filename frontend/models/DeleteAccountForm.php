@@ -77,11 +77,11 @@ class DeleteAccountForm extends Model
         $id = $this->getUser()->id;
         $datos = UsuariosDatos::findOne($id);
         $datos->delete();
-        Seguidores::deleteAll(['user_id' => $id]);
+        Seguidores::deleteAll(['usuario_id' => $id]);
         Seguidores::deleteAll(['seguidor_id' => $id]);
         MensajesPrivados::updateAll(['del_e' => true], 'emisor_id = ' . $id);
         MensajesPrivados::updateAll(['del_r' => true], 'receptor_id = ' . $id);
-        Notificaciones::deleteAll(['user_id' => $id]);
+        Notificaciones::deleteAll(['usuario_id' => $id]);
     }
 
     public function getUser()

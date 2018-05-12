@@ -11,7 +11,7 @@ use common\utilities\Historial;
 /**
  * This is the model class for table "usuarios_datos".
  *
- * @property int $user_id
+ * @property int $usuario_id
  * @property string $aficiones
  * @property string $tematica_favorita
  * @property string $plataforma
@@ -37,12 +37,12 @@ class UsuariosDatos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'required'],
-            [['user_id'], 'default', 'value' => null],
-            [['user_id'], 'integer'],
+            [['usuario_id'], 'required'],
+            [['usuario_id'], 'default', 'value' => null],
+            [['usuario_id'], 'integer'],
             [['aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
-            [['user_id'], 'unique'],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['usuario_id'], 'unique'],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -52,7 +52,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'user_id' => 'User ID',
+            'usuario_id' => 'User ID',
             'aficiones' => 'Aficiones',
             'tematica_favorita' => 'Temática Favorita',
             'plataforma' => 'Plataforma',
@@ -67,7 +67,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return User::findOne($this->user_id);
+        return User::findOne($this->usuario_id);
     }
 
     /**
@@ -76,7 +76,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
      */
     public function getName()
     {
-        return User::findOne($this->user_id)->username;
+        return User::findOne($this->usuario_id)->username;
     }
 
     /**
