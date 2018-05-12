@@ -23,7 +23,7 @@ use yii\helpers\Html;
  * @property Publicaciones $publicacion
  * @property User $usuario
  */
-class Comentarios extends \common\utilities\Notis
+class Comentarios extends \common\utilities\ArtchiveBase
 {
     public $quoted;
     /**
@@ -132,18 +132,24 @@ class Comentarios extends \common\utilities\Notis
         return $this->deleted;
     }
 
-    public function getNotificacionVistaId()
+    public function getUnName()
     {
-        return $this->publicacion_id;
+        return 'un comentario';
+    }
+
+    public function getEnviarNotificacion()
+    {
+        return true;
+    }
+
+    public function getNotificacionReceptor()
+    {
+        $publicacion = Publicaciones::findOne($this->usuario_id);
+        return $publicacion->usuario_id;
     }
 
     public function getNotificacionUrl()
     {
-        return Url::to(['publicaciones/view', 'id' => $this->getNotificacionVistaId(), '#' => 'com' . $this->id]);
-    }
-
-    public function getNotificacionContenido()
-    {
-        return 'Tu publicación ha recibido un comentario.';
+        Url::a(['publicaciones/view', 'id' => $this->getNotificacionReceptor()]);
     }
 }
