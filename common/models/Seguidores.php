@@ -14,7 +14,7 @@ use Yii;
  * @property User $user
  * @property User $seguidor
  */
-class Seguidores extends \yii\db\ActiveRecord
+class Seguidores extends \common\utilities\ArtchiveBase
 {
     /**
      * @inheritdoc
@@ -65,5 +65,25 @@ class Seguidores extends \yii\db\ActiveRecord
     public function getSeguidor()
     {
         return $this->hasOne(User::className(), ['id' => 'seguidor_id']);
+    }
+
+    public function getGuardarHistorial()
+    {
+        return false;
+    }
+
+    public function getEnviarNotificacion()
+    {
+        return true;
+    }
+
+    public function getNotificacionContenido()
+    {
+        return $this->seguidor->username . ' ha comenzado a seguirte.';
+    }
+
+    public function getNotificacionUrl()
+    {
+        return $this->seguidor->getRawUrl();
     }
 }

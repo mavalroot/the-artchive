@@ -71,6 +71,7 @@ INSERT INTO tipos_notificaciones (tipo) VALUES
       ('mensajes privados')
     , ('comentarios')
     , ('relaciones')
+    , ('seguidores')
 ;
 
 ---------------------

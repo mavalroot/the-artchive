@@ -159,30 +159,34 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getUnName()
     {
-        return 'un registro';
+        return '';
     }
 
     /**
-     * Crea el mensaje para guardar el historial.
-     *
-     * @param  string $tipo Indica el tipo de historial. Éste puede ser:
-     * insert, update o delete.
+     * Recibe el mensaje de historial para insert.
      * @return string
      */
-    public function getHistorialMessage($tipo)
+    public function getInsertMessage()
     {
-        $name = $this->getUnName();
+        return 'Ha creado ' . $this->getUnName() . '.';
+    }
 
-        switch ($tipo) {
-            case 'insert':
-                return "Ha creado $name.";
-            case 'update':
-                return "Ha modificado $name.";
-            case 'delete':
-                return "Ha borrado $name";
-            default:
-                break;
-        }
+    /**
+     * Recibe el mensaje de historial para update.
+     * @return string
+     */
+    public function getUpdateMessage()
+    {
+        return 'Ha modificado ' . $this->getUnName() . '.';
+    }
+
+    /**
+     * Recibe el mensaje de historial para delete.
+     * @return string
+     */
+    public function getDeleteMessage()
+    {
+        return 'Ha eliminado ' . $this->getUnName();
     }
 
     /**
@@ -253,9 +257,9 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
         if ($this->getGuardarHistorial()) {
             if ($insert) {
-                Historial::crearHistorial($this->getHistorialMessage('insert'), $this->getUrl());
+                Historial::crearHistorial($this->getInsertMessage(), $this->getRawUrl());
             } else {
-                Historial::crearHistorial($this->getHistorialMessage('update'), $this->getUrl());
+                Historial::crearHistorial($this->getUpdateMessage(), $this->getRawUrl());
             }
         }
         if ($this->getEnviarNotificacion() && $insert) {
@@ -271,7 +275,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         }
         $data = isset($this->{$this->getDataName()}) ? ': "' . $this->{$this->getDataName()} . '"' : '';
         if ($this->getGuardarHistorial()) {
-            Historial::crearHistorial($this->getHistorialMessage('delete') . "$data.", false);
+            Historial::crearHistorial($this->getDeleteMessage() . "$data.", false);
         }
         return true;
     }

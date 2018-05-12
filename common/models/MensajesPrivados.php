@@ -123,6 +123,11 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
     }
 
+    public function getGuardarHistorial()
+    {
+        return false;
+    }
+
     public function getUnName()
     {
         return 'un mensaje privado';

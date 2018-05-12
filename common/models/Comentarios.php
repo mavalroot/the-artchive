@@ -148,7 +148,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
         return $publicacion->usuario_id;
     }
 
-    public function getNotificacionUrl()
+    public function getUpdateMessage()
+    {
+        return 'Ha eliminado ' . $this->getUnName() . '.';
+    }
+
+    public function getRawUrl()
     {
         return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
     }
