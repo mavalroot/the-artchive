@@ -23,7 +23,7 @@ use yii\helpers\Html;
  * @property Publicaciones $publicacion
  * @property User $usuario
  */
-class Comentarios extends \common\utilities\ArtchiveBase
+class Comentarios extends \common\utilities\BaseNotis
 {
     public $quoted;
     /**
@@ -137,14 +137,9 @@ class Comentarios extends \common\utilities\ArtchiveBase
         return 'un comentario';
     }
 
-    public function getEnviarNotificacion()
-    {
-        return true;
-    }
-
     public function getNotificacionReceptor()
     {
-        $publicacion = Publicaciones::findOne($this->usuario_id);
+        $publicacion = Publicaciones::findOne($this->publicacion_id);
         return $publicacion->usuario_id;
     }
 

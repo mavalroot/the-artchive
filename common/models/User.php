@@ -216,7 +216,7 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    public function getGuardarHistorial()
+    public function isHistorialSaved()
     {
         return false;
     }

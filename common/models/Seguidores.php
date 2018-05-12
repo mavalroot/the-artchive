@@ -14,7 +14,7 @@ use Yii;
  * @property User $user
  * @property User $seguidor
  */
-class Seguidores extends \common\utilities\ArtchiveBase
+class Seguidores extends \common\utilities\BaseNotis
 {
     /**
      * @inheritdoc
@@ -67,14 +67,9 @@ class Seguidores extends \common\utilities\ArtchiveBase
         return $this->hasOne(User::className(), ['id' => 'seguidor_id']);
     }
 
-    public function getGuardarHistorial()
+    public function isHistorialSaved()
     {
         return false;
-    }
-
-    public function getEnviarNotificacion()
-    {
-        return true;
     }
 
     public function getNotificacionContenido()
