@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
-    <?php if ($model->isBlocked()): ?>
+    <?php if ($model->isBlocked()) : ?>
         <h1>Has bloqueado a este usuario</h1>
     <?php endif; ?>
     <div id="follow-actions">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div id="block-actions">
-        <?php if (!$model->isSelf() && $model->isBlocked()): ?>
+        <?php if (!$model->isSelf() && $model->isBlocked()) : ?>
             <form name="unblock" method="post">
                 <input type="hidden" name="id" value="<?= $model->id ?>">
                 <button type="submit" class="btn btn-sm btn-primary">Desbloquear</button>
@@ -116,22 +116,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 $js = <<< JS
-function follow(name) {
-    $('#follow-actions').on('submit','form[name="'+name+'"]', function(e) {
-        e.preventDefault();
-        let that = $(this);
-        $.post('usuarios-completo/'+name, $(this).serialize(), function(data) {
-            if (data) {
-                $("#follow-actions").load(location.href+" #follow-actions>*","");
-            }
-        });
-    });
-}
-
-follow('follow');
-follow('unfollow');
-block('block');
-block('unblock');
+actionButton('follow', '.usuarios-completo-view', '#follow-actions');
+actionButton('unfollow', '.usuarios-completo-view', '#follow-actions');
+actionButton('block', '.usuarios-completo-view', '.usuarios-completo-view');
+actionButton('unblock', '.usuarios-completo-view', '.usuarios-completo-view');
 JS;
 
 $this->registerJs($js);

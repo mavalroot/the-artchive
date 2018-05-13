@@ -308,6 +308,7 @@ CREATE TABLE bloqueos (
     , usuario_id    bigint      NOT NULL REFERENCES "user" (id)
     , bloqueado_id  bigint      NOT NULL REFERENCES "user" (id)
     , CONSTRAINT block_only_once UNIQUE (usuario_id, bloqueado_id)
+    , CONSTRAINT not_block_yourself CHECK (usuario_id != bloqueado_id)
 );
 
 ------------
