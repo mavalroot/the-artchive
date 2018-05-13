@@ -26,7 +26,7 @@ use yii\widgets\LinkPager;
             </div>
             <div class="comentario-body">
                 <div class="quote">
-                    <?php if ($comentario->quoted > 0): ?>
+                    <?php if ($comentario->quoted > 0) : ?>
                         <?= $comentario->getRespuestaUrl() ?>
                     <?php endif; ?>
                 </div>

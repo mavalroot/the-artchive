@@ -122,6 +122,19 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return Publicaciones::find()->where(['usuario_id' => $this->id]);
     }
 
+    public function getBloqueos()
+    {
+        return Bloqueos::find()->where(['bloqueado_id' => $this->id]);
+    }
+
+    public function isBlocked()
+    {
+        return $this->getBloqueos()->where([
+            'usuario_id' => Yii::$app->user->id
+        ])
+        ->count() > 0;
+    }
+
     /**
      * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
      * @return ActiveDataProvider
@@ -181,5 +194,25 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getUrl()
     {
         return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
+    }
+
+    public function bloquearSeguidor($id)
+    {
+        $siguiendo = Seguidores::findOne([
+            'usuario_id' => $id,
+            'seguidor_id' => Yii::$app->user->id
+        ]);
+        if (isset($siguiendo)) {
+            $siguiendo->delete();
+        }
+
+        $seguidor = Seguidores::findOne([
+            'usuario_id' => Yii::$app->user->id,
+            'seguidor_id' => $id
+        ]);
+
+        if (isset($seguidor)) {
+            $seguidor->delete();
+        }
     }
 }
