@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
-<?php var_dump($model->getBloqueos()->all()) ?>
     <?php if ($model->isBlocked()): ?>
         <h1>Has bloqueado a este usuario</h1>
     <?php endif; ?>

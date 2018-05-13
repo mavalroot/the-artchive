@@ -102,8 +102,14 @@ class UsuariosCompletoController extends Controller
                 'bloqueado_id' => $id
             ]);
 
-            return $block->validate() && $block->save();
+            if ($block->validate() && $block->save()) {
+                $model = $this->findModel(Yii::$app->user->identity->username);
+                $model->bloquearSeguidor($id);
+
+                return true;
+            }
         }
+        return false;
     }
 
     public function actionUnblock()
