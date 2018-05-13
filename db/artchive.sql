@@ -53,19 +53,6 @@ CREATE TABLE usuarios_datos (
     , avatar            varchar(255)
 );
 
-/**
- * Vista para la visualización completa de usuarios, con su información de
- * registro y sus datos.
- */
-CREATE OR REPLACE VIEW usuarios_completo AS
-SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
-FROM "user" u
-LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id
-LEFT JOIN seguidores seg ON seg.usuario_id = u.id
-LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
-LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
-GROUP BY u.id, ud.usuario_id, tu.id;
-
 ----------------
 -- PERSONAJES --
 ----------------
@@ -320,4 +307,21 @@ CREATE TABLE bloqueos (
       id            bigserial   PRIMARY KEY
     , usuario_id    bigint      NOT NULL REFERENCES "user" (id)
     , bloqueado_id  bigint      NOT NULL REFERENCES "user" (id)
+    , CONSTRAINT block_only_once UNIQUE (usuario_id, bloqueado_id)
 );
+
+------------
+-- VISTAS --
+------------
+/**
+ * Vista para la visualización completa de usuarios, con su información de
+ * registro y sus datos.
+ */
+CREATE OR REPLACE VIEW usuarios_completo AS
+SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
+FROM "user" u
+LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id
+LEFT JOIN seguidores seg ON seg.usuario_id = u.id
+LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
+LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
+GROUP BY u.id, ud.usuario_id, tu.id;

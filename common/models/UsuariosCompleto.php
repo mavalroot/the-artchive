@@ -122,6 +122,19 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return Publicaciones::find()->where(['usuario_id' => $this->id]);
     }
 
+    public function getBloqueos()
+    {
+        return Bloqueos::find()->where(['bloqueado_id' => $this->id]);
+    }
+
+    public function isBlocked()
+    {
+        return $this->getBloqueos()->where([
+            'usuario_id' => Yii::$app->user->id
+        ])
+        ->count() > 0;
+    }
+
     /**
      * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
      * @return ActiveDataProvider

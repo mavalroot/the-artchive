@@ -11,6 +11,7 @@ use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use common\models\Bloqueos;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
@@ -71,9 +72,10 @@ class UsuariosCompletoController extends Controller
     {
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
-            $seguir = new Seguidores();
-            $seguir->usuario_id = $id;
-            $seguir->seguidor_id = Yii::$app->user->id;
+            $seguir = new Seguidores([
+                'usuario_id' => $id,
+                'seguidor_id' => Yii::$app->user->id,
+            ]);
 
             return $seguir->validate() && $seguir->save();
         }
@@ -83,7 +85,35 @@ class UsuariosCompletoController extends Controller
     {
         $id = Yii::$app->request->post('id');
         if (isset($id)) {
-            $seguir = Seguidores::findOne(['usuario_id' => $id, 'seguidor_id' => Yii::$app->user->id]);
+            $seguir = Seguidores::findOne([
+                'usuario_id' => $id,
+                'seguidor_id' => Yii::$app->user->id
+            ]);
+            return $seguir->delete();
+        }
+    }
+
+    public function actionBlock()
+    {
+        $id = Yii::$app->request->post('id');
+        if (isset($id)) {
+            $block = new Bloqueos([
+                'usuario_id' => Yii::$app->user->id,
+                'bloqueado_id' => $id
+            ]);
+
+            return $block->validate() && $block->save();
+        }
+    }
+
+    public function actionUnblock()
+    {
+        $id = Yii::$app->request->post('id');
+        if (isset($id)) {
+            $seguir = Bloqueos::findOne([
+                'usuario_id' => Yii::$app->user->id,
+                'bloqueado_id' => $id
+            ]);
             return $seguir->delete();
         }
     }
@@ -91,13 +121,13 @@ class UsuariosCompletoController extends Controller
     /**
      * Finds the UsuariosCompleto model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
+     * @param string $username
      * @return UsuariosCompleto the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($username)
     {
-        if (($model = UsuariosCompleto::findOne($id)) !== null) {
+        if (($model = UsuariosCompleto::findOne(['username' => $username])) !== null) {
             return $model;
         }
 
