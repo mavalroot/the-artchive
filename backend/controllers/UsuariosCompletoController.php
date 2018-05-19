@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\User;
 use common\models\TiposUsuario;
 use common\models\UsuariosCompleto;
@@ -25,6 +27,19 @@ class UsuariosCompletoController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin([
+                        'index',
+                        'view',
+                        'kickout',
+                        'mod',
+                        'admin',
+                        'downgrade'
+                    ]),
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

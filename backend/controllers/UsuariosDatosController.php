@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\UsuariosDatos;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -18,7 +20,12 @@ class UsuariosDatosController extends Controller
     public function behaviors()
     {
         return [
-
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['update']),
+                ],
+            ],
         ];
     }
 

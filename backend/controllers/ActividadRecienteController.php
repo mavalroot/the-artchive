@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class ActividadRecienteController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * {@inheritdoc}
      */
