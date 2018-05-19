@@ -24,9 +24,7 @@ trait Permisos
      */
     public function mustBeLogged($actions)
     {
-        return [
-            'actions' => $actions,
-            'allow' => true,
+        return $this->mustBeLoggedForAll($actions) + [
             'roles' => ['@'],
         ];
     }
@@ -39,10 +37,7 @@ trait Permisos
      */
     public function mustBeAdmin($actions)
     {
-        return [
-            'actions' => $actions,
-            'allow' => true,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 return Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN);
             }
@@ -57,10 +52,7 @@ trait Permisos
      */
     public function mustBeMod($actions)
     {
-        return [
-            'actions' => $actions,
-            'allow' => true,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 return Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::MOD);
             }
@@ -75,10 +67,7 @@ trait Permisos
      */
     public function mustBeAdminOrMod($actions)
     {
-        return [
-            'actions' => $actions,
-            'allow' => true,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 return Yii::$app->user->identity->tipo_usuario != TiposUsuario::getOne(TiposUsuario::NORMAL);
             }
@@ -93,9 +82,7 @@ trait Permisos
      */
     public function mustBeMyMessage($actions)
     {
-        return [
-            'allow' => true,
-            'actions' => $actions,
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
                 $id = Yii::$app->user->id;
@@ -112,10 +99,7 @@ trait Permisos
      */
     public function mustBeMyCharacter($actions)
     {
-        return [
-            'allow' => true,
-            'actions' => $actions,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 $personaje = Personajes::findOne(Yii::$app->request->get('id'));
                 if ($personaje) {
@@ -133,10 +117,7 @@ trait Permisos
      */
     public function mustBeMyContent($actions)
     {
-        return [
-            'allow' => true,
-            'actions' => $actions,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 $personaje = Publicaciones::findOne(Yii::$app->request->get('id'));
                 if ($personaje) {
@@ -154,10 +135,7 @@ trait Permisos
      */
     public function mustBeMyAccount($actions)
     {
-        return [
-            'allow' => true,
-            'actions' => $actions,
-            'roles' => ['@'],
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
                 return Yii::$app->user->identity->username == Yii::$app->request->get('username');
             }
@@ -172,9 +150,7 @@ trait Permisos
      */
     public function mustBeGuest($actions)
     {
-        return [
-            'actions' => $actions,
-            'allow' => true,
+        return $this->anyCanAccess($actions) + [
             'roles' => ['?'],
         ];
     }
