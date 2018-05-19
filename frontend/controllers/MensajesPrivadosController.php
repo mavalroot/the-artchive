@@ -9,38 +9,25 @@ use common\models\MensajesPrivadosSearch;
 use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * MensajesPrivadosController implements the CRUD actions for MensajesPrivados model.
  */
 class MensajesPrivadosController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    ['allow' => true, 'roles' => ['@']],
-                    [
-                        'allow' => true,
-                        'actions' => ['view', 'delete'],
-                        'matchCallback' => function () {
-                            $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
-                            $id = Yii::$app->user->id;
-                            return $id == $mensaje->receptor_id || $id == $mensaje->emisor_id;
-                        }
-                    ],
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyMessage(['view', 'delete']),
                 ],
             ],
         ];

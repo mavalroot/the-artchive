@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\ActividadReciente;
 use common\models\ActividadRecienteSearch;
 use yii\web\Controller;
@@ -14,18 +16,21 @@ use yii\filters\VerbFilter;
  */
 class ActividadRecienteController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['index']),
                 ],
             ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 

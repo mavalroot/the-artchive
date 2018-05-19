@@ -3,29 +3,32 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PublicacionesController implements the CRUD actions for Publicaciones model.
  */
 class PublicacionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['index', 'view', 'update', 'delete']),
                 ],
             ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 

@@ -5,29 +5,33 @@ namespace frontend\controllers;
 use Yii;
 use yii\data\Pagination;
 
+use yii\filters\AccessControl;
+
 use common\models\User;
 use common\models\Comentarios;
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PublicacionesController implements the CRUD actions for Publicaciones model.
  */
 class PublicacionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'verbs' => $this->paramByPost(['delete']),
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyContent(['update', 'delete']),
                 ],
             ],
         ];
@@ -75,7 +79,7 @@ class PublicacionesController extends Controller
         ->where(['co.publicacion_id' => $id])
         ->groupBy('co.id')
         ->orderBy('co.created_at ASC');
-        
+
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $pages->setPageSize(5);

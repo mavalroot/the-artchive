@@ -3,29 +3,32 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Personajes;
 use common\models\PersonajesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PersonajesController implements the CRUD actions for Personajes model.
  */
 class PersonajesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['index', 'view', 'update', 'delete']),
                 ],
             ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 

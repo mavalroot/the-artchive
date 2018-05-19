@@ -3,8 +3,6 @@ namespace backend\controllers;
 
 use Yii;
 use yii\web\Controller;
-
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\PersonajesSearch;
@@ -17,6 +15,7 @@ use common\models\ActividadRecienteSearch;
  */
 class SiteController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */
@@ -26,31 +25,12 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                        'matchCallback' => function () {
-                            return Yii::$app->user->identity->tipo_usuario != 1;
-                        }
-                    ]
+                    $this->anyCanAccess(['login', 'error']),
+                    $this->mustBeLogged(['logout']),
+                    $this->mustBeAdmin(['index']),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['logout']),
         ];
     }
 

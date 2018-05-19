@@ -10,40 +10,26 @@ use common\models\PersonajesSearch;
 use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PersonajesController implements the CRUD actions for Personajes model.
  */
 class PersonajesController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['update', 'delete'],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['update', 'delete'],
-                        'roles' => ['@'],
-                        'matchCallback' => function () {
-                            $personaje = Personajes::findOne(Yii::$app->request->get('id'));
-                            if ($personaje) {
-                                return Yii::$app->user->id == $personaje->usuario_id;
-                            }
-                        }
-                    ],
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyCharacter(['update', 'delete']),
                 ],
             ],
         ];

@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\User;
 use common\models\TiposUsuario;
 use common\models\UsuariosCompleto;
@@ -19,18 +21,27 @@ use frontend\models\DeleteAccountForm;
  */
 class UsuariosCompletoController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'kickout' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin([
+                        'index',
+                        'view',
+                        'kickout',
+                        'mod',
+                        'admin',
+                        'downgrade'
+                    ]),
                 ],
             ],
+            'verbs' => $this->paramByPost(['kickout']),
         ];
     }
 
