@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use common\models\User;
+use common\models\TiposUsuario;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use common\models\ActividadRecienteSearch;
@@ -83,6 +85,27 @@ class UsuariosCompletoController extends Controller
             Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
         }
         return $this->redirect(['view', 'username' => $delete->username]);
+    }
+
+    public function actionMod($id)
+    {
+        $usuario = User::findOne($id);
+        $usuario->setTipo(TiposUsuario::MOD);
+        return $this->redirect(['view', 'username' => $usuario->username]);
+    }
+
+    public function actionAdmin($id)
+    {
+        $usuario = User::findOne($id);
+        $usuario->setTipo(TiposUsuario::ADMIN);
+        return $this->redirect(['view', 'username' => $usuario->username]);
+    }
+
+    public function actionDowngrade($id)
+    {
+        $usuario = User::findOne($id);
+        $usuario->setTipo(TiposUsuario::NORMAL);
+        return $this->redirect(['view', 'username' => $usuario->username]);
     }
 
     /**

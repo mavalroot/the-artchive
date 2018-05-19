@@ -49,7 +49,7 @@ use common\models\TiposUsuario;
             ]) ?>
         <?php endif; ?>
         <?php if ($model->tipo != TiposUsuario::NORMAL): ?>
-            <?= Html::a('Degradar', ['normal', 'id' => $model->id], [
+            <?= Html::a('Degradar', ['downgrade', 'id' => $model->id], [
                 'class' => 'btn btn-warning',
                 'data' => [
                     'confirm' => '¿Estás seguro? Si confirmas este usuario será degradado a usuario normal.',

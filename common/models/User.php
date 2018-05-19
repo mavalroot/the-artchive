@@ -231,4 +231,10 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
     {
         return Url::to(['usuarios-completo/view', 'username' => $this->username]);
     }
+
+    public function setTipo($tipo)
+    {
+        $this->tipo_usuario = TiposUsuario::getOne($tipo);
+        return $this->update();
+    }
 }
