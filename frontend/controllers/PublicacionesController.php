@@ -5,6 +5,8 @@ namespace frontend\controllers;
 use Yii;
 use yii\data\Pagination;
 
+use yii\filters\AccessControl;
+
 use common\models\User;
 use common\models\Comentarios;
 use common\models\Publicaciones;
@@ -18,6 +20,7 @@ use yii\filters\VerbFilter;
  */
 class PublicacionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
@@ -28,6 +31,13 @@ class PublicacionesController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyContent(['update', 'delete']),
                 ],
             ],
         ];
@@ -75,7 +85,7 @@ class PublicacionesController extends Controller
         ->where(['co.publicacion_id' => $id])
         ->groupBy('co.id')
         ->orderBy('co.created_at ASC');
-        
+
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $pages->setPageSize(5);

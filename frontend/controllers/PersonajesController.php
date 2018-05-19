@@ -17,6 +17,8 @@ use yii\filters\VerbFilter;
  */
 class PersonajesController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * @inheritdoc
      */
@@ -31,19 +33,9 @@ class PersonajesController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['update', 'delete'],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['update', 'delete'],
-                        'roles' => ['@'],
-                        'matchCallback' => function () {
-                            $personaje = Personajes::findOne(Yii::$app->request->get('id'));
-                            if ($personaje) {
-                                return Yii::$app->user->id == $personaje->usuario_id;
-                            }
-                        }
-                    ],
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyCharacter(['update', 'delete']),
                 ],
             ],
         ];

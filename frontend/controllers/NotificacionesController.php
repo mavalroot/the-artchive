@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Notificaciones;
 use common\models\NotificacionesSearch;
 use yii\web\Controller;
@@ -14,6 +16,8 @@ use yii\filters\VerbFilter;
  */
 class NotificacionesController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * @inheritdoc
      */
@@ -24,6 +28,12 @@ class NotificacionesController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];

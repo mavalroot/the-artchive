@@ -21,6 +21,7 @@ use frontend\models\DeleteAccountForm;
  */
 class UsuariosCompletoController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */

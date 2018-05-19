@@ -7,6 +7,7 @@ use Yii;
 use common\models\Personajes;
 use common\models\TiposUsuario;
 use common\models\MensajesPrivados;
+use common\models\Publicaciones;
 
 /**
  *
@@ -123,6 +124,27 @@ trait Permisos
     }
 
     /**
+     * La publicación debe ser propiedad del usuario.
+     * @param  array $actions Acciones del controlador a las que afecta el
+     * permiso.
+     * @return array
+     */
+    public function mustBeMyContent($actions)
+    {
+        return [
+            'allow' => true,
+            'actions' => $actions,
+            'roles' => ['@'],
+            'matchCallback' => function () {
+                $personaje = Publicaciones::findOne(Yii::$app->request->get('id'));
+                if ($personaje) {
+                    return Yii::$app->user->id == $personaje->usuario_id;
+                }
+            }
+        ];
+    }
+
+    /**
      * La cuenta debe ser propiedad del usuario..
      * @param  array $actions Acciones del controlador a las que afecta el
      * permiso.
@@ -146,7 +168,7 @@ trait Permisos
      * permiso.
      * @return array
      */
-    public function guestCanAccess($actions)
+    public function mustBeGuest($actions)
     {
         return [
             'actions' => $actions,
@@ -166,6 +188,14 @@ trait Permisos
         return [
             'actions' => $actions,
             'allow' => true,
+        ];
+    }
+
+    public function mustBeLoggedForAll()
+    {
+        return [
+            'allow' => true,
+            'roles' => ['@'],
         ];
     }
 }

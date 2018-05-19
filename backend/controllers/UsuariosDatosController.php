@@ -14,6 +14,7 @@ use yii\web\NotFoundHttpException;
  */
 class UsuariosDatosController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */

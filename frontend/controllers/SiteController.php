@@ -21,6 +21,7 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */
@@ -29,18 +30,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'delete-account'],
+                'only' => ['logout', 'signup'],
                 'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout', 'delete-account'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+                    $this->mustBeGuest(['signup']),
+                    $this->mustBeLogged(['logout']),
                 ],
             ],
             'verbs' => [

@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class MensajesPrivadosController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
@@ -31,16 +32,8 @@ class MensajesPrivadosController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    ['allow' => true, 'roles' => ['@']],
-                    [
-                        'allow' => true,
-                        'actions' => ['view', 'delete'],
-                        'matchCallback' => function () {
-                            $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
-                            $id = Yii::$app->user->id;
-                            return $id == $mensaje->receptor_id || $id == $mensaje->emisor_id;
-                        }
-                    ],
+                    $this->mustBeLoggedForAll(),
+                    $this->mustBeMyMessage(['view', 'delete']),
                 ],
             ],
         ];

@@ -18,6 +18,8 @@ use common\models\Bloqueos;
  */
 class UsuariosCompletoController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * @inheritdoc
      */
@@ -27,10 +29,7 @@ class UsuariosCompletoController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];

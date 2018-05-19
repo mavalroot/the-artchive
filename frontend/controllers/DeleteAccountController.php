@@ -3,34 +3,23 @@
 namespace frontend\controllers;
 
 use Yii;
-
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-
 use frontend\models\DeleteAccountForm;
 
 class DeleteAccountController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];
@@ -50,6 +39,9 @@ class DeleteAccountController extends Controller
         ]);
     }
 
+    /**
+     * Da de baja la cuenta actual.
+     */
     public function actionDelete()
     {
         $model = new DeleteAccountForm();

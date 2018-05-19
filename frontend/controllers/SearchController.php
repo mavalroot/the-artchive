@@ -11,16 +11,15 @@ use frontend\models\Search;
  */
 class SearchController extends Controller
 {
+    use \common\utilities\Permisos;
+    
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];

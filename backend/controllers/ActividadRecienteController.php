@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\ActividadReciente;
 use common\models\ActividadRecienteSearch;
 use yii\web\Controller;
@@ -22,6 +24,12 @@ class ActividadRecienteController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['index']),
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

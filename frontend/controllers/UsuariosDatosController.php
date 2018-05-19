@@ -22,24 +22,11 @@ class UsuariosDatosController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['update'],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['update'],
-                        'roles' => ['@'],
-                        'matchCallback' => function () {
-                            return Yii::$app->user->identity->username == Yii::$app->request->get('username');
-                        }
-                    ],
+                    $this->mustBeMyAccount(['update']),
                 ],
             ],
         ];

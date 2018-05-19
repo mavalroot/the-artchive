@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class PublicacionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */

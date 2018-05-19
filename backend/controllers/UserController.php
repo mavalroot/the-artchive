@@ -13,6 +13,7 @@ use yii\filters\AccessControl;
  */
 class UserController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */

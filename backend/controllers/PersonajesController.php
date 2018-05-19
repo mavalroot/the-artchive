@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Personajes;
 use common\models\PersonajesSearch;
 use yii\web\Controller;
@@ -14,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class PersonajesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * @inheritdoc
      */
