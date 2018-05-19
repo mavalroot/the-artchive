@@ -16,9 +16,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput() ?>
 
-    <?php echo $form->field($model, 'status')->dropDownList(
-            [10 => 'Activo', 20 => 'Esperando confirmación']
-        ); ?>
+    <?php echo $form->field($model, 'status')->dropDownList([
+        10 => 'Activo',
+        20 => 'Esperando confirmación'
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

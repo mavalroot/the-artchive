@@ -30,7 +30,7 @@ use common\models\TiposUsuario;
     </p>
     <p>
         <h4>Permisos</h4>
-        <?php if ($model->tipo != TiposUsuario::MOD): ?>
+        <?php if ($model->tipo != TiposUsuario::MOD) : ?>
             <?= Html::a('Hacer moderador', ['mod', 'id' => $model->id], [
                 'class' => 'btn btn-warning',
                 'data' => [
@@ -39,7 +39,7 @@ use common\models\TiposUsuario;
                 ],
             ]) ?>
         <?php endif; ?>
-        <?php if ($model->tipo != TiposUsuario::ADMIN): ?>
+        <?php if ($model->tipo != TiposUsuario::ADMIN) : ?>
             <?= Html::a('Hacer admin', ['admin', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
@@ -48,7 +48,7 @@ use common\models\TiposUsuario;
                 ],
             ]) ?>
         <?php endif; ?>
-        <?php if ($model->tipo != TiposUsuario::NORMAL): ?>
+        <?php if ($model->tipo != TiposUsuario::NORMAL) : ?>
             <?= Html::a('Degradar', ['downgrade', 'id' => $model->id], [
                 'class' => 'btn btn-warning',
                 'data' => [

@@ -15,16 +15,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if ($model->status == User::STATUS_ACTIVE): ?>
+    <?php if ($model->status == User::STATUS_ACTIVE) : ?>
         <?= $this->render('_active', [
             'model' => $model,
             'reciente' => $reciente,
         ]) ?>
-    <?php elseif ($model->status == User::STATUS_DELETED): ?>
+    <?php elseif ($model->status == User::STATUS_DELETED) : ?>
         <h2>Este usuario ha sido eliminado.</h2>
-    <?php elseif ($model->status == User::STATUS_WAITING): ?>
+    <?php elseif ($model->status == User::STATUS_WAITING) : ?>
         <h2>Este usuario espera confirmación.</h2>
-    <?php elseif ($model->status == User::STATUS_BANNED): ?>
+    <?php elseif ($model->status == User::STATUS_BANNED) : ?>
         <h2>Este usuario está baneado.</h2>
     <?php endif; ?>
 
