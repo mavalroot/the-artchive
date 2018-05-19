@@ -42,6 +42,12 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
      */
     const STATUS_WAITING = 20;
 
+    /**
+     * El usuario está baneado.
+     * @var int
+     */
+    const STATUS_BANNED = 30;
+
 
     /**
      * {@inheritdoc}
@@ -79,7 +85,7 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
     {
         return [
             ['status', 'default', 'value' => self::STATUS_WAITING],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_WAITING]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_WAITING, self::STATUS_BANNED]],
             [['tipo_usuario'], 'default', 'value' => 1],
             [['tipo_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => TiposUsuario::className(), 'targetAttribute' => ['tipo_usuario' => 'id']],
         ];
@@ -224,5 +230,11 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
     public function getRawUrl()
     {
         return Url::to(['usuarios-completo/view', 'username' => $this->username]);
+    }
+
+    public function setTipo($tipo)
+    {
+        $this->tipo_usuario = TiposUsuario::getOne($tipo);
+        return $this->update();
     }
 }
