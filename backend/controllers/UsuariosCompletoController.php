@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
+use common\models\ActividadRecienteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,8 +53,15 @@ class UsuariosCompletoController extends Controller
      */
     public function actionView($username)
     {
+        $model = $this->findModel($username);
+        $reciente = new ActividadRecienteSearch();
+
+        $reciente = $reciente->search(Yii::$app->request->queryParams);
+        $reciente->query->where(['created_by' => $model->id]);
+
         return $this->render('view', [
-            'model' => $this->findModel($username),
+            'model' => $model,
+            'reciente' => $reciente,
         ]);
     }
 

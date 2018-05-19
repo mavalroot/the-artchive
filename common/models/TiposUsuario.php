@@ -15,6 +15,24 @@ use Yii;
 class TiposUsuario extends \yii\db\ActiveRecord
 {
     /**
+     * Es admin.
+     * @var string
+     */
+    const ADMIN = 'admin';
+
+    /**
+     * Es moderador.
+     * @var string
+     */
+    const MOD = 'mod';
+
+    /**
+     * Es usuario normal.
+     * @var string
+     */
+    const NORMAL = 'normal';
+
+    /**
      * @inheritdoc
      */
     public static function tableName()
