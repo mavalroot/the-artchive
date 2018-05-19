@@ -4,6 +4,8 @@ namespace common\utilities;
 
 use Yii;
 
+use yii\filters\VerbFilter;
+
 use common\models\Personajes;
 use common\models\TiposUsuario;
 use common\models\MensajesPrivados;
@@ -191,11 +193,34 @@ trait Permisos
         ];
     }
 
+    /**
+     * El usuario debe estar loggeado para poder acceder a cualquierr acción.
+     * @return array
+     */
     public function mustBeLoggedForAll()
     {
         return [
             'allow' => true,
             'roles' => ['@'],
+        ];
+    }
+
+    /**
+     * El parámetro recibido en esa action llega por POST.
+     * @param  array $actions Acciones del controlador a las que afecta el
+     * permiso.
+     * @return array
+     */
+    public function paramByPost($actions)
+    {
+        $result = [];
+        foreach ($actions as $value) {
+            $result[$value] = ['POST'];
+        }
+
+        return [
+            'class' => VerbFilter::className(),
+            'actions' => $result
         ];
     }
 }

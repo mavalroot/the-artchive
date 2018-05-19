@@ -3,8 +3,6 @@ namespace backend\controllers;
 
 use Yii;
 use yii\web\Controller;
-
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\PersonajesSearch;
@@ -32,12 +30,7 @@ class SiteController extends Controller
                     $this->mustBeAdmin(['index']),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['logout']),
         ];
     }
 

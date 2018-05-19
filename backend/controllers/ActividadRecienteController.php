@@ -30,12 +30,7 @@ class ActividadRecienteController extends Controller
                     $this->mustBeAdmin(['index']),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 

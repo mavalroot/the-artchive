@@ -9,7 +9,6 @@ use common\models\Personajes;
 use common\models\PersonajesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PersonajesController implements the CRUD actions for Personajes model.
@@ -29,12 +28,7 @@ class PersonajesController extends Controller
                     $this->mustBeAdmin(['index', 'view', 'update', 'delete']),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 

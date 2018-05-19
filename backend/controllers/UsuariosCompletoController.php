@@ -41,12 +41,7 @@ class UsuariosCompletoController extends Controller
                     ]),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'kickout' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['kickout']),
         ];
     }
 

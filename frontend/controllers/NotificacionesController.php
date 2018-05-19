@@ -9,7 +9,6 @@ use common\models\Notificaciones;
 use common\models\NotificacionesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * NotificacionesController implements the CRUD actions for Notificaciones model.
@@ -24,12 +23,7 @@ class NotificacionesController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [

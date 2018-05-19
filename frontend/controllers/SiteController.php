@@ -36,12 +36,8 @@ class SiteController extends Controller
                     $this->mustBeLogged(['logout']),
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['logout']),
+
         ];
     }
 

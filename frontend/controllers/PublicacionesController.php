@@ -13,7 +13,6 @@ use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PublicacionesController implements the CRUD actions for Publicaciones model.
@@ -27,12 +26,7 @@ class PublicacionesController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            'verbs' => $this->paramByPost(['delete']),
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
