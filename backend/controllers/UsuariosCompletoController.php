@@ -10,6 +10,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use frontend\models\DeleteAccountForm;
+
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
  */
@@ -24,7 +26,7 @@ class UsuariosCompletoController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'kickout' => ['POST'],
                 ],
             ],
         ];
@@ -63,6 +65,24 @@ class UsuariosCompletoController extends Controller
             'model' => $model,
             'reciente' => $reciente,
         ]);
+    }
+
+    public function actionKickout($id)
+    {
+        $model = UsuariosCompleto::findOne(['id' => $id]);
+        $delete = new DeleteAccountForm();
+
+        $delete->username = $model->username;
+        $delete->personajes = true;
+        $delete->publicaciones = true;
+
+        $delete->borrarTodo();
+        if ($delete->desactivarUsuario()) {
+            Yii::$app->getSession()->setFlash('success', 'Se ha dado de baja satisfactoriamente.');
+        } else {
+            Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
+        }
+        return $this->redirect(['view', 'username' => $delete->username]);
     }
 
     /**

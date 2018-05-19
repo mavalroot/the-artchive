@@ -4,10 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\UsuariosDatos;
-use common\models\UsuariosDatosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UsuariosDatosController implements the CRUD actions for UsuariosDatos model.
