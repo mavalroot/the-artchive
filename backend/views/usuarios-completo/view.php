@@ -20,8 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div id="botones">
         <p>
+            <h4>Moderar</h4>
             <?= Html::a('Modificar datos de registro', ['user/update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Modificar datos personales', ['usuario-datos/update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Modificar datos personales', ['usuarios-datos/update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Banear', ['ban', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
@@ -32,12 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('Expulsar', ['kickout', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
+                    'confirm' => '¿Seguro que quieres expulsar a este usuario? La acción no podrá revertirse.',
                     'method' => 'post',
                 ],
             ]) ?>
         </p>
         <p>
+            <h4>Permisos</h4>
             <?php if ($model->tipo != TiposUsuario::MOD): ?>
                 <?= Html::a('Hacer moderador', ['mod', 'id' => $model->id], [
                     'class' => 'btn btn-warning',
@@ -71,9 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'username',
             'id',
             'status',
-            'username',
             'tipo',
             'email:email',
             'seguidores',
