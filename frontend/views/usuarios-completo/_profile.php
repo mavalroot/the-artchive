@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
+use yii\widgets\LinkPager;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
 ?>
@@ -45,8 +47,8 @@ use yii\helpers\StringHelper;
     <div class="col-sm-9">
         <div id="profile-entries">
             <h2>Publicaciones</h2>
-            <?php if ($model->getPublicaciones()->all()) : ?>
-                <?php foreach ($model->getPublicaciones()->all() as $value) : ?>
+            <?php if ($publicaciones) : ?>
+                <?php foreach ($publicaciones as $value) : ?>
                     <div class="entry">
                         <h4><?= $value->titulo ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
                         <p>
@@ -63,5 +65,9 @@ use yii\helpers\StringHelper;
                 </div>
             <?php endif; ?>
         </div>
+        <?= LinkPager::widget([
+            'pagination' => $pagination,
+        ]);
+        ?>
     </div>
 </div>

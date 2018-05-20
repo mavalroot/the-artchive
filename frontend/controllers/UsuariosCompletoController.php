@@ -3,10 +3,13 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\data\Pagination;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use common\models\Seguidores;
+use common\models\Publicaciones;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
@@ -58,8 +61,22 @@ class UsuariosCompletoController extends Controller
      */
     public function actionView($username)
     {
+        $model = $this->findModel($username);
+        $query = Publicaciones::find()
+        ->where(['usuario_id' => $model->id])
+        ->orderBy('created_at DESC');
+
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(5);
+        $publicaciones = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
         return $this->render('view', [
-            'model' => $this->findModel($username),
+            'model' => $model,
+            'publicaciones' => $publicaciones,
+            'pagination' => $pages,
         ]);
     }
 

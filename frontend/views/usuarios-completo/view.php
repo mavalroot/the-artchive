@@ -42,6 +42,8 @@ use common\models\User;
     <?php else : ?>
         <?= $this->render('_profile', [
             'model' => $model,
+            'publicaciones' => $publicaciones,
+            'pagination' => $pagination,
         ]) ?>
     <?php endif; ?>
 </div>
