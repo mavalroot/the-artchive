@@ -3,9 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 ?>
-<div id="toggle">
-    <h3>Mostar/Ocultar <?= count($model->getComentarios()->all()) ?> comentarios</h3>
-</div>
+<h3><?= count($model->getComentarios()->all()) ?> comentarios</h3>
 <div id="publicacion-comentarios">
     <?php foreach ($comentarios as $comentario) : ?>
         <div class="comentario" id="com<?= $comentario->id ?>">
