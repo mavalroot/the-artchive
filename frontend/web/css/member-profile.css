@@ -64,3 +64,45 @@
 #member-profile > #profile-content {
     /* padding: 20px; */
 }
+
+#profile-content {
+  margin-top: 10px;
+}
+
+#profile-content #profile-details {
+  border: 2px solid purple;
+}
+
+#profile-content #profile-details > h5 {
+  background: purple;
+  padding: 2px;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+#profile-content #profile-details > p {
+  padding: 2px 5px
+}
+
+#profile-content #profile-entries {
+  border: 2px solid purple;
+}
+
+#profile-content #profile-entries > h2 {
+  margin: 0px;
+  padding: 3px;
+  background: purple;
+  color: white;
+}
+
+#profile-content #profile-entries  > .entry > h4 {
+  border-bottom: 2px dashed black;
+  margin: 5px 0px 0px 0px;
+  padding: 0px 2px;
+}
+
+#profile-content #profile-entries  > .entry > p {
+  padding: 2px 15px;
+}
