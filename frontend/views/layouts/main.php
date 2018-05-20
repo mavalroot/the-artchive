@@ -60,6 +60,7 @@ AppAsset::register($this);
             'label' => Yii::$app->user->identity->username,
             'items' => [
                 ['label' => 'Perfil', 'url' => ['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]],
+                ['label' => 'Modificar Perfil', 'url' => ['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username]],
                 [
                     'label' => 'Logout',
                     'url' => ['/site/logout'],

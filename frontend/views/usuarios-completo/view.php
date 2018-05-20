@@ -1,15 +1,8 @@
 <?php
-use yii\grid\GridView;
-
-use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
-//
-// $this->title = $model->username;
-// $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div id="member-profile">
@@ -23,7 +16,9 @@ use yii\widgets\DetailView;
         </div>
         <div class="user">
             <h1 class="user-username"><?= $model->username ?></h1>
-            <?= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $model->username], ['class' => 'btn btn-md btn-info']) ?>
+            <?php if (!$model->isSelf()): ?>
+                <?= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $model->username], ['class' => 'btn btn-md btn-info']) ?>
+            <?php endif; ?>
             <?php if (!$model->isSelf() && $model->isBlocked()) : ?>
                 <form name="unblock" method="post">
                     <input type="hidden" name="id" value="<?= $model->id ?>">
@@ -58,10 +53,12 @@ use yii\widgets\DetailView;
     </div>
     <div id="profile-content" class="row">
         <div id="profile-details" class="col-sm-4">
-            <h5>Bio</h5>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <?php if ($model->bio): ?>
+                <h5>Sobre mi</h5>
+                <p>
+                    <?= $model->bio ?>
+                </p>
+            <?php endif; ?>
             <?php if ($model->aficiones): ?>
                 <h5>Aficiones</h5>
                 <p>
@@ -77,13 +74,13 @@ use yii\widgets\DetailView;
             <?php if ($model->pagina_web): ?>
                 <h5>Página web</h5>
                 <p>
-                    <?= $model->pagina_web ?>
+                    <?= Yii::$app->formatter->asUrl($model->pagina_web) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->isSelf()): ?>
                 <h5>Mi correo</h5>
                 <p>
-                    <?= $model->email ?>
+                    <?= Yii::$app->formatter->asEmail($model->email) ?>
                 </p>
             <?php endif; ?>
             <?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
