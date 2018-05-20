@@ -85,21 +85,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve un botón para modificar el propio perfil.
-     */
-    public function getButtons()
-    {
-        $buttons = '';
-        if ($this->isSelf()) {
-            $buttons .= Html::a('Modificar mi perfil', ['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username], ['class' => 'btn btn-md btn-success']);
-        } else {
-            $buttons .= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-md btn-info']);
-        }
-
-        return $buttons;
-    }
-
-    /**
      * Obtener la instancia de "User" que corresponde a este usuario.
      * @return User
      */
@@ -135,19 +120,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         ->count() != 0;
     }
 
-    /**
-     * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
-     * @return ActiveDataProvider
-     */
-    public function getMisPersonajes()
+    public function imBlocked()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => $this->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
-            'pagination' => false,
-            'sort' => false,
-        ]);
-
-        return $dataProvider;
+        return $this->getBloqueos()->where([
+            'usuario_id' => $this->id,
+            'bloqueado_id' => Yii::$app->user->id,
+        ])
+        ->count() != 0;
     }
 
     public function getMisPublicaciones()
@@ -158,19 +137,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'sort' => false,
         ]);
         return $dataProvider;
-    }
-
-    /**
-     * Devuelve botones para ver seguidores y seguidos
-     * @return string
-     */
-    public function getFollowButtons()
-    {
-        $buttons = '';
-        $buttons .= Html::a($this->seguidores . ' seguidores', ['seguidores/index', 'username' => $this->username]);
-        $buttons .= ' <br /> ' . Html::a($this->siguiendo . ' siguiendo', ['seguidores/following', 'username' => $this->username]);
-
-        return $buttons;
     }
 
     /**
@@ -213,6 +179,23 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
         if (isset($seguidor)) {
             $seguidor->delete();
+        }
+    }
+
+    public function getBlockButton()
+    {
+        if (!$this->isSelf() && $this->isBlocked()) {
+            return
+            Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Desbloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        } elseif (!$this->isSelf() && !$this->isBlocked()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'block']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Bloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
         }
     }
 }
