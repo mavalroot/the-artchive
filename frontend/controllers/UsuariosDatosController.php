@@ -16,6 +16,8 @@ use yii\filters\VerbFilter;
  */
 class UsuariosDatosController extends Controller
 {
+    use \common\utilities\Permisos;
+    
     /**
      * @inheritdoc
      */
