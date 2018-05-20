@@ -198,4 +198,28 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             Html::endForm();
         }
     }
+
+    public function getMpButton()
+    {
+        if (!$this->isSelf() && !$this->isBlocked() && !$this->imBlocked()) {
+            return Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-md btn-info']);
+        }
+    }
+
+    public function getFollowButtons()
+    {
+        if (!$this->isSelf() && $this->siguiendo() && !$this->isBlocked() && !$this->imBlocked()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'unfollow']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Dejar de seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        } elseif (!$this->isSelf() && !$this->siguiendo() && !$this->isBlocked() && !$this->imBlocked()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'follow']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        }
+    }
 }

@@ -17,9 +17,7 @@ use common\models\User;
         </div>
         <div class="user">
             <h1 class="user-username"><?= $model->username ?></h1>
-            <?php if (!$model->isSelf() && !$model->isBlocked() && !$model->imBlocked()) : ?>
-                <?= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $model->username], ['class' => 'btn btn-md btn-info']) ?>
-            <?php endif; ?>
+            <?= $model->getMpButton() ?>
             <?= $model->getBlockButton() ?>
         </div>
         <div class="nav-follow">
@@ -27,17 +25,7 @@ use common\models\User;
                 <li><h4>Seguidores <small><?= $model->seguidores ?></small></h4></li>
                 <li><h4>Siguiendo <small><?= $model->siguiendo ?></small></h4></li>
                 <li>
-                <?php if (!$model->isSelf() && $model->siguiendo() && !$model->isBlocked() && !$model->imBlocked()) : ?>
-                    <form name="unfollow" method="post">
-                        <input type="hidden" name="id" value="<?= $model->id ?>">
-                        <button type="submit" class="btn btn-sm btn-secondary">Dejar de seguir</button>
-                    </form>
-                <?php elseif (!$model->isSelf() && !$model->siguiendo() && !$model->isBlocked() && !$model->imBlocked()) : ?>
-                    <form name="follow" method="post">
-                        <input type="hidden" name="id" value="<?= $model->id ?>">
-                        <button type="submit" class="btn btn-sm btn-primary">Seguir</button>
-                    </form>
-                <?php endif; ?>
+                <?= $model->getFollowButtons() ?>
                 </li>
             </ul>
         </div>
