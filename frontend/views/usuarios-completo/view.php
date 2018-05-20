@@ -9,11 +9,11 @@ use common\models\User;
 <div id="member-profile">
     <div id="top-bar">
         <div class="avatar">
-            <?php if ($model->avatar) : ?>
-                <img src="<?= $model->avatar ?>" />
-                <?php else : ?>
-                    <img src="/uploads/default.jpg" />
-            <?php endif; ?>
+        <?php if ($model->avatar) : ?>
+            <img src="<?= $model->avatar ?>" />
+        <?php else : ?>
+            <img src="/uploads/default.jpg" />
+        <?php endif; ?>
         </div>
         <div class="user">
             <h1 class="user-username"><?= $model->username ?></h1>
