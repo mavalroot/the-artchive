@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 ?>
-<h3><?= count($model->getComentarios()->all()) ?> comentarios</h3>
+<h3>Comentarios</h3>
 <div id="publicacion-comentarios">
     <?php foreach ($comentarios as $comentario) : ?>
         <div class="comentario" id="com<?= $comentario->id ?>">
