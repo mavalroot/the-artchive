@@ -132,7 +132,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        $nombre = '/uploads/ava_' . $this->usuario_id . '.' . $this->foto->extension;
+        $nombre = '/uploads/profile/ava_' . $this->usuario_id . '.' . $this->foto->extension;
         $this->avatar = $nombre;
         if ($this->save()) {
             return $this->foto->saveAs(Yii::getAlias('@frontend/web') . $nombre);
