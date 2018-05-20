@@ -106,3 +106,10 @@
 #profile-content #profile-entries  > .entry > p {
   padding: 2px 15px;
 }
+
+@media (max-width: 576px) {
+    #member-profile > #top-bar > .avatar {
+        width: 100px;
+        height: 100px;
+     }
+ }

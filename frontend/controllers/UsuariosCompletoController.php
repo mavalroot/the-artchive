@@ -61,10 +61,15 @@ class UsuariosCompletoController extends Controller
      */
     public function actionView($username)
     {
+        // select p.*, count(c.id) as comentarios from publicaciones p left join comentarios c on p.id = c.usuario_id group by p.id;
         $model = $this->findModel($username);
         $query = Publicaciones::find()
-        ->where(['usuario_id' => $model->id])
-        ->orderBy('created_at DESC');
+        ->select('p.*, count(c.id) as numcom')
+        ->from('publicaciones p')
+        ->leftJoin('comentarios c', 'p.id = c.usuario_id')
+        ->where(['p.usuario_id' => $model->id])
+        ->orderBy('p.created_at DESC')
+        ->groupBy('p.id');
 
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);

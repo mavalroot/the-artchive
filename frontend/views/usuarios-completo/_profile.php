@@ -55,6 +55,7 @@ use yii\widgets\LinkPager;
                             <?= StringHelper::truncate(Yii::$app->formatter->asnText($value->contenido), 140) ?> <br />
                             <?= Html::a('[Seguir leyendo]', ['publicaciones/view', 'id' => $value->id]) ?>
                         </p>
+                        <p><?= $value->numcom ?> <i class="glyphicon glyphicon-comment"></i></p>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
