@@ -129,6 +129,11 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         ->count() != 0;
     }
 
+    public function isApto()
+    {
+        return $this->status == User::STATUS_ACTIVE && !$this->isBlocked() && !$this->imBlocked();
+    }
+
     public function getMisPublicaciones()
     {
         $dataProvider = new ActiveDataProvider([
@@ -184,13 +189,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     public function getBlockButton()
     {
-        if (!$this->isSelf() && $this->isBlocked()) {
+        if (!$this->isSelf() && !$this->isApto()) {
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .
             Html::submitButton('Desbloquear', ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
-        } elseif (!$this->isSelf() && !$this->isBlocked()) {
+        } elseif (!$this->isSelf() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'block']) .
             Html::hiddenInput('id', $this->id) .
@@ -201,20 +206,20 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     public function getMpButton()
     {
-        if (!$this->isSelf() && !$this->isBlocked() && !$this->imBlocked()) {
+        if (!$this->isSelf() && $this->isApto()) {
             return Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-info']);
         }
     }
 
     public function getFollowButtons()
     {
-        if (!$this->isSelf() && $this->siguiendo() && !$this->isBlocked() && !$this->imBlocked()) {
+        if (!$this->isSelf() && $this->siguiendo() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'unfollow']) .
             Html::hiddenInput('id', $this->id) .
             Html::submitButton('Dejar de seguir', ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
-        } elseif (!$this->isSelf() && !$this->siguiendo() && !$this->isBlocked() && !$this->imBlocked()) {
+        } elseif (!$this->isSelf() && !$this->siguiendo() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'follow']) .
             Html::hiddenInput('id', $this->id) .
