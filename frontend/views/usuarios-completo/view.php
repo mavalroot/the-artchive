@@ -1,6 +1,7 @@
 <?php
 use yii\grid\GridView;
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -59,13 +60,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'aficiones',
             'tematica_favorita',
             'plataforma',
-            'pagina_web',
-            'avatar',
+            'pagina_web:url',
             'tipo',
             'seguidores',
             'siguiendo',
             'created_at:date',
             'updated_at:relativeTime',
+            [
+            'attribute' => 'avatar',
+            'value' => function ($model) {
+                if ($model->avatar) {
+                    return $model->avatar;
+                }
+                return '/uploads/default.jpg';
+            },
+            'format' => 'image',
+            ],
         ],
     ]) ?>
 

@@ -3,19 +3,22 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\web\UploadedFile;
+
 use yii\filters\AccessControl;
 
 use common\models\User;
 use common\models\UsuariosDatos;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UsuariosDatosController implements the CRUD actions for UsuariosDatos model.
  */
 class UsuariosDatosController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * @inheritdoc
      */
@@ -43,9 +46,13 @@ class UsuariosDatosController extends Controller
     {
         $model = $this->findModel($username);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->getUser()->touch('updated_at');
-            return $this->redirect($model->getMiPerfil());
+        if ($model->load(Yii::$app->request->post())) {
+            $model->foto = UploadedFile::getInstance($model, 'foto');
+            if ($model->save()) {
+                $model->upload();
+                $model->getUser()->touch('updated_at');
+                return $this->redirect($model->getMiPerfil());
+            }
         }
 
         return $this->render('update', [
