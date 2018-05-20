@@ -129,10 +129,10 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
     public function isBlocked()
     {
-        return $this->getBloqueos()->where([
+        return $this->getBloqueos()->andWhere([
             'usuario_id' => Yii::$app->user->id
         ])
-        ->count() > 0;
+        ->count() != 0;
     }
 
     /**
