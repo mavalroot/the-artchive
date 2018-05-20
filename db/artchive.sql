@@ -48,7 +48,7 @@ CREATE TABLE usuarios_datos (
                                         ON DELETE NO ACTION ON UPDATE CASCADE
     , aficiones         varchar(255)
     , tematica_favorita varchar(255)
-    , plataforma        varchar(255)
+    , bio        varchar(255)
     , pagina_web        varchar(255)
     , avatar            varchar(255)
 );
@@ -320,7 +320,7 @@ CREATE TABLE bloqueos (
  * registro y sus datos.
  */
 CREATE OR REPLACE VIEW usuarios_completo AS
-SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.plataforma, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
+SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.bio, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
 FROM "user" u
 LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id
 LEFT JOIN seguidores seg ON seg.usuario_id = u.id

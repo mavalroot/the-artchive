@@ -15,7 +15,7 @@ use yii\web\UploadedFile;
  * @property int $usuario_id
  * @property string $aficiones
  * @property string $tematica_favorita
- * @property string $plataforma
+ * @property string $bio
  * @property string $pagina_web
  * @property string $avatar
  *
@@ -56,7 +56,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
             [['usuario_id'], 'integer'],
             [['pagina_web'], 'url'],
             [['foto'], 'file', 'extensions' => 'png, jpg', 'maxSize' => 200 * 1024, 'tooBig' => 'Limit is 200KB'],
-            [['aficiones', 'tematica_favorita', 'plataforma', 'avatar'], 'string', 'max' => 255],
+            [['aficiones', 'tematica_favorita', 'bio', 'avatar'], 'string', 'max' => 255],
             [['usuario_id'], 'unique'],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -71,7 +71,7 @@ class UsuariosDatos extends \yii\db\ActiveRecord
             'usuario_id' => 'User ID',
             'aficiones' => 'Aficiones',
             'tematica_favorita' => 'Temática Favorita',
-            'plataforma' => 'Plataforma',
+            'bio' => 'Sobre mi',
             'pagina_web' => 'Página Web',
             'avatar' => 'Avatar',
             'tipo_usuario' => 'Tipo de usuario',

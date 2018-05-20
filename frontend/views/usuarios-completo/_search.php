@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tematica_favorita') ?>
 
-    <?php // echo $form->field($model, 'plataforma') ?>
+    <?php // echo $form->field($model, 'bio') ?>
 
     <?php // echo $form->field($model, 'pagina_web') ?>
 

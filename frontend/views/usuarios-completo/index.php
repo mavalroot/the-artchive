@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'email:email',
             'aficiones',
             'tematica_favorita',
-            'plataforma',
+            'bio',
             'pagina_web:url',
             //'avatar',
             //'tipo_usuario',

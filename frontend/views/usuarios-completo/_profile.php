@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+
+?>
 
         <div id="member-profile">
             <div id="top-bar">
@@ -61,24 +65,18 @@
                     <p>
                         <?= $model->pagina_web ?>
                     </p>
-                    <input type="button" name="" value="Ver personajes">
+                    <?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?>
                 </div>
                 <div id="profile-entries" class="col-sm-8">
                     <h2>Publicaciones</h2>
-                    <div class="entry">
-                        <p>
-                            <h4>Título <small>Fecha</small></h4>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<br />
-                            [Seguir leyendo]
-                        </p>
-                    </div>
-                    <div class="entry">
-                        <p>
-                            <h4>Título <small>Fecha</small></h4>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<br />
-                            [Seguir leyendo]
-                        </p>
-                    </div>
+                    <?php foreach ($model->getPublicaciones()->all() as $value): ?>
+                        <div class="entry">
+                                <p>
+                                    <h4><?= $value->titulo ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
+                                    <?= Yii::$app->formatter->asnText($value->contenido) ?>
+                                </p>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ use yii\helpers\Html;
  * @property string $email
  * @property string $aficiones
  * @property string $tematica_favorita
- * @property string $plataforma
+ * @property string $bio
  * @property string $pagina_web
  * @property string $avatar
  * @property string $tipo
@@ -44,7 +44,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             [['username'], 'required'],
             [['tipo_usuario', 'created_at', 'updated_at'], 'default', 'value' => null],
             [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
+            [['username', 'email', 'aficiones', 'tematica_favorita', 'bio', 'pagina_web', 'avatar'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,7 +59,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'email' => 'E-mail',
             'aficiones' => 'Aficiones',
             'tematica_favorita' => 'Temática favorita',
-            'plataforma' => 'Plataforma',
+            'bio' => 'bio',
             'pagina_web' => 'Página web',
             'avatar' => 'Avatar',
             'tipo' => 'Tipo de usuario',

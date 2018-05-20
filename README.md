@@ -4,7 +4,7 @@
 
 **Bienvenidos a mi proyecto integrado para el curso de DAW de 2018.**
 
-Esta aplicación web nace con la idea de reunir en una sóla plataforma a artistas de diferentes ámbitos, para que éstos puedan gestionar los personajes con los que componen sus historias, así como compartirlos con el resto de la comunidad.
+Esta aplicación web nace con la idea de reunir en una sóla bio a artistas de diferentes ámbitos, para que éstos puedan gestionar los personajes con los que componen sus historias, así como compartirlos con el resto de la comunidad.
 
 De este modo se pretendería que toda la información necesaria estuviera recogida en un único espacio, a modo de guía para escribir, dibujar, o cualquier otra cosa.
 

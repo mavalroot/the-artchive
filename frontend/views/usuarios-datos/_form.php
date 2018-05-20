@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tematica_favorita')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'plataforma')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bio')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'pagina_web')->textInput(['maxlength' => true]) ?>
 
