@@ -1,0 +1,66 @@
+#member-profile {
+    overflow: hidden;
+}
+
+#member-profile > #top-bar > .nav-follow > ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#member-profile > #top-bar::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#member-profile > #top-bar > .avatar {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid purple;
+    float: left;
+}
+#member-profile > #top-bar > .avatar > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#member-profile > #top-bar > .nav-follow {
+    background: purple;
+    color: white;
+    padding: 5px;
+    margin-left:10px;
+}
+#member-profile > #top-bar > .nav-follow > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#member-profile > #top-bar > .nav-follow > ul > li > h4 {
+    text-align: center;
+}
+#member-profile > #top-bar > .nav-follow > ul > li > h4 > small {
+    display: block;
+}
+#member-profile > #top-bar > .user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+#member-profile > #top-bar > .user > h1 {
+    padding: 0px;
+    margin: 0px 5px 0px 0px;
+}
+
+#member-profile > #profile-content {
+    /* padding: 20px; */
+}

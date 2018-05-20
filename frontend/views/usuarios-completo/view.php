@@ -7,10 +7,15 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
-
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = $this->title;
+//
+// $this->title = $model->username;
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?= $this->render('_profile', [
+    'model' => $model,
+]) ?>
+
 <div class="usuarios-completo-view">
 
     <?php if ($model->isBlocked()) : ?>
