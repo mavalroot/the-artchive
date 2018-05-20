@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pagina_web')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'foto')->fileInput() ?>
+    <?= $form->field($model, 'foto')->fileInput()->label('Avatar') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

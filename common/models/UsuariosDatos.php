@@ -54,8 +54,9 @@ class UsuariosDatos extends \yii\db\ActiveRecord
             [['usuario_id'], 'required'],
             [['usuario_id'], 'default', 'value' => null],
             [['usuario_id'], 'integer'],
+            [['pagina_web'], 'url'],
             [['foto'], 'file', 'extensions' => 'png, jpg', 'maxSize' => 200 * 1024, 'tooBig' => 'Limit is 200KB'],
-            [['aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
+            [['aficiones', 'tematica_favorita', 'plataforma', 'avatar'], 'string', 'max' => 255],
             [['usuario_id'], 'unique'],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -132,10 +133,12 @@ class UsuariosDatos extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        $nombre = '/uploads/profile/ava_' . $this->usuario_id . '.' . $this->foto->extension;
-        $this->avatar = $nombre;
-        if ($this->save()) {
-            return $this->foto->saveAs(Yii::getAlias('@frontend/web') . $nombre);
+        if ($this->foto) {
+            $nombre = '/uploads/profile/ava_' . $this->usuario_id . '.' . $this->foto->extension;
+            $this->avatar = $nombre;
+            if ($this->save()) {
+                return $this->foto->saveAs(Yii::getAlias('@frontend/web') . $nombre);
+            }
         }
     }
 }

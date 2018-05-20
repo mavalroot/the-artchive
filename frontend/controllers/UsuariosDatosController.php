@@ -48,7 +48,8 @@ class UsuariosDatosController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->foto = UploadedFile::getInstance($model, 'foto');
-            if ($model->save() && $model->upload()) {
+            if ($model->save()) {
+                $model->upload();
                 $model->getUser()->touch('updated_at');
                 return $this->redirect($model->getMiPerfil());
             }

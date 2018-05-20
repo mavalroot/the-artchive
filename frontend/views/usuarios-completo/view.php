@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'aficiones',
             'tematica_favorita',
             'plataforma',
-            'pagina_web',
+            'pagina_web:url',
             'tipo',
             'seguidores',
             'siguiendo',
