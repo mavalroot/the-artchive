@@ -39,7 +39,7 @@ use yii\helpers\StringHelper;
                     <?= Yii::$app->formatter->asEmail($model->email) ?>
                 </p>
             <?php endif; ?>
-            <p class="text-center"><?= Html::a('Ver personajes', ['personajes/index', 'username' => $model->username], ['class' => 'btn btn-success']) ?></p>
+            <?= $model->getCharactersButton() ?>
         </div>
     </div>
     <div class="col-sm-9">

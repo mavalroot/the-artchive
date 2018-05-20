@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\Html;
 use common\models\User;
 
 /* @var $this yii\web\View */
