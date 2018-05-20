@@ -19,7 +19,7 @@ class UsuariosCompletoSearch extends UsuariosCompleto
     {
         return [
             [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar', 'tipo'], 'safe'],
+            [['username', 'email', 'aficiones', 'tematica_favorita', 'bio', 'pagina_web', 'avatar', 'tipo'], 'safe'],
         ];
     }
 
@@ -70,7 +70,7 @@ class UsuariosCompletoSearch extends UsuariosCompleto
             ->andFilterWhere(['ilike', 'email', $this->email])
             ->andFilterWhere(['ilike', 'aficiones', $this->aficiones])
             ->andFilterWhere(['ilike', 'tematica_favorita', $this->tematica_favorita])
-            ->andFilterWhere(['ilike', 'plataforma', $this->plataforma])
+            ->andFilterWhere(['ilike', 'bio', $this->bio])
             ->andFilterWhere(['ilike', 'pagina_web', $this->pagina_web])
             ->andFilterWhere(['ilike', 'avatar', $this->avatar])
             ->andFilterWhere(['ilike', 'tipo', $this->tipo]);

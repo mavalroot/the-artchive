@@ -16,7 +16,7 @@ use yii\helpers\Html;
  * @property string $email
  * @property string $aficiones
  * @property string $tematica_favorita
- * @property string $plataforma
+ * @property string $bio
  * @property string $pagina_web
  * @property string $avatar
  * @property string $tipo
@@ -44,7 +44,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             [['username'], 'required'],
             [['tipo_usuario', 'created_at', 'updated_at'], 'default', 'value' => null],
             [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'email', 'aficiones', 'tematica_favorita', 'plataforma', 'pagina_web', 'avatar'], 'string', 'max' => 255],
+            [['username', 'email', 'aficiones', 'tematica_favorita', 'bio', 'pagina_web', 'avatar'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,7 +59,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'email' => 'E-mail',
             'aficiones' => 'Aficiones',
             'tematica_favorita' => 'Temática favorita',
-            'plataforma' => 'Plataforma',
+            'bio' => 'bio',
             'pagina_web' => 'Página web',
             'avatar' => 'Avatar',
             'tipo' => 'Tipo de usuario',
@@ -85,21 +85,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve un botón para modificar el propio perfil.
-     */
-    public function getButtons()
-    {
-        $buttons = '';
-        if ($this->isSelf()) {
-            $buttons .= Html::a('Modificar mi perfil', ['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username], ['class' => 'btn btn-md btn-success']);
-        } else {
-            $buttons .= Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-md btn-info']);
-        }
-
-        return $buttons;
-    }
-
-    /**
      * Obtener la instancia de "User" que corresponde a este usuario.
      * @return User
      */
@@ -117,39 +102,63 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return Personajes::find()->where(['usuario_id' => $this->id]);
     }
 
+    /**
+     * Devuelve las publicaciones de un usuario.
+     * @return Publicaciones
+     */
     public function getPublicaciones()
     {
         return Publicaciones::find()->where(['usuario_id' => $this->id]);
     }
 
+    /**
+     * Devuelve los bloqueos de un usuario.
+     * @return Bloqueos
+     */
     public function getBloqueos()
     {
         return Bloqueos::find()->where(['bloqueado_id' => $this->id]);
     }
 
+    /**
+     * Indica si el usuario ha sido bloqueado por el usuario conectado.
+     * @return bool
+     */
     public function isBlocked()
     {
-        return $this->getBloqueos()->where([
+        return $this->getBloqueos()->andWhere([
             'usuario_id' => Yii::$app->user->id
         ])
-        ->count() > 0;
+        ->count() != 0;
     }
 
     /**
-     * Devuelve los personajes de éste usuario en forma de ActiveDataProvider.
-     * @return ActiveDataProvider
+     * Indica si el usuario tiene bloqueado al usuario conectado.
+     * @return bool
      */
-    public function getMisPersonajes()
+    public function imBlocked()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => $this->getPersonajes()->orderBy(['updated_at' => SORT_DESC])->limit(3),
-            'pagination' => false,
-            'sort' => false,
-        ]);
-
-        return $dataProvider;
+        return $this->getBloqueos()->where([
+            'usuario_id' => $this->id,
+            'bloqueado_id' => Yii::$app->user->id,
+        ])
+        ->count() != 0;
     }
 
+    /**
+     * Devuelve si el usuario es apto. Esto quiere decir que debe ser activo,
+     * no haber sido bloqueado por el usuario conectado ni haber bloqueado
+     * al usuario conectado.
+     * @return bool
+     */
+    public function isApto()
+    {
+        return $this->status == User::STATUS_ACTIVE && !$this->isBlocked() && !$this->imBlocked();
+    }
+
+    /**
+     * Devuelve las publicaciones del usuario.
+     */
     public function getMisPublicaciones()
     {
         $dataProvider = new ActiveDataProvider([
@@ -158,19 +167,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             'sort' => false,
         ]);
         return $dataProvider;
-    }
-
-    /**
-     * Devuelve botones para ver seguidores y seguidos
-     * @return string
-     */
-    public function getFollowButtons()
-    {
-        $buttons = '';
-        $buttons .= Html::a($this->seguidores . ' seguidores', ['seguidores/index', 'username' => $this->username]);
-        $buttons .= ' <br /> ' . Html::a($this->siguiendo . ' siguiendo', ['seguidores/following', 'username' => $this->username]);
-
-        return $buttons;
     }
 
     /**
@@ -196,6 +192,10 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         return Html::a($this->username, ['usuarios-completo/view', 'username' => $this->username]);
     }
 
+    /**
+     * Si el usuario ha sido bloqueado también deja de seguirlo / seguirte.
+     * @param  int $id Id del usuario
+     */
     public function bloquearSeguidor($id)
     {
         $siguiendo = Seguidores::findOne([
@@ -213,6 +213,73 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
 
         if (isset($seguidor)) {
             $seguidor->delete();
+        }
+    }
+
+    /**
+     * Devuelve los botones de bloquear y desbloquear.
+     * @return string
+     */
+    public function getBlockButton()
+    {
+        if (!$this->isSelf() && !$this->isApto()) {
+            return
+            Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Desbloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        } elseif (!$this->isSelf() && $this->isApto()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'block']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Bloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        }
+    }
+
+    /**
+     * Devuelve el botón de mandar un mp.
+     * @return string
+     */
+    public function getMpButton()
+    {
+        if (!$this->isSelf() && $this->isApto()) {
+            return Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-info']);
+        }
+    }
+
+    /**
+     * Devuelve los botones de seguir y dejar de seguir.
+     * @return string
+     */
+    public function getFollowButtons()
+    {
+        if (!$this->isSelf() && $this->siguiendo() && $this->isApto()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'unfollow']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Dejar de seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        } elseif (!$this->isSelf() && !$this->siguiendo() && $this->isApto()) {
+            return
+            Html::beginForm('', 'post', ['name' => 'follow']) .
+            Html::hiddenInput('id', $this->id) .
+            Html::submitButton('Seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::endForm();
+        }
+    }
+
+    /**
+     * Devuelve un botón que lleva a los personajes del usuario.
+     * @return [type] [description]
+     */
+    public function getCharactersButton()
+    {
+        if ($this->isApto()) {
+            return
+            Html::beginTag('p', ['class' => 'text-center']) .
+            Html::a('Ver personajes', ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-success']) .
+            Html::endTag('p');
         }
     }
 }

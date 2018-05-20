@@ -72,7 +72,7 @@ use common\models\TiposUsuario;
         'siguiendo',
         'aficiones',
         'tematica_favorita',
-        'plataforma',
+        'bio',
         'pagina_web',
         'avatar',
         'created_at:datetime',

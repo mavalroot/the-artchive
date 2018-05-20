@@ -35,6 +35,12 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     public $creator;
 
     /**
+     * Número de comentarios.
+     * @var int
+     */
+    public $numcom;
+
+    /**
      * @inheritdoc
      */
     public static function tableName()

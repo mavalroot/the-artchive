@@ -201,7 +201,7 @@
 
 | **R23**     | **Uso de Heroku**           |
 | --------------: | :------------------- |
-| **Descripción** | Despliegue de la apliación en la plataforma Heroku.             |
+| **Descripción** | Despliegue de la apliación en la bio Heroku.             |
 | **Prioridad**   | Mínimo           |
 | **Tipo**        | Técnico                |
 | **Complejidad** | Media         |
@@ -813,7 +813,7 @@
 
 | **R91**     | **Info. Datos de Usuario**           |
 | --------------: | :------------------- |
-| **Descripción** | Adicionalmente, al completar el perfil, se almacenará de un usuario, cómo mínimo: aficiones, temática favorita, plataformas, web, avatar…             |
+| **Descripción** | Adicionalmente, al completar el perfil, se almacenará de un usuario, cómo mínimo: aficiones, temática favorita, bios, web, avatar…             |
 | **Prioridad**   | Importante           |
 | **Tipo**        | Información                |
 | **Complejidad** | Fácil         |
