@@ -7,33 +7,31 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Delete Account';
+$this->title = 'Darse de baja';
 $this->params['breadcrumbs'][] = $this->title;
-
-var_dump($model->getUser());
 ?>
-<div class="site-delete-account">
+<div class="estandar-action">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Mensaje de advertencia.</p>
+    <div class="estandar-form">
 
-    <div class="row">
-        <div class="col-lg-5">
+    <p>Recuerda que eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.<br />
+    <b>Esta acción no podrá ser revertida, pero podrás volver a registrarte en un futuro con el mismo nombre.</b></p>
+
             <?php $form = ActiveForm::begin(['action' =>['delete-account/delete']]); ?>
                 <p>
                     <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                 </p>
-                <p>Mensaje informativo.</p>
+                <p>Puedes elegir borrar completamente tus personajes y publicaciones, o dejarlas en The Artchive (tu nombre de usuario no se verá implicado).</p>
                 <p>
                     <?= $form->field($model, 'personajes')->checkbox(['label' => 'Eliminar personajes']) ?>
                     <?= $form->field($model, 'publicaciones')->checkbox(['label' => 'Eliminar publicaciones']) ?>
                 </p>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Delete Account', ['class' => 'btn btn-danger']) ?>
+                <div class="form-group text-center">
+                    <?= Html::submitButton('Darme de baja', ['class' => 'btn btn-danger']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+</div>
 </div>

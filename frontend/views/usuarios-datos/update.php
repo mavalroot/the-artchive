@@ -17,10 +17,14 @@ $this->params['breadcrumbs'][] = 'Modificar';
         'model' => $model,
     ]) ?>
 
-    <h1>Delete Account</h1>
-    <p>
-        Mensaje de advertencia.
-    </p>
-    <?= Html::a('Delete account', ['delete-account/index'], ['class' => 'btn btn-danger']); ?>
-sdsds
+        <h3>Darse de baja</h3>
+        <div class="estandar-form">
+        <p>
+            Eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.<br />
+            Esta acción no podrá ser revertida, así que considéralo sólo cuando estés completamente seguro de que ya no quieres seguir en The Artchive.
+        </p>
+        <div class="text-center">
+            <?= Html::a('Quiero darme de baja', ['delete-account/index'], ['class' => 'btn btn-danger']); ?>
+        </div>
+    </div>
 </div>

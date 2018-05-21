@@ -3,7 +3,7 @@
   background: white;
 }
 
-.estandar-action > h1 {
+.estandar-action > h1, .estandar-action > h3 {
   background: purple;
   color: white;
   text-align: center;
