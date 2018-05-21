@@ -34,7 +34,7 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'hechos_destacables')->textarea(['rows' => 6]) ?>
 
-    <div class="form-group">
+    <div class="form-group text-center">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>
 

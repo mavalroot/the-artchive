@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'foto')->fileInput()->label('Avatar') ?>
 
     <div class="form-group text-center">
-        <?= Html::submitButton('Enviar', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Actualizar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
