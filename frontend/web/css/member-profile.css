@@ -45,7 +45,10 @@
 #member-profile > #top-bar > .nav-follow > ul > li > h4 {
     text-align: center;
 }
-#member-profile > #top-bar > .nav-follow > ul > li > h4 > small {
+#member-profile > #top-bar > .nav-follow > ul > li > h4 > a {
+  color: white;
+}
+#member-profile > #top-bar > .nav-follow > ul > li > h4 > a > small {
     display: block;
 }
 #member-profile > #top-bar > .user {
