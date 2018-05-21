@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 10px solid purple;
+    border: 10px solid #7967a6;
     float: left;
 }
 #member-profile > #top-bar > .avatar > img {
@@ -31,7 +31,7 @@
 }
 
 #member-profile > #top-bar > .nav-follow {
-    background: purple;
+    background: linear-gradient(-90deg, #a367a6, #7967a6);
     color: white;
     padding: 5px;
     margin-left:10px;
@@ -45,7 +45,10 @@
 #member-profile > #top-bar > .nav-follow > ul > li > h4 {
     text-align: center;
 }
-#member-profile > #top-bar > .nav-follow > ul > li > h4 > small {
+#member-profile > #top-bar > .nav-follow > ul > li > h4 > a {
+  color: white;
+}
+#member-profile > #top-bar > .nav-follow > ul > li > h4 > a > small {
     display: block;
 }
 #member-profile > #top-bar > .user {
@@ -70,11 +73,12 @@
 }
 
 #profile-content #profile-details {
-  border: 2px solid purple;
+  border: 2px solid #7967a6;
+  background: white;
 }
 
 #profile-content #profile-details > h5 {
-  background: purple;
+  background: linear-gradient(-90deg, #a367a6, #7967a6);
   padding: 2px;
   color: white;
   text-align: center;
@@ -87,13 +91,14 @@
 }
 
 #profile-content #profile-entries {
-  border: 2px solid purple;
+  border: 2px solid #7967a6;
+  background: white;
 }
 
 #profile-content #profile-entries > h2 {
   margin: 0px;
   padding: 3px;
-  background: purple;
+  background: linear-gradient(-90deg, #a367a6, #7967a6);
   color: white;
 }
 

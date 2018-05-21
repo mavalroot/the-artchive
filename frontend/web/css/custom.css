@@ -44,3 +44,37 @@ border-radius: 0px 20px 20px 0px;
 #toggle {
     cursor: pointer;
 }
+
+.wrap > nav {
+    background: #392b4f;
+}
+
+.wrap > nav li.active {
+  background: #21182f;
+}
+
+ul.breadcrumb {
+  background: #978db0;
+}
+
+ul.breadcrumb > li.active {
+  color: #bdbdbd;
+}
+
+a {
+    color: #785195;
+}
+
+a:hover {
+  color: #8c7c98;
+  text-decoration: none;
+}
+
+.footer {
+    background: #392b4f;
+    color: #f4f4f4;
+}
+
+.wrap {
+  background: url(https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png) #f1f1f1;
+}

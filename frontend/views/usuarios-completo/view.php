@@ -1,4 +1,6 @@
 <?php
+use yii\helpers\Html;
+
 use common\models\User;
 
 /* @var $this yii\web\View */
@@ -21,8 +23,16 @@ use common\models\User;
         </div>
         <div class="nav-follow">
             <ul>
-                <li><h4>Seguidores <small><?= $model->seguidores ?></small></h4></li>
-                <li><h4>Siguiendo <small><?= $model->siguiendo ?></small></h4></li>
+                <li>
+                    <?= Html::a('<h4>Seguidores <small>' . $model->seguidores . '</small>', [
+                        'seguidores/index', 'username' => $model->username
+                        ]) ?>
+                </li>
+                <li>
+                    <?= Html::a('<h4>Siguiendo <small>' . $model->siguiendo . '</small>', [
+                        'seguidores/following', 'username' => $model->username
+                        ]) ?>
+                </li>
                 <li>
                 <?= $model->getFollowButtons() ?>
                 </li>

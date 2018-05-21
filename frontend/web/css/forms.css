@@ -1,0 +1,46 @@
+.estandar-action {
+  border: 2px solid #7967a6;
+  background: white;
+}
+
+.estandar-action > h1, .estandar-action > h3 {
+  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+.estandar-action > .estandar-form {
+  padding: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.estandar-action > .estandar-form label {
+  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  width: 100%;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  color: white;
+  padding: 0px 20px;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 80%;
+}
+
+.estandar-action > .estandar-form label:after, .estandar-action > .estandar-form label:before {
+  border: 12px solid;
+  content: ' ';
+  position: absolute;
+  top: 0;
+}
+.estandar-action > .estandar-form label:after {
+  border-color: transparent transparent transparent white;
+  left: 0;
+}
+
+.estandar-action > .estandar-form label:before {
+  border-color: transparent white transparent transparent;
+  right: 0;
+}
