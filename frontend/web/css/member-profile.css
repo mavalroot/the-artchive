@@ -74,6 +74,7 @@
 
 #profile-content #profile-details {
   border: 2px solid #7967a6;
+  background: white;
 }
 
 #profile-content #profile-details > h5 {
@@ -91,6 +92,7 @@
 
 #profile-content #profile-entries {
   border: 2px solid #7967a6;
+  background: white;
 }
 
 #profile-content #profile-entries > h2 {

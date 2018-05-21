@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosDatos */
 
-$this->title = 'Modificar perfil de: ' . $model->getName();
-$this->params['breadcrumbs'][] = ['label' => 'Mi perfil', 'url' => $model->getMiPerfil()];
+$this->title = 'Modificar mi perfil';
+$this->params['breadcrumbs'][] = ['label' => $model->getName(), 'url' => $model->getMiPerfil()];
 $this->params['breadcrumbs'][] = 'Modificar';
 ?>
 <div class="estandar-action">
