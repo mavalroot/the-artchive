@@ -6,14 +6,14 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\MensajesPrivados */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="estandar-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= Html::label('Usuario', 'emisor_name') ?>
-    <?= Html::textInput('emisor_name', (Yii::$app->request->get('username') ?: ''), ['class' => 'form-control']) ?>
+    <?= $form->field($model, 'emisor_name')->textInput(['value' => (Yii::$app->request->get('username') ?: '')]) ?>
 
     <?= $form->field($model, 'asunto')->textInput(['maxlength' => true]) ?>
 
