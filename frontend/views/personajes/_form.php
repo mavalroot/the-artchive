@@ -9,7 +9,7 @@ use kartik\date\DatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="personajes-form">
+<div class="estandar-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

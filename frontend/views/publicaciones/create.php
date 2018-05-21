@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Crear publicación';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="publicaciones-create">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

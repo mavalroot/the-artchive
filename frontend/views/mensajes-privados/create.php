@@ -9,7 +9,7 @@ $this->title = 'Mandar mensaje privado';
 $this->params['breadcrumbs'][] = ['label' => 'Mensajes Privados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="mensajes-privados-create">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

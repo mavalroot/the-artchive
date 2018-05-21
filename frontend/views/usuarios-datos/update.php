@@ -9,7 +9,7 @@ $this->title = 'Modificar perfil de: ' . $model->getName();
 $this->params['breadcrumbs'][] = ['label' => 'Mi perfil', 'url' => $model->getMiPerfil()];
 $this->params['breadcrumbs'][] = 'Modificar';
 ?>
-<div class="usuarios-datos-update">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -22,5 +22,5 @@ $this->params['breadcrumbs'][] = 'Modificar';
         Mensaje de advertencia.
     </p>
     <?= Html::a('Delete account', ['delete-account/index'], ['class' => 'btn btn-danger']); ?>
-
+sdsds
 </div>

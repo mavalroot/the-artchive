@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="mensajes-privados-form">
+<div class="estandar-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

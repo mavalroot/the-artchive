@@ -9,7 +9,7 @@ $this->title = 'Crear personaje';
 // $this->params['breadcrumbs'][] = ['label' => 'Personajes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="personajes-create">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

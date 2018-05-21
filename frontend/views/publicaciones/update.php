@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-comple
 $this->params['breadcrumbs'][] = ['label' => 'Publicaciones de ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = 'Modificar';
 ?>
-<div class="publicaciones-update">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
