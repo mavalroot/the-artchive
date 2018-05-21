@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/d356890a/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/96b6d3c0/solarized_light.css" rel="stylesheet">
+<link href="./assets/405da80b/style.css" rel="stylesheet">
+<script src="./assets/a1dc72/jquery.js"></script>
+<script src="./assets/d356890a/js/bootstrap.js"></script>
+<script src="./assets/e3fe518c/jssearch.js"></script>    <title>UploadHandler, UploadHandler - API del proyecto</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w418" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w418-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">API del proyecto</a></div><div id="w418-collapse" class="collapse navbar-collapse"><ul id="w419" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li>
+<li><a href="../README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-408" data-toggle="collapse" data-parent="#navigation">Not namespaced classes <b class="caret"></b></a><div id="navigation-408" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./uploadhandler.html">UploadHandler</a>
+<a class="list-group-item" href="./yii.html">Yii</a>
+<a class="list-group-item" href="./yiirequirementchecker.html">YiiRequirementChecker</a></div>
+<a class="list-group-item" href="#navigation-409" data-toggle="collapse" data-parent="#navigation">backend\assets <b class="caret"></b></a><div id="navigation-409" class="submenu panel-collapse collapse"><a class="list-group-item" href="./backend-assets-appasset.html">AppAsset</a></div>
+<a class="list-group-item" href="#navigation-410" data-toggle="collapse" data-parent="#navigation">backend\controllers <b class="caret"></b></a><div id="navigation-410" class="submenu panel-collapse collapse"><a class="list-group-item" href="./backend-controllers-actividadrecientecontroller.html">ActividadRecienteController</a>
+<a class="list-group-item" href="./backend-controllers-personajescontroller.html">PersonajesController</a>
+<a class="list-group-item" href="./backend-controllers-publicacionescontroller.html">PublicacionesController</a>
+<a class="list-group-item" href="./backend-controllers-sitecontroller.html">SiteController</a>
+<a class="list-group-item" href="./backend-controllers-usercontroller.html">UserController</a>
+<a class="list-group-item" href="./backend-controllers-usuarioscompletocontroller.html">UsuariosCompletoController</a>
+<a class="list-group-item" href="./backend-controllers-usuariosdatoscontroller.html">UsuariosDatosController</a></div>
+<a class="list-group-item" href="#navigation-411" data-toggle="collapse" data-parent="#navigation">common\fixtures <b class="caret"></b></a><div id="navigation-411" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-fixtures-userfixture.html">UserFixture</a></div>
+<a class="list-group-item" href="#navigation-412" data-toggle="collapse" data-parent="#navigation">common\models <b class="caret"></b></a><div id="navigation-412" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-models-actividadreciente.html">ActividadReciente</a>
+<a class="list-group-item" href="./common-models-actividadrecientesearch.html">ActividadRecienteSearch</a>
+<a class="list-group-item" href="./common-models-bloqueos.html">Bloqueos</a>
+<a class="list-group-item" href="./common-models-comentarios.html">Comentarios</a>
+<a class="list-group-item" href="./common-models-comentariossearch.html">ComentariosSearch</a>
+<a class="list-group-item" href="./common-models-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./common-models-mensajesprivados.html">MensajesPrivados</a>
+<a class="list-group-item" href="./common-models-mensajesprivadossearch.html">MensajesPrivadosSearch</a>
+<a class="list-group-item" href="./common-models-notificaciones.html">Notificaciones</a>
+<a class="list-group-item" href="./common-models-notificacionessearch.html">NotificacionesSearch</a>
+<a class="list-group-item" href="./common-models-personajes.html">Personajes</a>
+<a class="list-group-item" href="./common-models-personajessearch.html">PersonajesSearch</a>
+<a class="list-group-item" href="./common-models-publicaciones.html">Publicaciones</a>
+<a class="list-group-item" href="./common-models-publicacionessearch.html">PublicacionesSearch</a>
+<a class="list-group-item" href="./common-models-seguidores.html">Seguidores</a>
+<a class="list-group-item" href="./common-models-seguidoressearch.html">SeguidoresSearch</a>
+<a class="list-group-item" href="./common-models-tiposnotificaciones.html">TiposNotificaciones</a>
+<a class="list-group-item" href="./common-models-tiposusuario.html">TiposUsuario</a>
+<a class="list-group-item" href="./common-models-user.html">User</a>
+<a class="list-group-item" href="./common-models-usuarioscompleto.html">UsuariosCompleto</a>
+<a class="list-group-item" href="./common-models-usuarioscompletosearch.html">UsuariosCompletoSearch</a>
+<a class="list-group-item" href="./common-models-usuariosdatos.html">UsuariosDatos</a></div>
+<a class="list-group-item" href="#navigation-413" data-toggle="collapse" data-parent="#navigation">common\utilities <b class="caret"></b></a><div id="navigation-413" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-utilities-artchivebase.html">ArtchiveBase</a>
+<a class="list-group-item" href="./common-utilities-basenotis.html">BaseNotis</a>
+<a class="list-group-item" href="./common-utilities-historial.html">Historial</a>
+<a class="list-group-item" href="./common-utilities-notificacion.html">Notificacion</a>
+<a class="list-group-item" href="./common-utilities-permisos.html">Permisos</a></div>
+<a class="list-group-item" href="#navigation-414" data-toggle="collapse" data-parent="#navigation">common\widgets <b class="caret"></b></a><div id="navigation-414" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-widgets-alert.html">Alert</a></div>
+<a class="list-group-item" href="#navigation-415" data-toggle="collapse" data-parent="#navigation">frontend\assets <b class="caret"></b></a><div id="navigation-415" class="submenu panel-collapse collapse"><a class="list-group-item" href="./frontend-assets-appasset.html">AppAsset</a></div>
+<a class="list-group-item" href="#navigation-416" data-toggle="collapse" data-parent="#navigation">frontend\controllers <b class="caret"></b></a><div id="navigation-416" class="submenu panel-collapse collapse"><a class="list-group-item" href="./frontend-controllers-bloqueoscontroller.html">BloqueosController</a>
+<a class="list-group-item" href="./frontend-controllers-comentarioscontroller.html">ComentariosController</a>
+<a class="list-group-item" href="./frontend-controllers-deleteaccountcontroller.html">DeleteAccountController</a>
+<a class="list-group-item" href="./frontend-controllers-mensajesprivadoscontroller.html">MensajesPrivadosController</a>
+<a class="list-group-item" href="./frontend-controllers-notificacionescontroller.html">NotificacionesController</a>
+<a class="list-group-item" href="./frontend-controllers-personajescontroller.html">PersonajesController</a>
+<a class="list-group-item" href="./frontend-controllers-publicacionescontroller.html">PublicacionesController</a>
+<a class="list-group-item" href="./frontend-controllers-searchcontroller.html">SearchController</a>
+<a class="list-group-item" href="./frontend-controllers-seguidorescontroller.html">SeguidoresController</a>
+<a class="list-group-item" href="./frontend-controllers-sitecontroller.html">SiteController</a>
+<a class="list-group-item" href="./frontend-controllers-usuarioscompletocontroller.html">UsuariosCompletoController</a>
+<a class="list-group-item" href="./frontend-controllers-usuariosdatoscontroller.html">UsuariosDatosController</a></div>
+<a class="list-group-item" href="#navigation-417" data-toggle="collapse" data-parent="#navigation">frontend\models <b class="caret"></b></a><div id="navigation-417" class="submenu panel-collapse collapse"><a class="list-group-item" href="./frontend-models-contactform.html">ContactForm</a>
+<a class="list-group-item" href="./frontend-models-deleteaccountform.html">DeleteAccountForm</a>
+<a class="list-group-item" href="./frontend-models-passwordresetrequestform.html">PasswordResetRequestForm</a>
+<a class="list-group-item" href="./frontend-models-resetpasswordform.html">ResetPasswordForm</a>
+<a class="list-group-item" href="./frontend-models-search.html">Search</a>
+<a class="list-group-item" href="./frontend-models-signupform.html">SignupForm</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class UploadHandler</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+            | <a href="#properties">Properties</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="uploadhandler.html">UploadHandler</a></td></tr>
+                                        </table>
+
+<div class="class-description">
+    <p><strong></strong></p>
+    
+    </div>
+
+<a id="properties"></a>
+
+<div class="summary doc-property">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="$error_messages">
+        <td><a href="uploadhandler.html#$error_messages-detail">$error_messages</a></td>
+        <td></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="$image_objects">
+        <td><a href="uploadhandler.html#$image_objects-detail">$image_objects</a></td>
+        <td></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="$options">
+        <td><a href="uploadhandler.html#$options-detail">$options</a></td>
+        <td></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="__construct()">
+        <td><a href="uploadhandler.html#__construct()-detail">__construct()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                            <tr id="delete()">
+        <td><a href="uploadhandler.html#delete()-detail">delete()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                                                    <tr id="generate_response()">
+        <td><a href="uploadhandler.html#generate_response()-detail">generate_response()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get()">
+        <td><a href="uploadhandler.html#get()-detail">get()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_config_bytes()">
+        <td><a href="uploadhandler.html#get_config_bytes()-detail">get_config_bytes()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                                                                    <tr id="get_response()">
+        <td><a href="uploadhandler.html#get_response()-detail">get_response()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                                                            <tr id="head()">
+        <td><a href="uploadhandler.html#head()-detail">head()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                                                    <tr id="post()">
+        <td><a href="uploadhandler.html#post()-detail">post()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                                    </table>
+</div>
+
+<div class="summary doc-method">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+            <tr id="basename()">
+        <td><a href="uploadhandler.html#basename()-detail">basename()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="body()">
+        <td><a href="uploadhandler.html#body()-detail">body()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="count_file_objects()">
+        <td><a href="uploadhandler.html#count_file_objects()-detail">count_file_objects()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="create_scaled_image()">
+        <td><a href="uploadhandler.html#create_scaled_image()-detail">create_scaled_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                <tr id="destroy_image_object()">
+        <td><a href="uploadhandler.html#destroy_image_object()-detail">destroy_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="download()">
+        <td><a href="uploadhandler.html#download()-detail">download()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="fix_file_extension()">
+        <td><a href="uploadhandler.html#fix_file_extension()-detail">fix_file_extension()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="fix_integer_overflow()">
+        <td><a href="uploadhandler.html#fix_integer_overflow()-detail">fix_integer_overflow()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_create_scaled_image()">
+        <td><a href="uploadhandler.html#gd_create_scaled_image()-detail">gd_create_scaled_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_destroy_image_object()">
+        <td><a href="uploadhandler.html#gd_destroy_image_object()-detail">gd_destroy_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_get_image_object()">
+        <td><a href="uploadhandler.html#gd_get_image_object()-detail">gd_get_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_imageflip()">
+        <td><a href="uploadhandler.html#gd_imageflip()-detail">gd_imageflip()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_orient_image()">
+        <td><a href="uploadhandler.html#gd_orient_image()-detail">gd_orient_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="gd_set_image_object()">
+        <td><a href="uploadhandler.html#gd_set_image_object()-detail">gd_set_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                        <tr id="get_download_url()">
+        <td><a href="uploadhandler.html#get_download_url()-detail">get_download_url()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_error_message()">
+        <td><a href="uploadhandler.html#get_error_message()-detail">get_error_message()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_name()">
+        <td><a href="uploadhandler.html#get_file_name()-detail">get_file_name()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_name_param()">
+        <td><a href="uploadhandler.html#get_file_name_param()-detail">get_file_name_param()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_names_params()">
+        <td><a href="uploadhandler.html#get_file_names_params()-detail">get_file_names_params()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_object()">
+        <td><a href="uploadhandler.html#get_file_object()-detail">get_file_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_objects()">
+        <td><a href="uploadhandler.html#get_file_objects()-detail">get_file_objects()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_size()">
+        <td><a href="uploadhandler.html#get_file_size()-detail">get_file_size()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_file_type()">
+        <td><a href="uploadhandler.html#get_file_type()-detail">get_file_type()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_full_url()">
+        <td><a href="uploadhandler.html#get_full_url()-detail">get_full_url()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_image_size()">
+        <td><a href="uploadhandler.html#get_image_size()-detail">get_image_size()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_post_param()">
+        <td><a href="uploadhandler.html#get_post_param()-detail">get_post_param()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_query_param()">
+        <td><a href="uploadhandler.html#get_query_param()-detail">get_query_param()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_query_separator()">
+        <td><a href="uploadhandler.html#get_query_separator()-detail">get_query_separator()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                <tr id="get_scaled_image_file_paths()">
+        <td><a href="uploadhandler.html#get_scaled_image_file_paths()-detail">get_scaled_image_file_paths()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_server_var()">
+        <td><a href="uploadhandler.html#get_server_var()-detail">get_server_var()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_singular_param_name()">
+        <td><a href="uploadhandler.html#get_singular_param_name()-detail">get_singular_param_name()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_unique_filename()">
+        <td><a href="uploadhandler.html#get_unique_filename()-detail">get_unique_filename()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_upload_data()">
+        <td><a href="uploadhandler.html#get_upload_data()-detail">get_upload_data()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_upload_path()">
+        <td><a href="uploadhandler.html#get_upload_path()-detail">get_upload_path()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_user_id()">
+        <td><a href="uploadhandler.html#get_user_id()-detail">get_user_id()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_user_path()">
+        <td><a href="uploadhandler.html#get_user_path()-detail">get_user_path()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="get_version_param()">
+        <td><a href="uploadhandler.html#get_version_param()-detail">get_version_param()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="handle_file_upload()">
+        <td><a href="uploadhandler.html#handle_file_upload()-detail">handle_file_upload()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="handle_form_data()">
+        <td><a href="uploadhandler.html#handle_form_data()-detail">handle_form_data()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="handle_image_file()">
+        <td><a href="uploadhandler.html#handle_image_file()-detail">handle_image_file()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                <tr id="header()">
+        <td><a href="uploadhandler.html#header()-detail">header()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagemagick_create_scaled_image()">
+        <td><a href="uploadhandler.html#imagemagick_create_scaled_image()-detail">imagemagick_create_scaled_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagick_create_scaled_image()">
+        <td><a href="uploadhandler.html#imagick_create_scaled_image()-detail">imagick_create_scaled_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagick_destroy_image_object()">
+        <td><a href="uploadhandler.html#imagick_destroy_image_object()-detail">imagick_destroy_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagick_get_image_object()">
+        <td><a href="uploadhandler.html#imagick_get_image_object()-detail">imagick_get_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagick_orient_image()">
+        <td><a href="uploadhandler.html#imagick_orient_image()-detail">imagick_orient_image()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="imagick_set_image_object()">
+        <td><a href="uploadhandler.html#imagick_set_image_object()-detail">imagick_set_image_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="initialize()">
+        <td><a href="uploadhandler.html#initialize()-detail">initialize()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="is_valid_file_object()">
+        <td><a href="uploadhandler.html#is_valid_file_object()-detail">is_valid_file_object()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="is_valid_image_file()">
+        <td><a href="uploadhandler.html#is_valid_image_file()-detail">is_valid_image_file()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+                <tr id="readfile()">
+        <td><a href="uploadhandler.html#readfile()-detail">readfile()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="send_access_control_headers()">
+        <td><a href="uploadhandler.html#send_access_control_headers()-detail">send_access_control_headers()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="send_content_type_header()">
+        <td><a href="uploadhandler.html#send_content_type_header()-detail">send_content_type_header()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="set_additional_file_properties()">
+        <td><a href="uploadhandler.html#set_additional_file_properties()-detail">set_additional_file_properties()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="trim_file_name()">
+        <td><a href="uploadhandler.html#trim_file_name()-detail">trim_file_name()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="upcount_name()">
+        <td><a href="uploadhandler.html#upcount_name()-detail">upcount_name()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="upcount_name_callback()">
+        <td><a href="uploadhandler.html#upcount_name_callback()-detail">upcount_name_callback()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+            <tr id="validate()">
+        <td><a href="uploadhandler.html#validate()-detail">validate()</a></td>
+        <td></td>
+        <td><a href="uploadhandler.html">UploadHandler</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Property Details</h2>
+
+<div class="property-doc">
+
+    <div class="detail-header h3" id="$error_messages-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#$error_messages-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $error_messages        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"></span> <a href="uploadhandler.html#$error_messages-detail">$error_messages</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;[</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'The&nbsp;uploaded&nbsp;file&nbsp;exceeds&nbsp;the&nbsp;upload_max_filesize&nbsp;directive&nbsp;in&nbsp;php.ini'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'The&nbsp;uploaded&nbsp;file&nbsp;exceeds&nbsp;the&nbsp;MAX_FILE_SIZE&nbsp;directive&nbsp;that&nbsp;was&nbsp;specified&nbsp;in&nbsp;the&nbsp;HTML&nbsp;form'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'The&nbsp;uploaded&nbsp;file&nbsp;was&nbsp;only&nbsp;partially&nbsp;uploaded'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'No&nbsp;file&nbsp;was&nbsp;uploaded'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">6&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Missing&nbsp;a&nbsp;temporary&nbsp;folder'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;write&nbsp;file&nbsp;to&nbsp;disk'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'A&nbsp;PHP&nbsp;extension&nbsp;stopped&nbsp;the&nbsp;file&nbsp;upload'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'post_max_size'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'The&nbsp;uploaded&nbsp;file&nbsp;exceeds&nbsp;the&nbsp;post_max_size&nbsp;directive&nbsp;in&nbsp;php.ini'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'max_file_size'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'File&nbsp;is&nbsp;too&nbsp;big'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'min_file_size'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'File&nbsp;is&nbsp;too&nbsp;small'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'accept_file_types'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Filetype&nbsp;not&nbsp;allowed'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'max_number_of_files'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Maximum&nbsp;number&nbsp;of&nbsp;files&nbsp;exceeded'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'max_width'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Image&nbsp;exceeds&nbsp;maximum&nbsp;width'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'min_width'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Image&nbsp;requires&nbsp;a&nbsp;minimum&nbsp;width'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'max_height'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Image&nbsp;exceeds&nbsp;maximum&nbsp;height'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'min_height'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Image&nbsp;requires&nbsp;a&nbsp;minimum&nbsp;height'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'abort'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'File&nbsp;upload&nbsp;aborted'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'image_resize'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;resize&nbsp;image'</span><span style="color: #007700">]</span></div>
+
+
+    <div class="detail-header h3" id="$image_objects-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#$image_objects-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $image_objects        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"></span> <a href="uploadhandler.html#$image_objects-detail">$image_objects</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;[]</span></div>
+
+
+    <div class="detail-header h3" id="$options-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#$options-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $options        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"></span> <a href="uploadhandler.html#$options-detail">$options</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
+
+</div>
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="__construct()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#__construct()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        __construct()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#__construct()-detail">__construct</a></strong> ( <span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span>, <span style="color: #0000BB">$initialize&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span>, <span style="color: #0000BB">$error_messages&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$initialize</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error_messages</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="basename()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#basename()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        basename()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#basename()-detail">basename</a></strong> ( <span style="color: #0000BB">$filepath</span>, <span style="color: #0000BB">$suffix&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$filepath</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$suffix</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="body()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#body()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        body()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#body()-detail">body</a></strong> ( <span style="color: #0000BB">$str</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$str</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="count_file_objects()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#count_file_objects()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        count_file_objects()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#count_file_objects()-detail">count_file_objects</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="create_scaled_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#create_scaled_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        create_scaled_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#create_scaled_image()-detail">create_scaled_image</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version</span>, <span style="color: #0000BB">$options</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="delete()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#delete()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        delete()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#delete()-detail">delete</a></strong> ( <span style="color: #0000BB">$print_response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$print_response</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="destroy_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#destroy_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        destroy_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#destroy_image_object()-detail">destroy_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="download()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#download()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        download()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#download()-detail">download</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="fix_file_extension()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#fix_file_extension()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        fix_file_extension()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#fix_file_extension()-detail">fix_file_extension</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$size</span>, <span style="color: #0000BB">$type</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index</span>, <span style="color: #0000BB">$content_range</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$type</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content_range</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="fix_integer_overflow()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#fix_integer_overflow()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        fix_integer_overflow()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#fix_integer_overflow()-detail">fix_integer_overflow</a></strong> ( <span style="color: #0000BB">$size</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_create_scaled_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_create_scaled_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_create_scaled_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_create_scaled_image()-detail">gd_create_scaled_image</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version</span>, <span style="color: #0000BB">$options</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_destroy_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_destroy_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_destroy_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_destroy_image_object()-detail">gd_destroy_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_get_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_get_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_get_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_get_image_object()-detail">gd_get_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$func</span>, <span style="color: #0000BB">$no_cache&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$func</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$no_cache</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_imageflip()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_imageflip()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_imageflip()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_imageflip()-detail">gd_imageflip</a></strong> ( <span style="color: #0000BB">$image</span>, <span style="color: #0000BB">$mode</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$image</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$mode</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_orient_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_orient_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_orient_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_orient_image()-detail">gd_orient_image</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$src_img</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$src_img</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="gd_set_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#gd_set_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        gd_set_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#gd_set_image_object()-detail">gd_set_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$image</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$image</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="generate_response()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#generate_response()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        generate_response()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#generate_response()-detail">generate_response</a></strong> ( <span style="color: #0000BB">$content</span>, <span style="color: #0000BB">$print_response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$print_response</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get()-detail">get</a></strong> ( <span style="color: #0000BB">$print_response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$print_response</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_config_bytes()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_config_bytes()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_config_bytes()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_config_bytes()-detail">get_config_bytes</a></strong> ( <span style="color: #0000BB">$val</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$val</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_download_url()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_download_url()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_download_url()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_download_url()-detail">get_download_url</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span>, <span style="color: #0000BB">$direct&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$direct</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_error_message()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_error_message()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_error_message()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_error_message()-detail">get_error_message</a></strong> ( <span style="color: #0000BB">$error</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_name()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_name()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_name()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_name()-detail">get_file_name</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$size</span>, <span style="color: #0000BB">$type</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index</span>, <span style="color: #0000BB">$content_range</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$type</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content_range</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_name_param()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_name_param()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_name_param()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_name_param()-detail">get_file_name_param</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_names_params()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_names_params()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_names_params()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_names_params()-detail">get_file_names_params</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_object()-detail">get_file_object</a></strong> ( <span style="color: #0000BB">$file_name</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_objects()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_objects()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_objects()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_objects()-detail">get_file_objects</a></strong> ( <span style="color: #0000BB">$iteration_method&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'get_file_object'</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$iteration_method</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_size()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_size()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_size()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_size()-detail">get_file_size</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$clear_stat_cache&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$clear_stat_cache</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_file_type()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_file_type()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_file_type()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_file_type()-detail">get_file_type</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_full_url()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_full_url()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_full_url()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_full_url()-detail">get_full_url</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_image_size()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_image_size()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_image_size()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_image_size()-detail">get_image_size</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_post_param()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_post_param()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_post_param()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_post_param()-detail">get_post_param</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_query_param()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_query_param()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_query_param()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_query_param()-detail">get_query_param</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_query_separator()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_query_separator()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_query_separator()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_query_separator()-detail">get_query_separator</a></strong> ( <span style="color: #0000BB">$url</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$url</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_response()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_response()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_response()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_response()-detail">get_response</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_scaled_image_file_paths()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_scaled_image_file_paths()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_scaled_image_file_paths()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_scaled_image_file_paths()-detail">get_scaled_image_file_paths</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_server_var()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_server_var()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_server_var()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_server_var()-detail">get_server_var</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_singular_param_name()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_singular_param_name()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_singular_param_name()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_singular_param_name()-detail">get_singular_param_name</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_unique_filename()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_unique_filename()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_unique_filename()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_unique_filename()-detail">get_unique_filename</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$size</span>, <span style="color: #0000BB">$type</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index</span>, <span style="color: #0000BB">$content_range</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$type</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content_range</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_upload_data()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_upload_data()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_upload_data()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_upload_data()-detail">get_upload_data</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_upload_path()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_upload_path()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_upload_path()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_upload_path()-detail">get_upload_path</a></strong> ( <span style="color: #0000BB">$file_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span>, <span style="color: #0000BB">$version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_user_id()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_user_id()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_user_id()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_user_id()-detail">get_user_id</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_user_path()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_user_path()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_user_path()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_user_path()-detail">get_user_path</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="get_version_param()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#get_version_param()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        get_version_param()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#get_version_param()-detail">get_version_param</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="handle_file_upload()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#handle_file_upload()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        handle_file_upload()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#handle_file_upload()-detail">handle_file_upload</a></strong> ( <span style="color: #0000BB">$uploaded_file</span>, <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$size</span>, <span style="color: #0000BB">$type</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span>, <span style="color: #0000BB">$content_range&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$uploaded_file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$type</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content_range</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="handle_form_data()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#handle_form_data()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        handle_form_data()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#handle_form_data()-detail">handle_form_data</a></strong> ( <span style="color: #0000BB">$file</span>, <span style="color: #0000BB">$index</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="handle_image_file()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#handle_image_file()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        handle_image_file()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#handle_image_file()-detail">handle_image_file</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$file</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="head()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#head()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        head()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#head()-detail">head</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="header()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#header()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        header()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#header()-detail">header</a></strong> ( <span style="color: #0000BB">$str</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$str</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagemagick_create_scaled_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagemagick_create_scaled_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagemagick_create_scaled_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagemagick_create_scaled_image()-detail">imagemagick_create_scaled_image</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version</span>, <span style="color: #0000BB">$options</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagick_create_scaled_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagick_create_scaled_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagick_create_scaled_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagick_create_scaled_image()-detail">imagick_create_scaled_image</a></strong> ( <span style="color: #0000BB">$file_name</span>, <span style="color: #0000BB">$version</span>, <span style="color: #0000BB">$options</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$version</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagick_destroy_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagick_destroy_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagick_destroy_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagick_destroy_image_object()-detail">imagick_destroy_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagick_get_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagick_get_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagick_get_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagick_get_image_object()-detail">imagick_get_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$no_cache&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$no_cache</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagick_orient_image()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagick_orient_image()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagick_orient_image()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagick_orient_image()-detail">imagick_orient_image</a></strong> ( <span style="color: #0000BB">$image</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$image</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="imagick_set_image_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#imagick_set_image_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        imagick_set_image_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#imagick_set_image_object()-detail">imagick_set_image_object</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$image</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$image</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="initialize()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#initialize()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        initialize()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#initialize()-detail">initialize</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="is_valid_file_object()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#is_valid_file_object()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        is_valid_file_object()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#is_valid_file_object()-detail">is_valid_file_object</a></strong> ( <span style="color: #0000BB">$file_name</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="is_valid_image_file()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#is_valid_image_file()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        is_valid_image_file()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#is_valid_image_file()-detail">is_valid_image_file</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="post()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#post()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        post()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#post()-detail">post</a></strong> ( <span style="color: #0000BB">$print_response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$print_response</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="readfile()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#readfile()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        readfile()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#readfile()-detail">readfile</a></strong> ( <span style="color: #0000BB">$file_path</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="send_access_control_headers()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#send_access_control_headers()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        send_access_control_headers()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#send_access_control_headers()-detail">send_access_control_headers</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="send_content_type_header()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#send_content_type_header()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        send_content_type_header()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#send_content_type_header()-detail">send_content_type_header</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="set_additional_file_properties()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#set_additional_file_properties()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        set_additional_file_properties()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#set_additional_file_properties()-detail">set_additional_file_properties</a></strong> ( <span style="color: #0000BB">$file</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="trim_file_name()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#trim_file_name()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        trim_file_name()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#trim_file_name()-detail">trim_file_name</a></strong> ( <span style="color: #0000BB">$file_path</span>, <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$size</span>, <span style="color: #0000BB">$type</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index</span>, <span style="color: #0000BB">$content_range</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file_path</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$size</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$type</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$content_range</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="upcount_name()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#upcount_name()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        upcount_name()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#upcount_name()-detail">upcount_name</a></strong> ( <span style="color: #0000BB">$name</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="upcount_name_callback()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#upcount_name_callback()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        upcount_name_callback()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#upcount_name_callback()-detail">upcount_name_callback</a></strong> ( <span style="color: #0000BB">$matches</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$matches</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="validate()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="uploadhandler.html#validate()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        validate()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="uploadhandler.html#validate()-detail">validate</a></strong> ( <span style="color: #0000BB">$uploaded_file</span>, <span style="color: #0000BB">$file</span>, <span style="color: #0000BB">$error</span>, <span style="color: #0000BB">$index</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$uploaded_file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$error</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$index</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Mon, 21 May 2018 21:36:44 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -6,7 +6,7 @@ api()
 {
     vendor/bin/apidoc api .,vendor/yiisoft/yii2 docs/api \
         --pageTitle="API del proyecto" --guide=.. --guidePrefix= \
-        --exclude="docs,vendor,tests,yii2-apidoc" --interactive=0 \
+        --exclude="docs,vendor,tests" --interactive=0 \
         --template="project" \
         --readmeUrl="file://$BASE_DIR/README-api.md"
 }
@@ -16,7 +16,8 @@ guide()
     vendor/bin/apidoc guide guia docs \
         --pageTitle="Guía del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
-    ln -sf README.html docs/index.html
+    mv docs/README.html docs/index.html
+    ln -sf index.html docs/README.html
     rm docs/README-api.html
 }
 

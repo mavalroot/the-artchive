@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "13e22d0529bac16dbde1e95b7977034f",
+    "content-hash": "634a5416f9e5e2604187f1d03744ba88",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -3917,16 +3917,16 @@
         },
         {
             "name": "yiisoft/yii2-apidoc",
-            "version": "dev-master",
+            "version": "dev-project",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ricpelo/yii2-apidoc.git",
-                "reference": "f97f640a6e99d0a1e2e96eab996faf13bc54a217"
+                "reference": "b96b3117e1ba88d46ca7321cc36aaa76b06cd11a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ricpelo/yii2-apidoc/zipball/f97f640a6e99d0a1e2e96eab996faf13bc54a217",
-                "reference": "f97f640a6e99d0a1e2e96eab996faf13bc54a217",
+                "url": "https://api.github.com/repos/ricpelo/yii2-apidoc/zipball/b96b3117e1ba88d46ca7321cc36aaa76b06cd11a",
+                "reference": "b96b3117e1ba88d46ca7321cc36aaa76b06cd11a",
                 "shasum": ""
             },
             "require": {
@@ -3979,7 +3979,7 @@
                 "irc": "irc://irc.freenode.net/yii",
                 "source": "https://github.com/yiisoft/yii2-apidoc"
             },
-            "time": "2018-03-01T00:12:24+00:00"
+            "time": "2018-03-01T09:36:25+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",

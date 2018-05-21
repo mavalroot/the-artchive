@@ -1,1 +1,206 @@
-README.html
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/d356890a/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/96b6d3c0/solarized_light.css" rel="stylesheet">
+<link href="./assets/405da80b/style.css" rel="stylesheet">
+<script src="./assets/a1dc72/jquery.js"></script>
+<script src="./assets/d356890a/js/bootstrap.js"></script>
+<script src="./assets/e3fe518c/jssearch.js"></script>    <title>Guía del proyecto</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w82" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w82-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Guía del proyecto</a></div><div id="w82-collapse" class="collapse navbar-collapse"><ul id="w83" class="navbar-nav nav"><li><a href="./api/index.html">Class reference</a></li>
+<li><a href="./README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-72" data-toggle="collapse" data-parent="#navigation">Descripción general <b class="caret"></b></a><div id="navigation-72" class="submenu panel-collapse collapse"><a class="list-group-item" href="./descripcion.html#funcionalidad-principal-de-la-aplicacion">Funcionalidad principal de la aplicación</a>
+<a class="list-group-item" href="./descripcion.html#objetivos-generales">Objetivos generales</a>
+<a class="list-group-item" href="./descripcion.html#url-del-repositorio">URL del repositorio</a>
+<a class="list-group-item" href="./descripcion.html#url-de-la-documentacion">URL de la documentación</a></div>
+<a class="list-group-item" href="#navigation-73" data-toggle="collapse" data-parent="#navigation">Instrucciones de instalación y despliegue <b class="caret"></b></a><div id="navigation-73" class="submenu panel-collapse collapse"><a class="list-group-item" href="./instalacion.html#en-local">En local</a>
+<a class="list-group-item" href="./instalacion.html#en-la-nube">En la nube</a></div>
+<a class="list-group-item" href="#navigation-74" data-toggle="collapse" data-parent="#navigation">Catálogo de requisitos <b class="caret"></b></a><div id="navigation-74" class="submenu panel-collapse collapse"><a class="list-group-item" href="./requisitos.html#cuadro-resumen">Cuadro resumen</a></div>
+<a class="list-group-item" href="#navigation-75" data-toggle="collapse" data-parent="#navigation">Manual de usuario <b class="caret"></b></a><div id="navigation-75" class="submenu panel-collapse collapse"><a class="list-group-item" href="./manual.html">Manual de usuario</a></div>
+<a class="list-group-item" href="#navigation-76" data-toggle="collapse" data-parent="#navigation">Decisiones adoptadas <b class="caret"></b></a><div id="navigation-76" class="submenu panel-collapse collapse"><a class="list-group-item" href="./decisiones.html">Decisiones adoptadas</a></div>
+<a class="list-group-item" href="#navigation-77" data-toggle="collapse" data-parent="#navigation">Dificultades encontradas <b class="caret"></b></a><div id="navigation-77" class="submenu panel-collapse collapse"><a class="list-group-item" href="./dificultades.html">Dificultades encontradas</a></div>
+<a class="list-group-item" href="#navigation-78" data-toggle="collapse" data-parent="#navigation">Diagramas <b class="caret"></b></a><div id="navigation-78" class="submenu panel-collapse collapse"><a class="list-group-item" href="./diagramas.html#diagramas-de-clases">Diagramas de clases</a>
+<a class="list-group-item" href="./diagramas.html#diagramas-de-estructura-logica-de-datos">Diagramas de estructura lógica de datos</a></div>
+<a class="list-group-item" href="#navigation-79" data-toggle="collapse" data-parent="#navigation">Glosario de términos <b class="caret"></b></a><div id="navigation-79" class="submenu panel-collapse collapse"><a class="list-group-item" href="./glosario.html">Glosario de términos</a></div>
+<a class="list-group-item" href="#navigation-80" data-toggle="collapse" data-parent="#navigation">Conclusiones <b class="caret"></b></a><div id="navigation-80" class="submenu panel-collapse collapse"><a class="list-group-item" href="./conclusiones.html">Conclusiones</a></div>
+<a class="list-group-item" href="#navigation-81" data-toggle="collapse" data-parent="#navigation">Anexos <b class="caret"></b></a><div id="navigation-81" class="submenu panel-collapse collapse"><a class="list-group-item" href="./anexos.html">Anexos</a></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Proyecto integrado <span id="proyecto-integrado"></span><a href="#proyecto-integrado" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#descripcion-general">Descripción general</a></li>
+<li><a href="#instrucciones-de-instalacion-y-despliegue">Instrucciones de instalación y despliegue</a></li>
+<li><a href="#catalogo-de-requisitos">Catálogo de requisitos</a></li>
+<li><a href="#manual-de-usuario">Manual de usuario</a></li>
+<li><a href="#decisiones-adoptadas">Decisiones adoptadas</a></li>
+<li><a href="#dificultades-encontradas">Dificultades encontradas</a></li>
+<li><a href="#diagramas">Diagramas</a></li>
+<li><a href="#glosario-de-terminos">Glosario de términos</a></li>
+<li><a href="#conclusiones">Conclusiones</a></li>
+<li><a href="#anexos">Anexos</a></li></ol></div>
+<p>Este es el documento principal, que incluye la portada  y el índice de contenidos.</p>
+<h2>Descripción general <span id="descripcion-general"></span><a href="#descripcion-general" class="hashlink">&para;</a></h2><ul>
+<li><p><a href="descripcion.html">Descripción general</a></p>
+<ul>
+<li><a href="descripcion.html#funcionalidad-principal-de-la-aplicacion">Funcionalidad principal de la aplicación</a></li>
+<li><a href="descripcion.html#objetivos-generales">Objetivos generales</a></li>
+<li><a href="descripcion.html#url-del-repositorio">URL del repositorio</a></li>
+<li><a href="descripcion.html#url-de-la-documentacion">URL de la documentación</a></li>
+</ul>
+</li>
+</ul>
+<h2>Instrucciones de instalación y despliegue <span id="instrucciones-de-instalacion-y-despliegue"></span><a href="#instrucciones-de-instalacion-y-despliegue" class="hashlink">&para;</a></h2><ul>
+<li><p><a href="instalacion.html">Instrucciones de instalación y despliegue</a></p>
+<ul>
+<li><a href="instalacion.html#en-local">En local</a></li>
+<li><a href="instalacion.html#en-la-nube">En la nube</a></li>
+</ul>
+</li>
+</ul>
+<h2>Catálogo de requisitos <span id="catalogo-de-requisitos"></span><a href="#catalogo-de-requisitos" class="hashlink">&para;</a></h2><ul>
+<li><p><a href="requisitos.html">Catálogo de requisitos</a></p>
+<ul>
+<li><a href="requisitos.html#cuadro-resumen">Cuadro resumen</a></li>
+</ul>
+</li>
+</ul>
+<h2>Manual de usuario <span id="manual-de-usuario"></span><a href="#manual-de-usuario" class="hashlink">&para;</a></h2><ul>
+<li><a href="manual.html">Manual de usuario</a></li>
+</ul>
+<h2>Decisiones adoptadas <span id="decisiones-adoptadas"></span><a href="#decisiones-adoptadas" class="hashlink">&para;</a></h2><ul>
+<li><a href="decisiones.html">Decisiones adoptadas</a></li>
+</ul>
+<h2>Dificultades encontradas <span id="dificultades-encontradas"></span><a href="#dificultades-encontradas" class="hashlink">&para;</a></h2><ul>
+<li><a href="dificultades.html">Dificultades encontradas</a></li>
+</ul>
+<h2>Diagramas <span id="diagramas"></span><a href="#diagramas" class="hashlink">&para;</a></h2><ul>
+<li><p><a href="diagramas.html">Diagramas</a></p>
+<ul>
+<li><a href="diagramas.html#diagramas-de-clases">Diagramas de clases</a></li>
+<li><a href="diagramas.html#diagramas-de-estructura-logica-de-datos">Diagramas de estructura lógica de datos</a></li>
+</ul>
+</li>
+</ul>
+<h2>Glosario de términos <span id="glosario-de-terminos"></span><a href="#glosario-de-terminos" class="hashlink">&para;</a></h2><ul>
+<li><a href="glosario.html">Glosario de términos</a></li>
+</ul>
+<h2>Conclusiones <span id="conclusiones"></span><a href="#conclusiones" class="hashlink">&para;</a></h2><ul>
+<li><a href="conclusiones.html">Conclusiones</a></li>
+</ul>
+<h2>Anexos <span id="anexos"></span><a href="#anexos" class="hashlink">&para;</a></h2><ul>
+<li><a href="anexos.html">Anexos</a></li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Mon, 21 May 2018 21:36:50 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>
