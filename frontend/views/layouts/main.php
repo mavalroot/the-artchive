@@ -56,6 +56,7 @@ AppAsset::register($this);
                 ['label' => 'Publicación', 'url' => ['/publicaciones/create']],
             ],
         ];
+        $menuItemsLeft[] = ['label' => '<i class="glyphicon glyphicon-list-alt"></i> Foro', 'url' => ['/podium/home']];
         $menuItemsRight[] = [
             'label' => Yii::$app->user->identity->username,
             'items' => [
