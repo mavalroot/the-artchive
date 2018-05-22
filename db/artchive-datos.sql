@@ -3,9 +3,9 @@
 ------------------------
 
 INSERT INTO tipos_usuario (tipo) VALUES
-      ('normal')
+      ('admin')
+    , ('normal')
     , ('mod')
-    , ('admin')
 ;
 
 INSERT INTO tipos_parentesco (tipo) VALUES
@@ -79,26 +79,26 @@ INSERT INTO tipos_notificaciones (tipo) VALUES
 ---------------------
 
 INSERT INTO "user" (username, auth_key, password_hash, email, tipo_usuario) VALUES
-      (
+    (
+          'Admin'
+        , md5(random()::text)
+        , crypt('123456', gen_salt('bf', 13))
+        , 'admin@prueba.com'
+        , 1
+    )
+    , (
           'Prueba'
         , md5(random()::text)
         , crypt('123456', gen_salt('bf', 13))
         , 'prueba@prueba.com'
-        , 1
+        , 2
     )
     ,  (
           'Prueba2'
         , md5(random()::text)
         , crypt('123456', gen_salt('bf', 13))
         , 'prueba2@prueba.com'
-        , 1
-    )
-    ,  (
-          'Admin'
-        , md5(random()::text)
-        , crypt('123456', gen_salt('bf', 13))
-        , 'admin@prueba.com'
-        , 3
+        , 2
     )
 ;
 
