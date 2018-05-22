@@ -17,6 +17,7 @@ use yii\web\NotFoundHttpException;
 class PersonajesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\PersonajesComun;
 
     /**
      * @inheritdoc
@@ -62,19 +63,6 @@ class PersonajesController extends Controller
     }
 
     /**
-     * Displays a single Personajes model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Personajes model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -95,26 +83,6 @@ class PersonajesController extends Controller
     }
 
     /**
-     * Updates an existing Personajes model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
      * Deletes an existing Personajes model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id
@@ -126,21 +94,5 @@ class PersonajesController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index', 'username' => Yii::$app->user->identity->username]);
-    }
-
-    /**
-     * Finds the Personajes model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Personajes the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Personajes::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
