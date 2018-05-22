@@ -23,13 +23,6 @@ return [
     'bootstrap' => ['log', 'podium'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'pgsql:host=localhost;dbname=artchive',
-            'username' => 'artchive',
-            'password' => 'artchive',
-            'charset' => 'utf8',
-        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
