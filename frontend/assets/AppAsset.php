@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'js/toggle.js',
         'js/comentarios.js',
         'js/profile.js',
+        'js/extra.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

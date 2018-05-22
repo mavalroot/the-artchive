@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Notificaciones';
 $this->params['breadcrumbs'][] = $this->title;
+Yii::$app->user->identity->setSeenAllAlerts();
 ?>
 <div class="notificaciones-index">
 
