@@ -247,4 +247,9 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
     {
         Notificaciones::updateAll(['seen' => true], 'usuario_id = ' . $this->id);
     }
+
+    public function newMessagesCount()
+    {
+        return;
+    }
 }
