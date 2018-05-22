@@ -2,7 +2,7 @@ var num;
 
 $(document).ready(function () {
   if (num == undefined) {
-      num = $('span.num-alerts');
+      num = $('span.num-alerts').text();
   }
 });
 
