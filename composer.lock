@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a87f782a077f601ace51133af312d3e",
+    "content-hash": "1be84b4b61e56ea29a5a0dba90c14296",
     "packages": [
         {
             "name": "bizley/podium",
@@ -4818,7 +4818,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0 <7.2"
     },
     "platform-dev": []
 }
