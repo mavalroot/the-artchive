@@ -16,6 +16,9 @@ use yii\web\NotFoundHttpException;
 class NotificacionesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\CommonIndex;
+    use \common\traitrollers\CommonDelete;
+
 
     /**
      * @inheritdoc
@@ -39,29 +42,8 @@ class NotificacionesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new NotificacionesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        $dataProvider->query->where(['usuario_id' => Yii::$app->user->id]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Notificaciones model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $model = new NotificacionesSearch();
+        return $this->commonIndex($model, ['usuario_id' => Yii::$app->user->id], 'index');
     }
 
     /**

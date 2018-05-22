@@ -18,6 +18,7 @@ class PersonajesController extends Controller
 {
     use \common\utilities\Permisos;
     use \common\traitrollers\PersonajesComun;
+    use \common\traitrollers\CommonIndex;
 
     /**
      * @inheritdoc
@@ -49,16 +50,8 @@ class PersonajesController extends Controller
             $id = $user->id;
         }
         if (isset($id)) {
-            $searchModel = new PersonajesSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-            $dataProvider->query->where(['usuario_id' => $id]);
-
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
+            $model = new PersonajesSearch();
+            return $this->commonIndex($model, ['usuario_id' => $id], 'index');
         }
     }
 

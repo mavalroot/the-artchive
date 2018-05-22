@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
  */
 trait TodoComun
 {
+    use CommonDelete;
     /**
      * Updates an existing Personajes model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -29,20 +30,6 @@ trait TodoComun
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Deletes an existing Publicaciones model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**
