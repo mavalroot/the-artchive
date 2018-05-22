@@ -1,5 +1,9 @@
+var num;
+
 $(document).ready(function () {
-  var num = $('span.num-alerts');
+  if (num == undefined) {
+      num = $('span.num-alerts');
+  }
 });
 
 window.setInterval(function(){
