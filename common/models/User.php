@@ -237,4 +237,14 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
         $this->tipo_usuario = TiposUsuario::getOne($tipo);
         return $this->update();
     }
+
+    public function getUnseenAlerts()
+    {
+        return Notificaciones::find()->where(['usuario_id' => $this->id, 'seen' => false])->count();
+    }
+
+    public function setSeenAllAlerts()
+    {
+        Notificaciones::updateAll(['seen' => true], 'usuario_id = ' . $this->id);
+    }
 }

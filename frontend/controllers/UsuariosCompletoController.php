@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 
 use common\models\Seguidores;
 use common\models\Publicaciones;
+use common\models\Notificaciones;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
@@ -143,6 +144,12 @@ class UsuariosCompletoController extends Controller
             ]);
             return $seguir->delete();
         }
+    }
+
+    public function actionNumalerts()
+    {
+        $model = $this->findModel(Yii::$app->user->identity->username);
+        echo Notificaciones::find()->where(['usuario_id' => $model->id, 'seen' => false])->count();
     }
 
     /**

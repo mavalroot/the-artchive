@@ -47,7 +47,7 @@ AppAsset::register($this);
             ],
         ];
     } else {
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones', 'url' => ['/notificaciones/index']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones <span class="num-alerts">' . Yii::$app->user->identity->getUnseenAlerts() . '</span>', 'url' => ['/notificaciones/index']];
         $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes-privados/index']];
         $menuItemsLeft[] = [
             'label' => '<span class="glyphicon glyphicon-pencil"></span> Crear',
