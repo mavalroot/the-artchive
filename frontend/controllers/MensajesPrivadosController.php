@@ -16,6 +16,7 @@ use yii\web\NotFoundHttpException;
 class MensajesPrivadosController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\CommonIndex;
     /**
      * @inheritdoc
      */
@@ -39,14 +40,8 @@ class MensajesPrivadosController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new MensajesPrivadosSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id, 'del_r' => false]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $model = new MensajesPrivadosSearch();
+        return $this->commonIndex($model, ['receptor_id' => Yii::$app->user->id, 'del_r' => false], 'index');
     }
 
     /**
@@ -55,14 +50,8 @@ class MensajesPrivadosController extends Controller
      */
     public function actionSent()
     {
-        $searchModel = new MensajesPrivadosSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['emisor_id' => Yii::$app->user->id, 'del_e' => false]);
-
-        return $this->render('sent', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $model = new MensajesPrivadosSearch();
+        return $this->commonIndex($model, ['emisor_id' => Yii::$app->user->id, 'del_e' => false], 'sent');
     }
 
     /**

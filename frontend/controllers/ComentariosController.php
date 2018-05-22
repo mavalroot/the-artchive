@@ -100,7 +100,7 @@ class ComentariosController extends Controller
     /**
      * Finds the Comentarios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Comentarios the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
