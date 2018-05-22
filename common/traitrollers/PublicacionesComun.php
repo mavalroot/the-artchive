@@ -14,8 +14,6 @@ trait PublicacionesComun
 {
     use TodoComun;
 
-    
-
     /**
      * Finds the Personajes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

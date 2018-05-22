@@ -39,14 +39,7 @@ class MensajesPrivadosController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new MensajesPrivadosSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id, 'del_r' => false]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->inbox(['receptor_id' => Yii::$app->user->id, 'del_r' => false], 'index');
     }
 
     /**
@@ -55,11 +48,22 @@ class MensajesPrivadosController extends Controller
      */
     public function actionSent()
     {
+        return $this->inbox(['emisor_id' => Yii::$app->user->id, 'del_e' => false], 'sent');
+    }
+
+    /**
+     * En común con la acción index y sent.
+     * @param  array  $where where de la query
+     * @param  string $name  nombre de la acción
+     * @return mixed
+     */
+    private function inbox($where, $name)
+    {
         $searchModel = new MensajesPrivadosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['emisor_id' => Yii::$app->user->id, 'del_e' => false]);
+        $dataProvider->query->where($where);
 
-        return $this->render('sent', [
+        return $this->render($name, [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
