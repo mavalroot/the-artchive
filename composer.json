@@ -21,7 +21,8 @@
         "phpoffice/phpspreadsheet": "dev-master",
         "kartik-v/yii2-widget-datepicker": "^1.4",
         "kartik-v/yii2-widget-datetimepicker": "^1.4",
-        "kartik-v/yii2-markdown": "dev-master"
+        "kartik-v/yii2-markdown": "dev-master",
+        "bizley/podium": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
