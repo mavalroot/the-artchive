@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use kartik\markdown\Markdown;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
@@ -22,10 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'titulo',
             'created_at:datetime',
-            'contenido:ntext',
+            [
+                'attribute' => 'contenido',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Markdown::convert($model->contenido);
+                }
+            ],
             'updated_at:relativetime',
         ],
     ]) ?>
+
 
     <?php $model->getButtons() ?>
 
