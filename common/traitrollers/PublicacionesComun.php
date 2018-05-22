@@ -12,7 +12,9 @@ use common\models\Publicaciones;
  */
 trait PublicacionesComun
 {
-    use TodoComun;
+    use CommonDelete;
+    use CommonUpdate;
+    use CommonView;
 
     /**
      * Finds the Personajes model based on its primary key value.

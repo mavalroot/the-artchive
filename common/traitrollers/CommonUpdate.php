@@ -4,14 +4,13 @@ namespace common\traitrollers;
 
 use Yii;
 
-use yii\web\NotFoundHttpException;
+use yii\base\Model;
 
 /**
  *
  */
-trait TodoComun
+trait CommonUpdate
 {
-    use CommonDelete;
     /**
      * Updates an existing Personajes model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -29,19 +28,6 @@ trait TodoComun
 
         return $this->render('update', [
             'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays a single Personajes model.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
         ]);
     }
 }

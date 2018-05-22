@@ -13,7 +13,9 @@ use common\models\Personajes;
 trait PersonajesComun
 // class PersonajesComun
 {
-    use TodoComun;
+    use CommonDelete;
+    use CommonUpdate;
+    use CommonView;
 
     /**
      * Finds the Personajes model based on its primary key value.
