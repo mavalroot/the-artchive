@@ -52,7 +52,7 @@ class NotificacionesController extends Controller
 
     /**
      * Displays a single Notificaciones model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -84,7 +84,7 @@ class NotificacionesController extends Controller
     /**
      * Updates an existing Notificaciones model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -104,7 +104,7 @@ class NotificacionesController extends Controller
     /**
      * Deletes an existing Notificaciones model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -118,7 +118,7 @@ class NotificacionesController extends Controller
     /**
      * Finds the Notificaciones model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Notificaciones the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

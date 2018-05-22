@@ -20,6 +20,8 @@ use yii\web\NotFoundHttpException;
 class PublicacionesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\PublicacionesComun;
+
     /**
      * @inheritdoc
      */
@@ -66,7 +68,7 @@ class PublicacionesController extends Controller
 
     /**
      * Displays a single Publicaciones model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -114,26 +116,6 @@ class PublicacionesController extends Controller
     }
 
     /**
-     * Updates an existing Publicaciones model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
      * Deletes an existing Publicaciones model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id
@@ -145,21 +127,5 @@ class PublicacionesController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index', 'username' => Yii::$app->user->identity->username]);
-    }
-
-    /**
-     * Finds the Publicaciones model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Publicaciones the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Publicaciones::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

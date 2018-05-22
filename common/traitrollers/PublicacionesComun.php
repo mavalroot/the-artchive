@@ -5,13 +5,12 @@ namespace common\traitrollers;
 use Yii;
 
 use yii\web\NotFoundHttpException;
-use common\models\Personajes;
+use common\models\Publicaciones;
 
 /**
  *
  */
-trait PersonajesComun
-// class PersonajesComun
+trait PublicacionesComun
 {
     use TodoComun;
 
@@ -39,12 +38,12 @@ trait PersonajesComun
      * Finds the Personajes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id
-     * @return Personajes the loaded model
+     * @return Publicaciones the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Personajes::findOne($id)) !== null) {
+        if (($model = Publicaciones::findOne($id)) !== null) {
             return $model;
         }
 

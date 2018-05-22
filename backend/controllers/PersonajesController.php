@@ -50,7 +50,7 @@ class PersonajesController extends Controller
     /**
      * Deletes an existing Personajes model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
