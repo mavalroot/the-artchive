@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'hechos_destacables:ntext',
             [
                 'attribute' => 'creator',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return $model->getCreator()->one()->getUrl();
                 }

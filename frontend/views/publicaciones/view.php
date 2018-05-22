@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at:datetime',
             [
                 'attribute' => 'contenido',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return Markdown::convert($model->contenido);
                 }

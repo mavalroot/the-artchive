@@ -45,6 +45,7 @@ use yii\widgets\LinkPager;
 </div>
 <div id="nuevo-comentario">
     <h3>Publicar comentario</h3>
+
     <form name="nuevo-comentario" method="post">
         <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
         <textarea name="contenido" class="form-control" rows="5"></textarea>

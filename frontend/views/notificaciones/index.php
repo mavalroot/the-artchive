@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'attribute' => 'notificacion',
-                'format' => 'raw'
+                'format' => 'html'
             ],
             'tipo_notificacion_id',
             'created_at:relativetime',

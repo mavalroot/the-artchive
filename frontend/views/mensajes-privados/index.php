@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'emisor_name',
             [
                 'attribute' => 'asunto',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return $model->getUrl($model->asunto);
                 }

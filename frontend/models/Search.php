@@ -42,14 +42,14 @@ class Search extends Model
         $columns = [];
         $columns[] = [
             'attribute' => 'nombre',
-            'format' => 'raw',
+            'format' => 'html',
             'value' => function ($model) {
                 return $model->getUrl();
             }
         ];
         $columns[] = [
             'attribute' => 'creator',
-            'format' => 'raw',
+            'format' => 'html',
             'value' => function ($model) {
                 return $model->getUrlCreator();
             }
@@ -73,7 +73,7 @@ class Search extends Model
         $columns = [];
         $columns[] = [
             'attribute' => 'username',
-            'format' => 'raw',
+            'format' => 'html',
             'value' => function ($model) {
                 return $model->getUser()->getUrl();
             }
