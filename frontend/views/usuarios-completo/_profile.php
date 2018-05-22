@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
-
+use kartik\markdown\Markdown;
 use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
@@ -51,11 +51,11 @@ use yii\widgets\LinkPager;
                 <?php foreach ($publicaciones as $value) : ?>
                     <div class="entry">
                         <h4><?= $value->titulo ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
-                        <p>
-                            <?= StringHelper::truncate(Yii::$app->formatter->asnText($value->contenido), 140) ?> <br />
-                            <?= Html::a('[Seguir leyendo]', ['publicaciones/view', 'id' => $value->id]) ?>
-                        </p>
-                        <p><?= $value->numcom ?> <i class="glyphicon glyphicon-comment"></i></p>
+                        <div class="content">
+                            <?= StringHelper::truncate(Yii::$app->formatter->asHtml(Markdown::convert($value->contenido)), 140) ?> <br />
+                            <?= Html::a('[Seguir leyendo]', ['publicaciones/view', 'id' => $value->id]) ?><br />
+                            <?= $value->numcom ?> <i class="glyphicon glyphicon-comment"></i>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>

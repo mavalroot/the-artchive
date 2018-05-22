@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use kartik\markdown\Markdown;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
@@ -25,10 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'nombre',
             'fecha_nac:date',
-            'historia:ntext',
-            'personalidad:ntext',
-            'apariencia:ntext',
-            'hechos_destacables:ntext',
+            [
+                'attribute' => 'historia',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Markdown::convert($model->historia);
+                }
+            ],
+            [
+                'attribute' => 'personalidad',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Markdown::convert($model->personalidad);
+                }
+            ],
+            [
+                'attribute' => 'apariencia',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Markdown::convert($model->apariencia);
+                }
+            ],
+            [
+                'attribute' => 'hechos_destacables',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Markdown::convert($model->hechos_destacables);
+                }
+            ],
             'created_at:date',
             'updated_at:relativeTime',
         ],

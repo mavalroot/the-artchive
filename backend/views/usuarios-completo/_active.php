@@ -87,7 +87,7 @@ use common\models\TiposUsuario;
         'columns' => [
             [
                 'attribute' => 'mensaje',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     if ($model->url) {
                         return "<a href=\"$model->url\">$model->mensaje</a>";

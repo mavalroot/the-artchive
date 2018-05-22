@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
+use kartik\markdown\MarkdownEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
@@ -26,13 +27,41 @@ use kartik\date\DatePicker;
         ]); ?>
     </div>
 
-    <?= $form->field($model, 'historia')->textarea(['rows' => 6]) ?>
+    <label>Historia</label>
+    <?= MarkdownEditor::widget([
+        'model' => $model,
+        'attribute' => 'historia',
+        'height' => 200,
+        'showExport' => false,
+        'footerMessage' => false,
+    ]);?>
 
-    <?= $form->field($model, 'personalidad')->textarea(['rows' => 6]) ?>
+    <label>Personalidad</label>
+    <?= MarkdownEditor::widget([
+        'model' => $model,
+        'attribute' => 'personalidad',
+        'height' => 200,
+        'showExport' => false,
+        'footerMessage' => false,
+    ]);?>
 
-    <?= $form->field($model, 'apariencia')->textarea(['rows' => 6]) ?>
+    <label>Apariencia</label>
+    <?= MarkdownEditor::widget([
+        'model' => $model,
+        'attribute' => 'apariencia',
+        'height' => 200,
+        'showExport' => false,
+        'footerMessage' => false,
+    ]);?>
 
-    <?= $form->field($model, 'hechos_destacables')->textarea(['rows' => 6]) ?>
+    <label>Hechos destacables</label>
+    <?= MarkdownEditor::widget([
+        'model' => $model,
+        'attribute' => 'hechos_destacables',
+        'height' => 200,
+        'showExport' => false,
+        'footerMessage' => false,
+    ]);?>
 
     <div class="form-group text-center">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>

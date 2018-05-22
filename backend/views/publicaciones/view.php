@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'contenido:ntext',
             [
                 'attribute' => 'creator',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return $model->getCreator()->one()->getUrl();
                 }

@@ -7,6 +7,12 @@ $params = array_merge(
 );
 
 return [
+    'modules' => [
+        /* other modules */
+        'markdown' => [
+            'class' => 'kartik\markdown\Module',
+        ]
+    ],
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

@@ -108,8 +108,8 @@
   padding: 0px 2px;
 }
 
-#profile-content #profile-entries  > .entry > p {
-  padding: 2px 15px;
+#profile-content #profile-entries  > .entry > .content {
+  padding: 10px;
 }
 
 @media (max-width: 576px) {

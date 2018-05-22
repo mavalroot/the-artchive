@@ -20,14 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'attribute' => 'creator',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return $model->getUrlCreator();
                 }
             ],
             [
                 'attribute' => 'mensaje',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     if ($model->url) {
                         return "<a href=\"$model->url\">$model->mensaje</a>";

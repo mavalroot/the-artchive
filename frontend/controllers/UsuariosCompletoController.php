@@ -66,7 +66,7 @@ class UsuariosCompletoController extends Controller
         $query = Publicaciones::find()
         ->select('p.*, count(c.id) as numcom')
         ->from('publicaciones p')
-        ->leftJoin('comentarios c', 'p.id = c.usuario_id')
+        ->leftJoin('comentarios c', 'p.id = c.publicacion_id')
         ->where(['p.usuario_id' => $model->id])
         ->orderBy('p.created_at DESC')
         ->groupBy('p.id');

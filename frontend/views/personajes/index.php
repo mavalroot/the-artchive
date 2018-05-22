@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'attribute' => 'nombre',
-                'format' => 'raw',
+                'format' => 'html',
                 'value' => function ($model) {
                     return $model->getUrl();
                 }

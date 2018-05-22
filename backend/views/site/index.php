@@ -21,14 +21,14 @@ $this->title = 'My Yii Application';
                             'columns' => [
                                 [
                                     'attribute' => 'creator',
-                                    'format' => 'raw',
+                                    'format' => 'html',
                                     'value' => function ($model) {
                                         return $model->getUrlCreator();
                                     }
                                 ],
                                 [
                                     'attribute' => 'mensaje',
-                                    'format' => 'raw',
+                                    'format' => 'html',
                                     'value' => function ($model) {
                                         if ($model->url) {
                                             return "<a href=\"$model->url\">$model->mensaje</a>";
@@ -53,7 +53,7 @@ $this->title = 'My Yii Application';
                         'columns' => [
                             [
                                 'attribute' => 'username',
-                                'format' => 'raw',
+                                'format' => 'html',
                                 'value' => function ($model) {
                                     return $model->getUrl();
                                 }
@@ -77,14 +77,14 @@ $this->title = 'My Yii Application';
                         'columns' => [
                             [
                                 'attribute' => 'creator',
-                                'format' => 'raw',
+                                'format' => 'html',
                                 'value' => function ($model) {
                                     return $model->getUrlCreator();
                                 }
                             ],
                             [
                                 'attribute' => 'nombre',
-                                'format' => 'raw',
+                                'format' => 'html',
                                 'value' => function ($model) {
                                     return $model->getUrl();
                                 }
@@ -104,14 +104,14 @@ $this->title = 'My Yii Application';
                         'columns' => [
                             [
                                 'attribute' => 'creator',
-                                'format' => 'raw',
+                                'format' => 'html',
                                 'value' => function ($model) {
                                     return $model->getUrlCreator();
                                 }
                             ],
                             [
                                 'attribute' => 'titulo',
-                                'format' => 'raw',
+                                'format' => 'html',
                                 'value' => function ($model) {
                                     return $model->getUrl();
                                 }
