@@ -11,13 +11,25 @@ return [
         /* other modules */
         'markdown' => [
             'class' => 'kartik\markdown\Module',
-        ]
+        ],
+        'podium' => [
+            'class' => 'bizley\podium\Podium',
+            'userComponent' => '\common\models\User',
+            'adminId' => 1,
+        ],
     ],
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'podium'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'pgsql:host=localhost;dbname=artchive',
+            'username' => 'artchive',
+            'password' => 'artchive',
+            'charset' => 'utf8',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
