@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use common\models\MensajesPrivados;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\MensajesPrivadosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -34,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             // 'contenido:ntext',
             //'visto:boolean',
-            //'leido:boolean',
+            //'seen:boolean',
             'created_at:datetime',
             ['class' => 'yii\grid\ActionColumn',  'template'=> ' {delete}'],
         ],

@@ -1,24 +1,22 @@
-var num;
-
-$(document).ready(function () {
-  if (num == undefined) {
-      num = $('span.num-alerts').text();
-  }
-});
+reloadAlerts();
 
 window.setInterval(function(){
-  if (num != $('span.num-alerts').text()) {
+  if ($('span.num-alerts-notis').length) {
     reloadAlerts();
   }
-}, 1000);
+}, 10000);
 
 function reloadAlerts() {
-    $.post('/usuarios-completo/numalerts', {}, function(data) {
-        if (data != $('span.num-alerts').text()) {
-          $('span.num-alerts').empty();
-          $('span.num-alerts').append(data);
-          $('span.num-alerts').addClass('new-alert');
-          num = data;
-        }
+    $.getJSON('/usuarios-completo/numalerts', function(data) {
+        refresh($('span.num-alerts-notis'), data.notis);
+        refresh($('span.num-alerts-mp'), data.mps);
     });
+}
+
+function refresh(selector, data) {
+  if (data != $(selector).text()) {
+    selector.empty();
+    $(selector).append(data);
+    $(selector).addClass('new-alert');
+  }
 }

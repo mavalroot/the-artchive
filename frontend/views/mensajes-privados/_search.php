@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'visto')->checkbox() ?>
 
-    <?php // echo $form->field($model, 'leido')->checkbox() ?>
+    <?php // echo $form->field($model, 'seen')->checkbox() ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

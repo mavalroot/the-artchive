@@ -1,7 +1,7 @@
 <?php
-
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\Notificaciones;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\NotificacionesSearch */
@@ -9,7 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Notificaciones';
 $this->params['breadcrumbs'][] = $this->title;
-Yii::$app->user->identity->setSeenAllAlerts();
+Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
 ?>
 <div class="notificaciones-index">
 

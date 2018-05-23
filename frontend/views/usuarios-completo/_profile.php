@@ -14,19 +14,19 @@ use yii\widgets\LinkPager;
             <?php if ($model->bio) : ?>
                 <h5>Sobre mi</h5>
                 <p>
-                    <?= $model->bio ?>
+                    <?= Yii::$app->formatter->asText($model->bio) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->aficiones) : ?>
                 <h5>Aficiones</h5>
                 <p>
-                    <?= $model->aficiones ?>
+                    <?= Yii::$app->formatter->asText($model->aficiones) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->tematica_favorita) : ?>
                 <h5>Temática favorita</h5>
                 <p>
-                    <?= $model->tematica_favorita ?>
+                    <?= Yii::$app->formatter->asText($model->tematica_favorita) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->pagina_web) : ?>
@@ -50,12 +50,11 @@ use yii\widgets\LinkPager;
             <?php if ($publicaciones) : ?>
                 <?php foreach ($publicaciones as $value) : ?>
                     <div class="entry">
-                        <h4><?= $value->titulo ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
+                        <h4><?= Html::a(Yii::$app->formatter->asText($value->titulo), $value->getRawUrl()); ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
                         <div class="content">
-                            <?= StringHelper::truncate(Yii::$app->formatter->asHtml(Markdown::convert($value->contenido)), 140) ?> <br />
-                            <?= Html::a('[Seguir leyendo]', ['publicaciones/view', 'id' => $value->id]) ?><br />
-                            <?= $value->numcom ?> <i class="glyphicon glyphicon-comment"></i>
+                            <?= Yii::$app->formatter->asHtml(Markdown::convert($value->contenido)) ?> <br />
                         </div>
+                        <span class="entry-comm"><?= Html::a($value->numcom . '<i class="glyphicon glyphicon-comment"></i>', $value->getRawUrl()) ?></span>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
