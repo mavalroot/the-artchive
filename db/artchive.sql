@@ -202,7 +202,7 @@ DROP TABLE IF EXISTS notificaciones CASCADE;
  */
 CREATE TABLE notificaciones (
       id                    bigserial       PRIMARY KEY
-    , usuario_id               bigint          NOT NULL REFERENCES "user" (id)
+    , usuario_id            bigint          NOT NULL REFERENCES "user" (id)
     , notificacion          varchar(255)
     , tipo_notificacion_id  bigint          NOT NULL REFERENCES tipos_notificaciones (id)
     , seen                  boolean         NOT NULL DEFAULT FALSE
@@ -212,31 +212,39 @@ CREATE TABLE notificaciones (
 --------------------------
 -- ÁRBOLES GENEALÓGICOS --
 --------------------------
-DROP TABLE IF EXISTS tipos_parentesco CASCADE;
+DROP TABLE IF EXISTS tipos_relaciones CASCADE;
 
 /**
- * Tipos de parentezco.
+ * Tipos de relaciones.
  */
-CREATE TABLE tipos_parentesco (
+CREATE TABLE tipos_relaciones (
       id    bigserial       PRIMARY KEY
     , tipo  varchar(255)    UNIQUE NOT NULL
 );
 
-DROP TABLE IF EXISTS parentescos CASCADE;
+DROP TABLE IF EXISTS relaciones CASCADE;
 
 /**
- * Tabla de parentezcos.
- * Un personaje puede tener parentezco con otro personaje ya creado.
+ * Tabla de relaciones.
+ * Un personaje puede tener relaciones con otro personaje ya creado.
  */
-CREATE TABLE parentescos (
-      propietario_id        bigint          NOT NULL REFERENCES personajes (id)
-                                            ON DELETE NO ACTION ON UPDATE CASCADE
-    , nombre                varchar(255)    NOT NULL
-    , familiar_id           bigint          REFERENCES personajes (id)
-                                            ON DELETE NO ACTION ON UPDATE CASCADE
-    , tipo_parentesco_id    bigint          REFERENCES tipos_parentesco (id)
-                                            ON DELETE NO ACTION ON UPDATE CASCADE
-    , CONSTRAINT pk_parentescos PRIMARY KEY (propietario_id, nombre, tipo_parentesco_id)
+CREATE TABLE relaciones (
+      id                bigserial       PRIMARY KEY
+    , personaje_id      bigint          NOT NULL REFERENCES personajes (id)
+                                        ON DELETE CASCADE ON UPDATE CASCADE
+    , nombre            varchar(255)
+    , referencia        bigint          REFERENCES personajes (id)
+    , tipo_relacion_id  bigint          NOT NULL REFERENCES tipos_relaciones (id)
+);
+
+DROP TABLE IF EXISTS solicitudes CASCADE;
+
+CREATE TABLE solicitudes (
+      id            bigserial       PRIMARY KEY
+    , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
+    , relacion_id   bigint          NOT NULL UNIQUE REFERENCES relaciones (id)
+    , aceptada      boolean         DEFAULT FALSE
+    , mensaje       varchar(255)    NOT NULL
 );
 
 -------------------------

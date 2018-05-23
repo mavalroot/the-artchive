@@ -51,7 +51,7 @@
         <h1>Decisiones adoptadas <span id="decisiones-adoptadas"></span><a href="#decisiones-adoptadas" class="hashlink">&para;</a></h1><ul>
 <li>Se usará la tabla "user" que nos proporciona la plantilla avanzada de yii2 para almacenar los datos de registro, y la tabla usuarios_datos se usará para almacenar los datos personales de cada usuario.</li>
 <li>Se ha creado una VIEW usuarios_completo que mezclará ambas partes de usuarios para facilitar la visualización.</li>
-<li>Para crear los árboles genealógicos no se creará una tabla como tal, sino que con la tabla de parentescos se irán formando.</li>
+<li>Para crear los árboles genealógicos no se creará una tabla como tal, sino que con la tabla de relaciones se irán formando.</li>
 <li>El email del usuario será privado (sólo el dueño de la cuenta puede ver su propio email).</li>
 <li>El id del usuario no será visible siempre que pueda evitarse, se usará el username como parámetro.</li>
 <li>Para la baja de usuario se comenzó construyendo el deleteAccount directamente en site y siteController, pero se tomó la decisión de apartarlo para mayor eficencia, creando la vista delete-account y su propio controlador.</li>

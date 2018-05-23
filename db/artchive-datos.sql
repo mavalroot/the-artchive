@@ -8,7 +8,7 @@ INSERT INTO tipos_usuario (tipo) VALUES
     , ('mod')
 ;
 
-INSERT INTO tipos_parentesco (tipo) VALUES
+INSERT INTO tipos_relaciones (tipo) VALUES
       ('Padre')
     , ('Madre')
     , ('Hijo/a')

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1be84b4b61e56ea29a5a0dba90c14296",
+    "content-hash": "3d5201acc769235f0d1c9b0caefb7a5e",
     "packages": [
         {
             "name": "bizley/podium",
@@ -912,16 +912,16 @@
         },
         {
             "name": "kartik-v/yii2-widget-select2",
-            "version": "v2.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "baaa8f8b8bbaed1ed0aea56fb0564c5ab340d7d3"
+                "reference": "d08a5b302fe04216bd04290f0e99e26386801a37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/baaa8f8b8bbaed1ed0aea56fb0564c5ab340d7d3",
-                "reference": "baaa8f8b8bbaed1ed0aea56fb0564c5ab340d7d3",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/d08a5b302fe04216bd04290f0e99e26386801a37",
+                "reference": "d08a5b302fe04216bd04290f0e99e26386801a37",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +961,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-11-25T06:02:18+00:00"
+            "time": "2018-02-24T05:28:25+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -4813,6 +4813,7 @@
     "stability-flags": {
         "phpoffice/phpspreadsheet": 20,
         "kartik-v/yii2-markdown": 20,
+        "kartik-v/yii2-widget-select2": 20,
         "yiisoft/yii2-apidoc": 20
     },
     "prefer-stable": false,
