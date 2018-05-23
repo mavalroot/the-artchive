@@ -30,33 +30,6 @@ class RelacionesController extends Controller
         ];
     }
 
-    /**
-     * Lists all Relaciones models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new RelacionesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Relaciones model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
      * Creates a new Relaciones model.
@@ -84,26 +57,6 @@ class RelacionesController extends Controller
         return $this->render('create', [
             'model' => $model,
             'personaje' => $personaje
-        ]);
-    }
-
-    /**
-     * Updates an existing Relaciones model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
         ]);
     }
 
