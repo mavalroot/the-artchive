@@ -1,5 +1,3 @@
-reloadAlerts();
-
 window.setInterval(function(){
   if ($('span.num-alerts-notis').length) {
     reloadAlerts();
@@ -20,3 +18,12 @@ function refresh(selector, data) {
     $(selector).addClass('new-alert');
   }
 }
+
+$(document).ready(function() {
+    $('#existente').on('click', function() {
+        alert('hello');
+        $.get('/relaciones/_existente.php', {}, function (data) {
+            $(data).appendTo('#contenido-relacion');
+        });
+    });
+});

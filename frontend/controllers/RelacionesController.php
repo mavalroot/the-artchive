@@ -68,8 +68,13 @@ class RelacionesController extends Controller
         $model = new Relaciones();
         $personaje = Personajes::findOne($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->referencia) {
+                $model->nombre = null;
+            }
+            if ($model->save()) {
+                return $this->redirect(['personajes/view', 'id' => $id]);
+            }
         }
 
         return $this->render('create', [

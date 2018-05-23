@@ -52,8 +52,8 @@ class Relaciones extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'personaje_id' => 'Personaje ID',
-            'nombre' => 'Nombre',
-            'referencia' => 'Referencia',
+            'nombre' => 'Personaje anónimo',
+            'referencia' => 'Personaje existente',
             'tipo_relacion_id' => 'Tipo de relación',
         ];
     }
