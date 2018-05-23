@@ -97,7 +97,7 @@ class Personajes extends \common\utilities\ArtchiveBase
      */
     public function getEsCreador()
     {
-        return $this->hasMany(Parentescos::className(), ['propietario_id' => 'id']);
+        return $this->hasMany(Relaciones::className(), ['propietario_id' => 'id']);
     }
 
     /**
@@ -105,7 +105,7 @@ class Personajes extends \common\utilities\ArtchiveBase
      */
     public function getEsFamiliar()
     {
-        return $this->hasMany(Parentescos::className(), ['familiar_id' => 'id']);
+        return $this->hasMany(Relaciones::className(), ['familiar_id' => 'id']);
     }
 
     /**
