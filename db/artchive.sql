@@ -231,7 +231,7 @@ DROP TABLE IF EXISTS relaciones CASCADE;
 CREATE TABLE relaciones (
       id                bigserial       PRIMARY KEY
     , personaje_id      bigint          NOT NULL REFERENCES personajes (id)
-                                        ON DELETE NO CASCADE ON UPDATE CASCADE
+                                        ON DELETE CASCADE ON UPDATE CASCADE
     , nombre            varchar(255)
     , referencia        bigint          REFERENCES personajes (id)
     , tipo_relacion_id  bigint          NOT NULL REFERENCES tipos_relaciones (id)
