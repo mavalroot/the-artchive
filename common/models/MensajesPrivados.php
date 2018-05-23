@@ -28,7 +28,7 @@ use yii\helpers\Html;
  * @property User $receptor
  *
  */
-class MensajesPrivados extends \common\utilities\BaseNotis
+class MensajesPrivados extends \common\utilities\ArtchiveBase
 {
     public $emisor_name;
     public $receptor_name;
@@ -128,15 +128,5 @@ class MensajesPrivados extends \common\utilities\BaseNotis
     public function isHistorialSaved()
     {
         return false;
-    }
-
-    public function getUnName()
-    {
-        return 'un mensaje privado';
-    }
-
-    public function getNotificacionReceptor()
-    {
-        return $this->receptor_id;
     }
 }
