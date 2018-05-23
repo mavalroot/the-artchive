@@ -9,6 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $tipo
+ *
+ * @property Relaciones[] $relaciones
  */
 class TiposRelaciones extends \yii\db\ActiveRecord
 {
@@ -41,5 +43,13 @@ class TiposRelaciones extends \yii\db\ActiveRecord
             'id' => 'ID',
             'tipo' => 'Tipo',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRelaciones()
+    {
+        return $this->hasMany(Relaciones::className(), ['tipo_relacion_id' => 'id']);
     }
 }

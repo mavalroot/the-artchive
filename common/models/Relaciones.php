@@ -16,7 +16,7 @@ use Yii;
  * @property Personajes $personaje
  * @property Personajes $referencia0
  * @property TiposRelaciones $tipoRelacion
- * @property Solicitudes[] $solicitudes
+ * @property Solicitudes $solicitudes
  */
 class Relaciones extends \yii\db\ActiveRecord
 {
@@ -87,6 +87,6 @@ class Relaciones extends \yii\db\ActiveRecord
      */
     public function getSolicitudes()
     {
-        return $this->hasMany(Solicitudes::className(), ['relacion_id' => 'id']);
+        return $this->hasOne(Solicitudes::className(), ['relacion_id' => 'id']);
     }
 }

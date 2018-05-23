@@ -241,7 +241,7 @@ DROP TABLE IF EXISTS solicitudes CASCADE;
 
 CREATE TABLE solicitudes (
       id            bigserial   PRIMARY KEY
-    , relacion_id   bigint      REFERENCES relaciones (id)
+    , relacion_id   bigint      NOT NULL UNIQUE REFERENCES relaciones (id)
     , aceptada      boolean     DEFAULT FALSE
 );
 
