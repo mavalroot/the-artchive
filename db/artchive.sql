@@ -240,10 +240,11 @@ CREATE TABLE relaciones (
 DROP TABLE IF EXISTS solicitudes CASCADE;
 
 CREATE TABLE solicitudes (
-      id            bigserial   PRIMARY KEY
-    , usuario_id    bigint      NOT NULL REFERENCES "user" (id)
-    , relacion_id   bigint      NOT NULL UNIQUE REFERENCES relaciones (id)
-    , aceptada      boolean     DEFAULT FALSE
+      id            bigserial       PRIMARY KEY
+    , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
+    , relacion_id   bigint          NOT NULL UNIQUE REFERENCES relaciones (id)
+    , aceptada      boolean         DEFAULT FALSE
+    , mensaje       varchar(255)    NOT NULL
 );
 
 -------------------------

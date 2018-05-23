@@ -82,8 +82,9 @@ class Solicitudes extends \common\utilities\BaseNotis
 
     public function getNotificacionContenido()
     {
-        $personaje = Personajes::find($this->getRelacion()->one()->referencia)->one();
-        return 'Se ha solicitado crear una relación con' . $personaje->nombre;
+        $relacion = $this->getRelacion()->one();
+        $personaje = Personajes::findOne($relacion->referencia);
+        return 'Se ha solicitado crear una relación con ' . $personaje->nombre . '.';
     }
 
     public function getNotificacionUrl()

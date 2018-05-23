@@ -107,9 +107,19 @@ class Relaciones extends \yii\db\ActiveRecord
                 $solicitud = new Solicitudes();
                 $solicitud->relacion_id = $this->id;
                 $solicitud->usuario_id = $personaje->usuario_id;
+                $solicitud->mensaje = $this->mensajeSolicitud();
                 return $solicitud->save();
             }
         }
         return false;
+    }
+
+    public function mensajeSolicitud()
+    {
+        $referencia = Personajes::findOne($this->referencia);
+        $personaje = Personajes::findOne($this->personaje_id);
+        $user = User::findOne($personaje->usuario_id);
+        $relacion = TiposRelaciones::findOne($this->tipo_relacion_id);
+        return "Se solicita confirmación de que <b>$referencia->nombre</b> (tu personaje) es $relacion->tipo de <b>$personaje->nombre</b> (personaje de " . $user->getUrl() . ').';
     }
 }
