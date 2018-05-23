@@ -59,5 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?= Html::a('Añadir relación', ['relaciones/create', 'id' => $model->id]) ?>
+
     <?= $model->getExportButton() ?>
 </div>

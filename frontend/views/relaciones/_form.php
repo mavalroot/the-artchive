@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use common\models\TiposRelaciones;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Relaciones */
@@ -12,13 +14,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'personaje_id')->textInput() ?>
+    <?= Html::hiddenInput('Relaciones[personaje_id]', $personaje->id) ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tipo_relacion_id')->dropDownList(ArrayHelper::map(TiposRelaciones::find()->all(), 'id', 'tipo'), ['prompt'=>'']) ?>
 
-    <?= $form->field($model, 'referencia')->textInput() ?>
+    <div id="contenido-relacion">
+        <?= Html::button('Relación con personaje existente', ['class' => 'btn btn-sm btn-primary']) ?>
 
-    <?= $form->field($model, 'tipo_relacion_id')->textInput() ?>
+        <?= Html::button('Relación con personaje no registrado', ['class' => 'btn btn-sm btn-primary']) ?>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

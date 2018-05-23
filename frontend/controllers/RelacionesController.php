@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use common\models\Personajes;
 use common\models\Relaciones;
 use common\models\RelacionesSearch;
 use yii\web\Controller;
@@ -62,9 +63,10 @@ class RelacionesController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Relaciones();
+        $personaje = Personajes::findOne($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,6 +74,7 @@ class RelacionesController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'personaje' => $personaje
         ]);
     }
 
