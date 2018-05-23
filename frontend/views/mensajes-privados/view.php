@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'asunto',
             'contenido:ntext',
             // 'visto:boolean',
-            // 'leido:boolean',
+            // 'seen:boolean',
             'created_at:datetime',
         ],
     ]) ?>

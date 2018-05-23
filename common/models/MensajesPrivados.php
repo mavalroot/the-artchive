@@ -17,7 +17,7 @@ use yii\helpers\Html;
  * @property int $receptor_id
  * @property string $asunto
  * @property string $contenido
- * @property bool $leido
+ * @property bool $seen
  * @property bool $del_e
  * @property bool $del_r
  * @property string $created_at
@@ -50,7 +50,7 @@ class MensajesPrivados extends \common\utilities\BaseNotis
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
             [['emisor_id', 'receptor_id'], 'integer'],
             [['contenido', 'receptor_name', 'emisor_name'], 'string'],
-            [['leido', 'del_e', 'del_r'], 'boolean'],
+            [['seen', 'del_e', 'del_r'], 'boolean'],
             [['created_at'], 'safe'],
             [['asunto'], 'string', 'max' => 255],
             [['emisor_name'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_name' => 'username']],
@@ -71,7 +71,7 @@ class MensajesPrivados extends \common\utilities\BaseNotis
             'receptor_id' => 'Receptor ID',
             'asunto' => 'Asunto',
             'contenido' => 'Contenido',
-            'leido' => 'Leido',
+            'seen' => 'seen',
             'created_at' => 'Fecha de envío',
             'emisor_name' => 'Emisor',
             'receptor_name' => 'Receptor',

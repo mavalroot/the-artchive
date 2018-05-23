@@ -7,6 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use common\models\Notificaciones;
+use common\models\MensajesPrivados;
+
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
@@ -47,8 +50,8 @@ AppAsset::register($this);
             ],
         ];
     } else {
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones <span class="num-alerts">' . Yii::$app->user->identity->getUnseenAlerts() . '</span>', 'url' => ['/notificaciones/index']];
-        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes', 'url' => ['/mensajes-privados/index']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> Notificaciones <span class="num-alerts-notis">' . Yii::$app->user->identity->getUnseenAlerts(new Notificaciones(), 'usuario_id') . '</span>', 'url' => ['/notificaciones/index']];
+        $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> Mensajes <span class="num-alerts-mp">' . Yii::$app->user->identity->getUnseenAlerts(new MensajesPrivados(), 'receptor_id') . '</span>', 'url' => ['/mensajes-privados/index']];
         $menuItemsLeft[] = [
             'label' => '<span class="glyphicon glyphicon-pencil"></span> Crear',
             'items' => [

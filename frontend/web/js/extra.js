@@ -1,24 +1,17 @@
-var num;
-
-$(document).ready(function () {
-  if (num == undefined) {
-      num = $('span.num-alerts').text();
-  }
-});
+reloadAlerts();
 
 window.setInterval(function(){
-  if (num != $('span.num-alerts').text()) {
+  if ($('span.num-alerts-notis').length) {
     reloadAlerts();
   }
-}, 1000);
+}, 10000);
 
 function reloadAlerts() {
-    $.post('/usuarios-completo/numalerts', {}, function(data) {
-        if (data != $('span.num-alerts').text()) {
-          $('span.num-alerts').empty();
-          $('span.num-alerts').append(data);
-          $('span.num-alerts').addClass('new-alert');
-          num = data;
+    $.getJSON('/usuarios-completo/numalerts', function(data) {
+        if (data != $('span.num-alerts-notis').text()) {
+          $('span.num-alerts-notis').empty();
+          $('span.num-alerts-notis').append(data.notis);
+          $('span.num-alerts-notis').addClass('new-alert');
         }
     });
 }

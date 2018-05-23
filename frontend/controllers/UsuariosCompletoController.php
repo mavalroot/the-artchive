@@ -5,12 +5,12 @@ namespace frontend\controllers;
 use Yii;
 use yii\data\Pagination;
 
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use common\models\Seguidores;
 use common\models\Publicaciones;
 use common\models\Notificaciones;
+use common\models\MensajesPrivados;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use yii\web\Controller;
@@ -149,7 +149,13 @@ class UsuariosCompletoController extends Controller
     public function actionNumalerts()
     {
         $model = $this->findModel(Yii::$app->user->identity->username);
-        echo Notificaciones::find()->where(['usuario_id' => $model->id, 'seen' => false])->count();
+        $data = [
+            'notis' => Notificaciones::find()->where(['usuario_id' => $model->id, 'seen' => false])->count(),
+            'mps' => MensajesPrivados::find()->where(['receptor_id' => $model->id, 'seen' => false])->count(),
+        ];
+
+        header('Content-type: application/json');
+        echo json_encode($data);
     }
 
     /**
