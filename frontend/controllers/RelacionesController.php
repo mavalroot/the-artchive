@@ -67,7 +67,7 @@ class RelacionesController extends Controller
     {
         $model = new Relaciones();
 
-        if (!$personaje = Personajes::findOne($id)) {
+        if (!is_numeric($id) || !$personaje = Personajes::findOne($id)) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
@@ -76,6 +76,7 @@ class RelacionesController extends Controller
                 $model->nombre = null;
             }
             if ($model->save()) {
+                $model->enviarSolicitud();
                 return $this->redirect(['personajes/view', 'id' => $id]);
             }
         }

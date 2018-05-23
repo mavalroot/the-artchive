@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Relaciones $relacion
  */
-class Solicitudes extends \yii\db\ActiveRecord
+class Solicitudes extends \common\utilities\BaseNotis
 {
     /**
      * {@inheritdoc}
@@ -29,12 +29,14 @@ class Solicitudes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['relacion_id'], 'required'],
+            [['relacion_id', 'usuario_id'], 'required'],
             [['relacion_id'], 'default', 'value' => null],
             [['relacion_id'], 'integer'],
             [['aceptada'], 'boolean'],
+            [['aceptada'], 'default', 'value' => false],
             [['relacion_id'], 'unique'],
             [['relacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Relaciones::className(), 'targetAttribute' => ['relacion_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -56,5 +58,36 @@ class Solicitudes extends \yii\db\ActiveRecord
     public function getRelacion()
     {
         return $this->hasOne(Relaciones::className(), ['id' => 'relacion_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsuario()
+    {
+        return $this->hasOne(User::className(), ['id' => 'usuario_id']);
+    }
+
+    public function getNotificacionTipo()
+    {
+        $nombre = 'relaciones';
+        $tipo = TiposNotificaciones::findOne(['tipo' => $nombre]);
+        return $tipo->id;
+    }
+
+    public function isHistorialSaved()
+    {
+        return false;
+    }
+
+    public function getNotificacionContenido()
+    {
+        $personaje = Personajes::find($this->getRelacion()->one()->referencia)->one();
+        return 'Se ha solicitado crear una relación con' . $personaje->nombre;
+    }
+
+    public function getNotificacionUrl()
+    {
+        return $this->getRawUrl();
     }
 }

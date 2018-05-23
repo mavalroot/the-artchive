@@ -98,4 +98,18 @@ class Relaciones extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Solicitudes::className(), ['relacion_id' => 'id']);
     }
+
+    public function enviarSolicitud()
+    {
+        if ($this->referencia) {
+            $personaje = Personajes::findOne($this->referencia);
+            if ($personaje->usuario_id != Yii::$app->user->id) {
+                $solicitud = new Solicitudes();
+                $solicitud->relacion_id = $this->id;
+                $solicitud->usuario_id = $personaje->usuario_id;
+                return $solicitud->save();
+            }
+        }
+        return false;
+    }
 }
