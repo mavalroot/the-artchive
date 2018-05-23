@@ -8,10 +8,15 @@ window.setInterval(function(){
 
 function reloadAlerts() {
     $.getJSON('/usuarios-completo/numalerts', function(data) {
-        if (data != $('span.num-alerts-notis').text()) {
-          $('span.num-alerts-notis').empty();
-          $('span.num-alerts-notis').append(data.notis);
-          $('span.num-alerts-notis').addClass('new-alert');
-        }
+        refresh($('span.num-alerts-notis'), data.notis);
+        refresh($('span.num-alerts-mps'), data.mps);
     });
+}
+
+function refresh(selector, data) {
+  if (data != $(selector).text()) {
+    selector.empty();
+    $(selector).append(data);
+    $(selector).addClass('new-alert');
+  }
 }
