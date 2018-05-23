@@ -34,6 +34,8 @@ class Relaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['referencia', 'validateReferencia'],
+            [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
             [['personaje_id', 'tipo_relacion_id'], 'required'],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'default', 'value' => null],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'integer'],
@@ -42,6 +44,13 @@ class Relaciones extends \yii\db\ActiveRecord
             [['referencia'], 'exist', 'skipOnError' => true, 'targetClass' => Personajes::className(), 'targetAttribute' => ['referencia' => 'id']],
             [['tipo_relacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => TiposRelaciones::className(), 'targetAttribute' => ['tipo_relacion_id' => 'id']],
         ];
+    }
+
+    public function validateReferencia($attribute)
+    {
+        if ($this->$attribute == $this->personaje_id) {
+            $this->addError($attribute, '¡No puedes seleccionarte a ti mismo!');
+        }
     }
 
     /**

@@ -66,7 +66,10 @@ class RelacionesController extends Controller
     public function actionCreate($id)
     {
         $model = new Relaciones();
-        $personaje = Personajes::findOne($id);
+
+        if (!$personaje = Personajes::findOne($id)) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->referencia) {
