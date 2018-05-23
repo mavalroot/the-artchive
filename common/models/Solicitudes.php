@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Url;
+
 /**
  * This is the model class for table "solicitudes".
  *
@@ -13,7 +15,7 @@ use Yii;
  *
  * @property Relaciones $relacion
  */
-class Solicitudes extends \yii\db\ActiveRecord
+class Solicitudes extends \common\utilities\BaseNotis
 {
     /**
      * {@inheritdoc}
@@ -54,5 +56,20 @@ class Solicitudes extends \yii\db\ActiveRecord
     public function getRelacion()
     {
         return $this->hasOne(Relaciones::className(), ['id' => 'relacion_id']);
+    }
+
+    public function isHistorialSaved()
+    {
+        return false;
+    }
+
+    public function getNotificacionContenido()
+    {
+        return $this->seguidor->username . ' ha solicitado una relacion con uno de tus personajes.';
+    }
+
+    public function getNotificacionUrl()
+    {
+        return $this->seguidor->getRawUrl();
     }
 }
