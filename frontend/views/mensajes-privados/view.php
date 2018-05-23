@@ -12,6 +12,7 @@ if ($model->emisor_id == Yii::$app->user->id) {
     $this->params['breadcrumbs'][] = ['label' => 'Mensajes enviados', 'url' => ['sent']];
 }
 $this->params['breadcrumbs'][] = $this->title;
+Yii::$app->user->identity->setSeen($model, 'receptor_id');
 ?>
 <div class="mensajes-privados-view">
 

@@ -11,7 +11,6 @@ use common\models\MensajesPrivados;
 
 $this->title = 'Inbox';
 $this->params['breadcrumbs'][] = $this->title;
-Yii::$app->user->identity->setSeenAllAlerts(new MensajesPrivados(), 'receptor_id');
 ?>
 <div class="mensajes-privados-index">
 

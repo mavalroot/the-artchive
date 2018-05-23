@@ -7,8 +7,6 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
-use yii\helpers\Html;
-
 /**
  * This is the model class for table "mensajes_privados".
  *
@@ -128,5 +126,10 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function isHistorialSaved()
     {
         return false;
+    }
+
+    public function getDataName()
+    {
+        return 'asunto';
     }
 }
