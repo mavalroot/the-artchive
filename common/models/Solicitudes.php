@@ -101,14 +101,12 @@ class Solicitudes extends \common\utilities\BaseNotis
             return Html::a('Aceptar', ['aceptar', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-success',
                 'data' => [
-                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
                     'method' => 'post',
                 ],
             ]) .
             Html::a('Rechazar', ['rechazar', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-danger',
                 'data' => [
-                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
                     'method' => 'post',
                 ],
             ]);
