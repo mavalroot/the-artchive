@@ -8,7 +8,7 @@ use yii\widgets\LinkPager;
 <h2>Relaciones</h2>
 
 <div class="relaciones-relacion">
-    <?php if (!$relaciones): ?>
+    <?php if (!$relaciones) : ?>
         No hay :(
     <?php endif; ?>
     <?php foreach ($relaciones as $relacion) : ?>
