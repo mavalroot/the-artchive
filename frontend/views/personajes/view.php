@@ -65,6 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_relaciones', [
         'model' => $model,
         'relaciones' => $relaciones,
+        'pagination' => $pagination,
     ]) ?>
 
 </div>

@@ -93,6 +93,7 @@ class PersonajesController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
             'relaciones' => $relaciones,
+            'pagination' => $pages,
         ]);
     }
 
