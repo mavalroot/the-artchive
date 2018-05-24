@@ -3,9 +3,12 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\data\Pagination;
+
 use yii\filters\AccessControl;
 
 use common\models\Personajes;
+use common\models\Relaciones;
 use common\models\PersonajesSearch;
 use common\models\User;
 use yii\web\Controller;
@@ -69,8 +72,27 @@ class PersonajesController extends Controller
      */
     public function actionView($id)
     {
+        // select r.id, mipj.nombre as mipj, tupj.nombre as tupj, tp.tipo as relacion from relaciones r join personajes mipj on mipj.id = r.personaje_id join personajes tupj on tupj.id = r.referencia join tipos_relaciones tp on r.tipo_relacion_id = tp.id;
+        //
+        $query = Relaciones::find()
+        ->select('r.id, mipj.nombre as mipj, mipj.id as mipjid, supj.nombre as supj, supj.id as supjid, tr.tipo as relacion, s.aceptada')
+        ->from('relaciones r')
+        ->joinWith('personaje mipj')
+        ->joinWith('referencia supj')
+        ->joinWith('tipoRelacion tr')
+        ->joinWith('solicitudes s')
+        ->where(['personaje_id' => $id]);
+
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(5);
+        $relaciones = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'relaciones' => $relaciones,
         ]);
     }
 

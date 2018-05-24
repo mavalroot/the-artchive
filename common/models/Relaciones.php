@@ -14,12 +14,19 @@ use Yii;
  * @property int $tipo_relacion_id
  *
  * @property Personajes $personaje
- * @property Personajes $referencia0
+ * @property Personajes $referencia
  * @property TiposRelaciones $tipoRelacion
  * @property Solicitudes $solicitudes
  */
 class Relaciones extends \yii\db\ActiveRecord
 {
+    public $mipj;
+    public $mipjid;
+    public $supj;
+    public $supjid;
+    public $relacion;
+    public $aceptada;
+    
     /**
      * {@inheritdoc}
      */
@@ -78,7 +85,7 @@ class Relaciones extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getReferencia0()
+    public function getReferencia()
     {
         return $this->hasOne(Personajes::className(), ['id' => 'referencia']);
     }

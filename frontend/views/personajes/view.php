@@ -58,8 +58,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:relativeTime',
         ],
     ]) ?>
+    <?= $model->getExportButton() ?>
 
     <?= Html::a('Añadir relación', ['relaciones/create', 'id' => $model->id]) ?>
 
-    <?= $model->getExportButton() ?>
+    <?= $this->render('_relaciones', [
+        'relaciones' => $relaciones,
+    ]) ?>
+
 </div>
