@@ -71,10 +71,11 @@ class RelacionesController extends Controller
             $solicitud->relacion_id = null;
             $solicitud->update();
         }
-
         $model->delete();
 
-        return $this->redirect(['/personajes/view', 'id' => $pj]);
+        if (!Yii::$app->request->isAjax) {
+            return $this->redirect(['/personajes/view', 'id' => $pj]);
+        }
     }
 
     /**
