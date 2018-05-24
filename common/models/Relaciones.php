@@ -62,7 +62,7 @@ class Relaciones extends \yii\db\ActiveRecord
     public function validateReferencia($attribute)
     {
         if ($this->$attribute == $this->personaje_id) {
-            $this->addError($attribute, '¡No puedes seleccionarte a tu mismo personaje!');
+            $this->addError($attribute, '¡No puedes seleccionar a tu mismo personaje!');
         }
     }
 
