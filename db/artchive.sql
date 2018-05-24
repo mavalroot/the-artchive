@@ -242,8 +242,10 @@ DROP TABLE IF EXISTS solicitudes CASCADE;
 CREATE TABLE solicitudes (
       id            bigserial       PRIMARY KEY
     , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
-    , relacion_id   bigint          NOT NULL UNIQUE REFERENCES relaciones (id)
+    , relacion_id   bigint          UNIQUE REFERENCES relaciones (id)
     , aceptada      boolean         DEFAULT FALSE
+    , respondida    boolean         DEFAULT FALSE
+    , nombre        varchar(255)    NOT NULL
     , mensaje       varchar(255)    NOT NULL
 );
 
