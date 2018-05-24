@@ -42,6 +42,10 @@ class Relaciones extends \yii\db\ActiveRecord
     {
         return [
             ['referencia', 'validateReferencia'],
+            ['referencia', 'validateRequired', 'skipOnEmpty' => false],
+            ['nombre', 'validateRequired', 'skipOnEmpty' => false],
+            ['referencia', 'validateOneOrAnother', 'skipOnEmpty' => false],
+            ['nombre', 'validateOneOrAnother', 'skipOnEmpty' => false],
             [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'when' => function ($model) {
                 return $model->referencia != null;
             }, 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
@@ -58,9 +62,26 @@ class Relaciones extends \yii\db\ActiveRecord
     public function validateReferencia($attribute)
     {
         if ($this->$attribute == $this->personaje_id) {
-            $this->addError($attribute, '¡No puedes seleccionarte a ti mismo!');
+            $this->addError($attribute, '¡No puedes seleccionarte a tu mismo personaje!');
         }
     }
+
+    public function validateRequired()
+    {
+        if ($this->referencia == '' && $this->nombre == '') {
+            $this->addError('referencia', '¡Uno de los dos campos debe estar relleno!');
+            $this->addError('nombre', '¡Uno de los dos campos debe estar relleno!');
+        }
+    }
+
+    public function validateOneOrAnother()
+    {
+        if ($this->referencia && $this->nombre) {
+            $this->addError('referencia', '¡Sólo puedes elegir uno a la vez!');
+            $this->addError('nombre', '¡Sólo puedes elegir uno a la vez!');
+        }
+    }
+
 
     /**
      * {@inheritdoc}

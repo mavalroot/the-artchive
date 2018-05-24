@@ -44,14 +44,9 @@ class RelacionesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->referencia) {
-                $model->nombre = null;
-            }
-            if ($model->save()) {
-                $model->enviarSolicitud();
-                return $this->redirect(['personajes/view', 'id' => $id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->enviarSolicitud();
+            return $this->redirect(['personajes/view', 'id' => $id]);
         }
 
         return $this->render('create', [
