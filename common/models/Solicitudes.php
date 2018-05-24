@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "solicitudes".
  *
@@ -29,13 +31,15 @@ class Solicitudes extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
-            [['relacion_id', 'usuario_id'], 'required'],
+            [['mensaje', 'usuario_id'], 'required'],
             [['relacion_id'], 'default', 'value' => null],
             [['relacion_id'], 'integer'],
             [['aceptada'], 'boolean'],
             [['aceptada'], 'default', 'value' => false],
+            [['respondida'], 'boolean'],
+            [['respondida'], 'default', 'value' => false],
             [['relacion_id'], 'unique'],
-            [['relacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Relaciones::className(), 'targetAttribute' => ['relacion_id' => 'id']],
+            [['relacion_id'], 'exist', 'skipOnError' => true, 'skipOnEmpty' => true, 'targetClass' => Relaciones::className(), 'targetAttribute' => ['relacion_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
@@ -48,7 +52,8 @@ class Solicitudes extends \common\utilities\BaseNotis
         return [
             'id' => 'ID',
             'relacion_id' => 'Relacion ID',
-            'aceptada' => 'Aceptada',
+            'aceptada' => 'Ha sido aceptada',
+            'respondida' => 'Ha sido respondida',
         ];
     }
 
@@ -80,15 +85,45 @@ class Solicitudes extends \common\utilities\BaseNotis
         return false;
     }
 
-    public function getNotificacionContenido()
-    {
-        $relacion = $this->getRelacion()->one();
-        $personaje = Personajes::findOne($relacion->referencia);
-        return 'Se ha solicitado crear una relación con ' . $personaje->nombre . '.';
-    }
-
     public function getNotificacionUrl()
     {
         return $this->getRawUrl();
+    }
+
+    public function getNotificacionContenido()
+    {
+        return $this->nombre;
+    }
+
+    public function getButtons()
+    {
+        if (!$this->respondida) {
+            return Html::a('Aceptar', ['aceptar', 'id' => $this->id], [
+                'class' => 'btn btn-sm btn-success',
+                'data' => [
+                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
+                    'method' => 'post',
+                ],
+            ]) .
+            Html::a('Rechazar', ['rechazar', 'id' => $this->id], [
+                'class' => 'btn btn-sm btn-danger',
+                'data' => [
+                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
+                    'method' => 'post',
+                ],
+            ]);
+        }
+        return;
+    }
+
+    public function responder($bool)
+    {
+        if ($bool) {
+            $this->aceptada = true;
+        } else {
+            $this->relacion_id = null;
+        }
+        $this->respondida = true;
+        return $this->update();
     }
 }

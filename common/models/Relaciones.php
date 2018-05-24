@@ -108,6 +108,7 @@ class Relaciones extends \yii\db\ActiveRecord
                 $solicitud->relacion_id = $this->id;
                 $solicitud->usuario_id = $personaje->usuario_id;
                 $solicitud->mensaje = $this->mensajeSolicitud();
+                $solicitud->nombre = 'Se ha solicitado crear una relación con ' . $personaje->nombre . '.';
                 return $solicitud->save();
             }
         }

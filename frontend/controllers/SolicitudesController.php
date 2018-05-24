@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Solicitudes;
-use common\models\SolicitudesSearch;
+use common\models\Relaciones;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,7 +23,8 @@ class SolicitudesController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'aceptar' => ['POST'],
+                    'rechazar' => ['POST'],
                 ],
             ],
         ];
@@ -41,6 +42,33 @@ class SolicitudesController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    public function actionAceptar($id)
+    {
+        $model = $this->findModel($id);
+        if ($this->respuesta($model, true)) {
+            return $this->redirect(['view', 'id' => $id]);
+        }
+    }
+
+    public function actionRechazar($id)
+    {
+        $model = $this->findModel($id);
+        $relasid = $model->relacion_id;
+        if ($this->respuesta($model, false)) {
+            $relas = Relaciones::findOne($relasid);
+            $relas->delete();
+            return $this->redirect(['view', 'id' => $id]);
+        }
+    }
+
+    public function respuesta($model, $bool)
+    {
+        if ($model->isMine() && !$model->respondida) {
+            return $model->responder($bool);
+        }
+        return false;
     }
 
     /**
