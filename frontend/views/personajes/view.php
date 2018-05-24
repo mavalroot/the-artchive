@@ -68,3 +68,11 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+<?php
+
+$js = <<< JS
+actionButton('/relaciones/delete', 'delete-relation', '.relaciones-relacion', '.relaciones-relacion');
+JS;
+
+$this->registerJs($js);

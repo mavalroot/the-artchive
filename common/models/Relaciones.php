@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "relaciones".
  *
@@ -152,5 +154,13 @@ class Relaciones extends \yii\db\ActiveRecord
         $user = User::findOne($personaje->usuario_id);
         $relacion = TiposRelaciones::findOne($this->tipo_relacion_id);
         return "Se solicita confirmación de que <b>$referencia->nombre</b> (tu personaje) es $relacion->tipo de <b>$personaje->nombre</b> (personaje de " . $user->getUrl() . ').';
+    }
+
+    public function getDeleteButton()
+    {
+        return Html::beginForm('', 'post', ['name' => 'delete-relation']) .
+        Html::hiddenInput('id', $this->id) .
+        Html::submitButton('Borrar', ['class' => 'btn btn-xs btn-primary']) .
+        Html::endForm();
     }
 }

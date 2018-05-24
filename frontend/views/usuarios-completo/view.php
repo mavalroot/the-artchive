@@ -61,10 +61,10 @@ use common\models\User;
 
 <?php
 $js = <<< JS
-actionButton('follow', '#member-profile', '.nav-follow');
-actionButton('unfollow', '#member-profile', '.nav-follow');
-actionButton('block', '#member-profile', '#member-profile');
-actionButton('unblock', '#member-profile', '#member-profile');
+actionButton('/usuarios-completo/follow', 'follow', '#member-profile', '.nav-follow');
+actionButton('/usuarios-completo/unfollow','unfollow', '#member-profile', '.nav-follow');
+actionButton('/usuarios-completo/block', 'block', '#member-profile', '#member-profile');
+actionButton('/usuarios-completo/unblock', 'unblock', '#member-profile', '#member-profile');
 JS;
 
 $this->registerJs($js);

@@ -17,13 +17,7 @@ use yii\helpers\Html;
             <?= Yii::$app->formatter->asText($relacion->nombre) ?>
         <?php endif; ?>
         <?php if ($model->isMine()) : ?>
-            <?= Html::a('Borrar', ['/relaciones/delete', 'id' => $relacion->id], [
-                'class' => 'btn btn-sm btn-danger',
-                'data' => [
-                    'confirm' => '¿Seguro que desea borrar la relación? No podrá ser recuperada.',
-                    'method' => 'post',
-                ],
-            ]); ?>
+            <?= $relacion->getDeleteButton() ?>
         <?php endif; ?>
     </div>
 <?php endforeach; ?>

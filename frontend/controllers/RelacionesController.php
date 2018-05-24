@@ -62,8 +62,9 @@ class RelacionesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete()
     {
+        $id = Yii::$app->request->post('id');
         $model = $this->findModel($id);
         $pj = $model->personaje_id;
         if ($model->referencia) {
@@ -76,6 +77,7 @@ class RelacionesController extends Controller
         if (!Yii::$app->request->isAjax) {
             return $this->redirect(['/personajes/view', 'id' => $pj]);
         }
+        return true;
     }
 
     /**
