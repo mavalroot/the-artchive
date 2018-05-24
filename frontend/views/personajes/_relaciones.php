@@ -7,8 +7,12 @@ use yii\helpers\Html;
 
 <?php foreach ($relaciones as $relacion): ?>
     <?= $relacion->relacion ?>:
-    <?= Html::a($relacion->supj, ['personajes/view', 'id' => $relacion->supjid]) ?>
-    <?php if (!$relacion->aceptada): ?>
-        (Pendiente de confirmación)
+    <?php if ($relacion->referencia): ?>
+        <?= Html::a(Yii::$app->formatter->asText($relacion->supj), ['personajes/view', 'id' => $relacion->supjid]) ?>
+        <?php if (!$relacion->aceptada): ?>
+            (Pendiente de confirmación)
+        <?php endif; ?>
+    <?php else: ?>
+        <?= Yii::$app->formatter->asText($relacion->nombre) ?>
     <?php endif; ?>
 <?php endforeach; ?>

@@ -75,7 +75,7 @@ class PersonajesController extends Controller
         // select r.id, mipj.nombre as mipj, tupj.nombre as tupj, tp.tipo as relacion from relaciones r join personajes mipj on mipj.id = r.personaje_id join personajes tupj on tupj.id = r.referencia join tipos_relaciones tp on r.tipo_relacion_id = tp.id;
         //
         $query = Relaciones::find()
-        ->select('r.id, mipj.nombre as mipj, mipj.id as mipjid, supj.nombre as supj, supj.id as supjid, tr.tipo as relacion, s.aceptada')
+        ->select('r.id, r.nombre, r.referencia, mipj.nombre as mipj, mipj.id as mipjid, supj.nombre as supj, supj.id as supjid, tr.tipo as relacion, s.aceptada')
         ->from('relaciones r')
         ->joinWith('personaje mipj')
         ->joinWith('referencia supj')

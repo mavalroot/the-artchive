@@ -26,7 +26,7 @@ class Relaciones extends \yii\db\ActiveRecord
     public $supjid;
     public $relacion;
     public $aceptada;
-    
+
     /**
      * {@inheritdoc}
      */
@@ -42,7 +42,9 @@ class Relaciones extends \yii\db\ActiveRecord
     {
         return [
             ['referencia', 'validateReferencia'],
-            [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
+            [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'when' => function ($model) {
+                return $model->referencia != null;
+            }, 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
             [['personaje_id', 'tipo_relacion_id'], 'required'],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'default', 'value' => null],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'integer'],
