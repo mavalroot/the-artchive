@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 
+use yii\helpers\Html;
+
 /**
  * This is the model class for table "relaciones".
  *
@@ -14,12 +16,19 @@ use Yii;
  * @property int $tipo_relacion_id
  *
  * @property Personajes $personaje
- * @property Personajes $referencia0
+ * @property Personajes $referencia
  * @property TiposRelaciones $tipoRelacion
  * @property Solicitudes $solicitudes
  */
 class Relaciones extends \yii\db\ActiveRecord
 {
+    public $mipj;
+    public $mipjid;
+    public $supj;
+    public $supjid;
+    public $relacion;
+    public $aceptada;
+
     /**
      * {@inheritdoc}
      */
@@ -35,7 +44,13 @@ class Relaciones extends \yii\db\ActiveRecord
     {
         return [
             ['referencia', 'validateReferencia'],
-            [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
+            ['referencia', 'validateRequired', 'skipOnEmpty' => false],
+            ['nombre', 'validateRequired', 'skipOnEmpty' => false],
+            ['referencia', 'validateOneOrAnother', 'skipOnEmpty' => false],
+            ['nombre', 'validateOneOrAnother', 'skipOnEmpty' => false],
+            [['referencia', 'tipo_relacion_id', 'personaje_id'], 'unique', 'when' => function ($model) {
+                return $model->referencia != null;
+            }, 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'], 'message' => 'Esta relación ya existe.'],
             [['personaje_id', 'tipo_relacion_id'], 'required'],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'default', 'value' => null],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'integer'],
@@ -49,9 +64,26 @@ class Relaciones extends \yii\db\ActiveRecord
     public function validateReferencia($attribute)
     {
         if ($this->$attribute == $this->personaje_id) {
-            $this->addError($attribute, '¡No puedes seleccionarte a ti mismo!');
+            $this->addError($attribute, '¡No puedes seleccionar a tu mismo personaje!');
         }
     }
+
+    public function validateRequired()
+    {
+        if ($this->referencia == '' && $this->nombre == '') {
+            $this->addError('referencia', '¡Uno de los dos campos debe estar relleno!');
+            $this->addError('nombre', '¡Uno de los dos campos debe estar relleno!');
+        }
+    }
+
+    public function validateOneOrAnother()
+    {
+        if ($this->referencia && $this->nombre) {
+            $this->addError('referencia', '¡Sólo puedes elegir uno a la vez!');
+            $this->addError('nombre', '¡Sólo puedes elegir uno a la vez!');
+        }
+    }
+
 
     /**
      * {@inheritdoc}
@@ -78,7 +110,7 @@ class Relaciones extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getReferencia0()
+    public function getReferencia()
     {
         return $this->hasOne(Personajes::className(), ['id' => 'referencia']);
     }
@@ -122,5 +154,13 @@ class Relaciones extends \yii\db\ActiveRecord
         $user = User::findOne($personaje->usuario_id);
         $relacion = TiposRelaciones::findOne($this->tipo_relacion_id);
         return "Se solicita confirmación de que <b>$referencia->nombre</b> (tu personaje) es $relacion->tipo de <b>$personaje->nombre</b> (personaje de " . $user->getUrl() . ').';
+    }
+
+    public function getDeleteButton()
+    {
+        return Html::beginForm('', 'post', ['name' => 'delete-relation']) .
+        Html::hiddenInput('id', $this->id) .
+        Html::submitButton('Borrar', ['class' => 'btn btn-xs btn-primary']) .
+        Html::endForm();
     }
 }

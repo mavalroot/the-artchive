@@ -19,12 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?php if ($model->respondida) : ?>
         <b>
-        <?php if ($model->aceptada) : ?>
-            Aceptaste
-        <?php else : ?>
-            Rechazaste
-        <?php endif; ?>
-        esta solicitud.
+        <?= ($model->aceptada ? 'Aceptaste ' : 'Rechazaste ') ?>esta solicitud.
         </b>
     <?php endif; ?>
     <p>

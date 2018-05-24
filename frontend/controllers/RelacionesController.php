@@ -5,7 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Personajes;
 use common\models\Relaciones;
-use common\models\RelacionesSearch;
+use common\models\Solicitudes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,14 +44,9 @@ class RelacionesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->referencia) {
-                $model->nombre = null;
-            }
-            if ($model->save()) {
-                $model->enviarSolicitud();
-                return $this->redirect(['personajes/view', 'id' => $id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->enviarSolicitud();
+            return $this->redirect(['personajes/view', 'id' => $id]);
         }
 
         return $this->render('create', [
@@ -67,11 +62,22 @@ class RelacionesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        $this->findModel($id)->delete();
+        $id = Yii::$app->request->post('id');
+        $model = $this->findModel($id);
+        $pj = $model->personaje_id;
+        if ($model->referencia) {
+            $solicitud = Solicitudes::findOne(['relacion_id' => $id]);
+            $solicitud->relacion_id = null;
+            $solicitud->update();
+        }
+        $model->delete();
 
-        return $this->redirect(['index']);
+        if (!Yii::$app->request->isAjax) {
+            return $this->redirect(['/personajes/view', 'id' => $pj]);
+        }
+        return true;
     }
 
     /**
