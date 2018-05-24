@@ -5,7 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Personajes;
 use common\models\Relaciones;
-use common\models\RelacionesSearch;
+use common\models\Solicitudes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,9 +64,17 @@ class RelacionesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $pj = $model->personaje_id;
+        if ($model->referencia) {
+            $solicitud = Solicitudes::findOne(['relacion_id' => $id]);
+            $solicitud->relacion_id = null;
+            $solicitud->update();
+        }
 
-        return $this->redirect(['index']);
+        $model->delete();
+
+        return $this->redirect(['/personajes/view', 'id' => $pj]);
     }
 
     /**
