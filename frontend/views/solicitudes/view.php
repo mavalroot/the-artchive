@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= $model->mensaje ?>
     </p>
-    <?php if ($model->respondida): ?>
+    <?php if ($model->respondida) : ?>
         <b>
-        <?php if ($model->aceptada): ?>
+        <?php if ($model->aceptada) : ?>
             Aceptaste
-        <?php else: ?>
+        <?php else : ?>
             Rechazaste
         <?php endif; ?>
         esta solicitud.
