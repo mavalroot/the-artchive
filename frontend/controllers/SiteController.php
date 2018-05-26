@@ -19,7 +19,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends \common\utilities\MyController
 {
     use \common\utilities\Permisos;
     /**
@@ -242,5 +242,15 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionChangeLanguage($lang)
+    {
+        $session = Yii::$app->session;
+        if (in_array($lang, Yii::$app->params['languages'])) {
+            $session->set('language', $lang);
+        }
+
+        return $this->goHome();
     }
 }

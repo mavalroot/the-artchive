@@ -1,7 +1,12 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 $this->title = 'Artchive';
+
+$cookies = Yii::$app->response->cookies;
+var_dump(Yii::$app->session['language']);
 ?>
 <div class="site-index">
     <div class="jumbotron">
@@ -9,6 +14,9 @@ $this->title = 'Artchive';
 
         <p class="lead">Esta es la portada</p>
     </div>
+
+    <?= Html::a('Inglés', ['site/change-language', 'lang' => 'en-US']) ?>
+    <?= Html::a('Español', ['site/change-language', 'lang' => 'es-ES']) ?>
 
     <div class="body-content">
         <?= Yii::t('frontend', 'Hola') ?>

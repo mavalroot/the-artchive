@@ -7,6 +7,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'sourceLanguage' => 'es-ES',
+    'language' => Yii::$app->language,
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'i18n' => [
