@@ -17,6 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Usuario ID' => '',
     'Hola' => 'Hello',
+    'Usuario ID' => '',
 ];

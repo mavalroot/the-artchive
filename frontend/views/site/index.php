@@ -11,7 +11,7 @@ $this->title = 'Artchive';
     </div>
 
     <div class="body-content">
-
+        <?= Yii::t('app', 'Hola') ?>
         <div class="row">
             <div class="col-lg-4">
                 <h2>Aquí podrían ir publicaciones recientes...</h2>
