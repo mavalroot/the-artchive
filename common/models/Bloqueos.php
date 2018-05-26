@@ -46,7 +46,7 @@ class Bloqueos extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'usuario_id' => 'Usuario ID',
+            'usuario_id' => Yii::t('app', 'Usuario ID'),
             'bloqueado_id' => 'Bloqueado ID',
         ];
     }
