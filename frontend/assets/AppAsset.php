@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'css/custom.css',
         'css/member-profile.css',
         'css/forms.css',
+        'css/flag-icon.css',
     ];
     public $js = [
         'js/plugins/jspdf.min.js',
