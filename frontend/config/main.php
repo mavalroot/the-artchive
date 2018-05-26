@@ -20,9 +20,14 @@ return [
     ],
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'podium'],
+    'bootstrap' => ['log', 'podium', 'cookieLanguageSelector'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'cookieLanguageSelector' => [
+            'class' => 'gugglegum\Yii2\Extension\CookieLanguageSelector\Component',
+            'defaultLanguage' => 'es-ES',
+            'validLanguages' => ['en-US', 'es-ES'],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

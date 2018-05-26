@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d5201acc769235f0d1c9b0caefb7a5e",
+    "content-hash": "cef21fc482bd29c371ccb3b91f875bb2",
     "packages": [
         {
             "name": "bizley/podium",
@@ -504,6 +504,49 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
+        },
+        {
+            "name": "gugglegum/yii2-cookie-language-selector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gugglegum/yii2-cookie-language-selector.git",
+                "reference": "0ade03cd5f516f6147e080f33bf2be8687d268fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gugglegum/yii2-cookie-language-selector/zipball/0ade03cd5f516f6147e080f33bf2be8687d268fb",
+                "reference": "0ade03cd5f516f6147e080f33bf2be8687d268fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "gugglegum\\Yii2\\Extension\\CookieLanguageSelector\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Melekhov",
+                    "email": "gugglegum@gmail.com"
+                }
+            ],
+            "description": "Yii2 language selector component based on cookies",
+            "keywords": [
+                "extension",
+                "i18n",
+                "multilanguage",
+                "yii2"
+            ],
+            "time": "2015-07-03T20:29:11+00:00"
         },
         {
             "name": "himiklab/yii2-recaptcha-widget",

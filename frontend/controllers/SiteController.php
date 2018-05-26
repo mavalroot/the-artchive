@@ -7,7 +7,6 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use common\models\LoginForm;
@@ -19,7 +18,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends \common\utilities\MyController
+class SiteController extends Controller
 {
     use \common\utilities\Permisos;
     /**
@@ -244,13 +243,12 @@ class SiteController extends \common\utilities\MyController
         ]);
     }
 
-    public function actionChangeLanguage($lang)
+    /**
+     * Switches the language and redirects back
+     */
+    public function actionSwitchLanguage()
     {
-        $session = Yii::$app->session;
-        if (in_array($lang, Yii::$app->params['languages'])) {
-            $session->set('language', $lang);
-        }
-
-        return $this->goHome();
+        Yii::$app->cookieLanguageSelector->setLanguage(Yii::$app->request->post('language'));
+        $this->redirect(Yii::$app->request->post('redirectTo', ['site/index']));
     }
 }

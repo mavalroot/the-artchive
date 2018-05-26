@@ -4,9 +4,6 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 $this->title = 'Artchive';
-
-$cookies = Yii::$app->response->cookies;
-var_dump(Yii::$app->session['language']);
 ?>
 <div class="site-index">
     <div class="jumbotron">
@@ -20,6 +17,19 @@ var_dump(Yii::$app->session['language']);
 
     <div class="body-content">
         <?= Yii::t('frontend', 'Hola') ?>
+        <br /><br />
+        <?= Html::beginForm(['site/switch-language'], 'post') ?>
+       <?= Html::hiddenInput('redirectTo', \yii\helpers\Url::to(Yii::$app->request->url)) ?>
+       <?= Html::beginTag('select', ['name' => 'language', 'onchange' => 'this.form.submit();']) ?>
+       <?= Html::renderSelectOptions(\Yii::$app->language, [
+           'en-US' => 'English',
+           'es-ES' => 'Español',
+       ]) ?>
+       <?= Html::endTag('select') ?>
+       <?= Html::endForm() ?>
+
+       <p>Current language is <?= Html::encode(\Yii::$app->language) ?> </p>
+       
         <div class="row">
             <div class="col-lg-4">
                 <h2>Aquí podrían ir publicaciones recientes...</h2>
