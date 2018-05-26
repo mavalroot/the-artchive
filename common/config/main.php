@@ -6,6 +6,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'sourceLanguage' => 'es-ES',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'i18n' => [
