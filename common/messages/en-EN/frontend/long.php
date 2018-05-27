@@ -17,5 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'El personaje con el que el nuestro se relaciona puede ser anónimo (sólo figurará su nombre) o existente (propio o de otro usuario). <br />
+        Si seleccionas un personaje existente que no sea de tu propiedad, su creador deberá dar el visto bueno.' => '',
+    'Eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.<br />
+            Esta acción no podrá ser revertida, así que considéralo sólo cuando estés completamente seguro de que ya no quieres seguir en The Artchive.' => '',
+    'Esta acción no podrá ser revertida, pero podrás volver a registrarte en un futuro con el mismo nombre.' => '',
+    'Puedes elegir borrar completamente tus personajes y publicaciones, o dejarlas en The Artchive (tu nombre de usuario no se verá implicado.' => '',
     'Recuerda que eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.' => '',
 ];

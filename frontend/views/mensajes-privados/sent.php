@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t('frontend', 'Enviar mensaje privado'), ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a(Yii::t('frontend', 'Volver al Inbox'), ['index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a(Yii::t('frontend', 'Volver a la Bandeja de entrada'), ['index'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= GridView::widget([
