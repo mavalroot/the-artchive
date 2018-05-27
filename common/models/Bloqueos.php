@@ -2,8 +2,6 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "bloqueos".
  *
@@ -45,7 +43,7 @@ class Bloqueos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            
+
         ];
     }
 

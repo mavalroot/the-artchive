@@ -25,6 +25,10 @@ use yii\helpers\Html;
  */
 class Comentarios extends \common\utilities\BaseNotis
 {
+    /**
+     * Indica si ha sido citado.
+     * @var bool
+     */
     public $quoted;
     /**
      * {@inheritdoc}
@@ -115,6 +119,10 @@ class Comentarios extends \common\utilities\BaseNotis
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
+    /**
+     * Devuelve el nombre de usuario como un link.
+     * @return string
+     */
     public function getUsername()
     {
         $user = $this->getUsuario()->one();
@@ -124,11 +132,19 @@ class Comentarios extends \common\utilities\BaseNotis
         return $user->username;
     }
 
+    /**
+     * Devuelve el permalink al comentario.
+     * @return string
+     */
     public function getPermalink()
     {
         return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
     }
 
+    /**
+     * Devuelve la url de la respuesta.
+     * @return string
+     */
     public function getRespuestaUrl()
     {
         if ($this->comentario_id) {
@@ -141,6 +157,10 @@ class Comentarios extends \common\utilities\BaseNotis
         return $this->usuario_id == Yii::$app->user->id;
     }
 
+    /**
+     * Indica si el comentario ha sido "borrado".
+     * @return bool
+     */
     public function isDeleted()
     {
         return $this->deleted;
