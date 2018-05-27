@@ -5,11 +5,11 @@ use yii\widgets\LinkPager;
 
 ?>
 
-<h2>Relaciones</h2>
+<h2><?= Yii::t('frontend', 'Relaciones') ?></h2>
 
 <div class="relaciones-relacion">
     <?php if (!$relaciones) : ?>
-        No hay :(
+        <?= Yii::t('frontend', 'No se ha creado ninguna relación.') ?>
     <?php endif; ?>
     <?php foreach ($relaciones as $relacion) : ?>
         <div class="relacion">
@@ -17,7 +17,7 @@ use yii\widgets\LinkPager;
             <?php if ($relacion->referencia) : ?>
                 <?= Html::a(Yii::$app->formatter->asText($relacion->supj), ['personajes/view', 'id' => $relacion->supjid]) ?>
                 <?php if (!$relacion->aceptada) : ?>
-                    (Pendiente de confirmación)
+                    <?= Yii::t('frontend', '(Pendiente de confirmación)') ?>
                 <?php endif; ?>
             <?php else : ?>
                 <?= Yii::$app->formatter->asText($relacion->nombre) ?>

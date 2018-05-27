@@ -2,8 +2,6 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "tipos_notificaciones".
  *
@@ -28,7 +26,7 @@ class TiposNotificaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tipo'], 'required'],
+            [['tipo'], 'required', 'message'],
             [['tipo'], 'string', 'max' => 255],
             [['tipo'], 'unique'],
         ];

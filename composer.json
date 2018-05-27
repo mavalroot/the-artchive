@@ -23,7 +23,8 @@
         "kartik-v/yii2-widget-datetimepicker": "^1.4",
         "kartik-v/yii2-markdown": "dev-master",
         "bizley/podium": "*",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "gugglegum/yii2-cookie-language-selector": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

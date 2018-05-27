@@ -6,12 +6,10 @@ $this->title = 'Artchive';
 <div class="site-index">
     <div class="jumbotron">
         <h1>Artchive</h1>
-
         <p class="lead">Esta es la portada</p>
     </div>
 
     <div class="body-content">
-
         <div class="row">
             <div class="col-lg-4">
                 <h2>Aquí podrían ir publicaciones recientes...</h2>

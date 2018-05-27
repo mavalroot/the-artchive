@@ -25,6 +25,10 @@ use yii\helpers\Html;
  */
 class Comentarios extends \common\utilities\BaseNotis
 {
+    /**
+     * Indica si ha sido citado.
+     * @var bool
+     */
     public $quoted;
     /**
      * {@inheritdoc}
@@ -40,16 +44,34 @@ class Comentarios extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
-            [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
+            [['usuario_id', 'publicacion_id', 'contenido'], 'required',
+                'message' => Yii::t('app', 'Campo requerido.')
+            ],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
             ['deleted', 'boolean'],
-            [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer'],
-            [['contenido'], 'string', 'max' => 500],
+            [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero.')
+            ],
+            [['contenido'], 'string', 'max' => 500,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
+            ],
             [['created_at', 'updated_at'], 'safe'],
-            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
-            [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['comentario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => Comentarios::className(),
+                'targetAttribute' => ['comentario_id' => 'id'],
+                'message' => Yii::t('app', 'El comentario no existe.'),
+            ],
+            [['publicacion_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => Publicaciones::className(),
+                'targetAttribute' => ['publicacion_id' => 'id'],
+                'message' => Yii::t('app', 'La publicación no existe.')
+            ],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.'),
+            ],
         ];
     }
 
@@ -59,13 +81,9 @@ class Comentarios extends \common\utilities\BaseNotis
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => 'Usuario ID',
-            'publicacion_id' => 'Publicacion ID',
-            'contenido' => 'Contenido',
-            'comentario_id' => 'Comentario ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'contenido' => Yii::t('app', 'Contenido'),
+            'created_at' => Yii::t('app', 'Fecha de creación'),
+            'updated_at' => Yii::t('app', 'Última actualización'),
         ];
     }
 
@@ -101,6 +119,10 @@ class Comentarios extends \common\utilities\BaseNotis
         return $this->hasOne(User::className(), ['id' => 'usuario_id']);
     }
 
+    /**
+     * Devuelve el nombre de usuario como un link.
+     * @return string
+     */
     public function getUsername()
     {
         $user = $this->getUsuario()->one();
@@ -110,11 +132,19 @@ class Comentarios extends \common\utilities\BaseNotis
         return $user->username;
     }
 
+    /**
+     * Devuelve el permalink al comentario.
+     * @return string
+     */
     public function getPermalink()
     {
         return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
     }
 
+    /**
+     * Devuelve la url de la respuesta.
+     * @return string
+     */
     public function getRespuestaUrl()
     {
         if ($this->comentario_id) {
@@ -127,6 +157,10 @@ class Comentarios extends \common\utilities\BaseNotis
         return $this->usuario_id == Yii::$app->user->id;
     }
 
+    /**
+     * Indica si el comentario ha sido "borrado".
+     * @return bool
+     */
     public function isDeleted()
     {
         return $this->deleted;
@@ -134,7 +168,7 @@ class Comentarios extends \common\utilities\BaseNotis
 
     public function getUnName()
     {
-        return 'un comentario';
+        return Yii::t('app', 'un comentario');
     }
 
     public function getNotificacionReceptor()
@@ -145,7 +179,7 @@ class Comentarios extends \common\utilities\BaseNotis
 
     public function getUpdateMessage()
     {
-        return 'Ha eliminado ' . $this->getUnName() . '.';
+        return Yii::t('app', 'Ha eliminado ') . $this->getUnName() . '.';
     }
 
     public function getRawUrl()

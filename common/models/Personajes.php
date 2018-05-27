@@ -48,13 +48,18 @@ class Personajes extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['usuario_id', 'nombre'], 'required'],
-            // [['usuario_id'], 'default', 'value' => null],
-            [['usuario_id'], 'integer'],
+            [['usuario_id', 'nombre'], 'required', 'message' => Yii::t('app', 'Campo requerido.')],
+            [['usuario_id'], 'integer', 'message' => Yii::t('app', 'Debe ser un número entero.')],
             [['fecha_nac', 'created_at', 'updated_at'], 'safe'],
             [['historia', 'personalidad', 'apariencia', 'hechos_destacables'], 'string'],
-            [['nombre'], 'string', 'max' => 255],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['nombre'], 'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
+            ],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
         ];
     }
 
@@ -64,17 +69,15 @@ class Personajes extends \common\utilities\ArtchiveBase
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => 'Usuario ID',
-            'nombre' => 'Nombre',
-            'fecha_nac' => 'Fecha de nacimiento',
-            'historia' => 'Historia',
-            'personalidad' => 'Personalidad',
-            'apariencia' => 'Apariencia',
-            'hechos_destacables' => 'Hechos destacables',
-            'created_at' => 'Fecha de creación',
-            'updated_at' => 'Última actualización',
-            'creator' => 'Creado por'
+            'nombre' => Yii::t('app', 'Nombre'),
+            'fecha_nac' => Yii::t('app', 'Fecha de nacimiento'),
+            'historia' => Yii::t('app', 'Historia'),
+            'personalidad' => Yii::t('app', 'Personalidad'),
+            'apariencia' => Yii::t('app', 'Apariencia'),
+            'hechos_destacables' => Yii::t('app', 'Hechos destacables'),
+            'created_at' => Yii::t('app', 'Fecha de creación'),
+            'updated_at' => Yii::t('app', 'Última actualización'),
+            'creator' => Yii::t('app', 'Creador'),
         ];
     }
 
@@ -129,11 +132,11 @@ class Personajes extends \common\utilities\ArtchiveBase
     {
         if ($this->isMine()) {
             $botones =
-            Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-sm btn-success']) .
-            Html::a('Borrar', ['delete', 'id' => $this->id], [
+            Html::a(Yii::t('app', 'Modificar'), ['update', 'id' => $this->id], ['class' => 'btn btn-sm btn-success']) .
+            Html::a(Yii::t('app', 'Borrar'), ['delete', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-danger',
                 'data' => [
-                    'confirm' => '¿Seguro que desea borrar el personaje? No podrá ser recuperado.',
+                    'confirm' => Yii::t('app', '¿Seguro que desea borrar el personaje? No podrá ser recuperado.'),
                     'method' => 'post',
                 ],
             ]);

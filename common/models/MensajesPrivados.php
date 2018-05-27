@@ -28,7 +28,16 @@ use yii\db\ActiveRecord;
  */
 class MensajesPrivados extends \common\utilities\ArtchiveBase
 {
+    /**
+     * Nombre del emisor.
+     * @var string
+     */
     public $emisor_name;
+
+    /**
+     * Nombre del receptor
+     * @var string
+     */
     public $receptor_name;
     /**
      * @inheritdoc
@@ -44,17 +53,39 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required'],
+            [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required',
+                'message' => Yii::t('app', 'Campo requerido.')
+            ],
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
-            [['emisor_id', 'receptor_id'], 'integer'],
+            [['emisor_id', 'receptor_id'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero.')
+            ],
             [['contenido', 'receptor_name', 'emisor_name'], 'string'],
             [['seen', 'del_e', 'del_r'], 'boolean'],
             [['created_at'], 'safe'],
-            [['asunto'], 'string', 'max' => 255],
-            [['emisor_name'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_name' => 'username']],
-            [['receptor_name'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['receptor_name' => 'username']],
-            [['emisor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['emisor_id' => 'id']],
-            [['receptor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['receptor_id' => 'id']],
+            [['asunto'], 'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
+            ],
+            [['emisor_name'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['emisor_name' => 'username'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
+            [['receptor_name'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['receptor_name' => 'username'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
+            [['emisor_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['emisor_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
+            [['receptor_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['receptor_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
         ];
     }
 
@@ -64,15 +95,12 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'emisor_id' => 'Emisor ID',
-            'receptor_id' => 'Receptor ID',
-            'asunto' => 'Asunto',
-            'contenido' => 'Contenido',
-            'seen' => 'seen',
-            'created_at' => 'Fecha de envío',
-            'emisor_name' => 'Emisor',
-            'receptor_name' => 'Receptor',
+            'asunto' => Yii::t('app', 'Asunto'),
+            'contenido' => Yii::t('app', 'Contenido'),
+            'seen' => Yii::t('app', 'Visto'),
+            'created_at' => Yii::t('app', 'Fecha de envío'),
+            'emisor_name' => Yii::t('app', 'Emisor'),
+            'receptor_name' => Yii::t('app', 'Receptor'),
         ];
     }
 

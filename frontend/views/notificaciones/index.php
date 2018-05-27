@@ -7,7 +7,7 @@ use common\models\Notificaciones;
 /* @var $searchModel common\models\NotificacionesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Notificaciones';
+$this->title = Yii::t('frontend', 'Notificaciones');
 $this->params['breadcrumbs'][] = $this->title;
 Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
 ?>

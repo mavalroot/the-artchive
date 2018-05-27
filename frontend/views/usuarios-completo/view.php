@@ -24,14 +24,18 @@ use common\models\User;
         <div class="nav-follow">
             <ul>
                 <li>
-                    <?= Html::a('<h4>Seguidores <small>' . $model->seguidores . '</small>', [
+                    <h4>
+                    <?= Html::a($model->getAttributeLabel('seguidores') . '<small>' . $model->seguidores . '</small>', [
                         'seguidores/index', 'username' => $model->username
                         ]) ?>
+                    </h4>
                 </li>
                 <li>
-                    <?= Html::a('<h4>Siguiendo <small>' . $model->siguiendo . '</small>', [
+                    <h4>
+                    <?= Html::a($model->getAttributeLabel('siguiendo') . '<small>' . $model->siguiendo . '</small>', [
                         'seguidores/following', 'username' => $model->username
                         ]) ?>
+                    </h4>
                 </li>
                 <li>
                 <?= $model->getFollowButtons() ?>
@@ -40,15 +44,15 @@ use common\models\User;
         </div>
     </div>
     <?php if ($model->status == User::STATUS_DELETED) : ?>
-        <h4>Este usuario ha sido eliminado.</h4>
+        <h4><?= Yii::t('frontend', 'Este usuario ha sido eliminado.') ?></h4>
     <?php elseif ($model->status == User::STATUS_BANNED) : ?>
-        <h4>Este usuario ha sido baneado.</h4>
+        <h4><?= Yii::t('frontend', 'Este usuario ha sido baneado.') ?></h4>
     <?php elseif ($model->status == User::STATUS_WAITING) : ?>
-        <h4>Este usuario no ha confirmado su correo.</h4>
+        <h4><?= Yii::t('frontend', 'Este usuario aún no ha confirmado su cuenta.') ?></h4>
     <?php elseif ($model->isBlocked()) : ?>
-        <h4>Este usuario ha sido bloqueado por usted. No podrá enviar ni recibir mensajes, ni verá su actividad.</h4>
+        <h4><?= Yii::t('frontend', 'Este usuario ha sido bloqueado por usted.') ?></h4>
     <?php elseif ($model->imBlocked()) : ?>
-        <h4>Este usuario le ha bloqueado. No podrá enviar ni recibir mensajes, ni verá su actividad.</h4>
+        <h4><?= Yii::t('frontend', 'Este usuario le ha bloqueado.') ?></h4>
     <?php else : ?>
         <?= $this->render('_profile', [
             'model' => $model,

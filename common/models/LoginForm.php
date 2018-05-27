@@ -9,10 +9,28 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
+    /**
+     * Nombre de usuario
+     * @var string
+     */
     public $username;
+
+    /**
+     * Contraseña
+     * @var string
+     */
     public $password;
+
+    /**
+     * Recordar.
+     * @var bool
+     */
     public $rememberMe = true;
 
+    /**
+     * Usuario
+     * @var User
+     */
     private $_user;
 
 
@@ -43,7 +61,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, Yii::t('app', 'Nombre de usuario o contraseña incorrecta.'));
             }
         }
     }

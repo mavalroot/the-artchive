@@ -11,7 +11,7 @@ $owner = $model->getUsuario()->one()->username;
 
 $this->title = $model->titulo;
 $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
-$this->params['breadcrumbs'][] = ['label' => 'Publicaciones de ' . $owner, 'url' => ['index', 'username' => $owner]];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Publicaciones de') . ' ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="publicaciones-view">

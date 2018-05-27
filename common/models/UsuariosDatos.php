@@ -4,9 +4,6 @@ namespace common\models;
 
 use Yii;
 
-use yii\helpers\Url;
-
-use common\utilities\Historial;
 use yii\web\UploadedFile;
 
 /**
@@ -23,7 +20,6 @@ use yii\web\UploadedFile;
  */
 class UsuariosDatos extends \yii\db\ActiveRecord
 {
-    use Historial;
     /**
      * @var UploadedFile
      */
@@ -55,10 +51,19 @@ class UsuariosDatos extends \yii\db\ActiveRecord
             [['usuario_id'], 'default', 'value' => null],
             [['usuario_id'], 'integer'],
             [['pagina_web'], 'url'],
-            [['foto'], 'file', 'extensions' => 'png, jpg', 'maxSize' => 200 * 1024, 'tooBig' => 'Limit is 200KB'],
-            [['aficiones', 'tematica_favorita', 'bio', 'avatar'], 'string', 'max' => 255],
+            [['foto'], 'file', 'extensions' => 'png, jpg', 'maxSize' => 200 * 1024,
+                'tooBig' => Yii::t('app', 'El fichero no puede superar los 200kb.')
+            ],
+            [['aficiones', 'tematica_favorita', 'bio', 'avatar'], 'string',
+                'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 caracteres'),
+            ],
             [['usuario_id'], 'unique'],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.'),
+            ],
         ];
     }
 
@@ -68,13 +73,11 @@ class UsuariosDatos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'usuario_id' => 'User ID',
-            'aficiones' => 'Aficiones',
-            'tematica_favorita' => 'Temática Favorita',
-            'bio' => 'Sobre mi',
-            'pagina_web' => 'Página Web',
+            'aficiones' => Yii::t('app', 'Aficiones'),
+            'tematica_favorita' => Yii::t('app', 'Temática Favorita'),
+            'bio' => Yii::t('app', 'Sobre mi'),
+            'pagina_web' => Yii::t('app', 'Página Web'),
             'avatar' => 'Avatar',
-            'tipo_usuario' => 'Tipo de usuario',
         ];
     }
 
@@ -104,33 +107,9 @@ class UsuariosDatos extends \yii\db\ActiveRecord
         return ['usuarios-completo/view', 'username' => $this->getName()];
     }
 
-    public function getHistorialUrl()
-    {
-        return Url::to(['usuarios-completos/view', 'username' => $this->getName()]);
-    }
-
-    public function beforeSave($insert)
-    {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-        if ($insert) {
-            Historial::crearHistorial('Se ha registrado.', $this->getHistorialUrl());
-        } else {
-            Historial::crearHistorial('Ha modificado su perfil.', $this->getHistorialUrl());
-        }
-        return true;
-    }
-
-    public function beforeDelete()
-    {
-        if (!parent::beforeDelete()) {
-            return false;
-        }
-        Historial::crearHistorial('"' . $this->getName() . '" se ha dado de baja.', false);
-        return true;
-    }
-
+    /**
+     * Subir avatar
+     */
     public function upload()
     {
         if ($this->foto) {

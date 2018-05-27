@@ -27,7 +27,7 @@ use kartik\markdown\MarkdownEditor;
         ]); ?>
     </div>
 
-    <label>Historia</label>
+    <label><?= Yii::t('frontend', 'Historia') ?></label>
     <?= MarkdownEditor::widget([
         'model' => $model,
         'attribute' => 'historia',
@@ -36,7 +36,7 @@ use kartik\markdown\MarkdownEditor;
         'footerMessage' => false,
     ]);?>
 
-    <label>Personalidad</label>
+    <label><?= Yii::t('frontend', 'Personalidad') ?></label>
     <?= MarkdownEditor::widget([
         'model' => $model,
         'attribute' => 'personalidad',
@@ -45,7 +45,7 @@ use kartik\markdown\MarkdownEditor;
         'footerMessage' => false,
     ]);?>
 
-    <label>Apariencia</label>
+    <label><?= Yii::t('frontend', 'Apariencia') ?></label>
     <?= MarkdownEditor::widget([
         'model' => $model,
         'attribute' => 'apariencia',
@@ -54,7 +54,7 @@ use kartik\markdown\MarkdownEditor;
         'footerMessage' => false,
     ]);?>
 
-    <label>Hechos destacables</label>
+    <label><?= Yii::t('frontend', 'Hechos destacables') ?></label>
     <?= MarkdownEditor::widget([
         'model' => $model,
         'attribute' => 'hechos_destacables',

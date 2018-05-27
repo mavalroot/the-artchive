@@ -9,7 +9,7 @@ use yii\grid\GridView;
 
 $username = Yii::$app->request->get('username');
 
-$this->title = 'Seguidores';
+$this->title = Yii::t('frontend', 'Seguidores');
 $this->params['breadcrumbs'][] = ['label' => $username, 'url' => ['/usuarios-completo/view', 'username' => $username]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

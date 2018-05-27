@@ -41,7 +41,7 @@ class RelacionesController extends Controller
         $model = new Relaciones();
 
         if (!is_numeric($id) || !$personaje = Personajes::findOne($id)) {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -93,6 +93,6 @@ class RelacionesController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

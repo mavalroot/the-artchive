@@ -44,7 +44,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     {
         if ($this->isMine()) {
             $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
-            return Html::button('Guardar como pdf', ['id' => 'export', 'data-name' => $data, 'class' => 'btn btn-sm btn-primary']);
+            return Html::button(Yii::t('app', 'Guardar como pdf'), ['id' => 'export', 'data-name' => $data, 'class' => 'btn btn-sm btn-primary']);
         }
     }
 
@@ -155,7 +155,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getInsertMessage()
     {
-        return 'Ha creado ' . $this->getUnName() . '.';
+        return Yii::t('app', 'Ha creado ') . $this->getUnName() . '.';
     }
 
     /**
@@ -164,7 +164,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getUpdateMessage()
     {
-        return 'Ha modificado ' . $this->getUnName() . '.';
+        return Yii::t('app', 'Ha modificado ') . $this->getUnName() . '.';
     }
 
     /**
@@ -173,7 +173,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getDeleteMessage()
     {
-        return 'Ha eliminado ' . $this->getUnName();
+        return Yii::t('app', 'Ha eliminado ') . $this->getUnName();
     }
 
     public function afterSave($insert, $changedAttributes)

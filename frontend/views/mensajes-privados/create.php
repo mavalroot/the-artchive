@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\MensajesPrivados */
 
-$this->title = 'Mandar mensaje privado';
-$this->params['breadcrumbs'][] = ['label' => 'Mensajes Privados', 'url' => ['index']];
+$this->title = Yii::t('frontend', 'Mandar mensaje privado');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Mensajes Privados'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="estandar-action">

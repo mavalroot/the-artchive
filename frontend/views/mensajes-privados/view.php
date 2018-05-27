@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 $this->title = $model->asunto;
 $this->params['breadcrumbs'][] = ['label' => 'Inbox', 'url' => ['index']];
 if ($model->emisor_id == Yii::$app->user->id) {
-    $this->params['breadcrumbs'][] = ['label' => 'Mensajes enviados', 'url' => ['sent']];
+    $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Mensajes enviados'), 'url' => ['sent']];
 }
 $this->params['breadcrumbs'][] = $this->title;
 Yii::$app->user->identity->setSeen($model, 'receptor_id');
@@ -21,13 +21,8 @@ Yii::$app->user->identity->setSeen($model, 'receptor_id');
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            // 'id',
-            // 'emisor_id',
-            // 'receptor_id',
             'asunto',
             'contenido:ntext',
-            // 'visto:boolean',
-            // 'seen:boolean',
             'created_at:datetime',
         ],
     ]) ?>

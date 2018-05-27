@@ -164,6 +164,6 @@ class PersonajesController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

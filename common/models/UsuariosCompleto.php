@@ -44,7 +44,10 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             [['username'], 'required'],
             [['tipo_usuario', 'created_at', 'updated_at'], 'default', 'value' => null],
             [['id', 'seguidores', 'siguiendo', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'email', 'aficiones', 'tematica_favorita', 'bio', 'pagina_web', 'avatar'], 'string', 'max' => 255],
+            [['username', 'email', 'aficiones', 'tematica_favorita', 'bio', 'pagina_web', 'avatar'],
+                'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.'),
+            ],
         ];
     }
 
@@ -54,19 +57,18 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Nombre de usuario',
+            'username' => Yii::t('app', 'Nombre de usuario'),
             'email' => 'E-mail',
-            'aficiones' => 'Aficiones',
-            'tematica_favorita' => 'Temática favorita',
-            'bio' => 'bio',
-            'pagina_web' => 'Página web',
+            'aficiones' => Yii::t('app', 'Aficiones'),
+            'tematica_favorita' => Yii::t('app', 'Temática favorita'),
+            'bio' => Yii::t('app', 'Sobre mi'),
+            'pagina_web' => Yii::t('app', 'Página web'),
             'avatar' => 'Avatar',
-            'tipo' => 'Tipo de usuario',
-            'seguidores' => 'Seguidores',
-            'siguiendo' => 'Siguiendo',
-            'created_at' => 'Fecha de registro',
-            'updated_at' => 'Última actualización',
+            'tipo' => Yii::t('app', 'Tipo de usuario'),
+            'seguidores' => Yii::t('app', 'Seguidores'),
+            'siguiendo' => Yii::t('app', 'Siguiendo'),
+            'created_at' => Yii::t('app', 'Fecha de registro'),
+            'updated_at' => Yii::t('app', 'Última actualización'),
         ];
     }
 
@@ -226,13 +228,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton('Desbloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::submitButton(Yii::t('app', 'Desbloquear'), ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
         } elseif (!$this->isSelf() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'block']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton('Bloquear', ['class' => 'btn btn-sm btn-primary']) .
+            Html::submitButton(Yii::t('app', 'Bloquear'), ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
         }
     }
@@ -244,7 +246,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getMpButton()
     {
         if (!$this->isSelf() && $this->isApto()) {
-            return Html::a('Mandar MP', ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-info']);
+            return Html::a(Yii::t('app', 'Mandar MP'), ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-info']);
         }
     }
 
@@ -258,13 +260,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             return
             Html::beginForm('', 'post', ['name' => 'unfollow']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton('Dejar de seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::submitButton(Yii::t('app', 'Dejar de seguir'), ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
         } elseif (!$this->isSelf() && !$this->siguiendo() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'follow']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton('Seguir', ['class' => 'btn btn-sm btn-primary']) .
+            Html::submitButton(Yii::t('app', 'Seguir'), ['class' => 'btn btn-sm btn-primary']) .
             Html::endForm();
         }
     }
@@ -278,7 +280,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         if ($this->isApto()) {
             return
             Html::beginTag('p', ['class' => 'text-center']) .
-            Html::a('Ver personajes', ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-success']) .
+            Html::a(Yii::t('app', 'Ver personajes'), ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-success']) .
             Html::endTag('p');
         }
     }

@@ -9,7 +9,7 @@ use common\models\MensajesPrivados;
 /* @var $searchModel common\models\MensajesPrivadosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Inbox';
+$this->title = Yii::t('frontend', 'Bandeja de entrada');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mensajes-privados-index">
@@ -18,8 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>
-        <?= Html::a('Enviar mensaje privado', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Ver mensajes enviados', ['sent'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a(Yii::t('frontend', 'Enviar mensaje privado'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('frontend', 'Ver mensajes enviados'), ['sent'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= GridView::widget([
@@ -34,9 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getUrl($model->asunto);
                 }
             ],
-            // 'contenido:ntext',
-            //'visto:boolean',
-            //'seen:boolean',
             'created_at:datetime',
             ['class' => 'yii\grid\ActionColumn',  'template'=> ' {delete}'],
         ],

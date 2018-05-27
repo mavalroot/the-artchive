@@ -58,15 +58,20 @@ class ComentariosController extends Controller
 
     /**
      * Responder
-     * @return [type] [description]
+     * @return string|bool
      */
     public function actionResponder()
     {
         if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id'); ?>
             <p class="quote-respuesta">
-                <span>Responder a: <a href="#com<?= $id ?>">#<?= $id ?></a></span>
-                <span id="limpiar"><span class="glyphicon glyphicon-remove-sign"></span></span>
+                <span>
+                    <?php Yii::t('frontend', 'Responder a:') ?>
+                    <a href="#com<?= $id ?>">#<?= $id ?></a>
+                </span>
+                <span id="limpiar">
+                    <span class="glyphicon glyphicon-remove-sign"></span>
+                </span>
                 <input type="hidden" name="comentario_id" value="<?= $id ?>"/>
                 <script type="text/javascript">
                     limpiar();
@@ -89,7 +94,7 @@ class ComentariosController extends Controller
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if ($model->isMine() && !$model->isDeleted()) {
-                $model->contenido = '<em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em>';
+                $model->contenido = Yii::t('frontend', '<em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em>');
                 $model->deleted = true;
                 return $model->save();
             }
@@ -100,7 +105,7 @@ class ComentariosController extends Controller
     /**
      * Finds the Comentarios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Comentarios the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -110,6 +115,6 @@ class ComentariosController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

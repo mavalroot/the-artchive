@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="personajes-search">
-    <h2>+ Buscar:</h2>
+    <h2>+ <?= Yii::t('app', 'Buscar') ?>:</h2>
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',

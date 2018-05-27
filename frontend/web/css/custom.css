@@ -78,3 +78,14 @@ a:hover {
 .wrap {
   background: url(https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png) #f1f1f1;
 }
+
+#change-language > .flag-button {
+  background: none;
+  border: none;
+  padding: 0px;
+  opacity: .4;
+}
+
+#change-language > .flag-button.flag-selected {
+  opacity: 1;
+}

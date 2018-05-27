@@ -30,12 +30,20 @@ class Notificaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['usuario_id'], 'required'],
+            [['usuario_id'], 'required', Yii::t('app', 'Campo requerido.')],
             [['usuario_id'], 'default', 'value' => null],
-            [['usuario_id'], 'integer'],
+            [['usuario_id'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero.')
+            ],
             [['seen'], 'boolean'],
-            [['notificacion'], 'string', 'max' => 255],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['notificacion'], 'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
+            ],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
         ];
     }
 
@@ -45,10 +53,8 @@ class Notificaciones extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => 'User ID',
-            'notificacion' => 'Notificacion',
-            'created_at' => 'Recibido'
+            'notificacion' => Yii::t('app', 'Notificación'),
+            'created_at' => Yii::t('app', 'Recibido'),
         ];
     }
 

@@ -62,10 +62,10 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Nombre de usuario',
+            'username' => Yii::t('app', 'Nombre de usuario'),
             'email' => 'E-mail',
-            'created_at' => 'Fecha de registro',
-            'updated_at' => 'Última actualización',
+            'created_at' => Yii::t('app', 'Fecha de registro'),
+            'updated_at' => Yii::t('app', 'Última actualización'),
         ];
     }
 
@@ -233,6 +233,10 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
         return Url::to(['usuarios-completo/view', 'username' => $this->username]);
     }
 
+    /**
+     * Cambia el tipo de usuario.
+     * @param int $tipo Id de tipo de usuario
+     */
     public function setTipo($tipo)
     {
         $this->tipo_usuario = TiposUsuario::getOne($tipo);

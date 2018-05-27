@@ -25,11 +25,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'contenido') ?>
 
-    <?php // echo $form->field($model, 'visto')->checkbox() ?>
+    <?php // echo $form->field($model, 'visto')->checkbox()?>
 
-    <?php // echo $form->field($model, 'seen')->checkbox() ?>
+    <?php // echo $form->field($model, 'seen')->checkbox()?>
 
-    <?php // echo $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'created_at')?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

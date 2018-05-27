@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 ?>
-<h3>Comentarios</h3>
+<h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
 <div id="publicacion-comentarios">
     <?php foreach ($comentarios as $comentario) : ?>
         <div class="comentario" id="com<?= $comentario->id ?>">
@@ -17,9 +17,9 @@ use yii\widgets\LinkPager;
             </div>
             <div class="comentario-botones">
                     <input type="hidden" name="id" value="<?= $comentario->id ?>">
-                    <a href="#nuevo-comentario" class="btn btn-xs btn-info" name="responder-comentario">Responder</a>
+                    <a href="#nuevo-comentario" class="btn btn-xs btn-info" name="responder-comentario"><?= Yii::t('frontend', 'Responder') ?></a>
                     <?php if ($comentario->isMine() && !$comentario->isDeleted()) : ?>
-                        <a href="#" name="borrar-comentario" class="btn btn-xs btn-danger">Borrar</a>
+                        <a href="#" name="borrar-comentario" class="btn btn-xs btn-danger"><?= Yii::t('frontend', 'Borrar') ?></a>
                     <?php endif; ?>
             </div>
             <div class="comentario-body">
@@ -44,12 +44,12 @@ use yii\widgets\LinkPager;
     ?>
 </div>
 <div id="nuevo-comentario">
-    <h3>Publicar comentario</h3>
+    <h3><?= Yii::t('frontend', 'Publicar comentario') ?></h3>
 
     <form name="nuevo-comentario" method="post">
         <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
         <textarea name="contenido" class="form-control" rows="5"></textarea>
-        <input type="submit" class="btn btn-success" value="Enviar">
+        <input type="submit" class="btn btn-success" value="<?= Yii::t('frontend', 'Enviar')?>">
     </form>
     <p id="error" class="text-danger"></p>
 </div>
