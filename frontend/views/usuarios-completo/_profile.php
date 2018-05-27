@@ -12,31 +12,31 @@ use yii\widgets\LinkPager;
     <div class="col-sm-3">
         <div id="profile-details">
             <?php if ($model->bio) : ?>
-                <h5>Sobre mi</h5>
+                <h5><?= $model->getAttributeLabel('bio') ?></h5>
                 <p>
                     <?= Yii::$app->formatter->asText($model->bio) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->aficiones) : ?>
-                <h5>Aficiones</h5>
+                <h5><?= $model->getAttributeLabel('aficiones') ?></h5>
                 <p>
                     <?= Yii::$app->formatter->asText($model->aficiones) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->tematica_favorita) : ?>
-                <h5>Temática favorita</h5>
+                <h5><?= $model->getAttributeLabel('tematica_favorita') ?></h5>
                 <p>
                     <?= Yii::$app->formatter->asText($model->tematica_favorita) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->pagina_web) : ?>
-                <h5>Página web</h5>
+                <h5><?= $model->getAttributeLabel('pagina_web') ?></h5>
                 <p>
                     <?= Yii::$app->formatter->asUrl($model->pagina_web) ?>
                 </p>
             <?php endif; ?>
             <?php if ($model->isSelf()) : ?>
-                <h5>Mi correo</h5>
+                <h5><?= $model->getAttributeLabel('email') ?></h5>
                 <p>
                     <?= Yii::$app->formatter->asEmail($model->email) ?>
                 </p>
@@ -46,7 +46,7 @@ use yii\widgets\LinkPager;
     </div>
     <div class="col-sm-9">
         <div id="profile-entries">
-            <h2>Publicaciones</h2>
+            <h2><?= Yii::t('frontend', 'Publicaciones') ?></h2>
             <?php if ($publicaciones) : ?>
                 <?php foreach ($publicaciones as $value) : ?>
                     <div class="entry">
@@ -60,7 +60,7 @@ use yii\widgets\LinkPager;
             <?php else : ?>
                 <div class="entry">
                     <p>
-                        Este usuario no ha hecho ninguna publicación.
+                        <?= Yii::t('frontend', 'Este usuario no ha hecho ninguna publicación.') ?>
                     </p>
                 </div>
             <?php endif; ?>
