@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'emisor_name')->textInput(['value' => (Yii::$app->request->get('username') ?: '')]) ?>
+    <?= $form->field($model, 'receptor_name')->textInput(['value' => (Yii::$app->request->get('username') ?: '')]) ?>
 
     <?= $form->field($model, 'asunto')->textInput(['maxlength' => true]) ?>
 

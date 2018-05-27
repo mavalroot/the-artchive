@@ -23,7 +23,7 @@ trait Alerts
     {
         if ($model->$prop == Yii::$app->user->id) {
             $model->seen = true;
-            return $model->update();
+            return $model->save();
         }
         return false;
     }

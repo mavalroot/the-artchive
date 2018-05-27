@@ -93,7 +93,7 @@ class MensajesPrivadosController extends Controller
         $model = new MensajesPrivados();
         $model->emisor_id = Yii::$app->user->id;
 
-        $receptor = User::findOne(['username' => Yii::$app->request->post('MensajesPrivados')['emisor_name']]);
+        $receptor = User::findOne(['username' => Yii::$app->request->post('MensajesPrivados')['receptor_name']]);
 
         if ($receptor) {
             $model->receptor_id = $receptor->id;
@@ -125,6 +125,7 @@ class MensajesPrivadosController extends Controller
         }
         if ($mensaje->imReceptor()) {
             $mensaje->del_r = true;
+            $mensaje->seen = true;
             $mensaje->save();
         }
         if ($mensaje->del_r && $mensaje->del_e) {
