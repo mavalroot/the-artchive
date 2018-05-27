@@ -17,7 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Buscar' => 'Search',
+    'Password' => 'Contraseña',
+    'Recordarme' => 'Remember me',
     '(personaje de' => '(character of',
     '(tu personaje) es' => '(your character) is',
     'Acción' => 'Action',
@@ -27,6 +28,7 @@ return [
     'Asunto' => 'Subject',
     'Bloquear' => 'Block',
     'Borrar' => 'Delete',
+    'Buscar' => 'Search',
     'Campo requerido.' => 'Required field.',
     'Contenido' => 'Content',
     'Creado por' => 'Created by',

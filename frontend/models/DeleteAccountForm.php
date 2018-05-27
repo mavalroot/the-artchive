@@ -29,11 +29,23 @@ class DeleteAccountForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'compare', 'compareValue' => (Yii::$app->user->identity->username), 'message' => 'El nombre de usuario no coincide.'],
+            ['username', 'compare', 'compareValue' => (Yii::$app->user->identity->username), 'message' => Yii::t('frontend', 'El nombre de usuario no coincide.')],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             [['personajes', 'publicaciones'], 'string'],
             [['personajes', 'publicaciones'], 'in', 'range' => ['0', '1']],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('frontend', 'Nombre de usuario'),
+            'personajes' => Yii::t('frontend', 'Personajes'),
+            'publicaciones' => Yii::t('frontend', 'Publicaciones'),
         ];
     }
 

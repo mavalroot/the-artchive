@@ -72,14 +72,14 @@ AppAsset::register($this);
                  ],
             ],
         ];
-        $menuItemsRight[] = '<li class="navbar-text"><div id="change-language">
-            <button title="Change language to english" alt="Change language to english" type="button" class="flag-button' . (Yii::$app->language ==  'en-EN' ? ' flag-selected' : '') .
-            '" value="en-EN"><span class="flag-icon flag-icon-gb"></span></button>
-            <button title="Cambiar idioma a español" alt="Cambiar idioma a español"  type="button" class="flag-button' . (Yii::$app->language ==  'es-ES' ? ' flag-selected' : '') . '" value="es-ES">
-                <span class="flag-icon flag-icon-es"></span>
-            </button>
-        </div></li>';
     }
+    $menuItemsRight[] = '<li class="navbar-text"><div id="change-language">
+    <button title="Change language to english" alt="Change language to english" type="button" class="flag-button' . (Yii::$app->language ==  'en-EN' ? ' flag-selected' : '') .
+    '" value="en-EN"><span class="flag-icon flag-icon-gb"></span></button>
+    <button title="Cambiar idioma a español" alt="Cambiar idioma a español"  type="button" class="flag-button' . (Yii::$app->language ==  'es-ES' ? ' flag-selected' : '') . '" value="es-ES">
+    <span class="flag-icon flag-icon-es"></span>
+    </button>
+    </div></li>';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
         'encodeLabels' => false,
@@ -91,22 +91,24 @@ AppAsset::register($this);
         'items' => $menuItemsRight,
     ]);
     ?>
-    <ul id="w1" class="navbar-nav navbar-right nav">
-               <li>
-                  <div class="col-sm-3">
-                     <form role="search" action="/search" method="get">
-                        <div id="sb-nav">
-                           <input class="form-control" placeholder="<?= Yii::t('app', 'Buscar') ?>" name="st" type="text">
-                           <select class="btn hidden-sm" name="src">
-                              <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
-                              <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>
-                           </select>
-                           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                     </form>
-                  </div>
-               </li>
-      </ul>
+    <?php if (!Yii::$app->user->isGuest): ?>
+        <ul id="w1" class="navbar-nav navbar-right nav">
+                   <li>
+                      <div class="col-sm-3">
+                         <form role="search" action="/search" method="get">
+                            <div id="sb-nav">
+                               <input class="form-control" placeholder="<?= Yii::t('app', 'Buscar') ?>" name="st" type="text">
+                               <select class="btn hidden-sm" name="src">
+                                  <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
+                                  <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>
+                               </select>
+                               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                         </form>
+                      </div>
+                   </li>
+          </ul>
+      <?php endif; ?>
     <?php
     NavBar::end();
     ?>
