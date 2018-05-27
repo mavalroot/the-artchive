@@ -45,9 +45,7 @@ class Bloqueos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => Yii::t('app', 'Usuario ID'),
-            'bloqueado_id' => 'Bloqueado ID',
+            
         ];
     }
 

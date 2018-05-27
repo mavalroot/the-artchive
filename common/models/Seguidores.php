@@ -2,8 +2,6 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "seguidores".
  *
@@ -45,9 +43,7 @@ class Seguidores extends \common\utilities\BaseNotis
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => 'User ID',
-            'seguidor_id' => 'Seguidor ID',
+
         ];
     }
 

@@ -31,16 +31,29 @@ class Solicitudes extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
-            [['mensaje', 'usuario_id'], 'required'],
+            [['mensaje', 'usuario_id'], 'required',
+                'message' => Yii::t('app', 'Campo requerido.'),
+            ],
             [['relacion_id'], 'default', 'value' => null],
-            [['relacion_id'], 'integer'],
+            [['relacion_id'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero.')
+            ],
             [['aceptada'], 'boolean'],
             [['aceptada'], 'default', 'value' => false],
             [['respondida'], 'boolean'],
             [['respondida'], 'default', 'value' => false],
             [['relacion_id'], 'unique'],
-            [['relacion_id'], 'exist', 'skipOnError' => true, 'skipOnEmpty' => true, 'targetClass' => Relaciones::className(), 'targetAttribute' => ['relacion_id' => 'id']],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['relacion_id'], 'exist', 'skipOnError' => true,
+                'skipOnEmpty' => true,
+                'targetClass' => Relaciones::className(),
+                'targetAttribute' => ['relacion_id' => 'id'],
+                'message' => Yii::t('app', 'La relación no existe'),
+            ],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.'),
+            ],
         ];
     }
 
@@ -50,10 +63,8 @@ class Solicitudes extends \common\utilities\BaseNotis
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'relacion_id' => 'Relacion ID',
-            'aceptada' => 'Ha sido aceptada',
-            'respondida' => 'Ha sido respondida',
+            'aceptada' => Yii::t('app', 'Ha sido aceptada'),
+            'respondida' => Yii::t('app', 'Ha sido respondida'),
         ];
     }
 
@@ -95,16 +106,20 @@ class Solicitudes extends \common\utilities\BaseNotis
         return $this->nombre;
     }
 
+    /**
+     * Devuelve los botones de la solicitud (aceptar y rechazar)
+     * @return string
+     */
     public function getButtons()
     {
         if (!$this->respondida) {
-            return Html::a('Aceptar', ['aceptar', 'id' => $this->id], [
+            return Html::a(Yii::t('app', 'Aceptar'), ['aceptar', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-success',
                 'data' => [
                     'method' => 'post',
                 ],
             ]) .
-            Html::a('Rechazar', ['rechazar', 'id' => $this->id], [
+            Html::a(Yii::t('app', 'Rechazar'), ['rechazar', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-danger',
                 'data' => [
                     'method' => 'post',
@@ -114,6 +129,12 @@ class Solicitudes extends \common\utilities\BaseNotis
         return;
     }
 
+    /**
+     * Responde a una solicitud.
+     * @param  bool $bool Falso si la respuesta es rechazar y verdadero si es
+     * aceptar.
+     * @return bool
+     */
     public function responder($bool)
     {
         if ($bool) {

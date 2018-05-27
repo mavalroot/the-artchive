@@ -3,13 +3,9 @@
 namespace common\models;
 
 use Yii;
-
 use yii\db\Expression;
 use yii\db\ActiveRecord;
-
-use yii\helpers\Url;
 use yii\helpers\Html;
-
 use common\utilities\Historial;
 
 /**
@@ -54,13 +50,23 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['usuario_id', 'titulo'], 'required'],
+            [['usuario_id', 'titulo'], 'required',
+                'message' => Yii::t('app', 'Campo requerido.')
+            ],
             [['usuario_id'], 'default', 'value' => null],
-            [['usuario_id'], 'integer'],
+            [['usuario_id'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero'),
+            ],
             [['contenido'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['titulo'], 'string', 'max' => 255],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            [['titulo'], 'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.'),
+            ],
+            [['usuario_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['usuario_id' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.'),
+            ],
         ];
     }
 
@@ -70,13 +76,11 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'usuario_id' => 'Usuario ID',
-            'titulo' => 'Título',
-            'contenido' => 'Contenido',
-            'created_at' => 'Fecha de creación',
-            'updated_at' => 'Última actualización',
-            'creator' => 'Creado por'
+            'titulo' => Yii::t('app', 'Título'),
+            'contenido' => Yii::t('app', 'Contenido'),
+            'created_at' => Yii::t('app', 'Fecha de creación'),
+            'updated_at' => Yii::t('app', 'Última actualización'),
+            'creator' => Yii::t('app', 'Creador'),
         ];
     }
 
@@ -124,11 +128,11 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     {
         if ($this->isMine()) : ?>
             <p>
-                <?= Html::a('Modificar', ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
-                <?= Html::a('Borrar', ['delete', 'id' => $this->id], [
+                <?= Html::a(Yii::t('app', 'Modificar'), ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
+                <?= Html::a(Yii::t('app', 'Borrar'), ['delete', 'id' => $this->id], [
                     'class' => 'btn btn-danger',
                     'data' => [
-                        'confirm' => '¿Seguro que desea borrar la publicación? No podrá ser recuperada.',
+                        'confirm' => Yii::t('app', '¿Seguro que desea borrar la publicación? No podrá ser recuperada.'),
                         'method' => 'post',
                     ],
                 ]) ?>

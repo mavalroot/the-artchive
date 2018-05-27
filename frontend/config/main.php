@@ -26,7 +26,7 @@ return [
         'cookieLanguageSelector' => [
             'class' => 'gugglegum\Yii2\Extension\CookieLanguageSelector\Component',
             'defaultLanguage' => 'es-ES',
-            'validLanguages' => ['en-US', 'es-ES'],
+            'validLanguages' => ['en-EN', 'es-ES'],
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',

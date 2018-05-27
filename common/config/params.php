@@ -4,7 +4,7 @@ return [
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
     'languages' => [
-        'en-US',
+        'en-EN',
         'es-ES',
     ]
 ];

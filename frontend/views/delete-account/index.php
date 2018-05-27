@@ -15,7 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="estandar-form">
 
-    <p>Recuerda que eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.<br />
+    <p>
+        <?= Yii::t('frontend/long', 'Recuerda que eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.') ?>
+    <br />
     <b>Esta acción no podrá ser revertida, pero podrás volver a registrarte en un futuro con el mismo nombre.</b></p>
 
             <?php $form = ActiveForm::begin(['action' =>['delete-account/delete']]); ?>

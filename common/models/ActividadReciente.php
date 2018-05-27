@@ -39,12 +39,23 @@ class ActividadReciente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['mensaje', 'created_by'], 'required'],
+            [['mensaje', 'created_by'], 'required',
+                'message' => Yii::t('app', 'Campo requerido.')
+            ],
             [['created_at'], 'safe'],
             [['created_by'], 'default', 'value' => null],
-            [['created_by'], 'integer'],
-            [['mensaje', 'url'], 'string', 'max' => 255],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['created_by'], 'integer',
+                'message' => Yii::t('app', 'Debe ser un número entero.')
+            ],
+            [['mensaje', 'url'], 'string', 'max' => 255,
+                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
+            ],
+            [['created_by'], 'exist',
+                'skipOnError' => true,
+                'targetClass' => User::className(),
+                'targetAttribute' => ['created_by' => 'id'],
+                'message' => Yii::t('app', 'El usuario no existe.')
+            ],
         ];
     }
 
@@ -54,12 +65,11 @@ class ActividadReciente extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'mensaje' => 'Acción',
+            'mensaje' => Yii::t('app', 'Acción'),
             'url' => 'Url',
-            'created_at' => 'Fecha',
-            'created_by' => 'Created By',
-            'creator' => 'Usuario',
+            'created_at' => Yii::t('app', 'Fecha'),
+            'created_by' => Yii::t('app', 'Creado por'),
+            'creator' => Yii::t('app', 'Creador'),
         ];
     }
 

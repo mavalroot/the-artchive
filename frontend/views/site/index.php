@@ -12,9 +12,6 @@ $this->title = 'Artchive';
         <p class="lead">Esta es la portada</p>
     </div>
     <span class="flag-icon flag-icon-es"></span>
-    <?= Html::a('Inglés', ['site/change-language', 'lang' => 'en-US']) ?>
-    <?= Html::a('Español', ['site/change-language', 'lang' => 'es-ES']) ?>
-
     <div class="body-content">
         <?= Yii::t('frontend', 'Hola') ?>
         <br /><br />
@@ -23,7 +20,7 @@ $this->title = 'Artchive';
                 <?= Html::hiddenInput('redirectTo', \yii\helpers\Url::to(Yii::$app->request->url)) ?>
                 <?= Html::beginTag('select', ['name' => 'language', 'onchange' => 'this.form.submit();']) ?>
                 <?= Html::renderSelectOptions(\Yii::$app->language, [
-                    'en-US' => '<span class="flag-icon flag-icon-us"></span> English',
+                    'en-EN' => '<span class="flag-icon flag-icon-en"></span> English',
                     'es-ES' => '<span class="flag-icon flag-icon-es"></span> Español',
                 ]) ?>
                 <?= Html::endTag('select') ?>
