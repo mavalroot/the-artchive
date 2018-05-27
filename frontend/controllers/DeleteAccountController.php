@@ -49,9 +49,9 @@ class DeleteAccountController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->borrarTodo();
             if ($model->desactivarUsuario()) {
-                Yii::$app->getSession()->setFlash('success', 'Se ha dado de baja satisfactoriamente.');
+                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha dado de baja satisfactoriamente.'));
             } else {
-                Yii::$app->getSession()->setFlash('error', 'No se pudo dar de baja.');
+                Yii::$app->getSession()->setFlash('error', Yii::t('frontend', 'No se pudo dar de baja.'));
             }
             return $this->goHome();
         }

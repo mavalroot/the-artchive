@@ -17,6 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    '<em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em>' => '',
+    'Gracias por contactarnos. Responderemos lo más pronto posible.' => 'Thank you for contacting us. We will respond to you as soon as possible.',
+    'Hubo un error enviando tu mensaje.' => 'There was an error sending your message.',
+    'No se pudo dar de baja.' => '',
+    'Responder a:' => '',
+    'Se ha dado de baja satisfactoriamente.' => '',
+    'The requested page does not exist.' => '@@@@',
     'Conectarte' => 'Login',
     'Enviar' => 'Send',
     'Este error ocurrió mientras el servidor procesaba tu respuesta.' => 'The above error occurred while the Web server was processing your request.',

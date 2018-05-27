@@ -111,9 +111,9 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::$app->session->setFlash('success', Yii::t('frontend', 'Gracias por contactarnos. Responderemos lo más pronto posible.'));
             } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Hubo un error enviando tu mensaje.'));
             }
 
             return $this->refresh();
@@ -144,20 +144,20 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                $mensaje = "Para confirmar su cuenta haga click en el siguiente enlace: <a href=\"".Yii::$app->urlManager->createAbsoluteUrl(
+                $mensaje = Yii::t('frontend', 'Para confirmar su cuenta haga click en el siguiente enlace:') . ' <a href="' . Yii::$app->urlManager->createAbsoluteUrl(
                     ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
-                )."\">Confirmación</a>";
+                ).'">' . Yii::t('frontend', 'Confirmación') . '</a>';
                 $email = \Yii::$app->mailer->compose()
                  ->setTo($user->email)
                  ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
-                 ->setSubject('Confirmación de cuenta')
+                 ->setSubject(Yii::t('frontend', 'Confirmación de cuenta'))
                  ->setTextBody($mensaje)
                  ->send();
 
                 if ($email) {
-                    Yii::$app->getSession()->setFlash('success', 'Se ha enviado un correo de confirmación.');
+                    Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
                 } else {
-                    Yii::$app->getSession()->setFlash('warning', 'Ha habido un error, conctacte con el administrador.');
+                    Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
                 }
                 return $this->goHome();
             }
@@ -186,9 +186,9 @@ class SiteController extends Controller
         if (!empty($user)) {
             $user->status=10;
             $user->save();
-            Yii::$app->getSession()->setFlash('success', 'Cuenta activada, puede conectarse.');
+            Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Cuenta activada, puede conectarse.'));
         } else {
-            Yii::$app->getSession()->setFlash('warning', 'No se ha podido activar la cuenta.');
+            Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'No se ha podido activar la cuenta.'));
         }
 
         return $this->goHome();
@@ -204,11 +204,11 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Vea su correo para más información.');
+                Yii::$app->session->setFlash('success', Yii::t('frontend', 'Vea su correo para más información.'));
 
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'Lo siento, no hemos podido enviar un reseteo de contraseña al email facilitado.');
+                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Lo siento, no hemos podido enviar un reseteo de contraseña al email facilitado.'));
             }
         }
 
@@ -233,7 +233,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'Nueva contraseña guardada.');
+            Yii::$app->session->setFlash('success', Yii::t('frontend', 'Nueva contraseña guardada.'));
 
             return $this->goHome();
         }

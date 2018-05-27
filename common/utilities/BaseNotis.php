@@ -2,8 +2,8 @@
 
 namespace common\utilities;
 
+use Yii;
 use yii\helpers\Html;
-
 use common\models\Notificaciones;
 use common\models\TiposNotificaciones;
 
@@ -31,7 +31,7 @@ class BaseNotis extends \common\utilities\ArtchiveBase
     public function getNotificacionContenido()
     {
         $name = $this->getUnName();
-        return "Has recibido $name.";
+        return Yii::t('app', 'Has recibido') . " $name.";
     }
 
     /**
@@ -93,7 +93,7 @@ class BaseNotis extends \common\utilities\ArtchiveBase
         if ($this->isNotificacionSaved() && $insert) {
             $this->createNotificacion();
         }
-        
+
         return true;
     }
 }
