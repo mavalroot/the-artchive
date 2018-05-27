@@ -89,7 +89,7 @@ AppAsset::register($this);
                   <div class="col-sm-3">
                      <form role="search" action="/search" method="get">
                         <div id="sb-nav">
-                           <input class="form-control" placeholder="Buscar" name="st" type="text">
+                           <input class="form-control" placeholder="<?= Yii::t('app', 'Buscar') ?>" name="st" type="text">
                            <select class="btn hidden-sm" name="src">
                               <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
                               <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>

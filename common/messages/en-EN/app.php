@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Buscar' => 'Search',
     '(personaje de' => '(character of',
     '(tu personaje) es' => '(your character) is',
     'Acción' => 'Action',
@@ -55,6 +56,7 @@ return [
     'Hechos destacables' => 'Highlights',
     'Historia' => 'Story',
     'La publicación no existe.' => 'This publication doesn\'t exist.',
+    'La página requerida no existe.' => 'The requested page does not exist.',
     'La relación no existe' => 'This relationship doesn\'t exist.',
     'La relación no existe.' => 'This relationship doesn\'t exist.',
     'Mandar MP' => 'Send PM',
@@ -63,6 +65,7 @@ return [
     'No puede superar los 255 carácteres.' => 'It can not exceed 255 characters.',
     'Nombre' => 'Name',
     'Nombre de usuario' => 'Username',
+    'Nombre de usuario o contraseña incorrecta.' => 'Incorrect username or password.',
     'Notificación' => 'Alert',
     'Personaje anónimo' => 'Anonymous character',
     'Personaje existente' => 'Existing character',
@@ -93,6 +96,4 @@ return [
     '¿Seguro que desea borrar el personaje? No podrá ser recuperado.' => 'Are you sure you want to delete your character? It can not be recovered.',
     '¿Seguro que desea borrar la publicación? No podrá ser recuperada.' => 'Are you sure you want to delete your publication? It can not be recovered.',
     'Última actualización' => 'Last update',
-    'La página requerida no existe.' => 'The requested page does not exist.',
-    'Nombre de usuario o contraseña incorrecta.' => 'Incorrect username or password.',
 ];
