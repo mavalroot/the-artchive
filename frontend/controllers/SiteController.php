@@ -249,6 +249,8 @@ class SiteController extends Controller
     public function actionSwitchLanguage()
     {
         Yii::$app->cookieLanguageSelector->setLanguage(Yii::$app->request->post('language'));
-        $this->redirect(Yii::$app->request->post('redirectTo', ['site/index']));
+        if (!Yii::$app->request->isAjax) {
+            $this->redirect(Yii::$app->request->post('redirectTo', ['site/index']));
+        }
     }
 }

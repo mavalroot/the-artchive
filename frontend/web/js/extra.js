@@ -20,10 +20,10 @@ function refresh(selector, data) {
 }
 
 $(document).ready(function() {
-    $('#existente').on('click', function() {
-        alert('hello');
-        $.get('/relaciones/_existente.php', {}, function (data) {
-            $(data).appendTo('#contenido-relacion');
-        });
+    $('#change-language button').on('click', function() {
+      let value = $(this).val();
+      $.post('site/switch-language', {language: value}, function(data) {
+        location.reload();
+      });
     });
 });
