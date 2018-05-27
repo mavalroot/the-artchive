@@ -22,7 +22,7 @@ function refresh(selector, data) {
 $(document).ready(function() {
     $('#change-language button').on('click', function() {
       let value = $(this).val();
-      $.post('site/switch-language', {language: value}, function(data) {
+      $.post('/site/switch-language', {language: value}, function(data) {
         location.reload();
       });
     });
