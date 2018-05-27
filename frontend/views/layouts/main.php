@@ -73,9 +73,9 @@ AppAsset::register($this);
             ],
         ];
         $menuItemsRight[] = '<li class="navbar-text"><div id="change-language">
-            <button type="button" class="flag-button' . (Yii::$app->language ==  'en-EN' ? ' flag-selected' : '') .
+            <button title="Change language to english" alt="Change language to english" type="button" class="flag-button' . (Yii::$app->language ==  'en-EN' ? ' flag-selected' : '') .
             '" value="en-EN"><span class="flag-icon flag-icon-gb"></span></button>
-            <button type="button" class="flag-button' . (Yii::$app->language ==  'es-ES' ? ' flag-selected' : '') . '" value="es-ES">
+            <button title="Cambiar idioma a español" alt="Cambiar idioma a español"  type="button" class="flag-button' . (Yii::$app->language ==  'es-ES' ? ' flag-selected' : '') . '" value="es-ES">
                 <span class="flag-icon flag-icon-es"></span>
             </button>
         </div></li>';

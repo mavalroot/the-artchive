@@ -1,7 +1,5 @@
 <?php
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 $this->title = 'Artchive';
 ?>
@@ -12,30 +10,6 @@ $this->title = 'Artchive';
     </div>
 
     <div class="body-content">
-        <?= Yii::t('frontend', 'Hola') ?>
-        <br /><br />
-        <?= Html::beginForm(['site/switch-language'], 'post') ?>
-        <?= Html::hiddenInput('redirectTo', \yii\helpers\Url::to(Yii::$app->request->url)) ?>
-        <?= Html::beginTag('select', ['name' => 'language', 'onchange' => 'this.form.submit();']) ?>
-        <?= Html::renderSelectOptions(\Yii::$app->language, [
-            'en-EN' => '<span class="flag-icon flag-icon-en"></span> English',
-            'es-ES' => '<span class="flag-icon flag-icon-es"></span> Español',
-            ]) ?>
-            <?= Html::endTag('select') ?>
-            <?= Html::endForm() ?>
-        <div id="change-language">
-            <button type="button" class="flag-button<?= Yii::$app->language ==  'en-EN' ? ' flag-selected' : '' ?>" value="en-EN">
-                <span class="flag-icon flag-icon-gb"></span>
-            </button>
-            <button type="button" class="flag-button <?= Yii::$app->language ==  'es-ES' ? ' flag-selected' : '' ?>" value="es-ES">
-                <span class="flag-icon flag-icon-es"></span>
-            </button>
-        </div>
-
-
-
-       <p>Current language is <?= Html::encode(\Yii::$app->language) ?> </p>
-
         <div class="row">
             <div class="col-lg-4">
                 <h2>Aquí podrían ir publicaciones recientes...</h2>
