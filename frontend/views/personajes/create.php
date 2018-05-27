@@ -5,8 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
 
-$this->title = 'Crear personaje';
-// $this->params['breadcrumbs'][] = ['label' => 'Personajes', 'url' => ['index']];
+$this->title = Yii::t('frontend', 'Crear personaje');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="estandar-action">

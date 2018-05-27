@@ -20,7 +20,7 @@ $custom = [
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
-    <label>Contenido</label>
+    <label><?= Yii::t('frontend', 'Contenido') ?></label>
     <?= MarkdownEditor::widget([
         'model' => $model,
         'attribute' => 'contenido',

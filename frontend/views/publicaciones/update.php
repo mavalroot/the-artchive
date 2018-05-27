@@ -7,10 +7,10 @@ use yii\helpers\Html;
 
 $owner = $model->getUsuario()->one()->username;
 
-$this->title = 'Modificar publicación: ' . $model->titulo;
+$this->title = Yii::t('frontend', 'Modificar publicación:') . ' ' . $model->titulo;
 $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
-$this->params['breadcrumbs'][] = ['label' => 'Publicaciones de ' . $owner, 'url' => ['index', 'username' => $owner]];
-$this->params['breadcrumbs'][] = 'Modificar';
+$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Publicaciones de') . ' ' . $owner, 'url' => ['index', 'username' => $owner]];
+$this->params['breadcrumbs'][] = Yii::t('frontend', 'Modificar');
 ?>
 <div class="estandar-action">
 

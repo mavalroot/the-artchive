@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\MensajesPrivadosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Mensajes enviados';
+$this->title = Yii::t('frontend', 'Mensajes enviados');
 $this->params['breadcrumbs'][] = ['label' => 'Inbox', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>
-        <?= Html::a('Enviar mensaje privado', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Volver al Inbox', ['index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a(Yii::t('frontend', 'Enviar mensaje privado'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('frontend', 'Volver al Inbox'), ['index'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= GridView::widget([
@@ -33,9 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getUrl($model->asunto);
                 }
             ],
-            // 'contenido:ntext',
-            //'visto:boolean',
-            //'seen:boolean',
             'created_at:datetime',
             ['class' => 'yii\grid\ActionColumn', 'template'=> ' {delete}'],
         ],

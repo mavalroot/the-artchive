@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Darse de baja';
+$this->title = Yii::t('frontend', 'Darse de baja');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="estandar-action">
@@ -18,20 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Yii::t('frontend/long', 'Recuerda que eliminar tu cuenta significa la desaparición de todos tus datos, así como de tus publicaciones y personajes en caso de que así lo desees. En ningún caso se borrarán los comentarios que hiciste en otras publicaciones, pero tranquilo, tu nombre de usuario no se verá implicado.') ?>
     <br />
-    <b>Esta acción no podrá ser revertida, pero podrás volver a registrarte en un futuro con el mismo nombre.</b></p>
+    <b><?= Yii::t('frontend/long', 'Esta acción no podrá ser revertida, pero podrás volver a registrarte en un futuro con el mismo nombre.') ?></b></p>
 
             <?php $form = ActiveForm::begin(['action' =>['delete-account/delete']]); ?>
                 <p>
                     <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                 </p>
-                <p>Puedes elegir borrar completamente tus personajes y publicaciones, o dejarlas en The Artchive (tu nombre de usuario no se verá implicado).</p>
                 <p>
-                    <?= $form->field($model, 'personajes')->checkbox(['label' => 'Eliminar personajes']) ?>
-                    <?= $form->field($model, 'publicaciones')->checkbox(['label' => 'Eliminar publicaciones']) ?>
+                    <?= Yii::t('frontend/long', 'Puedes elegir borrar completamente tus personajes y publicaciones, o dejarlas en The Artchive (tu nombre de usuario no se verá implicado.') ?>
+                </p>
+                <p>
+                    <?= $form->field($model, 'personajes')->checkbox(['label' => Yii::t('frontend', 'Eliminar personajes')]) ?>
+                    <?= $form->field($model, 'publicaciones')->checkbox(['label' => Yii::t('frontend', 'Eliminar publicaciones')]) ?>
                 </p>
 
                 <div class="form-group text-center">
-                    <?= Html::submitButton('Darme de baja', ['class' => 'btn btn-danger']) ?>
+                    <?= Html::submitButton(Yii::t('frontend', 'Darme de baja'), ['class' => 'btn btn-danger']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
