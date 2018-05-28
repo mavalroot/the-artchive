@@ -33,7 +33,7 @@ class DeleteAccountController extends Controller
     public function actionIndex()
     {
         $model = new DeleteAccountForm();
-
+        $this->layout = 'secondary';
         return $this->render('index', [
             'model' => $model,
         ]);
