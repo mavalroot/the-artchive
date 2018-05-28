@@ -24,7 +24,16 @@ $this->params['breadcrumbs'][] = Yii::t('frontend', 'Modificar');
             Esta acción no podrá ser revertida, así que considéralo sólo cuando estés completamente seguro de que ya no quieres seguir en The Artchive.') ?>
         </p>
         <div class="text-center">
-            <?= Html::a(Yii::t('frontend', 'Quiero darme de baja'), ['delete-account/index'], ['class' => 'btn btn-danger']); ?>
+            <?= Html::a(Yii::t('frontend', 'Quiero darme de baja'), ['delete-account/index', 'primary' => true], ['class' => 'btn btn-danger', 'id' => 'delete-account']); ?>
         </div>
     </div>
 </div>
+
+<?php
+$isMobile = preg_match('/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i', $_SERVER['HTTP_USER_AGENT']);
+if (!$isMobile) {
+    $js = <<< JS
+    deleteAccount()
+JS;
+    $this->registerJs($js);
+}

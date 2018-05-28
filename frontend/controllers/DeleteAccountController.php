@@ -32,8 +32,10 @@ class DeleteAccountController extends Controller
      */
     public function actionIndex()
     {
+        if (!Yii::$app->request->get('primary')) {
+            $this->layout = 'secondary';
+        }
         $model = new DeleteAccountForm();
-
         return $this->render('index', [
             'model' => $model,
         ]);
