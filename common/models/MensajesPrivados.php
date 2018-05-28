@@ -53,7 +53,7 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required',
+            [['emisor_id', 'receptor_name', 'receptor_id', 'asunto', 'contenido'], 'required',
                 'message' => Yii::t('app', 'Campo requerido.')
             ],
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
