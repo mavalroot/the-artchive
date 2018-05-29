@@ -4,6 +4,11 @@ namespace common\models;
 
 use Yii;
 
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+
+use yii\behaviors\BlameableBehavior;
+
 /**
  * This is the model class for table "sugerencias_traducciones".
  *
@@ -56,6 +61,19 @@ class SugerenciasTraducciones extends \yii\db\ActiveRecord
             'respuesta' => Yii::t('app', 'Respuesta'),
             'created_by' => Yii::t('app', 'Created By'),
             'created_at' => Yii::t('app', 'Created At'),
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'value' => new Expression('NOW()'),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                ],
+            ],
         ];
     }
 

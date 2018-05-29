@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\SugerenciasTraducciones;
 use common\models\SugerenciasTraduccionesSearch;
 use yii\web\Controller;
@@ -14,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class SugerenciasTraduccionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */
@@ -24,6 +27,12 @@ class SugerenciasTraduccionesController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];
@@ -37,6 +46,8 @@ class SugerenciasTraduccionesController extends Controller
     {
         $searchModel = new SugerenciasTraduccionesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $dataProvider->query->where(['created_by' => Yii::$app->user->id]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -65,7 +76,7 @@ class SugerenciasTraduccionesController extends Controller
     public function actionCreate()
     {
         $model = new SugerenciasTraducciones();
-
+        $model->created_by = Yii::$app->user->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -73,40 +84,6 @@ class SugerenciasTraduccionesController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Updates an existing SugerenciasTraducciones model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing SugerenciasTraducciones model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**
