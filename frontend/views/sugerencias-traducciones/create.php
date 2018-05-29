@@ -2,15 +2,14 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model common\models\SugerenciasTraducciones */
 
-$this->title = Yii::t('app', 'Create Sugerencias Traducciones');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sugerencias Traducciones'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Crear nueva sugerencia de traducción');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mis sugerencias'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sugerencias-traducciones-create">
+<div class="estandar-action">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

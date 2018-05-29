@@ -126,7 +126,7 @@ AppAsset::register($this);
 <footer id="myFooter">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <h2 class="logo"><a href="/"> THE ARTCHIVE </a></h2>
             </div>
 
@@ -134,16 +134,8 @@ AppAsset::register($this);
                 <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
                 <ul>
                     <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
+                    <li><a href="#"><?= Yii::t('frontend', 'Sobre The Artchive') ?></a></li>
                     <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
-                    <li><a href="#"><?= Yii::t('frontend', 'Funcionamiento') ?></a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5><?= Yii::t('frontend', 'Colabora') ?></h5>
-                <ul>
-                    <li><a href="#"><?= Yii::t('frontend', 'Sugerencias en general') ?></a></li>
-                    <li><a href="#"><?= Yii::t('frontend', 'Sugerencias de traducción') ?></a></li>
-                    <li><a href="#"><?= Yii::t('frontend', 'Proponer rasgos al azar') ?></a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -152,6 +144,8 @@ AppAsset::register($this);
                     <li><a href="#"><?= Yii::t('frontend', 'Foro') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Términos y condiciones de uso') ?></a></li>
+                    <li><a href="/sugerencias-traducciones/create"><?= Yii::t('frontend', 'Sugiere una traducción') ?></a></li>
+                    <li><a href="/sugerencias-traducciones/index"><?= Yii::t('frontend', 'Tus sugerencias') ?></a></li>
                 </ul>
             </div>
         </div>
