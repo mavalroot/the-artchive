@@ -19,12 +19,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',
-            'creator',
+            [
+                'attribute' => 'creator',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return $model->getUrlCreator();
+                }
+            ],
+            [
+                'attribute' => 'referencia',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return $model->getUrl();
+                }
+            ],
             'referencia',
             'estado',
             'created_at:datetime',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

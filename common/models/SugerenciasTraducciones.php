@@ -88,4 +88,9 @@ class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
+
+    public function getDataName()
+    {
+        return 'referencia';
+    }
 }

@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+use kartik\select2\Select2;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\SugerenciasTraduccionesSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -15,25 +17,30 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'id') ?>
+        </div>
+        <div class="col-sm-6">
+            <?= $form->field($model, 'creator') ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'contenido') ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'referencia') ?>
+        </div>
+        <div class="col-sm-6">
+            <?= $form->field($model, 'estado')->widget(Select2::classname(), [
+                'data' => ['En revisión' => 'En revisión', 'Aceptada' => 'Aceptada', 'Rechazada' => 'Rechazada'],
+                'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
+            ]); ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'referencia') ?>
-
-    <?= $form->field($model, 'estado') ?>
-    
-    <?= $form->field($model, 'creator') ?>
-
-    <?= $form->field($model, 'respuesta') ?>
-
-    <?php // echo $form->field($model, 'created_by')?>
-
-    <?php // echo $form->field($model, 'created_at')?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+    <div class="form-group text-center">
+        <?= Html::submitButton(Yii::t('app', 'Buscar'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Borrar'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
