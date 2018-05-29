@@ -6,7 +6,6 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
-use common\utilities\Historial;
 
 /**
  * This is the model class for table "publicaciones".
@@ -23,7 +22,6 @@ use common\utilities\Historial;
  */
 class Publicaciones extends \common\utilities\ArtchiveBase
 {
-    use Historial;
     /**
      * Creador de la publicación.
      * @var string

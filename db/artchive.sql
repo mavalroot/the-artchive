@@ -322,6 +322,22 @@ CREATE TABLE bloqueos (
     , CONSTRAINT not_block_yourself CHECK (usuario_id != bloqueado_id)
 );
 
+------------------------------
+-- SUGERENCIA DE TRADUCCIÓN --
+------------------------------
+DROP TABLE IF EXISTS reportes CASCADE;
+
+CREATE TABLE reportes (
+      id bigserial PRIMARY KEY
+    , contenido text NOT NULL
+    , tipo varchar(255) NOT NULL
+    , referencia varchar(255) NOT NULL
+    , estado varchar(255) DEFAULT 'En revisión'
+    , respuesta varchar(255)
+    , created_by bigint NOT NULL REFERENCES "user"
+    , created_at timestamp(0) DEFAULT localtimestamp
+);
+
 ------------
 -- VISTAS --
 ------------

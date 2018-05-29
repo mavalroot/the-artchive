@@ -786,7 +786,7 @@
 
 | **R88**     | **Sugerir traducción**           |
 | --------------: | :------------------- |
-| **Descripción** | La aplicación permitirá enviar sugerencias de traducciones, o correcciones de traducciones ya existentes a través de un formulario.             |
+| **Descripción** | La aplicación permitirá enviar reportes de traducciones, o correcciones de traducciones ya existentes a través de un formulario.             |
 | **Prioridad**   | Mínimo           |
 | **Tipo**        | Funcional                |
 | **Complejidad** | Fácil         |
@@ -865,7 +865,7 @@
 | **Entrega**     | v3             |
 | **Incidencia**  | [96](https://github.com/mavalroot/the-artchive/issues/96) |
 
-| **R97**     | **Info. Sugerencias de traducción**           |
+| **R97**     | **Info. Reportes**           |
 | --------------: | :------------------- |
 | **Descripción** | Se almacenará, como mínimo: el nombre del emisor, el contenido y  la fecha.             |
 | **Prioridad**   | Importante           |
@@ -975,4 +975,4 @@
 | (**R94**) Info. Comentarios | Importante | Información | Fácil | v2 | [94](https://github.com/mavalroot/the-artchive/issues/94) |
 | (**R95**) Info. Publicaciones | Importante | Información | Fácil | v2 | [95](https://github.com/mavalroot/the-artchive/issues/95) |
 | (**R96**) Info. Árbol genealógico | Importante | Información | Fácil | v3 | [96](https://github.com/mavalroot/the-artchive/issues/96) |
-| (**R97**) Info. Sugerencias de traducción | Importante | Información | Fácil | v3 | [97](https://github.com/mavalroot/the-artchive/issues/97) |
+| (**R97**) Info. Reportes | Importante | Información | Fácil | v3 | [97](https://github.com/mavalroot/the-artchive/issues/97) |

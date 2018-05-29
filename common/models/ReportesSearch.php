@@ -2,30 +2,30 @@
 
 namespace common\models;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Publicaciones;
+use common\models\Reportes;
 
 /**
- * PublicacionesSearch represents the model behind the search form of `common\models\Publicaciones`.
+ * ReportesSearch represents the model behind the search form of `common\models\Reportes`.
  */
-class PublicacionesSearch extends Publicaciones
+class ReportesSearch extends Reportes
 {
     public $creator;
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'usuario_id'], 'integer'],
-            [['titulo', 'contenido', 'created_at', 'updated_at', 'creator'], 'safe'],
+            [['id', 'created_by'], 'integer'],
+            [['contenido', 'tipo', 'referencia', 'estado', 'respuesta', 'created_at', 'creator'], 'safe'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -42,8 +42,7 @@ class PublicacionesSearch extends Publicaciones
      */
     public function search($params)
     {
-        $query = Publicaciones::find()->select('publicaciones.*, user.username as creator')->joinWith('usuario');
-
+        $query = Reportes::find()->select('reportes.*, user.username as creator')->joinWith('createdBy');
 
         // add conditions that should always apply here
 
@@ -67,13 +66,15 @@ class PublicacionesSearch extends Publicaciones
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'usuario_id' => $this->usuario_id,
+            'created_by' => $this->created_by,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['ilike', 'titulo', $this->titulo])
-            ->andFilterWhere(['ilike', 'contenido', $this->contenido])
+        $query->andFilterWhere(['ilike', 'contenido', $this->contenido])
+            ->andFilterWhere(['ilike', 'tipo', $this->tipo])
+            ->andFilterWhere(['ilike', 'referencia', $this->referencia])
+            ->andFilterWhere(['ilike', 'estado', $this->estado])
+            ->andFilterWhere(['ilike', 'respuesta', $this->respuesta])
             ->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
