@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\SugerenciasTraducciones */
 
-$this->title = $model->id;
+$this->title = $model->referencia;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sugerencias Traducciones'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
