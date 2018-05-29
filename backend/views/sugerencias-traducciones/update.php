@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\SugerenciasTraducciones */
 
-$this->title = Yii::t('app', 'Update Sugerencias Traducciones: ' . $model->id, [
+$this->title = Yii::t('app', 'Responder sugerencia: ' . $model->referencia, [
     'nameAttribute' => '' . $model->id,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sugerencias Traducciones'), 'url' => ['index']];

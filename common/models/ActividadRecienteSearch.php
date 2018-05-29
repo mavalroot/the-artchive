@@ -19,7 +19,7 @@ class ActividadRecienteSearch extends ActividadReciente
     {
         return [
             [['id', 'created_by'], 'integer'],
-            [['mensaje', 'url', 'created_at', 'creator'], 'safe'],
+            [['mensaje', 'url', 'created_at', 'creator', 'creator'], 'safe'],
         ];
     }
 
@@ -71,7 +71,8 @@ class ActividadRecienteSearch extends ActividadReciente
         ]);
 
         $query->andFilterWhere(['ilike', 'mensaje', $this->mensaje])
-            ->andFilterWhere(['ilike', 'url', $this->url]);
+            ->andFilterWhere(['ilike', 'url', $this->url])
+            ->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
     }

@@ -11,6 +11,8 @@ use common\models\Publicaciones;
  */
 class PublicacionesSearch extends Publicaciones
 {
+    public $creator;
+
     /**
      * @inheritdoc
      */
@@ -71,7 +73,8 @@ class PublicacionesSearch extends Publicaciones
         ]);
 
         $query->andFilterWhere(['ilike', 'titulo', $this->titulo])
-            ->andFilterWhere(['ilike', 'contenido', $this->contenido]);
+            ->andFilterWhere(['ilike', 'contenido', $this->contenido])
+            ->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
     }

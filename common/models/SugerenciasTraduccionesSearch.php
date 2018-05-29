@@ -12,6 +12,7 @@ use common\models\SugerenciasTraducciones;
  */
 class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
 {
+    public $creator;
     /**
      * {@inheritdoc}
      */
@@ -19,7 +20,7 @@ class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
     {
         return [
             [['id', 'created_by'], 'integer'],
-            [['contenido', 'referencia', 'estado', 'respuesta', 'created_at'], 'safe'],
+            [['contenido', 'referencia', 'estado', 'respuesta', 'created_at', 'creator'], 'safe'],
         ];
     }
 
@@ -41,7 +42,7 @@ class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
      */
     public function search($params)
     {
-        $query = SugerenciasTraducciones::find();
+        $query = SugerenciasTraducciones::find()->select('sugerencias_traducciones.*, user.username as creator')->joinWith('createdBy');
 
         // add conditions that should always apply here
 
@@ -57,6 +58,11 @@ class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
             return $dataProvider;
         }
 
+        $dataProvider->sort->attributes['creator'] = [
+            'asc' => ['creator' => SORT_ASC],
+            'desc' => ['creator' => SORT_DESC],
+        ];
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -67,7 +73,8 @@ class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
         $query->andFilterWhere(['ilike', 'contenido', $this->contenido])
             ->andFilterWhere(['ilike', 'referencia', $this->referencia])
             ->andFilterWhere(['ilike', 'estado', $this->estado])
-            ->andFilterWhere(['ilike', 'respuesta', $this->respuesta]);
+            ->andFilterWhere(['ilike', 'respuesta', $this->respuesta])
+            ->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
     }

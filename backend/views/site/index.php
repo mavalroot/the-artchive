@@ -123,7 +123,14 @@ $this->title = 'My Yii Application';
         </div>
         <div class="row">
             <h2>Otras gestiones:</h2>
-            <a href="">Gestionar baneos</a>
+            <ul>
+                <li>
+                <a href="/sugerencias-traducciones/index">Sugerencias de traducción</a>
+                </li>
+                <li>
+                    <a href="">Gestionar baneos</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

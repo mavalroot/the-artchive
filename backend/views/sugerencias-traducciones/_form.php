@@ -16,6 +16,7 @@ use kartik\select2\Select2;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'id',
             'referencia',
             'contenido:ntext',
             'estado',
@@ -33,7 +34,7 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'respuesta')->textarea(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Responder'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

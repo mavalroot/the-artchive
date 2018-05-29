@@ -7,8 +7,6 @@ use Yii;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
 
-use yii\behaviors\BlameableBehavior;
-
 /**
  * This is the model class for table "sugerencias_traducciones".
  *
@@ -22,8 +20,14 @@ use yii\behaviors\BlameableBehavior;
  *
  * @property User $createdBy
  */
-class SugerenciasTraducciones extends \yii\db\ActiveRecord
+class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
 {
+    /**
+     * Creador de la sugerencia.
+     * @var string
+     */
+    public $creator;
+
     /**
      * {@inheritdoc}
      */
@@ -42,7 +46,7 @@ class SugerenciasTraducciones extends \yii\db\ActiveRecord
             [['contenido'], 'string'],
             [['created_by'], 'default', 'value' => null],
             [['created_by'], 'integer'],
-            [['created_at'], 'safe'],
+            [['created_at', 'creator'], 'safe'],
             [['referencia', 'estado', 'respuesta'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
