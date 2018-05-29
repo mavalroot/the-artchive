@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  *
  * @property User $createdBy
  */
-class Reportes extends \common\utilities\ArtchiveBase
+class Reportes extends \common\utilities\BaseNotis
 {
     /**
      * Creador de la sugerencia.
@@ -113,5 +113,15 @@ class Reportes extends \common\utilities\ArtchiveBase
             'Rechazado' => 'Rechazado',
             'Solucionado' => 'Solucionado',
         ];
+    }
+
+    public function getUnName()
+    {
+        return Yii::t('app', 'un reporte');
+    }
+
+    public function getNotificacionReceptor()
+    {
+        return $this->created_by;
     }
 }
