@@ -322,6 +322,19 @@ CREATE TABLE bloqueos (
     , CONSTRAINT not_block_yourself CHECK (usuario_id != bloqueado_id)
 );
 
+------------------------------
+-- SUGERENCIA DE TRADUCCIÓN --
+------------------------------
+DROP TABLE IF EXISTS sugerencias_traducciones CASCADE;
+
+CREATE TABLE sugerencias_traducciones (
+      id bigserial PRIMARY KEY
+    , contenido text NOT NULL
+    , referencia varchar(255) NOT NULL
+    , created_by bigint NOT NULL REFERENCES "user"
+    , created_at timestamp(0) DEFAULT localtimestamp
+);
+
 ------------
 -- VISTAS --
 ------------
