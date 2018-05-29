@@ -48,7 +48,7 @@ use yii\widgets\LinkPager;
 
     <form name="nuevo-comentario" method="post">
         <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
-        <textarea name="contenido" class="form-control" rows="5"></textarea>
+        <textarea name="contenido" class="form-control" rows="5" maxlength="250"></textarea>
         <input type="submit" class="btn btn-success" value="<?= Yii::t('frontend', 'Enviar')?>">
     </form>
     <p id="error" class="text-danger"></p>
@@ -63,6 +63,15 @@ $js = <<< JS
 publicar("$crear");
 responder("$responder");
 eliminar("$eliminar");
+
+$('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
+    $('textarea[name="contenido"]').remainingCharacters({
+        label: {
+            tag: 'p',
+            id: 'char-counter',
+        },
+    });
+});
 JS;
 
 $this->registerJs($js);
