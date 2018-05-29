@@ -331,6 +331,8 @@ CREATE TABLE sugerencias_traducciones (
       id bigserial PRIMARY KEY
     , contenido text NOT NULL
     , referencia varchar(255) NOT NULL
+    , estado varchar(255)
+    , respuesta varchar(255)
     , created_by bigint NOT NULL REFERENCES "user"
     , created_at timestamp(0) DEFAULT localtimestamp
 );
