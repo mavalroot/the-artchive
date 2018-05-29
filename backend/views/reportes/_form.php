@@ -27,7 +27,7 @@ use kartik\select2\Select2;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'estado')->widget(Select2::classname(), [
-        'data' => ['En revisión' => 'En revisión', 'Aceptada' => 'Aceptar', 'Rechazada' => 'Rechazar'],
+        'data' => $model->getEstados(),
         'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
     ]); ?>
 

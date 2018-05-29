@@ -20,7 +20,7 @@ class ReportesSearch extends Reportes
     {
         return [
             [['id', 'created_by'], 'integer'],
-            [['contenido', 'referencia', 'estado', 'respuesta', 'created_at', 'creator'], 'safe'],
+            [['contenido', 'tipo', 'referencia', 'estado', 'respuesta', 'created_at', 'creator'], 'safe'],
         ];
     }
 
@@ -42,7 +42,7 @@ class ReportesSearch extends Reportes
      */
     public function search($params)
     {
-        $query = Reportes::find()->select('reportes_traducciones.*, user.username as creator')->joinWith('createdBy');
+        $query = Reportes::find()->select('reportes.*, user.username as creator')->joinWith('createdBy');
 
         // add conditions that should always apply here
 
@@ -71,6 +71,7 @@ class ReportesSearch extends Reportes
         ]);
 
         $query->andFilterWhere(['ilike', 'contenido', $this->contenido])
+            ->andFilterWhere(['ilike', 'tipo', $this->tipo])
             ->andFilterWhere(['ilike', 'referencia', $this->referencia])
             ->andFilterWhere(['ilike', 'estado', $this->estado])
             ->andFilterWhere(['ilike', 'respuesta', $this->respuesta])

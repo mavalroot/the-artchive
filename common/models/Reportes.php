@@ -8,7 +8,7 @@ use yii\db\Expression;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "reportes_traducciones".
+ * This is the model class for table "reportes".
  *
  * @property int $id
  * @property string $contenido

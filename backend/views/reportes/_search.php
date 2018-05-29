@@ -6,11 +6,11 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SugerenciasSearch */
+/* @var $model common\models\ReportesSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="sugerencias-search">
+<div class="reportes-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -19,7 +19,10 @@ use kartik\select2\Select2;
 
     <div class="row">
         <div class="col-sm-6">
-            <?= $form->field($model, 'id') ?>
+            <?= $form->field($model, 'tipo')->widget(Select2::classname(), [
+                'data' => $model->getTipos(),
+                'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
+            ]); ?>
         </div>
         <div class="col-sm-6">
             <?= $form->field($model, 'creator') ?>
