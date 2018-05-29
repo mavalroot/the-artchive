@@ -141,7 +141,7 @@ AppAsset::register($this);
             <div class="col-sm-3">
                 <h5><?= Yii::t('frontend', 'Soporte') ?></h5>
                 <ul>
-                    <li><a href="#"><?= Yii::t('frontend', 'Foro') ?></a></li>
+                    <li><a href="/podium/home"><?= Yii::t('frontend', 'Foro') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Términos y condiciones de uso') ?></a></li>
                     <li><a href="/sugerencias-traducciones/create"><?= Yii::t('frontend', 'Sugiere una traducción') ?></a></li>
