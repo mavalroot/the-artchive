@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\widgets\DetailView;
+
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SugerenciasTraducciones */
@@ -10,19 +13,24 @@ use yii\widgets\ActiveForm;
 
 <div class="sugerencias-traducciones-form">
 
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'referencia',
+            'contenido:ntext',
+            'estado',
+            'created_at:datetime',
+        ],
+    ]) ?>
+    <h3>Actualizar</h3>
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'contenido')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'estado')->widget(Select2::classname(), [
+        'data' => ['En revisión' => 'En revisión', 'Aceptada' => 'Aceptar', 'Rechazada' => 'Rechazar'],
+        'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
+    ]); ?>
 
-    <?= $form->field($model, 'referencia')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'respuesta')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'respuesta')->textarea(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

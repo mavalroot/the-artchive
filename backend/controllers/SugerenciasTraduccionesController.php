@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\SugerenciasTraducciones;
 use common\models\SugerenciasTraduccionesSearch;
 use yii\web\Controller;
@@ -14,18 +16,20 @@ use yii\filters\VerbFilter;
  */
 class SugerenciasTraduccionesController extends Controller
 {
+    use \common\utilities\Permisos;
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeAdmin(['index', 'view', 'update', 'delete']),
                 ],
             ],
+            'verbs' => $this->paramByPost(['delete']),
         ];
     }
 
@@ -54,24 +58,6 @@ class SugerenciasTraduccionesController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new SugerenciasTraducciones model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new SugerenciasTraducciones();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
         ]);
     }
 
