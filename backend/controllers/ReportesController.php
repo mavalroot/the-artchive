@@ -5,16 +5,16 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 
-use common\models\SugerenciasTraducciones;
-use common\models\SugerenciasTraduccionesSearch;
+use common\models\Reportes;
+use common\models\ReportesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SugerenciasTraduccionesController implements the CRUD actions for SugerenciasTraducciones model.
+ * ReportesController implements the CRUD actions for Reportes model.
  */
-class SugerenciasTraduccionesController extends Controller
+class ReportesController extends Controller
 {
     use \common\utilities\Permisos;
     /**
@@ -34,12 +34,12 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Lists all SugerenciasTraducciones models.
+     * Lists all Reportes models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SugerenciasTraduccionesSearch();
+        $searchModel = new ReportesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +49,7 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Displays a single SugerenciasTraducciones model.
+     * Displays a single Reportes model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,7 +62,7 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Updates an existing SugerenciasTraducciones model.
+     * Updates an existing Reportes model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Deletes an existing SugerenciasTraducciones model.
+     * Deletes an existing Reportes model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -96,15 +96,15 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Finds the SugerenciasTraducciones model based on its primary key value.
+     * Finds the Reportes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SugerenciasTraducciones the loaded model
+     * @return Reportes the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SugerenciasTraducciones::findOne($id)) !== null) {
+        if (($model = Reportes::findOne($id)) !== null) {
             return $model;
         }
 

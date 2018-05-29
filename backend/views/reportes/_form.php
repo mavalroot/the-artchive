@@ -7,11 +7,11 @@ use yii\widgets\DetailView;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SugerenciasTraducciones */
+/* @var $model common\models\Reportes */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="sugerencias-traducciones-form">
+<div class="reportes-form">
 
     <?= DetailView::widget([
         'model' => $model,

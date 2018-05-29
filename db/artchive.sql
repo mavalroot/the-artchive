@@ -325,11 +325,12 @@ CREATE TABLE bloqueos (
 ------------------------------
 -- SUGERENCIA DE TRADUCCIÓN --
 ------------------------------
-DROP TABLE IF EXISTS sugerencias_traducciones CASCADE;
+DROP TABLE IF EXISTS reportes CASCADE;
 
-CREATE TABLE sugerencias_traducciones (
+CREATE TABLE reportes (
       id bigserial PRIMARY KEY
     , contenido text NOT NULL
+    , tipo varchar(255) NOT NULL
     , referencia varchar(255) NOT NULL
     , estado varchar(255) DEFAULT 'En revisión'
     , respuesta varchar(255)

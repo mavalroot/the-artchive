@@ -5,16 +5,16 @@ namespace frontend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 
-use common\models\SugerenciasTraducciones;
-use common\models\SugerenciasTraduccionesSearch;
+use common\models\Reportes;
+use common\models\ReportesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SugerenciasTraduccionesController implements the CRUD actions for SugerenciasTraducciones model.
+ * ReportesController implements the CRUD actions for Reportes model.
  */
-class SugerenciasTraduccionesController extends Controller
+class ReportesController extends Controller
 {
     use \common\utilities\Permisos;
     /**
@@ -39,12 +39,12 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Lists all SugerenciasTraducciones models.
+     * Lists all Reportes models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SugerenciasTraduccionesSearch();
+        $searchModel = new ReportesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $dataProvider->query->where(['created_by' => Yii::$app->user->id]);
@@ -56,7 +56,7 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Displays a single SugerenciasTraducciones model.
+     * Displays a single Reportes model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -69,13 +69,13 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Creates a new SugerenciasTraducciones model.
+     * Creates a new Reportes model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SugerenciasTraducciones();
+        $model = new Reportes();
         $model->created_by = Yii::$app->user->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -87,15 +87,15 @@ class SugerenciasTraduccionesController extends Controller
     }
 
     /**
-     * Finds the SugerenciasTraducciones model based on its primary key value.
+     * Finds the Reportes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SugerenciasTraducciones the loaded model
+     * @return Reportes the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SugerenciasTraducciones::findOne($id)) !== null) {
+        if (($model = Reportes::findOne($id)) !== null) {
             return $model;
         }
 

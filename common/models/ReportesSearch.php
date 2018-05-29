@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SugerenciasTraducciones;
+use common\models\Reportes;
 
 /**
- * SugerenciasTraduccionesSearch represents the model behind the search form of `common\models\SugerenciasTraducciones`.
+ * ReportesSearch represents the model behind the search form of `common\models\Reportes`.
  */
-class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
+class ReportesSearch extends Reportes
 {
     public $creator;
     /**
@@ -42,7 +42,7 @@ class SugerenciasTraduccionesSearch extends SugerenciasTraducciones
      */
     public function search($params)
     {
-        $query = SugerenciasTraducciones::find()->select('sugerencias_traducciones.*, user.username as creator')->joinWith('createdBy');
+        $query = Reportes::find()->select('reportes_traducciones.*, user.username as creator')->joinWith('createdBy');
 
         // add conditions that should always apply here
 

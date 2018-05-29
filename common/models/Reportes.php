@@ -8,7 +8,7 @@ use yii\db\Expression;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "sugerencias_traducciones".
+ * This is the model class for table "reportes_traducciones".
  *
  * @property int $id
  * @property string $contenido
@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  *
  * @property User $createdBy
  */
-class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
+class Reportes extends \common\utilities\ArtchiveBase
 {
     /**
      * Creador de la sugerencia.
@@ -33,7 +33,7 @@ class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
      */
     public static function tableName()
     {
-        return 'sugerencias_traducciones';
+        return 'reportes';
     }
 
     /**
@@ -42,7 +42,7 @@ class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['contenido', 'referencia', 'created_by'], 'required'],
+            [['contenido', 'referencia', 'created_by', 'tipo'], 'required'],
             [['contenido'], 'string'],
             [['created_by'], 'default', 'value' => null],
             [['created_by'], 'integer'],
@@ -93,5 +93,25 @@ class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
     public function getDataName()
     {
         return 'referencia';
+    }
+
+    public function getTipos()
+    {
+        return [
+            'General' => 'General',
+            'Problema técnico' => 'Problema técnico',
+            'Error de traducción' => 'Traducción',
+            'Otras' => 'Otras',
+        ];
+    }
+
+    public function getEstados()
+    {
+        return [
+            'En revisión' => 'En revisión',
+            'Aceptado' => 'Aceptado',
+            'Rechazado' => 'Rechazado',
+            'Solucionado' => 'Solucionado',
+        ];
     }
 }

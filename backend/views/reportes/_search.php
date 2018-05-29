@@ -6,11 +6,11 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SugerenciasTraduccionesSearch */
+/* @var $model common\models\SugerenciasSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="sugerencias-traducciones-search">
+<div class="sugerencias-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],

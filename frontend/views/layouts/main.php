@@ -144,8 +144,8 @@ AppAsset::register($this);
                     <li><a href="/podium/home"><?= Yii::t('frontend', 'Foro') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
                     <li><a href="#"><?= Yii::t('frontend', 'Términos y condiciones de uso') ?></a></li>
-                    <li><a href="/sugerencias-traducciones/create"><?= Yii::t('frontend', 'Sugiere una traducción') ?></a></li>
-                    <li><a href="/sugerencias-traducciones/index"><?= Yii::t('frontend', 'Tus sugerencias') ?></a></li>
+                    <li><a href="/reportes/create"><?= Yii::t('frontend', 'Reporta un problema') ?></a></li>
+                    <li><a href="/reportes/index"><?= Yii::t('frontend', 'Tus reportes') ?></a></li>
                 </ul>
             </div>
         </div>

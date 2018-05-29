@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SugerenciasTraducciones */
+/* @var $model common\models\Reportes */
 
 $this->title = $model->referencia;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sugerencias Traducciones'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reportes Traducciones'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sugerencias-traducciones-view">
+<div class="reportes-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
