@@ -44,9 +44,7 @@ class Comentarios extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
-            [['usuario_id', 'publicacion_id', 'contenido'], 'required',
-                'message' => Yii::t('app', 'Campo requerido.')
-            ],
+            [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
             ['deleted', 'boolean'],

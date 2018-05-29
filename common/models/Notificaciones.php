@@ -30,7 +30,7 @@ class Notificaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['usuario_id'], 'required', Yii::t('app', 'Campo requerido.')],
+            [['usuario_id'], 'required', 'message' => Yii::t('app', 'Campo requerido.')],
             [['usuario_id'], 'default', 'value' => null],
             [['usuario_id'], 'integer',
                 'message' => Yii::t('app', 'Debe ser un número entero.')
