@@ -58,13 +58,14 @@ class SugerenciasTraducciones extends \common\utilities\ArtchiveBase
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
+            'id' => 'ID',
             'contenido' => Yii::t('app', 'Contenido'),
-            'referencia' => Yii::t('app', 'Referencia'),
+            'referencia' => Yii::t('app', 'Asunto'),
             'estado' => Yii::t('app', 'Estado'),
             'respuesta' => Yii::t('app', 'Respuesta'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'created_by' => Yii::t('app', 'Creador'),
+            'created_at' => Yii::t('app', 'Fecha de creación'),
+            'creator' => Yii::t('app', 'Creador'),
         ];
     }
 
