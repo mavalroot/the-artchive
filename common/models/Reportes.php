@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  *
  * @property User $createdBy
  */
-class Reportes extends \common\utilities\BaseNotis
+class Reportes extends \common\utilities\ArtchiveBase
 {
     /**
      * Creador de la sugerencia.
