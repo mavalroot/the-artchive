@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 ?>
 
-<div class="respuesta">
+
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'publicacion_id')->hiddenInput(['value'=> $publicacion])->label(false); ?>
@@ -24,8 +24,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="error">
-        
+
     </div>
 
     <?php ActiveForm::end(); ?>
-</div>

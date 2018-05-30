@@ -56,11 +56,13 @@ class ComentariosController extends Controller
     public function actionResponder()
     {
         if (Yii::$app->request->isAjax) {
+            $this->layout = false;
             $id = Yii::$app->request->post('id');
-            $publicacion = Yii::$app->request('publicacion');
-
+            $publicacion = Yii::$app->request->post('publicacion');
             return $this->render('_responder', [
-
+                'model' => new Comentarios(),
+                'publicacion' => $publicacion,
+                'comentario' => $id
             ]);
         }
         return false;
@@ -89,7 +91,7 @@ class ComentariosController extends Controller
     public function actionMostrarRespuestas()
     {
         if (Yii::$app->request->isAjax) {
-            $this->layout = 'secondary';
+            $this->layout = false;
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if (count($model->comentarios)) {

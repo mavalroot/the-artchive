@@ -18,12 +18,13 @@ use common\models\Comentarios;
 </div>
 <div id="nuevo-comentario">
     <h3><?= Yii::t('frontend', 'Publicar comentario') ?></h3>
-
-    <?= $this->render('_responder', [
-        'model' => new Comentarios(),
-        'publicacion' => $publicacion,
-        'comentario' => false,
+    <div class="nuevo-comentario">
+        <?= $this->render('_responder', [
+            'model' => new Comentarios(),
+            'publicacion' => $publicacion,
+            'comentario' => false,
         ]) ?>
+    </div>
 </div>
 
 <?php
@@ -35,7 +36,8 @@ $js = <<< JS
 publicar("$crear");
 responder("$responder");
 eliminar("$eliminar");
-mostrarRespuestas()
+mostrarRespuestas();
+publicarRespuesta("$crear");
 
 $('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
     $('textarea[name="contenido"]').remainingCharacters({

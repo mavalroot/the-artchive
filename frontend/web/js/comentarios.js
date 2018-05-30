@@ -1,11 +1,11 @@
 function publicar(url) {
-    $('#nuevo-comentario').on('submit','.respuesta > form', function(e) {
+    $('#nuevo-comentario').on('submit','.nuevo-comentario > form', function(e) {
         e.preventDefault();
         let that = $(this);
         $.post(url, $(this).serialize(), function(data) {
             if (data == true) {
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-                $("#nuevo-comentario > .respuesta").load(location.href+" #nuevo-comentario > .respuesta >*","");
+                $("#nuevo-comentario > .nuevo-comentario").load(location.href+" #nuevo-comentario > .nuevo-comentario >*","");
             } else {
                 $(that).find('.error').empty();
                 $(that).find('.error').append(data);
@@ -20,20 +20,27 @@ function responder() {
         let publi = $(this).parent().children('input[name="publicacion"]').val();
         let comId = '#com' + ide;
 
-        $.post('/comentarios/responder')
-
-        $(comId).append('<div id="respuesta-comentario"><textarea></textarea><button type="button" name="publicar-respuesta">Responder</button></div>');
-        // $.post(url, {id: ide}, function(data) {
-        //     if (data) {
-        //         $('form[name="nuevo-comentario"]').prepend(data);
-        //     }
-        // });
+        $.post('/comentarios/responder', {id: ide, publicacion: publi}, function (data) {
+            if ($(comId).find('.respuesta').length) {
+                $(comId).find('.respuesta').remove();
+            }
+             $(comId).append('<div class="respuesta">' + data + '</div>');
+        });
     });
 }
 
-function publicarRespuesta() {
-    $('#publicacion-comentarios').on('click', '.respuesta-comentario > .publicar-respuesta', function () {
-
+function publicarRespuesta(url) {
+    $('#publicacion-comentarios').on('submit', '.comentario > .respuesta > form', function (e) {
+        e.preventDefault();
+        let that = $(this);
+        $.post(url, $(this).serialize(), function(data) {
+            if (data == 1) {
+                $(that).parent().remove();
+            } else {
+                $(that).find('.error').empty();
+                $(that).find('.error').append(data);
+            }
+        });
     });
 }
 
@@ -42,7 +49,7 @@ function mostrarRespuestas() {
         let ide = $(this).parent().children('input[name="id"]').val();
         let comId = '#com' + ide;
         $.post('/comentarios/mostrar-respuestas', {id: ide}, function(data) {
-            if ($('.comentarios-respuestas').length) {
+            if ($(comId).find('.comentarios-respuestas').length) {
                 $('.comentarios-respuestas').remove();
             }
             $(comId).children('.comentario-botones').after(data);
