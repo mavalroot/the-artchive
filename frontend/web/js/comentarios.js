@@ -29,7 +29,9 @@ function responder(url) {
 }
 
 function publicarRespuesta() {
-    $('#publicacion-comentarios').on('click')
+    $('#publicacion-comentarios').on('click', '.respuesta-comentario > .publicar-respuesta', function () {
+        
+    });
 }
 
 function mostrarRespuestas() {
@@ -37,6 +39,9 @@ function mostrarRespuestas() {
         let ide = $(this).parent().children('input[name="id"]').val();
         let comId = '#com' + ide;
         $.post('/comentarios/mostrar-respuestas', {id: ide}, function(data) {
+            if ($('.comentarios-respuestas').length) {
+                $('.comentarios-respuestas').remove();
+            }
             $(comId).children('.comentario-botones').after(data);
         });
     });
