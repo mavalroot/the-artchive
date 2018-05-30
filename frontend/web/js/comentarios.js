@@ -3,19 +3,25 @@ function publicar(url) {
         e.preventDefault();
         let that = $(this);
         $.post(url, $(this).serialize(), function(data) {
-            $('#error').empty();
-            if (data) {
+            if (data == true) {
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
                 $("#nuevo-comentario > .respuesta").load(location.href+" #nuevo-comentario > .respuesta >*","");
+            } else {
+                $(that).find('.error').empty();
+                $(that).find('.error').append(data);
             }
         });
     });
 }
 
-function responder(url) {
+function responder() {
     $('#publicacion-comentarios').on('click','button[name="responder-comentario"]', function() {
         let ide = $(this).parent().children('input[name="id"]').val();
+        let publi = $(this).parent().children('input[name="publicacion"]').val();
         let comId = '#com' + ide;
+
+        $.post('/comentarios/responder')
+
         $(comId).append('<div id="respuesta-comentario"><textarea></textarea><button type="button" name="publicar-respuesta">Responder</button></div>');
         // $.post(url, {id: ide}, function(data) {
         //     if (data) {

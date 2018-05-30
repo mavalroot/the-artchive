@@ -40,9 +40,13 @@ class ComentariosController extends Controller
         if (Yii::$app->request->isAjax) {
             $model = new Comentarios();
             $model->usuario_id = Yii::$app->user->id;
-            return $model->load(Yii::$app->request->post()) && $model->save();
+            if (!($model->load(Yii::$app->request->post()) && $model->save())) {
+                $values = array_map('array_pop', $model->getErrors());
+                $imploded = implode('<br />', $values);
+                return $imploded;
+            }
+            return true;
         }
-        return false;
     }
 
     /**
@@ -52,21 +56,12 @@ class ComentariosController extends Controller
     public function actionResponder()
     {
         if (Yii::$app->request->isAjax) {
-            $id = Yii::$app->request->post('id'); ?>
-            <p class="quote-respuesta">
-                <span>
-                    <?php Yii::t('frontend', 'Responder a:') ?>
-                    <a href="#com<?= $id ?>">#<?= $id ?></a>
-                </span>
-                <span id="limpiar">
-                    <span class="glyphicon glyphicon-remove-sign"></span>
-                </span>
-                <input type="hidden" name="comentario_id" value="<?= $id ?>"/>
-                <script type="text/javascript">
-                    limpiar();
-                </script>
-            </p>
-            <?php
+            $id = Yii::$app->request->post('id');
+            $publicacion = Yii::$app->request('publicacion');
+
+            return $this->render('_responder', [
+
+            ]);
         }
         return false;
     }

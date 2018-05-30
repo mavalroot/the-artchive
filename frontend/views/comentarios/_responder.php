@@ -16,11 +16,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'contenido')->textarea([
         'class' => 'form-control',
-        'maxlength' => 250
+        'maxlength' => 250,
         ])->label(false) ?>
 
     <div class="form-group text-center">
         <?= Html::submitButton(Yii::t('frontend', 'Enviar'), ['class' => 'btn btn-success']) ?>
+    </div>
+
+    <div class="error">
+        
     </div>
 
     <?php ActiveForm::end(); ?>
