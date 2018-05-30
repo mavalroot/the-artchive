@@ -28,6 +28,7 @@ class AppAsset extends AssetBundle
         'js/profile.js',
         'js/extra.js',
         'js/delete-account.js',
+        'js/plugins/remaining_characters.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
