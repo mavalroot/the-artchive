@@ -102,6 +102,21 @@ class ComentariosController extends Controller
         return false;
     }
 
+    public function actionMostrarRespuestas()
+    {
+        if (Yii::$app->request->isAjax) {
+            $this->layout = 'secondary';
+            $id = Yii::$app->request->post('id');
+            $model = $this->findModel($id);
+            if (count($model->comentarios)) {
+                return $this->render('/publicaciones/_respuestas', [
+                    'comentarios' => $model->comentarios,
+                ]);
+            }
+            return '<div class="no-respuestas">No hay comentarios.</div>';
+        }
+    }
+
     /**
      * Finds the Comentarios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

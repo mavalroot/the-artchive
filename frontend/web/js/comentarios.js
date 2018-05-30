@@ -14,19 +14,36 @@ function publicar(url) {
         });
     });
 }
+
 function responder(url) {
-    $('#publicacion-comentarios').on('click','a[name="responder-comentario"]', function() {
+    $('#publicacion-comentarios').on('click','button[name="responder-comentario"]', function() {
         let ide = $(this).parent().children('input[name="id"]').val();
-        $.post(url, {id: ide}, function(data) {
-            if (data) {
-                $('form[name="nuevo-comentario"]').prepend(data);
-            }
+        let comId = '#com' + ide;
+        $(comId).append('<div id="respuesta-comentario"><textarea></textarea><button type="button" name="publicar-respuesta">Responder</button></div>');
+        // $.post(url, {id: ide}, function(data) {
+        //     if (data) {
+        //         $('form[name="nuevo-comentario"]').prepend(data);
+        //     }
+        // });
+    });
+}
+
+function publicarRespuesta() {
+    $('#publicacion-comentarios').on('click')
+}
+
+function mostrarRespuestas() {
+    $('#publicacion-comentarios').on('click', 'button[name="mostrar-respuestas"]', function() {
+        let ide = $(this).parent().children('input[name="id"]').val();
+        let comId = '#com' + ide;
+        $.post('/comentarios/mostrar-respuestas', {id: ide}, function(data) {
+            $(comId).children('.comentario-botones').after(data);
         });
     });
 }
 
 function eliminar(url) {
-    $('#publicacion-comentarios').on('click','a[name="borrar-comentario"]', function(e) {
+    $('#publicacion-comentarios').on('click','button[name="borrar-comentario"]', function(e) {
         e.preventDefault();
         let confirmar = confirm('¿Seguro?');
         if (confirmar) {

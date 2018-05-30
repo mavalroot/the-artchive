@@ -130,24 +130,34 @@ class Comentarios extends \common\utilities\BaseNotis
         return $user->username;
     }
 
-    /**
-     * Devuelve el permalink al comentario.
-     * @return string
-     */
-    public function getPermalink()
+    public function getResponderButton()
     {
-        return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
+        if (!$this->comentario_id) {
+            return Html::button(Yii::t('frontend', 'Responder'), ['name' => 'responder-comentario', 'class' => 'btn btn-xs btn-info']);
+            // return Html::beginForm('', 'post', ['name' => 'responder-comentario']) .
+            // Html::hiddenInput('id', $this->id) .
+            // Html::submitButton(Yii::t('frontend', 'Responder'), ['class' => 'btn btn-xs btn-info']) .
+            // Html::endForm();
+        }
     }
 
-    /**
-     * Devuelve la url de la respuesta.
-     * @return string
-     */
-    public function getRespuestaUrl()
+    public function getBorrarButton()
     {
-        if ($this->comentario_id) {
-            return Html::a('#' . $this->comentario_id, [Url::to(), '#' => 'com' . $this->comentario_id]);
+        if ($this->isMine() && !$this->isDeleted()) {
+            return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
+            // return Html::a(Yii::t('frontend', 'Borrar'), ['delete', 'id' => $this->id], [
+            //     'class' => 'btn btn-danger',
+            //     'data' => [
+            //         'confirm' => Yii::t('app', '¿Seguro que desea borrar el comentario?'),
+            //         'method' => 'post',
+            //     ],
+            // ]);
         }
+    }
+
+    public function getMostrarRespuestasButton()
+    {
+        return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);
     }
 
     public function isMine()

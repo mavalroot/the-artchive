@@ -76,7 +76,7 @@ class PublicacionesController extends Controller
         ->select('co.*, count(co.id) as quoted')
         ->from('comentarios co')
         ->joinWith('comentarios qu')
-        ->where(['co.publicacion_id' => $id])
+        ->where(['co.publicacion_id' => $id, 'co.comentario_id' => null])
         ->groupBy('co.id')
         ->orderBy('co.created_at ASC');
 

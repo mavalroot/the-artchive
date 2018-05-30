@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 ?>
@@ -8,26 +7,11 @@ use yii\widgets\LinkPager;
     <?php foreach ($comentarios as $comentario) : ?>
         <div class="comentario" id="com<?= $comentario->id ?>">
             <div class="comentario-head">
-                <span class="permalink-username">
-                    <?= $comentario->getPermalink() ?> <?= $comentario->getUsername() ?>
+                <span class="username">
+                    <?= $comentario->getUsername() ?> ha comentado:
                 </span>
-                <small>
-                    [<?= Yii::$app->formatter->asDateTime($comentario->created_at) ?>]
-                </small>
-            </div>
-            <div class="comentario-botones">
-                    <input type="hidden" name="id" value="<?= $comentario->id ?>">
-                    <a href="#nuevo-comentario" class="btn btn-xs btn-info" name="responder-comentario"><?= Yii::t('frontend', 'Responder') ?></a>
-                    <?php if ($comentario->isMine() && !$comentario->isDeleted()) : ?>
-                        <a href="#" name="borrar-comentario" class="btn btn-xs btn-danger"><?= Yii::t('frontend', 'Borrar') ?></a>
-                    <?php endif; ?>
             </div>
             <div class="comentario-body">
-                <div class="quote">
-                    <?php if ($comentario->quoted > 0) : ?>
-                        <?= $comentario->getRespuestaUrl() ?>
-                    <?php endif; ?>
-                </div>
                 <div class="contenido">
                     <?php if ($comentario->isDeleted()) : ?>
                         <?= Yii::$app->formatter->asRaw($comentario->contenido); ?>
@@ -35,6 +19,15 @@ use yii\widgets\LinkPager;
                         <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
                     <?php endif; ?>
                 </div>
+                <div class="time">
+                    <?= Yii::$app->formatter->asRelativeTime($comentario->created_at) ?>
+                </div>
+            </div>
+            <div class="comentario-botones">
+                <input type="hidden" name="id" value="<?= $comentario->id ?>">
+                <?= $comentario->getResponderButton() ?>
+                <?= $comentario->getBorrarButton() ?>
+                <?= $comentario->getMostrarRespuestasButton() ?>
             </div>
         </div>
     <?php endforeach; ?>
@@ -63,6 +56,7 @@ $js = <<< JS
 publicar("$crear");
 responder("$responder");
 eliminar("$eliminar");
+mostrarRespuestas()
 
 $('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
     $('textarea[name="contenido"]').remainingCharacters({
