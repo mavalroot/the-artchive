@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php $model->getButtons() ?>
 
-    <?= $this->render('_comentarios', [
+    <?= $this->render('/comentarios/_comentarios', [
         'comentarios' => $comentarios,
         'model' => $model,
         'pagination' => $pagination,

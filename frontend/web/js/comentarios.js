@@ -48,9 +48,11 @@ function eliminar(url) {
         let confirmar = confirm('¿Seguro?');
         if (confirmar) {
             let ide = $(this).parent().children('input[name="id"]').val();
+            let comId = '#com' + ide;
             $.post(url, {id: ide}, function(data) {
                 if (data) {
-                    $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
+                    let borrado = '<div class="contenido-new"><em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em></div>';
+                    $(comId).find('.contenido').replaceWith(borrado);
                 }
             });
         }

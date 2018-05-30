@@ -109,7 +109,7 @@ class ComentariosController extends Controller
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if (count($model->comentarios)) {
-                return $this->render('/publicaciones/_respuestas', [
+                return $this->render('_respuestas', [
                     'comentarios' => $model->comentarios,
                 ]);
             }
