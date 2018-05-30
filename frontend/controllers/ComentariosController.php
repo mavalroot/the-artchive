@@ -38,20 +38,9 @@ class ComentariosController extends Controller
     public function actionCreate()
     {
         if (Yii::$app->request->isAjax) {
-            $post = Yii::$app->request->post();
-            $model = new Comentarios([
-                'usuario_id' => Yii::$app->user->id,
-                'publicacion_id' => $post['publicacion_id'],
-                'contenido' => $post['contenido'],
-            ]);
-            if (isset($post['comentario_id'])) {
-                $model->comentario_id = $post['comentario_id'];
-            }
-            if (!$model->save()) {
-                $values = array_map('array_pop', $model->getErrors());
-                $imploded = implode('<br />', $values);
-                return $imploded;
-            }
+            $model = new Comentarios();
+            $model->usuario_id = Yii::$app->user->id;
+            return $model->load(Yii::$app->request->post()) && $model->save();
         }
         return false;
     }

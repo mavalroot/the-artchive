@@ -1,15 +1,12 @@
 function publicar(url) {
-    $('#nuevo-comentario').on('submit','form[name="nuevo-comentario"]', function(e) {
+    $('#nuevo-comentario').on('submit','.respuesta > form', function(e) {
         e.preventDefault();
         let that = $(this);
         $.post(url, $(this).serialize(), function(data) {
             $('#error').empty();
             if (data) {
-                $('#error').append(data);
-            } else {
                 $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
-                $("#toggle").load(location.href+" #toggle>*","");
-                $("form[name='nuevo-comentario']").load(location.href+" form[name='nuevo-comentario']>*","");
+                $("#nuevo-comentario > .respuesta").load(location.href+" #nuevo-comentario > .respuesta >*","");
             }
         });
     });
@@ -30,7 +27,7 @@ function responder(url) {
 
 function publicarRespuesta() {
     $('#publicacion-comentarios').on('click', '.respuesta-comentario > .publicar-respuesta', function () {
-        
+
     });
 }
 

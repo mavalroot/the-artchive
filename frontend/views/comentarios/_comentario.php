@@ -18,6 +18,7 @@
     </div>
     <div class="comentario-botones">
         <input type="hidden" name="id" value="<?= $comentario->id ?>">
+        <input type="hidden" name="publicacion" value="<?= $publicacion ?>">
         <?= $comentario->getResponderButton() ?>
         <?= $comentario->getBorrarButton() ?>
         <?= $comentario->getMostrarRespuestasButton() ?>

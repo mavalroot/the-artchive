@@ -1,5 +1,6 @@
 <?php
 use yii\widgets\LinkPager;
+use common\models\Comentarios;
 
 ?>
 <h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
@@ -7,6 +8,7 @@ use yii\widgets\LinkPager;
     <?php foreach ($comentarios as $comentario) : ?>
         <?= $this->render('_comentario', [
             'comentario' => $comentario,
+            'publicacion' => $publicacion
             ]) ?>
     <?php endforeach; ?>
     <?= LinkPager::widget([
@@ -17,12 +19,11 @@ use yii\widgets\LinkPager;
 <div id="nuevo-comentario">
     <h3><?= Yii::t('frontend', 'Publicar comentario') ?></h3>
 
-    <form name="nuevo-comentario" method="post">
-        <input type="hidden" name="publicacion_id" value="<?= $model->id ?>">
-        <textarea name="contenido" class="form-control" rows="5" maxlength="250"></textarea>
-        <input type="submit" class="btn btn-success" value="<?= Yii::t('frontend', 'Enviar')?>">
-    </form>
-    <p id="error" class="text-danger"></p>
+    <?= $this->render('_responder', [
+        'model' => new Comentarios(),
+        'publicacion' => $publicacion,
+        'comentario' => false,
+        ]) ?>
 </div>
 
 <?php

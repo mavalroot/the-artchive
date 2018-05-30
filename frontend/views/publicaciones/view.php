@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('/comentarios/_comentarios', [
         'comentarios' => $comentarios,
-        'model' => $model,
+        'publicacion' => $model->id,
         'pagination' => $pagination,
     ]) ?>
 
