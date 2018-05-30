@@ -16,6 +16,7 @@ function publicar(url) {
 
 function responder() {
     $('#publicacion-comentarios').on('click','button[name="responder-comentario"]', function() {
+        $(this).siblings('button[name="mostrar-respuestas"]').trigger('click');
         let ide = $(this).parent().children('input[name="id"]').val();
         let publi = $(this).parent().children('input[name="publicacion"]').val();
         let comId = '#com' + ide;
@@ -35,7 +36,7 @@ function publicarRespuesta(url) {
         let that = $(this);
         $.post(url, $(this).serialize(), function(data) {
             if (data == 1) {
-                $(that).parent().remove();
+                $("#publicacion-comentarios").load(location.href+" #publicacion-comentarios>*","");
             } else {
                 $(that).find('.error').empty();
                 $(that).find('.error').append(data);
