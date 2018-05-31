@@ -38,22 +38,15 @@ class ComentariosController extends Controller
     public function actionCreate()
     {
         if (Yii::$app->request->isAjax) {
-            $post = Yii::$app->request->post();
-            $model = new Comentarios([
-                'usuario_id' => Yii::$app->user->id,
-                'publicacion_id' => $post['publicacion_id'],
-                'contenido' => $post['contenido'],
-            ]);
-            if (isset($post['comentario_id'])) {
-                $model->comentario_id = $post['comentario_id'];
-            }
-            if (!$model->save()) {
+            $model = new Comentarios();
+            $model->usuario_id = Yii::$app->user->id;
+            if (!($model->load(Yii::$app->request->post()) && $model->save())) {
                 $values = array_map('array_pop', $model->getErrors());
                 $imploded = implode('<br />', $values);
                 return $imploded;
             }
+            return true;
         }
-        return false;
     }
 
     /**
@@ -63,21 +56,14 @@ class ComentariosController extends Controller
     public function actionResponder()
     {
         if (Yii::$app->request->isAjax) {
-            $id = Yii::$app->request->post('id'); ?>
-            <p class="quote-respuesta">
-                <span>
-                    <?php Yii::t('frontend', 'Responder a:') ?>
-                    <a href="#com<?= $id ?>">#<?= $id ?></a>
-                </span>
-                <span id="limpiar">
-                    <span class="glyphicon glyphicon-remove-sign"></span>
-                </span>
-                <input type="hidden" name="comentario_id" value="<?= $id ?>"/>
-                <script type="text/javascript">
-                    limpiar();
-                </script>
-            </p>
-            <?php
+            $this->layout = false;
+            $id = Yii::$app->request->post('id');
+            $publicacion = Yii::$app->request->post('publicacion');
+            return $this->render('_responder', [
+                'model' => new Comentarios(),
+                'publicacion' => $publicacion,
+                'comentario' => $id
+            ]);
         }
         return false;
     }
@@ -100,6 +86,21 @@ class ComentariosController extends Controller
             }
         }
         return false;
+    }
+
+    public function actionMostrarRespuestas()
+    {
+        if (Yii::$app->request->isAjax) {
+            $this->layout = false;
+            $id = Yii::$app->request->post('id');
+            $model = $this->findModel($id);
+            if (count($model->comentarios)) {
+                return $this->render('_respuestas', [
+                    'comentarios' => $model->comentarios,
+                ]);
+            }
+            return '<div class="no-respuestas">No hay comentarios.</div>';
+        }
     }
 
     /**

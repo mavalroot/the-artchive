@@ -25,11 +25,16 @@ use yii\helpers\Html;
  */
 class Comentarios extends \common\utilities\BaseNotis
 {
+    use \common\utilities\Apto;
     /**
      * Indica si ha sido citado.
      * @var bool
      */
     public $quoted;
+
+    public $avatar;
+
+    public $username;
     /**
      * {@inheritdoc}
      */
@@ -44,6 +49,7 @@ class Comentarios extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
+            [['usuario_id'], 'validateNotBlocked'],
             [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
@@ -71,6 +77,19 @@ class Comentarios extends \common\utilities\BaseNotis
                 'message' => Yii::t('app', 'El usuario no existe.'),
             ],
         ];
+    }
+
+    /**
+     * Valida que el personaje de la referencia no pueda ser el mismo.
+     * @param  string $attribute
+     */
+    public function validateNotBlocked($attribute)
+    {
+        $publicacion = Publicaciones::findOne(['id' => $this->publicacion_id]);
+        $usuario = UsuariosCompleto::findOne(['id' => $publicacion->usuario_id]);
+        if ($usuario->imBlocked()) {
+            $this->addError($attribute, Yii::t('app', 'No puedes comentar en esta publicación.'));
+        }
     }
 
     /**
@@ -130,24 +149,40 @@ class Comentarios extends \common\utilities\BaseNotis
         return $user->username;
     }
 
-    /**
-     * Devuelve el permalink al comentario.
-     * @return string
-     */
-    public function getPermalink()
+    public function getAvatar()
     {
-        return Html::a('#' . $this->id, [Url::to(), '#' => 'com' . $this->id]);
+        $user = UsuariosCompleto::findOne(['id' => $this->usuario_id]);
+        return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.jpg');
     }
 
-    /**
-     * Devuelve la url de la respuesta.
-     * @return string
-     */
-    public function getRespuestaUrl()
+    public function getResponderButton()
     {
-        if ($this->comentario_id) {
-            return Html::a('#' . $this->comentario_id, [Url::to(), '#' => 'com' . $this->comentario_id]);
+        if (!$this->comentario_id) {
+            return Html::button(Yii::t('frontend', 'Responder'), ['name' => 'responder-comentario', 'class' => 'btn btn-xs btn-info']);
+            // return Html::beginForm('', 'post', ['name' => 'responder-comentario']) .
+            // Html::hiddenInput('id', $this->id) .
+            // Html::submitButton(Yii::t('frontend', 'Responder'), ['class' => 'btn btn-xs btn-info']) .
+            // Html::endForm();
         }
+    }
+
+    public function getBorrarButton()
+    {
+        if ($this->isMine() && !$this->isDeleted()) {
+            return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
+            // return Html::a(Yii::t('frontend', 'Borrar'), ['delete', 'id' => $this->id], [
+            //     'class' => 'btn btn-danger',
+            //     'data' => [
+            //         'confirm' => Yii::t('app', '¿Seguro que desea borrar el comentario?'),
+            //         'method' => 'post',
+            //     ],
+            // ]);
+        }
+    }
+
+    public function getMostrarRespuestasButton()
+    {
+        return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);
     }
 
     public function isMine()
