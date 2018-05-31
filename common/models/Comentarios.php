@@ -44,6 +44,7 @@ class Comentarios extends \common\utilities\BaseNotis
     public function rules()
     {
         return [
+            [['usuario_id'], 'validateNotBlocked'],
             [['usuario_id', 'publicacion_id', 'contenido'], 'required'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
@@ -71,6 +72,19 @@ class Comentarios extends \common\utilities\BaseNotis
                 'message' => Yii::t('app', 'El usuario no existe.'),
             ],
         ];
+    }
+
+    /**
+     * Valida que el personaje de la referencia no pueda ser el mismo.
+     * @param  string $attribute
+     */
+    public function validateNotBlocked($attribute)
+    {
+        $publicacion = Publicaciones::findOne(['id' => $this->publicacion_id]);
+        $usuario = UsuariosCompleto::findOne(['id' => $publicacion->usuario_id]);
+        if ($usuario->imBlocked()) {
+            $this->addError($attribute, Yii::t('app', 'No puedes comentar en esta publicación.'));
+        }
     }
 
     /**
