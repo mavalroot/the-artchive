@@ -78,7 +78,7 @@ class PublicacionesController extends Controller
         ->joinWith('comentarios qu')
         ->where(['co.publicacion_id' => $id, 'co.comentario_id' => null])
         ->groupBy('co.id')
-        ->orderBy('co.created_at ASC');
+        ->orderBy('co.created_at DESC');
 
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);

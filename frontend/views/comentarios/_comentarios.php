@@ -27,32 +27,3 @@ use common\models\Comentarios;
         ]) ?>
     </div>
 </div>
-
-<?php
-$crear = Yii::$app->request->baseUrl . '/comentarios/create';
-$responder = Yii::$app->request->baseUrl . '/comentarios/responder';
-$eliminar = Yii::$app->request->baseUrl . '/comentarios/delete';
-
-$js = <<< JS
-publicar("$crear");
-responder("$responder");
-eliminar("$eliminar");
-mostrarRespuestas();
-publicarRespuesta("$crear");
-
-$('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
-    $('textarea[name="contenido"]').remainingCharacters({
-        label: {
-            tag: 'p',
-            id: 'char-counter',
-        },
-    });
-});
-
-$('body').on('click', 'button[name="ocultar-respuestas"]', function () {
-    $(this).closest('.comentario').find('.comentarios-respuestas').remove();
-    $(this).remove();
-});
-JS;
-
-$this->registerJs($js);
