@@ -47,6 +47,11 @@ $('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
         },
     });
 });
+
+$('body').on('click', 'button[name="ocultar-respuestas"]', function () {
+    $(this).closest('.comentario').find('.comentarios-respuestas').remove();
+    $(this).remove();
+});
 JS;
 
 $this->registerJs($js);

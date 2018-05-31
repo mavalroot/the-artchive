@@ -16,7 +16,6 @@ function publicar(url) {
 
 function responder() {
     $('#publicacion-comentarios').on('click','button[name="responder-comentario"]', function() {
-        $(this).siblings('button[name="mostrar-respuestas"]').trigger('click');
         let ide = $(this).parent().children('input[name="id"]').val();
         let publi = $(this).parent().children('input[name="publicacion"]').val();
         let comId = '#com' + ide;
@@ -25,7 +24,7 @@ function responder() {
             if ($(comId).find('.respuesta').length) {
                 $(comId).find('.respuesta').remove();
             }
-             $(comId).append('<div class="respuesta">' + data + '</div>');
+             $(comId).children('.comentario-botones').after('<div class="respuesta">' + data + '</div>');
         });
     });
 }
@@ -53,7 +52,11 @@ function mostrarRespuestas() {
             if ($(comId).find('.comentarios-respuestas').length) {
                 $('.comentarios-respuestas').remove();
             }
-            $(comId).children('.comentario-botones').after(data);
+            if ($(comId).find('button[name="ocultar-respuestas"]').length) {
+                $(comId).find('button[name="ocultar-respuestas"]').remove();
+            }
+            $(comId).append(data);
+            $(comId).find('button[name="mostrar-respuestas"]').after('<button type="button" name="ocultar-respuestas" class="btn btn-link">Ocultar</button>')
         });
     });
 }
