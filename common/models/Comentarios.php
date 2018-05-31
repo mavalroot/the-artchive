@@ -25,6 +25,7 @@ use yii\helpers\Html;
  */
 class Comentarios extends \common\utilities\BaseNotis
 {
+    use \common\utilities\Apto;
     /**
      * Indica si ha sido citado.
      * @var bool

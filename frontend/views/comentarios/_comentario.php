@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\Html;
 
-use common\models\UsuariosCompleto;
-
 ?>
 
 <div class="comentario" id="com<?= $comentario->id ?>">
@@ -18,8 +16,10 @@ use common\models\UsuariosCompleto;
         <div class="contenido">
             <?php if ($comentario->isDeleted()) : ?>
                 <em class="text-danger"><?= Yii::t('frontend', 'Este comentario ha sido eliminado.') ?></em>
-            
-            <?php else: ?>
+            <?php elseif (!$comentario->isApto()) : ?>
+                <em class="text-danger"><?= Yii::t('frontend', 'No puedes ver este comentario.') ?></em><br />
+                <small><a href="">¿Por qué?</a></small>
+            <?php else : ?>
                 <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
             <?php endif; ?>
         </div>
@@ -30,7 +30,7 @@ use common\models\UsuariosCompleto;
     <div class="comentario-botones">
         <input type="hidden" name="id" value="<?= $comentario->id ?>">
         <?= $comentario->getBorrarButton() ?>
-        <?php if (!$respuesta): ?>
+        <?php if (!$respuesta) : ?>
             <input type="hidden" name="publicacion" value="<?= $publicacion ?>">
             <?= $comentario->getResponderButton() ?>
             <?= $comentario->getMostrarRespuestasButton() ?>

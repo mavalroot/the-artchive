@@ -93,7 +93,7 @@ AppAsset::register($this);
     ]);
     ?>
     <?= $language ?>
-    <?php if (!Yii::$app->user->isGuest): ?>
+    <?php if (!Yii::$app->user->isGuest) : ?>
         <ul id="w1" class="navbar-nav navbar-right nav">
                    <li>
                       <div class="col-sm-3">

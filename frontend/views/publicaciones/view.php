@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-comple
 $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Publicaciones de') . ' ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php if ($usuario->isApto()): ?>
+<?php if ($usuario->isApto()) : ?>
 <div class="publicaciones-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

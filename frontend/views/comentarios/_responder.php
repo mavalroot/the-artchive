@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'publicacion_id')->hiddenInput(['value'=> $publicacion])->label(false); ?>
 
-    <?php if ($comentario): ?>
+    <?php if ($comentario) : ?>
         <?= $form->field($model, 'comentario_id')->hiddenInput(['value'=> $comentario])->label(false); ?>
     <?php endif; ?>
 
