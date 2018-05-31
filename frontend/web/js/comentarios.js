@@ -52,6 +52,9 @@ function mostrarRespuestas() {
             if ($(comId).find('.comentarios-respuestas').length) {
                 $('.comentarios-respuestas').remove();
             }
+            if ($(comId).find('.no-respuestas').length) {
+                $('.no-respuestas').remove();
+            }
             if ($(comId).find('button[name="ocultar-respuestas"]').length) {
                 $(comId).find('button[name="ocultar-respuestas"]').remove();
             }
@@ -70,7 +73,7 @@ function eliminar(url) {
             let comId = '#com' + ide;
             $.post(url, {id: ide}, function(data) {
                 if (data) {
-                    let borrado = '<div class="contenido-new"><em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em></div>';
+                    let borrado = '<div class="contenido-new"><em class="text-danger">Este comentario ha sido eliminado.</em></div>';
                     $(comId).find('.contenido').replaceWith(borrado);
                 }
             });

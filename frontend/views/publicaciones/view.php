@@ -72,6 +72,7 @@ $('body').on('click', 'textarea[name="Comentarios[contenido]"]', function () {
 
 $('body').on('click', 'button[name="ocultar-respuestas"]', function () {
     $(this).closest('.comentario').find('.comentarios-respuestas').remove();
+    $(this).closest('.comentario').find('.no-respuestas').remove();
     $(this).remove();
 });
 JS;
