@@ -30,6 +30,10 @@ class Comentarios extends \common\utilities\BaseNotis
      * @var bool
      */
     public $quoted;
+
+    public $avatar;
+
+    public $username;
     /**
      * {@inheritdoc}
      */

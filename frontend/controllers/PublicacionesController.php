@@ -73,11 +73,12 @@ class PublicacionesController extends Controller
     public function actionView($id)
     {
         $query = Comentarios::find()
-        ->select('co.*, count(co.id) as quoted')
+        ->select('co.*, count(co.id) as quoted, uc.username, uc.avatar')
         ->from('comentarios co')
         ->joinWith('comentarios qu')
+        ->join('join', 'usuarios_completo uc', 'uc.id = co.usuario_id')
         ->where(['co.publicacion_id' => $id, 'co.comentario_id' => null])
-        ->groupBy('co.id')
+        ->groupBy('co.id, uc.username, uc.avatar')
         ->orderBy('co.created_at DESC');
 
         $countQuery = clone $query;

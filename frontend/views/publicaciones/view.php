@@ -3,17 +3,20 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use kartik\markdown\Markdown;
+use common\models\UsuariosCompleto;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
 
-$owner = $model->getUsuario()->one()->username;
+$usuario = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
+$owner = $usuario->username;
 
 $this->title = $model->titulo;
 $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-completo/view', 'username' => $owner]];
 $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Publicaciones de') . ' ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php if ($usuario->isApto()): ?>
 <div class="publicaciones-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -74,3 +77,7 @@ $('body').on('click', 'button[name="ocultar-respuestas"]', function () {
 JS;
 
 $this->registerJs($js);
+?>
+<?php endif; ?>
+
+<h2>No puedes ver esta publicación.</h2>
