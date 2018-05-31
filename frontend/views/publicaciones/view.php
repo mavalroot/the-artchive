@@ -58,8 +58,8 @@ eliminar("$eliminar");
 mostrarRespuestas();
 publicarRespuesta("$crear");
 
-$('#nuevo-comentario').on('click', 'textarea[name="contenido"]', function () {
-    $('textarea[name="contenido"]').remainingCharacters({
+$('body').on('click', 'textarea[name="Comentarios[contenido]"]', function () {
+    $('textarea[name="Comentarios[contenido]"]').remainingCharacters({
         label: {
             tag: 'p',
             id: 'char-counter',

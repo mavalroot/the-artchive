@@ -18,8 +18,11 @@ $user = UsuariosCompleto::findOne(['id' => $comentario->usuario_id]);
     <div class="comentario-body">
         <div class="contenido">
             <?php if ($comentario->isDeleted()) : ?>
-                <?= Yii::$app->formatter->asRaw($comentario->contenido); ?>
-            <?php else : ?>
+                <em class="text-danger"><?= Yii::t('frontend', 'Este comentario ha sido eliminado.') ?></em>
+            <?php elseif (!$user->isApto()) : ?>
+                <em class="text-danger"><?= Yii::t('frontend', 'No puedes ver este comentario.') ?></em><br />
+                <small><a href="">¿Por qué?</a></small>
+            <?php else: ?>
                 <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
             <?php endif; ?>
         </div>
