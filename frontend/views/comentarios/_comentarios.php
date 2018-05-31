@@ -8,7 +8,8 @@ use common\models\Comentarios;
     <?php foreach ($comentarios as $comentario) : ?>
         <?= $this->render('_comentario', [
             'comentario' => $comentario,
-            'publicacion' => $publicacion
+            'publicacion' => $publicacion,
+            'respuesta' => false,
             ]) ?>
     <?php endforeach; ?>
     <?= LinkPager::widget([

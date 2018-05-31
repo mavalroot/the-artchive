@@ -130,6 +130,12 @@ class Comentarios extends \common\utilities\BaseNotis
         return $user->username;
     }
 
+    public function getAvatar()
+    {
+        $user = UsuariosCompleto::findOne(['id' => $this->usuario_id]);
+        return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.jpg');
+    }
+
     public function getResponderButton()
     {
         if (!$this->comentario_id) {

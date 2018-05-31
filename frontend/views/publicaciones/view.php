@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'comentarios' => $comentarios,
         'publicacion' => $model->id,
         'pagination' => $pagination,
+        'respuesta' => false,
     ]) ?>
 
 </div>
