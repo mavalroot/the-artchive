@@ -78,6 +78,6 @@ JS;
 
 $this->registerJs($js);
 ?>
-<?php endif; ?>
-
+<?php else: ?>
 <h2>No puedes ver esta publicación.</h2>
+<?php endif; ?>
