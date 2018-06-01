@@ -140,7 +140,7 @@ class Solicitudes extends \common\utilities\ArtchiveBase
 
     public function afterSave($insert, $changedAttributes)
     {
-        if (!parent::beforeSave($insert)) {
+        if (!parent::afterSave($insert, $changedAttributes)) {
             return false;
         }
 
