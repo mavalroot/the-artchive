@@ -36,7 +36,7 @@ return [
     'The requested page does not exist.' => '',
     'Tus reportes' => 'Your reports',
     'Update' => '',
-    'ha comentado tu publicación' => 'has made a comment in your publication',
+    'ha comentado tu publicación' => 'has commented your publication',
     'ha comenzado a seguirte' => 'started following you',
     'respuestas' => 'answers',
     'un reporte' => 'a report',
