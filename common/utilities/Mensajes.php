@@ -5,12 +5,13 @@ namespace common\utilities;
 use Yii;
 
 use common\models\TiposNotificaciones;
+use common\models\User;
 
 /**
  *
 
  */
-class Mensajes
+trait Mensajes
 {
     /**
      * Mensajes de notificación (traducibles).
@@ -20,21 +21,21 @@ class Mensajes
      * 'detrás' => (string) iría detrás del mensaje de notificación.
      * @return string       Mensaje listo para mostrar.
      */
-    public function mensajesDeNotificacion($conf)
+    public function mensajesDeNotificacion($tipo)
     {
-        $tipo = false;
-        $delante = false;
-        $detras = false;
-        extract($conf, EXTR_IF_EXISTS);
-
+        $mensaje = '';
+        $delante = '';
+        $detras = '';
         switch ($tipo) {
             case 'mensajes privados':
             case TiposNotificaciones::getNotificacionId('mensajes privados'):
-                $mensaje = Yii::t('app', 'Has recibido un mensaje privado');
+                $mensaje = Yii::t('app', 'Has recibido un mensaje privado de');
+                $detras = $this->mensajeDeNotificacionEmisor();
                 break;
             case 'comentarios':
             case TiposNotificaciones::getNotificacionId('comentarios'):
-                $mensaje = Yii::t('app', 'Tu publicación ha recibido un comentario');
+                $mensaje = Yii::t('app', 'ha comentado tu publicación');
+                $delante = $this->mensajeDeNotificacionEmisor() . ' ';
                 break;
             case 'relaciones':
             case TiposNotificaciones::getNotificacionId('relaciones'):
@@ -43,16 +44,18 @@ class Mensajes
             case 'seguidores':
             case TiposNotificaciones::getNotificacionId('seguidores'):
                 $mensaje = Yii::t('app', 'ha comenzado a seguirte');
+                $delante = $this->mensajeDeNotificacionEmisor() . ' ';
                 break;
             default:
                 $mensaje = Yii::t('app', 'Has recibido una notificación');
                 break;
         }
 
-        return $delante ?: '' . $mensaje . $detras ?: '' . '.';
+        return ($delante ?: '') . $mensaje . ($detras ?: '') . '.';
     }
 
-    public function mensajeDeSolicitud()
+    public function mensajeDeNotificacionEmisor()
     {
+        return User::findOne($this->created_by)->username;
     }
 }

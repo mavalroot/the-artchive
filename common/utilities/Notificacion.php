@@ -26,9 +26,6 @@ trait Notificacion
         $user = false;
         $url = null;
         extract($params, EXTR_IF_EXISTS);
-        if (!$message) {
-            return false;
-        }
         $notificacion = new Notificaciones();
         $notificacion->url = $url;
         $notificacion->tipo_notificacion_id = $this->getNotificacionTipo();
@@ -37,6 +34,7 @@ trait Notificacion
         } else {
             return false;
         }
+        $notificacion->created_by = Yii::$app->user->id;
         return $notificacion->save();
     }
 

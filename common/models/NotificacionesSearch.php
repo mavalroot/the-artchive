@@ -19,7 +19,7 @@ class NotificacionesSearch extends Notificaciones
     {
         return [
             [['id', 'usuario_id', 'tipo_notificacion_id'], 'integer'],
-            [['notificacion', 'created_at'], 'safe'],
+            [['created_at'], 'safe'],
         ];
     }
 
@@ -65,9 +65,6 @@ class NotificacionesSearch extends Notificaciones
             'created_at' => $this->created_at,
             'seen' => $this->seen,
         ]);
-
-        $query->andFilterWhere(['ilike', 'notificacion', $this->notificacion]);
-
         return $dataProvider;
     }
 }

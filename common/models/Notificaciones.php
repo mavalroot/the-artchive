@@ -31,15 +31,12 @@ class Notificaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['usuario_id'], 'required', 'message' => Yii::t('app', 'Campo requerido.')],
+            [['usuario_id', 'created_by'], 'required', 'message' => Yii::t('app', 'Campo requerido.')],
             [['usuario_id'], 'default', 'value' => null],
             [['usuario_id'], 'integer',
                 'message' => Yii::t('app', 'Debe ser un número entero.')
             ],
             [['seen'], 'boolean'],
-            [['notificacion'], 'string', 'max' => 255,
-                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
-            ],
             [['usuario_id'], 'exist', 'skipOnError' => true,
                 'targetClass' => User::className(),
                 'targetAttribute' => ['usuario_id' => 'id'],

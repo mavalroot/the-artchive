@@ -79,6 +79,7 @@ class Seguidores extends \common\utilities\ArtchiveBase
         if ($insert) {
             $this->crearNotificacion([
                 'url' => $this->seguidor->getRawUrl(),
+                'user' => $this->usuario_id,
             ]);
         }
         return true;
