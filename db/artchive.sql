@@ -235,6 +235,7 @@ CREATE TABLE relaciones (
                                         ON DELETE CASCADE ON UPDATE CASCADE
     , nombre            varchar(255)
     , referencia        bigint          REFERENCES personajes (id)
+                                        ON DELETE CASCADE ON UPDATE CASCADE
     , tipo_relacion_id  bigint          NOT NULL REFERENCES tipos_relaciones (id)
 );
 
