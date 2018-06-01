@@ -27,21 +27,17 @@ trait Mensajes
         $delante = '';
         $detras = '';
         switch ($tipo) {
-            case 'mensajes privados':
             case TiposNotificaciones::getNotificacionId('mensajes privados'):
                 $mensaje = Yii::t('app', 'Has recibido un mensaje privado de');
                 $detras = $this->mensajeDeNotificacionEmisor();
                 break;
-            case 'comentarios':
             case TiposNotificaciones::getNotificacionId('comentarios'):
                 $mensaje = Yii::t('app', 'ha comentado tu publicación');
                 $delante = $this->mensajeDeNotificacionEmisor() . ' ';
                 break;
-            case 'relaciones':
             case TiposNotificaciones::getNotificacionId('relaciones'):
                 $mensaje = Yii::t('app', 'Has recibido una solicitud para crear una relación');
                 break;
-            case 'seguidores':
             case TiposNotificaciones::getNotificacionId('seguidores'):
                 $mensaje = Yii::t('app', 'ha comenzado a seguirte');
                 $delante = $this->mensajeDeNotificacionEmisor() . ' ';
@@ -51,10 +47,10 @@ trait Mensajes
                 break;
         }
 
-        return ($delante ?: '') . $mensaje . ($detras ?: '') . '.';
+        return $delante . $mensaje . $detras . '.';
     }
 
-    public function mensajeDeNotificacionEmisor()
+    private function mensajeDeNotificacionEmisor()
     {
         return User::findOne($this->created_by)->username;
     }
