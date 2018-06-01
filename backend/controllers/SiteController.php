@@ -25,9 +25,9 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
+                    $this->mustBeAdmin(['index']),
                     $this->anyCanAccess(['login', 'error']),
                     $this->mustBeLogged(['logout']),
-                    $this->mustBeAdmin(['index']),
                 ],
             ],
             'verbs' => $this->paramByPost(['logout']),

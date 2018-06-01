@@ -24,8 +24,8 @@ trait Permisos
      */
     public function mustBeLogged($actions)
     {
-        return $this->mustBeLoggedForAll($actions) + [
-            'roles' => ['@'],
+        return $this->mustBeLoggedForAll() + [
+            'actions' => $actions,
         ];
     }
 
