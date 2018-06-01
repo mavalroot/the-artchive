@@ -203,10 +203,11 @@ DROP TABLE IF EXISTS notificaciones CASCADE;
 CREATE TABLE notificaciones (
       id                    bigserial       PRIMARY KEY
     , usuario_id            bigint          NOT NULL REFERENCES "user" (id)
-    , notificacion          varchar(255)
+    , url                   varchar(255)
     , tipo_notificacion_id  bigint          NOT NULL REFERENCES tipos_notificaciones (id)
-    , seen                  boolean         NOT NULL DEFAULT FALSE
-    , created_at            timestamp(0)    NOT NULL DEFAULT localtimestamp
+    , seen                  boolean         DEFAULT FALSE
+    , created_at            timestamp(0)    DEFAULT localtimestamp
+    , created_by            bigint          NOT NULL REFERENCES "user" (id)
 );
 
 --------------------------

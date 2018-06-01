@@ -15,8 +15,10 @@ use yii\helpers\Html;
  *
  * @property Relaciones $relacion
  */
-class Solicitudes extends \common\utilities\BaseNotis
+class Solicitudes extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Notificacion;
+
     /**
      * {@inheritdoc}
      */
@@ -96,16 +98,6 @@ class Solicitudes extends \common\utilities\BaseNotis
         return false;
     }
 
-    public function getNotificacionUrl()
-    {
-        return $this->getRawUrl();
-    }
-
-    public function getNotificacionContenido()
-    {
-        return $this->nombre;
-    }
-
     /**
      * Devuelve los botones de la solicitud (aceptar y rechazar)
      * @return string
@@ -144,5 +136,19 @@ class Solicitudes extends \common\utilities\BaseNotis
         }
         $this->respondida = true;
         return $this->update();
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if (!parent::afterSave($insert, $changedAttributes)) {
+            return false;
+        }
+
+        if ($insert) {
+            $this->crearNotificacion([
+                'url' => $this->getRawUrl(),
+            ]);
+        }
+        return true;
     }
 }

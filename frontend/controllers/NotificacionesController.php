@@ -72,13 +72,10 @@ class NotificacionesController extends Controller
     {
         $model = new Notificaciones();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->created_by = Yii::$app->user->identity->id;
+            return $model->save();
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**

@@ -50,4 +50,19 @@ class TiposNotificaciones extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Notificaciones::className(), ['tipo_notificacion_id' => 'id']);
     }
+
+    public static function getNotificacionId($tipo)
+    {
+        if ($tipoNoti = TiposNotificaciones::findOne(['tipo' => $tipo])) {
+            return $tipoNoti->id;
+        }
+        return null;
+    }
+
+    public function getMessage()
+    {
+        return $model->mensajesDeNotificacion([
+            'tipo' => $model->tipo_notificacion_id,
+        ]);
+    }
 }

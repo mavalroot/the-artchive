@@ -140,7 +140,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function imBlocked()
     {
-        return $this->getBloqueos()->where([
+        return Bloqueos::find()->where([
             'usuario_id' => $this->id,
             'bloqueado_id' => Yii::$app->user->id,
         ])
@@ -155,7 +155,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function isApto()
     {
-        return $this->status == User::STATUS_ACTIVE && !$this->isBlocked() && !$this->imBlocked();
+        return $this->status == User::STATUS_ACTIVE && !($this->isBlocked() || $this->imBlocked());
     }
 
     /**
@@ -224,7 +224,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getBlockButton()
     {
-        if (!$this->isSelf() && !$this->isApto()) {
+        if (!$this->isSelf() && !$this->imBlocked()) {
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .

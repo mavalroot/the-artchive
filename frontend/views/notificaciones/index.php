@@ -21,8 +21,14 @@ Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
         // 'filterModel' => $searchModel,
         'columns' => [
             [
-                'attribute' => 'notificacion',
-                'format' => 'html'
+                'label' => Yii::t('frontend', 'Notificación'),
+                'format' => 'html',
+                'value' => function ($model) {
+                    if ($model->url) {
+                        return Html::a($model->mensajesDeNotificacion($model->tipo_notificacion_id), $model->url);
+                    }
+                    return $model->mensajesDeNotificacion($model->tipo_notificacion_id);
+                }
             ],
             'tipo_notificacion_id',
             'created_at:relativetime',
