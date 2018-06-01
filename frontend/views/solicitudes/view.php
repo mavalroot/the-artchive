@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Solicitudes */
 
-$this->title = $model->nombre;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Solicitudes'), 'url' => ['index']];
+$this->title = $model->getTituloSolicitud();
+$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Notificaciones'), 'url' => ['/notificaciones/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="solicitudes-view">
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= $model->mensaje ?>
+        <?= $model->getMensajeSolicitud() ?>
     </p>
     <?php if ($model->respondida) : ?>
         <b>

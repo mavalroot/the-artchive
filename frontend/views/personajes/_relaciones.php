@@ -16,7 +16,7 @@ use yii\widgets\LinkPager;
             <?= $relacion->relacion ?>:
             <?php if ($relacion->referencia) : ?>
                 <?= Html::a(Yii::$app->formatter->asText($relacion->supj), ['personajes/view', 'id' => $relacion->supjid]) ?>
-                <?php if (!$relacion->aceptada) : ?>
+                <?php if ($relacion->getSolicitudes()->count() && !$relacion->aceptada) : ?>
                     <?= Yii::t('frontend', '(Pendiente de confirmación)') ?>
                 <?php endif; ?>
             <?php else : ?>

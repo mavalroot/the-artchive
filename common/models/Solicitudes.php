@@ -33,7 +33,7 @@ class Solicitudes extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['mensaje', 'usuario_id'], 'required',
+            [['usuario_id'], 'required',
                 'message' => Yii::t('app', 'Campo requerido.'),
             ],
             [['relacion_id'], 'default', 'value' => null],
@@ -150,5 +150,24 @@ class Solicitudes extends \common\utilities\ArtchiveBase
             ]);
         }
         return true;
+    }
+
+    public function getMensajeSolicitud()
+    {
+        $relacion = $this->relacion;
+        $referencia = Personajes::findOne($relacion->referencia);
+        $personaje = Personajes::findOne($relacion->personaje_id);
+        $user = User::findOne($personaje->usuario_id);
+        $tipo = TiposRelaciones::findOne($relacion->tipo_relacion_id);
+        return Yii::t('app', 'Se solicita confirmación de que') .
+        " <b>$referencia->nombre</b> " . Yii::t('app', '(tu personaje) es') .
+        ' ' . $tipo->tipo . ' ' . Yii::t('app', 'de') . ' ' .
+        "<b>$personaje->nombre</b>" . ' ' .
+        Yii::t('app', '(personaje de') . ' ' . $user->getUrl() . ').';
+    }
+
+    public function getTituloSolicitud()
+    {
+        return Yii::t('app', 'Has recibido una solicitud para crear una relación.');
     }
 }
