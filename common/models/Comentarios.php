@@ -23,9 +23,10 @@ use yii\helpers\Html;
  * @property Publicaciones $publicacion
  * @property User $usuario
  */
-class Comentarios extends \common\utilities\BaseNotis
+class Comentarios extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Apto;
+    use \common\utilities\Notificacion;
     /**
      * Indica si ha sido citado.
      * @var bool
@@ -204,12 +205,6 @@ class Comentarios extends \common\utilities\BaseNotis
         return Yii::t('app', 'un comentario');
     }
 
-    public function getNotificacionReceptor()
-    {
-        $publicacion = Publicaciones::findOne($this->publicacion_id);
-        return $publicacion->usuario_id;
-    }
-
     public function getUpdateMessage()
     {
         return Yii::t('app', 'Ha eliminado ') . $this->getUnName() . '.';
@@ -218,5 +213,20 @@ class Comentarios extends \common\utilities\BaseNotis
     public function getRawUrl()
     {
         return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+
+        if ($insert && !$this->publicacion->isMine()) {
+            $this->crearNotificacion([
+                'message' => Html::a('Tu publicación ha recibido un comentario.', ['publicaciones/view', 'id' => $this->publicacion_id]),
+                'user' => $this->publicacion->usuario_id,
+            ]);
+        }
+        return true;
     }
 }

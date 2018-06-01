@@ -4,10 +4,11 @@ namespace common\utilities;
 
 use Yii;
 
-use common\models\ActividadReciente;
+use common\models\Notificaciones;
+use common\models\TiposNotificaciones;
 
 /**
- * Clase para implementar la creación del historial de actividad reciente
+ * Clase para implementar la creación del historial de notificacion reciente
  * antes de cualquier acción.
  */
 trait Notificacion
@@ -16,34 +17,50 @@ trait Notificacion
      * Crea una notificación.
      * @param  array $params Parámetros para construir la notificación. Se pide:
      * 'message' => (string) requerido.
-     * 'url' => (string) opcional.
-     * 'tipo' => (string) opcional. Por defecto será el nombre de la tabla de
-     * la clase en la que nos encontremos.
+     * 'user' => id del usuario. Por defecto será el id de usuario_id
+     * (si existe).
      * @return bool
      */
     public function crearNotificacion($params)
     {
         $message = false;
-        $url = false;
         $tipo = false;
+        $user = false;
         extract($params, EXTR_IF_EXISTS);
-
         if (!$message) {
             return false;
         }
-
-        $actividad = new ActividadReciente();
-        $actividad->mensaje = $message;
-        if ($url) {
-            $actividad->url = $url;
-        }
-        if (!$tipo) {
-            $actividad->tipo_notificacion_id = strtolower(str_replace('_', ' ', static::tableName()));
+        $notificacion = new Notificaciones();
+        $notificacion->notificacion = $message;
+        $notificacion->tipo_notificacion_id = $this->getNotificacionTipo();
+        if ($this->getNotificacionUser($user)) {
+            $notificacion->usuario_id = $this->getNotificacionUser($user);
         } else {
-            $actividad->tipo_notificacion_id = $tipo;
+            return false;
         }
+        return $notificacion->save();
+    }
 
-        $actividad->created_by = Yii::$app->user->id;
-        return $actividad->validate() && $actividad->save();
+    /**
+     * Devuelve el tipo de notificación basándose en el nombre de la tabla.
+     * @return string
+     */
+    private function getNotificacionTipo()
+    {
+        $nombre = strtolower(str_replace('_', ' ', static::tableName()));
+        $tipo = TiposNotificaciones::findOne(['tipo' => $nombre]);
+        return $tipo->id;
+    }
+
+    private function getNotificacionUser($user)
+    {
+        if (!$user) {
+            if (!$this->usuario_id) {
+                return false;
+            } else {
+                return $this->usuario_id;
+            }
+        }
+        return $user;
     }
 }
