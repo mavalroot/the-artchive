@@ -16,6 +16,7 @@ use Yii;
  */
 class Notificaciones extends \yii\db\ActiveRecord
 {
+    use \common\utilities\Mensajes;
     /**
      * @inheritdoc
      */

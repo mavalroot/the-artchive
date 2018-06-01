@@ -146,7 +146,6 @@ class Solicitudes extends \common\utilities\ArtchiveBase
 
         if ($insert) {
             $this->crearNotificacion([
-                'message' => $this->nombre,
                 'url' => $this->getRawUrl(),
             ]);
         }

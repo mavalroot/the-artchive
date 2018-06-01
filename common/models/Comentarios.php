@@ -223,7 +223,6 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
         if ($insert && !$this->publicacion->isMine()) {
             $this->crearNotificacion([
-                'message' => 'Tu publicación ha recibido un comentario.',
                 'url' => Url::to(['publicaciones/view', 'id' => $this->publicacion_id]),
                 'user' => $this->publicacion->usuario_id,
             ]);

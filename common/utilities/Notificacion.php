@@ -16,7 +16,6 @@ trait Notificacion
     /**
      * Crea una notificación.
      * @param  array $params Parámetros para construir la notificación. Se pide:
-     * 'message' => (string) requerido.
      * 'url' => (stromg) opcional. Url de la notificación.
      * 'user' => id del usuario. Por defecto será el id de usuario_id
      * (si existe).
@@ -24,7 +23,6 @@ trait Notificacion
      */
     public function crearNotificacion($params)
     {
-        $message = false;
         $user = false;
         $url = null;
         extract($params, EXTR_IF_EXISTS);
@@ -32,7 +30,6 @@ trait Notificacion
             return false;
         }
         $notificacion = new Notificaciones();
-        $notificacion->notificacion = $message;
         $notificacion->url = $url;
         $notificacion->tipo_notificacion_id = $this->getNotificacionTipo();
         if ($this->getNotificacionUser($user)) {

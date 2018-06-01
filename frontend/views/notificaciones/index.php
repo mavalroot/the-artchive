@@ -25,9 +25,9 @@ Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
                 'format' => 'html',
                 'value' => function ($model) {
                     if ($model->url) {
-                        return Html::a($model->notificacion, $model->url);
+                        return Html::a($model->getMessage(), $model->url);
                     }
-                    return $model->notificacion;
+                    return $model->getMessage();
                 }
             ],
             'tipo_notificacion_id',

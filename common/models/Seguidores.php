@@ -15,7 +15,7 @@ namespace common\models;
 class Seguidores extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Notificacion;
-    
+
     /**
      * @inheritdoc
      */
@@ -78,7 +78,6 @@ class Seguidores extends \common\utilities\ArtchiveBase
 
         if ($insert) {
             $this->crearNotificacion([
-                'message' => $this->seguidor->username . ' ha comenzado a seguirte.',
                 'url' => $this->seguidor->getRawUrl(),
             ]);
         }
