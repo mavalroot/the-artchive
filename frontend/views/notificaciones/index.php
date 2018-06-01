@@ -22,7 +22,13 @@ Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
         'columns' => [
             [
                 'attribute' => 'notificacion',
-                'format' => 'html'
+                'format' => 'html',
+                'value' => function ($model) {
+                    if ($model->url) {
+                        return Html::a($model->notificacion, $model->url);
+                    }
+                    return $model->notificacion;
+                }
             ],
             'tipo_notificacion_id',
             'created_at:relativetime',

@@ -26,12 +26,14 @@ trait Notificacion
         $message = false;
         $tipo = false;
         $user = false;
+        $url = null;
         extract($params, EXTR_IF_EXISTS);
         if (!$message) {
             return false;
         }
         $notificacion = new Notificaciones();
         $notificacion->notificacion = $message;
+        $notificacion->url = $url;
         $notificacion->tipo_notificacion_id = $this->getNotificacionTipo();
         if ($this->getNotificacionUser($user)) {
             $notificacion->usuario_id = $this->getNotificacionUser($user);

@@ -12,8 +12,10 @@ namespace common\models;
  * @property User $user
  * @property User $seguidor
  */
-class Seguidores extends \common\utilities\BaseNotis
+class Seguidores extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Notificacion;
+    
     /**
      * @inheritdoc
      */
@@ -68,13 +70,18 @@ class Seguidores extends \common\utilities\BaseNotis
         return false;
     }
 
-    public function getNotificacionContenido()
+    public function beforeSave($insert)
     {
-        return $this->seguidor->username . ' ha comenzado a seguirte.';
-    }
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
 
-    public function getNotificacionUrl()
-    {
-        return $this->seguidor->getRawUrl();
+        if ($insert) {
+            $this->crearNotificacion([
+                'message' => $this->seguidor->username . ' ha comenzado a seguirte.',
+                'url' => $this->seguidor->getRawUrl(),
+            ]);
+        }
+        return true;
     }
 }
