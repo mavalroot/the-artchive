@@ -201,29 +201,10 @@ class Relaciones extends \yii\db\ActiveRecord
                 $solicitud = new Solicitudes();
                 $solicitud->relacion_id = $this->id;
                 $solicitud->usuario_id = $personaje->usuario_id;
-                $solicitud->mensaje = $this->mensajeSolicitud();
-                $solicitud->nombre = Yii::t('app', 'Se ha solicitado crear una relación con ') . $personaje->nombre . '.';
                 return $solicitud->save();
             }
         }
         return false;
-    }
-
-    /**
-     * Mensaje para crear la solicitud.
-     * @return string
-     */
-    public function mensajeSolicitud()
-    {
-        $referencia = Personajes::findOne($this->referencia);
-        $personaje = Personajes::findOne($this->personaje_id);
-        $user = User::findOne($personaje->usuario_id);
-        $relacion = TiposRelaciones::findOne($this->tipo_relacion_id);
-        return Yii::t('app', 'Se solicita confirmación de que') .
-        " <b>$referencia->nombre</b> " . Yii::t('app', '(tu personaje) es') .
-        ' ' . $relacion->tipo . ' ' . Yii::t('app', 'de') .
-        "<b>$personaje->nombre</b>" .
-        Yii::t('app', '(personaje de') . ' ' . $user->getUrl() . ').';
     }
 
     /**

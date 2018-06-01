@@ -33,7 +33,7 @@ class Solicitudes extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['mensaje', 'usuario_id'], 'required',
+            [['usuario_id'], 'required',
                 'message' => Yii::t('app', 'Campo requerido.'),
             ],
             [['relacion_id'], 'default', 'value' => null],

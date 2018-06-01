@@ -246,8 +246,6 @@ CREATE TABLE solicitudes (
     , relacion_id   bigint          UNIQUE REFERENCES relaciones (id)
     , aceptada      boolean         DEFAULT FALSE
     , respondida    boolean         DEFAULT FALSE
-    , nombre        varchar(255)    NOT NULL
-    , mensaje       varchar(255)    NOT NULL
 );
 
 -------------------------
