@@ -91,7 +91,7 @@ CREATE TABLE publicaciones (
     , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
                                     ON DELETE NO ACTION ON UPDATE CASCADE
     , titulo        varchar(255)    NOT NULL
-    , contenido     text
+    , contenido     text            NOT NULL
     , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
     , updated_at    timestamp(0)
 );

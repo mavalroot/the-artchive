@@ -45,17 +45,9 @@ use yii\widgets\LinkPager;
         </div>
     </div>
     <div class="col-sm-9">
-        <div id="profile-entries">
-            <h2><?= Yii::t('frontend', 'Publicaciones') ?></h2>
             <?php if ($publicaciones) : ?>
                 <?php foreach ($publicaciones as $value) : ?>
-                    <div class="entry">
-                        <h4><?= Html::a(Yii::$app->formatter->asText($value->titulo), $value->getRawUrl()); ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
-                        <div class="content">
-                            <?= Yii::$app->formatter->asHtml(Markdown::convert($value->contenido)) ?> <br />
-                        </div>
-                        <span class="entry-comm"><?= Html::a($value->numcom . '<i class="glyphicon glyphicon-comment"></i>', $value->getRawUrl()) ?></span>
-                    </div>
+                    <?= $this->render('/publicaciones/_publicaciones', ['model' => $value]) ?>
                 <?php endforeach; ?>
             <?php else : ?>
                 <div class="entry">
@@ -64,10 +56,8 @@ use yii\widgets\LinkPager;
                     </p>
                 </div>
             <?php endif; ?>
-        </div>
         <?= LinkPager::widget([
             'pagination' => $pagination,
         ]);
         ?>
-    </div>
 </div>

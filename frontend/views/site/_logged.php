@@ -18,14 +18,14 @@ use nirvana\infinitescroll\InfiniteScrollPager;
                 <img src="<?= $model->avatar ?: '/uploads/default.png' ?>" alt="Avatar">
             </div>
             <ul class="stats">
-                <li>Seguidores: <?= $model->seguidores ?></li>
-                <li>Siguiendo: <?= $model->siguiendo ?></li>
-                <li>Pesonajes: <?= $model->personajes ?></li>
-                <li>Publicaciones: <?= $model->publicaciones ?></li>
+                <li><?= Yii::t('frontend', 'Seguidores') ?> <h4><?= $model->seguidores ?></h4></li>
+                <li><?= Yii::t('frontend', 'Siguiendo') ?> <h4><?= $model->siguiendo ?></h4></li>
+                <li><?= Yii::t('frontend', 'Personajes') ?> <h4><?= $model->personajes ?></h4></li>
+                <li><?= Yii::t('frontend', 'Publicaciones') ?> <h4><?= $model->publicaciones ?></h4></li>
             </ul>
         </div>
         <div id="random-artist">
-            Conoce un artista al azar
+            <?= Yii::t('frontend', 'Conoce un artista al azar') ?>
         </div>
         <div id="lateral-footer">
             <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>

@@ -48,7 +48,7 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['usuario_id', 'titulo'], 'required',
+            [['usuario_id', 'titulo', 'contenido'], 'required',
                 'message' => Yii::t('app', 'Campo requerido.')
             ],
             [['usuario_id'], 'default', 'value' => null],
