@@ -6,13 +6,8 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-
-use yii\data\Pagination;
-
 use yii\filters\AccessControl;
-
 use yii\helpers\ArrayHelper;
-
 use common\models\LoginForm;
 use common\models\Seguidores;
 use frontend\models\PasswordResetRequestForm;
@@ -76,6 +71,7 @@ class SiteController extends Controller
                 'model' => new LoginForm(),
             ]);
         } else {
+            $this->layout = 'main-without-foot';
             $publicaciones = Publicaciones::find()->where([
                 'usuario_id' => ArrayHelper::map(
                     Seguidores::find()

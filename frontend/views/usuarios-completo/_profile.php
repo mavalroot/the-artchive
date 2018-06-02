@@ -1,7 +1,4 @@
 <?php
-use yii\helpers\Html;
-use yii\helpers\StringHelper;
-use kartik\markdown\Markdown;
 use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
@@ -9,7 +6,7 @@ use yii\widgets\LinkPager;
 ?>
 
 <div id="profile-content" class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div id="profile-details">
             <?php if ($model->bio) : ?>
                 <h5><?= $model->getAttributeLabel('bio') ?></h5>
@@ -44,7 +41,7 @@ use yii\widgets\LinkPager;
             <?= $model->getCharactersButton() ?>
         </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8">
             <?php if ($publicaciones) : ?>
                 <?php foreach ($publicaciones as $value) : ?>
                     <?= $this->render('/publicaciones/_publicaciones', ['model' => $value]) ?>
