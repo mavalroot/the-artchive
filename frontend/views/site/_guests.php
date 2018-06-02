@@ -29,17 +29,22 @@ use yii\widgets\ActiveForm;
 </div>
 
 <div class="myflex">
+    <div id="description" class="row">
+        <h1><?= $this->title ?></h1>
+        <div class="speech-bubble">
+            <?= Yii::t('frontend', 'The Artchive es una red social para creadores de contenido donde puedes compartir tus personajes y escritos.') ?>
+        </div>
+        <div class="text-right">
+            <img src="/img/artchive.svg" alt="Logo" style="max-width: 200px; height: 200px;"><br />
+        </div>
+    </div>
+
     <div id="summary" class="row">
         <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span> <?= Yii::t('frontend', 'Crea contenido') ?></li>
             <li><span class="fa-li"><i class="fas fa-users"></i></span> <?= Yii::t('frontend', 'Conecta con la gente') ?></li>
             <li><span class="fa-li"><i class="fas fa-paper-plane"></i></span> <?= Yii::t('frontend', 'Comparte tus creaciones') ?></li>
         </ul>
-    </div>
-
-    <div id="description" class="row">
-        <img src="http://placehold.it/100" alt="Logo"><br />
-        <?= Yii::t('frontend', 'The Artchive es una red social para creadores de contenido donde puedes compartir tus personajes y escritos.') ?>
     </div>
 
     <div id="join" class="row">

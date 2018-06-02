@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-$this->title = 'Artchive';
+$this->title = 'The Artchive';
 $render;
 $more = [];
 if (Yii::$app->user->isGuest) {
@@ -12,4 +12,4 @@ if (Yii::$app->user->isGuest) {
 }
 ?>
 
-<?= $this->render($render, $more) ?>
+<?= $this->render($render, $more);
