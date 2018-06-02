@@ -8,6 +8,24 @@
     text-shadow: 1px 1px 2px black;
 }
 
+#login > form > .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:
+  flex-end;
+}
+
+#login > form > .flex > div {
+  margin: 0px 5px;
+}
+
+#home-guest a {
+  color: #fff;
+}
+#home-guest a:hover {
+  color: #dddddd;
+}
+
 #home-guest > div {
   padding: 10px;
 }
@@ -43,13 +61,13 @@ a.join-button {
   padding: 5px 50px;
   border-radius: 100px;
   margin: 10px;
-  background: red;
+  background: purple;
   color: white;
   font-size: 18px;
 }
 
 a.join-button:hover {
-  background: darkred;
+  background: violet;
 }
 
 #summary > ul > li {

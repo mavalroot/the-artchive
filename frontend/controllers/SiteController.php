@@ -65,6 +65,9 @@ class SiteController extends Controller
     {
         if (Yii::$app->user->isGuest) {
             $this->layout = 'homeguests';
+            return $this->render('index', [
+                'model' => new LoginForm(),
+            ]);
         }
         return $this->render('index');
     }

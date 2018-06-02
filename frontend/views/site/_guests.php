@@ -1,12 +1,29 @@
+<?php
+use yii\helpers\Html;
+
+use yii\widgets\ActiveForm;
+
+?>
+
 <div id="login" class="container-fluid">
-    <div class="row text-right form-inline">
-        <input class="form-control" type="text" name="" value="" placeholder="usuario">
-        <input class="form-control" type="password" name="" value="" placeholder="contraseña">
-        <input class="btn btn-secondary" type="button" name="" value="Entrar">
+    <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => '/site/login']); ?>
+    <div class="row flex">
+        <div>
+            <?= $form->field($model, 'username')->textInput()->label(false) ?>
+        </div>
+
+        <div>
+            <?= $form->field($model, 'password')->passwordInput()->label(false) ?>
+        </div>
+
+        <div>
+            <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-secondary', 'name' => 'login-button']) ?>
+        </div>
     </div>
     <div class="row text-right">
-        <a href="">¿Olvidaste tu contraseña?</a>
+            <?= Html::a(Yii::t('frontend', '¿Has olvidado tu contraseña?'), ['site/request-password-reset']) ?>.
     </div>
+    <?php ActiveForm::end(); ?>
 </div>
 
 <div class="myflex">
