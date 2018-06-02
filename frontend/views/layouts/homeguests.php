@@ -26,8 +26,8 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <div id="home-guest">
-        <div id="particles-js"></div>
+    <div id="particles-js"></div>
+    <div id="home-guest" class="container-fluid">
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
