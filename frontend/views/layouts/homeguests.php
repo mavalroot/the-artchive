@@ -39,7 +39,6 @@ $language = '<div id="change-language"><button title="Change language to english
     </div>
 </div>
 <footer class="oneline">
-
     <ul>
         <li>
             <?= $language ?>

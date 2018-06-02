@@ -284,4 +284,16 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             Html::endTag('p');
         }
     }
+
+    /**
+     * Devuelve el avatar como una imagen
+     * @return [type] [description]
+     */
+    public function getImgAvatar()
+    {
+        return Html::img($this->avatar ?: '/uploads/default.png', [
+            'title' => $this->username . ' avatar',
+            'alt' => $this->username . ' avatar',
+        ]);
+    }
 }

@@ -6,10 +6,10 @@ $render;
 $more = [];
 if (Yii::$app->user->isGuest) {
     $render = '_guests';
-    $more = ['model' => $model];
 } else {
     $render = '_logged';
+    $more = ['publicaciones' => $publicaciones];
 }
 ?>
 
-<?= $this->render($render, $more);
+<?= $this->render($render, ['model' => $model] + $more);
