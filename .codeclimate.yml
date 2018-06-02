@@ -29,5 +29,6 @@ exclude_paths:
 - tests/
 - docs/
 - frontend/web/js/plugins
+- frontend/web/js/fontawesome
 - requirements.php
 - environments
