@@ -30,6 +30,7 @@ class AppAsset extends AssetBundle
         'js/extra.js',
         'js/delete-account.js',
         'js/plugins/remaining_characters.min.js',
+        'js/fontawesome/fontawesome-all.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
