@@ -44,11 +44,11 @@ $language = '<div id="change-language"><button title="Change language to english
         <li>
             <?= $language ?>
         </li>
-        <li><a href="">Sobre Nosotros</a></li>
-        <li><a href="">Sobre The Artchive</a></li>
-        <li><a href="">Términos y condiciones</a></li>
-        <li><a href="">Preguntas frecuentes</a></li>
-        <li><a href="">Contactar</a></li>
+        <li><a href=""><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
+        <li><a href=""><?= Yii::t('frontend', 'Sobre The Artchive') ?></a></li>
+        <li><a href=""><?= Yii::t('frontend', 'Términos y condiciones') ?></a></li>
+        <li><a href=""><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
+        <li><a href=""><?= Yii::t('frontend', 'Contactar') ?></a></li>
         <li>© <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?> by <a href="http://www.mavalroot.es/">mavalroot</a></li>
     </ul>
 </footer>

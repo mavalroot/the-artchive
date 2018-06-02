@@ -5,11 +5,11 @@ use yii\widgets\ActiveForm;
 
 ?>
 
-<div id="login" class="container-fluid">
+<div id="login">
     <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => '/site/login']); ?>
     <div class="row flex">
         <div>
-            <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('frontend', 'Usuario')])->label(false) ?>
+            <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('frontend', 'Nombre de usuario')])->label(false) ?>
         </div>
 
         <div>
@@ -21,7 +21,9 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row text-right">
-            <?= Html::a(Yii::t('frontend', '¿Has olvidado tu contraseña?'), ['site/request-password-reset']) ?>
+            <small>
+                <?= Html::a(Yii::t('frontend', '¿Has olvidado tu contraseña?'), ['site/request-password-reset']) ?>
+            </small>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
@@ -29,25 +31,25 @@ use yii\widgets\ActiveForm;
 <div class="myflex">
     <div id="summary" class="row">
         <ul class="fa-ul">
-            <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span> Crea contenido</li>
-            <li><span class="fa-li"><i class="fas fa-users"></i></span> Conecta con la gente</li>
-            <li><span class="fa-li"><i class="fas fa-paper-plane"></i></span> Comparte tus creaciones</li>
+            <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span> <?= Yii::t('frontend', 'Crea contenido') ?></li>
+            <li><span class="fa-li"><i class="fas fa-users"></i></span> <?= Yii::t('frontend', 'Conecta con la gente') ?></li>
+            <li><span class="fa-li"><i class="fas fa-paper-plane"></i></span> <?= Yii::t('frontend', 'Comparte tus creaciones') ?></li>
         </ul>
     </div>
 
     <div id="description" class="row">
         <img src="http://placehold.it/100" alt="Logo"><br />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <?= Yii::t('frontend', 'The Artchive es una red social para creadores de contenido donde puedes compartir tus personajes y escritos.') ?>
     </div>
 
     <div id="join" class="row">
-        <h3>Únete</h3>
+        <h3><?= Yii::t('frontend', 'Únete ya') ?></h3>
         <ul>
             <li>
-                <a class="join-button" href="/site/login"><i class="fas fa-user-plus"></i> Registrarse</a>
+                <a class="join-button" href="/site/login"><i class="fas fa-user-plus"></i> <?= Yii::t('frontend', 'Registrarse') ?></a>
             </li>
             <li>
-                <a class="join-button" href="/site/signup"><i class="fas fa-sign-in-alt"></i> Conectarse</a>
+                <a class="join-button" href="/site/signup"><i class="fas fa-sign-in-alt"></i> <?= Yii::t('frontend', 'Conectarse') ?></a>
             </li>
         </ul>
     </div>
