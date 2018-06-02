@@ -73,7 +73,7 @@ function eliminar(url) {
             let comId = '#com' + ide;
             $.post(url, {id: ide}, function(data) {
                 if (data) {
-                    let borrado = '<div class="contenido-new"><em class="text-danger">Este comentario ha sido eliminado.</em></div>';
+                    let borrado = '<div class="contenido-new"><em class="text-danger">---</em></div>';
                     $(comId).find('.contenido').replaceWith(borrado);
                 }
             });
