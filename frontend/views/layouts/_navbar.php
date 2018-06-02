@@ -1,7 +1,6 @@
 <?php
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-
 use common\models\Notificaciones;
 use common\models\MensajesPrivados;
 
@@ -64,25 +63,26 @@ echo Nav::widget([
     'encodeLabels' => false,
     'items' => $menuItemsRight,
 ]);
-$language ?>
+?>
+<?= $language ?>
 <?php if (!Yii::$app->user->isGuest) : ?>
-    <ul id="w1" class="navbar-nav navbar-right nav">
-               <li>
-                  <div class="col-sm-3">
-                     <form role="search" action="/search" method="get">
-                        <div id="sb-nav">
-                           <input class="form-control" placeholder="<?= Yii::t('app', 'Buscar') ?>" name="st" type="text">
-                           <select class="btn hidden-sm" name="src">
-                              <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
-                              <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>
-                           </select>
-                           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                     </form>
-                  </div>
-               </li>
-      </ul>
-  <?php endif; ?>
-<?php
+<ul id="w1" class="navbar-nav navbar-right nav">
+    <li>
+        <div class="col-sm-3">
+            <form role="search" action="/search" method="get">
+                <div id="sb-nav">
+                    <input class="form-control" placeholder="<?= Yii::t('app', 'Buscar') ?>" name="st" type="text">
+                    <select class="btn hidden-sm" name="src">
+                        <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
+                        <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>
+                    </select>
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </li>
+</ul>
+<?php endif;
+
 NavBar::end();
 ?>
