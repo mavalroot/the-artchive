@@ -1,8 +1,10 @@
 <?php
 
+use yii\data\ActiveDataProvider;
+
 use yii\helpers\Html;
-use common\models\UsuariosCompleto;
-use kartik\markdown\Markdown;
+use yii\widgets\ListView;
+use nirvana\infinitescroll\InfiniteScrollPager;
 
 ?>
 
@@ -49,21 +51,33 @@ use kartik\markdown\Markdown;
     </div>
     <div class="col-sm-8">
         <div class="publicaciones">
-            <?php foreach ($publicaciones as $publicacion): ?>
-                <div class="publicacion">
-                    <?php $owner = UsuariosCompleto::findOne(['id' => $publicacion->usuario_id]) ?>
-                    <span class="avatar"><?= $owner->getImgAvatar() ?></span> <?= $owner->getUrl() ?>
-                    <div class="contenido">
-                        <?= Yii::$app->formatter->asHtml(Markdown::convert($publicacion->contenido)) ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+
+            <?=
+            ListView::widget([
+                'id' => 'feed',
+                'dataProvider' => new ActiveDataProvider([
+                    'query' => $publicaciones,
+                    'pagination' => [
+                        'pageSize' => 5,
+                    ],
+                ]),
+                'layout' => "{summary}\n<div class=\"items\">{items}</div>\n{pager}",
+                'itemView' => '/publicaciones/_publicaciones',
+                'summary' => '',
+                'emptyText' => 'Aquí no hay nada.',
+                'pager' =>
+                ['class' => InfiniteScrollPager::className(),
+                    'widgetId' => 'feed',
+                    'itemsCssClass' => 'items',
+                    'pluginOptions' => [
+                        'loading' => [
+                            'msgText' => '<i class="fas fa-spinner fa-pulse"></i>',
+                            'finishedMsg' => 'No hay nada más',
+                        ],
+                    ],
+                ]
+            ]);
+            ?>
         </div>
     </div>
 </div>
-
-<style media="screen">
-    .avatar img {
-        width: 60px;
-    }
-</style>

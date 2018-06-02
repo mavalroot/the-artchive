@@ -7,6 +7,8 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 
+use yii\data\Pagination;
+
 use yii\filters\AccessControl;
 
 use yii\helpers\ArrayHelper;
@@ -74,18 +76,19 @@ class SiteController extends Controller
                 'model' => new LoginForm(),
             ]);
         } else {
+            $publicaciones = Publicaciones::find()->where([
+                'usuario_id' => ArrayHelper::map(
+                    Seguidores::find()
+                    ->where([
+                        'seguidor_id' => Yii::$app->user->id
+                    ])
+                    ->all(),
+                    'id',
+                    'usuario_id'
+                )]);
             return $this->render('index', [
                 'model' => UsuariosCompleto::findOne(['id' => Yii::$app->user->id]),
-                'publicaciones' => Publicaciones::find()->where([
-                    'usuario_id' => ArrayHelper::map(
-                        Seguidores::find()
-                        ->where([
-                            'seguidor_id' => Yii::$app->user->id
-                        ])
-                        ->all(),
-                        'id',
-                        'usuario_id'
-                    )])->all(),
+                'publicaciones' => $publicaciones,
             ]);
         }
     }
