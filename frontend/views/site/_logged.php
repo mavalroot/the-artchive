@@ -7,29 +7,27 @@ use yii\widgets\ListView;
 use nirvana\infinitescroll\InfiniteScrollPager;
 
 ?>
-
+<link rel="stylesheet" href="/css/homelogged.css">
 <div class="row">
     <div class="col-sm-4">
         <div id="me-home">
             <div class="username">
-                <?= $model->getUrl() ?>
+                <h3><?= $model->getUrl() ?></h3>
             </div>
             <div class="avatar">
-                <img src="<?= $model->avatar ?: '/uploads/default.png' ?>" alt="Avatar" style="width: 100px">
+                <img src="<?= $model->avatar ?: '/uploads/default.png' ?>" alt="Avatar">
             </div>
-            <ul class="">
+            <ul class="stats">
                 <li>Seguidores: <?= $model->seguidores ?></li>
                 <li>Siguiendo: <?= $model->siguiendo ?></li>
-                <li>Mensajes: </li>
-                <li>Comentarios: </li>
-                <li>Pesonajes: </li>
-                <li>Publicaciones: </li>
+                <li>Pesonajes: <?= $model->personajes ?></li>
+                <li>Publicaciones: <?= $model->publicaciones ?></li>
             </ul>
         </div>
         <div id="random-artist">
             Conoce un artista al azar
         </div>
-        <div id="footer">
+        <div id="lateral-footer">
             <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
             <ul>
                 <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>

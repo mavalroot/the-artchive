@@ -346,10 +346,12 @@ CREATE TABLE reportes (
  * registro y sus datos.
  */
 CREATE OR REPLACE VIEW usuarios_completo AS
-SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.bio, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status
+SELECT u.id, u.username, u.email, ud.aficiones, ud.tematica_favorita, ud.bio, ud.pagina_web, ud.avatar, tu.tipo, count(seg.id) as seguidores, count(sig.id) as siguiendo, u.created_at, u.updated_at, u.status, count(pj.id) as personajes, count(pb.id) as publicaciones
 FROM "user" u
 LEFT JOIN usuarios_datos ud ON u.id = ud.usuario_id
 LEFT JOIN seguidores seg ON seg.usuario_id = u.id
 LEFT JOIN seguidores sig ON sig.seguidor_id = u.id
 LEFT JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
+LEFT JOIN personajes pj ON tu.id = pj.usuario_id
+LEFT JOIN publicaciones pb ON tu.id = pb.usuario_id
 GROUP BY u.id, ud.usuario_id, tu.id;
