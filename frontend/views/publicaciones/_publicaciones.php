@@ -17,31 +17,70 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
         <div class="titulo">
             <h3><?= Html::a(Yii::$app->formatter->asText($model->titulo), $model->getRawUrl()); ?></h3>
         </div>
+        <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
-    <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     <div class="publicacion-body">
         <div class="contenido">
             <?= Yii::$app->formatter->asHtml(Markdown::convert($model->contenido)) ?>
         </div>
     </div>
     <div class="publicacion-footer">
-        <div class="updated">
-            <i class="fas fa-edit"></i> <?= Yii::$app->formatter->asRelativeTime($model->updated_at) ?>
-        </div>
         <div class="comentarios">
             <?= Html::a('<i class="fas fa-comments"></i> ' . count($model->comentarios), $model->getRawUrl()); ?>
+        </div>
+        <div class="updated">
+            <i class="fas fa-edit"></i> <?= Yii::$app->formatter->asRelativeTime($model->updated_at) ?>
         </div>
     </div>
 </div>
 
 <style media="screen">
-    .avatar img {
-        width: 50px;
-        border-radius: 100px;
+    #feed .publicacion {
+        margin-bottom: 20px;
+        background: white;
     }
 
-    .publicacion-header {
+    #feed .publicacion > .publicacion-header {
+        background: purple;
+        padding: 10px;
+    }
+
+    #feed .publicacion > .publicacion-header > .user > .avatar img {
+        width: 50px;
+        border-radius: 100px;
+        margin-right: 10px;
+    }
+
+    #feed .publicacion > .publicacion-header {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
     }
+    #feed .publicacion > .publicacion-header > small {
+        width: 100%;
+    }
+
+    #feed .publicacion > .publicacion-body {
+    }
+
+    #feed .publicacion > .publicacion-body > .contenido {
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    #feed .publicacion > .publicacion-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    #feed .publicacion > .publicacion-footer > div {
+        padding: 10px;
+    }
+
+
+
 </style>

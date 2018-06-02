@@ -64,15 +64,15 @@ use nirvana\infinitescroll\InfiniteScrollPager;
                 'layout' => "{summary}\n<div class=\"items\">{items}</div>\n{pager}",
                 'itemView' => '/publicaciones/_publicaciones',
                 'summary' => '',
-                'emptyText' => 'Aquí no hay nada.',
+                'emptyText' => Yii::t('frontend', 'Aquí no hay nada :(. ¿Por qué no empiezas a seguir a algún usuario?'),
                 'pager' =>
                 ['class' => InfiniteScrollPager::className(),
                     'widgetId' => 'feed',
                     'itemsCssClass' => 'items',
                     'pluginOptions' => [
                         'loading' => [
-                            'msgText' => '<i class="fas fa-spinner fa-pulse"></i>',
-                            'finishedMsg' => 'No hay nada más',
+                            'msgText' => '<span><i class="fas fa-spinner fa-pulse"></i></span>',
+                            'finishedMsg' => Yii::t('frontend', '¡Felicidades! Has llegado al final.'),
                         ],
                     ],
                 ]
