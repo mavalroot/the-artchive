@@ -9,19 +9,19 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => '/site/login']); ?>
     <div class="row flex">
         <div>
-            <?= $form->field($model, 'username')->textInput()->label(false) ?>
+            <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('frontend', 'Usuario')])->label(false) ?>
         </div>
 
         <div>
-            <?= $form->field($model, 'password')->passwordInput()->label(false) ?>
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('frontend', 'Contraseña')])->label(false) ?>
         </div>
 
         <div>
-            <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-secondary', 'name' => 'login-button']) ?>
+            <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
         </div>
     </div>
     <div class="row text-right">
-            <?= Html::a(Yii::t('frontend', '¿Has olvidado tu contraseña?'), ['site/request-password-reset']) ?>.
+            <?= Html::a(Yii::t('frontend', '¿Has olvidado tu contraseña?'), ['site/request-password-reset']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
