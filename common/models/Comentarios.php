@@ -153,7 +153,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
     public function getAvatar()
     {
         $user = UsuariosCompleto::findOne(['id' => $this->usuario_id]);
-        return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.jpg');
+        return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.png');
     }
 
     public function getResponderButton()
