@@ -38,10 +38,11 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
     #feed .publicacion {
         margin-bottom: 20px;
         background: white;
+        border: 2px solid #7967a6;
     }
 
     #feed .publicacion > .publicacion-header {
-        background: purple;
+        background: linear-gradient(-90deg, #a367a6, #7967a6);
         padding: 10px;
     }
 
@@ -75,6 +76,7 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        border-top: 2px solid #7967a6;
     }
 
     #feed .publicacion > .publicacion-footer > div {

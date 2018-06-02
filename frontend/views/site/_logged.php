@@ -12,7 +12,7 @@ use nirvana\infinitescroll\InfiniteScrollPager;
     <div class="col-sm-4">
         <div id="me-home">
             <div class="username">
-                <?= $model->username ?>
+                <?= $model->getUrl() ?>
             </div>
             <div class="avatar">
                 <img src="<?= $model->avatar ?: '/uploads/default.png' ?>" alt="Avatar" style="width: 100px">
