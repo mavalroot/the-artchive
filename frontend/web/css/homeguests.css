@@ -101,9 +101,8 @@ footer.oneline > ul > li {
 
 .speech-bubble {
   position: relative;
-  background: rgba(255,255,255,.7);
+  background: rgba(0,0,0,.3);
   border-radius: .4em;
-  color: #0b0b0b;
   padding: 10px;
 }
 
@@ -115,7 +114,7 @@ footer.oneline > ul > li {
   width: 0;
   height: 0;
   border: 30px solid transparent;
-  border-top-color: rgba(255,255,255,.7);
+  border-top-color: rgba(0,0,0,.3);
   border-bottom: 0;
   border-right: 0;
   margin-left: -20px;
