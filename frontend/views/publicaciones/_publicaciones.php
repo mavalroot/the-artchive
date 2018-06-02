@@ -15,7 +15,7 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
             </div>
         </div>
         <div class="titulo">
-            <h3><?= Html::a(Yii::$app->formatter->asText($model->titulo), $model->getRawUrl()); ?></h3>
+            <h2><?= Html::a(Yii::$app->formatter->asText($model->titulo), $model->getRawUrl()); ?></h2>
         </div>
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
