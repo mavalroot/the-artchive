@@ -11,10 +11,10 @@
 
 <div class="myflex">
     <div id="summary" class="row">
-        <ul>
-            <li><i class="fas fa-pencil-alt"></i> Crea contenido</li>
-            <li><i class="fas fa-users"></i> Conecta con la gente</li>
-            <li><i class="fas fa-paper-plane"></i> Comparte tus creaciones</li>
+        <ul class="fa-ul">
+            <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span> Crea contenido</li>
+            <li><span class="fa-li"><i class="fas fa-users"></i></span> Conecta con la gente</li>
+            <li><span class="fa-li"><i class="fas fa-paper-plane"></i></span> Comparte tus creaciones</li>
         </ul>
     </div>
 
