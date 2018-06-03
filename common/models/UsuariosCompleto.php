@@ -224,7 +224,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getBlockButton()
     {
-        if (!$this->isSelf() && !$this->imBlocked()) {
+        if (!$this->isSelf() && !$this->imBlocked() && $this->isBlocked()) {
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .

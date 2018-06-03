@@ -57,4 +57,5 @@ use yii\widgets\LinkPager;
             'pagination' => $pagination,
         ]);
         ?>
+    </div>
 </div>
