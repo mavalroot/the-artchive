@@ -9,6 +9,11 @@ use common\models\Comentarios;
 ?>
 <div id="publicacion-comentarios">
     <h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
+    <?php if (!$comentarios): ?>
+        <div class="comentario">
+            <?= Yii::t('frontend', 'Esta publicación no tiene ningún comentario.') ?>
+        </div>
+    <?php endif; ?>
     <?php foreach ($comentarios as $comentario) : ?>
         <?= $this->render('_comentario', [
             'comentario' => $comentario,

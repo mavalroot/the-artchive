@@ -12,7 +12,7 @@ NavBar::begin([
     ],
 ]);
 $menuItemsLeft = [
-    ['label' => '<span class="glyphicon glyphicon-home"></span> ' . Yii::t('frontend', 'Inicio'), 'url' => ['/site/index']],
+    ['label' => '<i class="fas fa-home"></i> ' . Yii::t('frontend', 'Inicio'), 'url' => ['/site/index']],
 ];
 if (Yii::$app->user->isGuest) {
     $menuItemsRight[] = [
@@ -23,16 +23,16 @@ if (Yii::$app->user->isGuest) {
         ],
     ];
 } else {
-    $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-bell"></span> ' . Yii::t('frontend', 'Notificaciones') . ' <span class="num-alerts-notis">' . Yii::$app->user->identity->getUnseenAlerts(new Notificaciones(), 'usuario_id') . '</span>', 'url' => ['/notificaciones/index']];
-    $menuItemsLeft[] = ['label' => '<span class="glyphicon glyphicon-envelope"></span> ' . Yii::t('frontend', 'Mensajes') . ' <span class="num-alerts-mp">' . Yii::$app->user->identity->getUnseenAlerts(new MensajesPrivados(), 'receptor_id') . '</span>', 'url' => ['/mensajes-privados/index']];
+    $menuItemsLeft[] = ['label' => '<i class="fas fa-bell"></i> ' . Yii::t('frontend', 'Notificaciones') . ' <span class="num-alerts-notis">' . Yii::$app->user->identity->getUnseenAlerts(new Notificaciones(), 'usuario_id') . '</span>', 'url' => ['/notificaciones/index']];
+    $menuItemsLeft[] = ['label' => '<i class="fas fa-envelope"></i> ' . Yii::t('frontend', 'Mensajes') . ' <span class="num-alerts-mp">' . Yii::$app->user->identity->getUnseenAlerts(new MensajesPrivados(), 'receptor_id') . '</span>', 'url' => ['/mensajes-privados/index']];
     $menuItemsLeft[] = [
-        'label' => '<span class="glyphicon glyphicon-pencil"></span> ' . Yii::t('frontend', 'Crear'),
+        'label' => '<i class="fas fa-pencil-alt"></i> ' . Yii::t('frontend', 'Crear'),
         'items' => [
             ['label' => Yii::t('frontend', 'Personaje'), 'url' => ['/personajes/create']],
             ['label' => Yii::t('frontend', 'Publicación'), 'url' => ['/publicaciones/create']],
         ],
     ];
-    $menuItemsLeft[] = ['label' => '<i class="glyphicon glyphicon-list-alt"></i> ' . Yii::t('frontend', 'Foro'), 'url' => ['/podium/home']];
+    $menuItemsLeft[] = ['label' => '<i class="fas fa-th-list"></i> ' . Yii::t('frontend', 'Foro'), 'url' => ['/podium/home']];
     $menuItemsRight[] = [
         'label' => Yii::$app->user->identity->username,
         'items' => [
@@ -76,7 +76,7 @@ echo Nav::widget([
                         <option value="user"><?= Yii::t('frontend', 'Usuario') ?></option>
                         <option value="pj"><?= Yii::t('frontend', 'Personaje') ?></option>
                     </select>
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
                 </div>
             </form>
         </div>

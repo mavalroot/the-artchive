@@ -108,7 +108,7 @@ class ComentariosController extends Controller
                     'comentarios' => $comentarios,
                 ]);
             }
-            return '<div class="no-respuestas">No hay comentarios.</div>';
+            return '<div class="no-respuestas">' . Yii::t('app', 'No hay comentarios.') . '</div>';
         }
     }
 
