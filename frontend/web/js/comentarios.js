@@ -59,7 +59,7 @@ function mostrarRespuestas() {
                 $(comId).find('button[name="ocultar-respuestas"]').remove();
             }
             $(comId).append(data);
-            $(comId).find('button[name="mostrar-respuestas"]').after('<button type="button" name="ocultar-respuestas" class="btn btn-link">Ocultar</button>')
+            $(comId).find('button[name="mostrar-respuestas"]').after('<button type="button" name="ocultar-respuestas" class="btn btn-link"><i class="fas fa-eye-slash"></i></button>')
         });
     });
 }
@@ -73,7 +73,7 @@ function eliminar(url) {
             let comId = '#com' + ide;
             $.post(url, {id: ide}, function(data) {
                 if (data) {
-                    let borrado = '<div class="contenido-new"><em class="text-danger">Este comentario ha sido eliminado.</em></div>';
+                    let borrado = '<div class="contenido-new"><em class="text-danger">---</em></div>';
                     $(comId).find('.contenido').replaceWith(borrado);
                 }
             });

@@ -1,7 +1,4 @@
 <?php
-use yii\helpers\Html;
-use yii\helpers\StringHelper;
-use kartik\markdown\Markdown;
 use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
@@ -9,7 +6,7 @@ use yii\widgets\LinkPager;
 ?>
 
 <div id="profile-content" class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div id="profile-details">
             <?php if ($model->bio) : ?>
                 <h5><?= $model->getAttributeLabel('bio') ?></h5>
@@ -44,18 +41,10 @@ use yii\widgets\LinkPager;
             <?= $model->getCharactersButton() ?>
         </div>
     </div>
-    <div class="col-sm-9">
-        <div id="profile-entries">
-            <h2><?= Yii::t('frontend', 'Publicaciones') ?></h2>
+    <div class="col-sm-8">
             <?php if ($publicaciones) : ?>
                 <?php foreach ($publicaciones as $value) : ?>
-                    <div class="entry">
-                        <h4><?= Html::a(Yii::$app->formatter->asText($value->titulo), $value->getRawUrl()); ?> <small><?= Yii::$app->formatter->asDateTime($value->created_at) ?></small></h4>
-                        <div class="content">
-                            <?= Yii::$app->formatter->asHtml(Markdown::convert($value->contenido)) ?> <br />
-                        </div>
-                        <span class="entry-comm"><?= Html::a($value->numcom . '<i class="glyphicon glyphicon-comment"></i>', $value->getRawUrl()) ?></span>
-                    </div>
+                    <?= $this->render('/publicaciones/_publicaciones', ['model' => $value]) ?>
                 <?php endforeach; ?>
             <?php else : ?>
                 <div class="entry">
@@ -64,7 +53,6 @@ use yii\widgets\LinkPager;
                     </p>
                 </div>
             <?php endif; ?>
-        </div>
         <?= LinkPager::widget([
             'pagination' => $pagination,
         ]);

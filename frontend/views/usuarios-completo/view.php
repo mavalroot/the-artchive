@@ -13,7 +13,7 @@ use common\models\User;
         <?php if ($model->avatar) : ?>
             <img src="<?= $model->avatar ?>" />
         <?php else : ?>
-            <img src="/uploads/default.jpg" />
+            <img src="/uploads/default.png" />
         <?php endif; ?>
         </div>
         <div class="user">

@@ -80,7 +80,7 @@ class ComentariosController extends Controller
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
             if ($model->isMine() && !$model->isDeleted()) {
-                $model->contenido = Yii::t('frontend', '<em class="text-danger">Este comentario ha sido borrado por <strong>su autor</strong>.</em>');
+                $model->contenido = '--Comentario eliminado--';
                 $model->deleted = true;
                 return $model->save();
             }
@@ -94,12 +94,21 @@ class ComentariosController extends Controller
             $this->layout = false;
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
-            if (count($model->comentarios)) {
+
+            $comentarios = $model->getComentarios()
+            ->select('comentarios.*, count(comentarios.id) as quoted, uc.username, uc.avatar')
+            ->joinWith('comentarios qu')
+            ->join('join', 'usuarios_completo uc', 'uc.id = comentarios.usuario_id')
+            ->groupBy('comentarios.id, uc.username, uc.avatar')
+            ->orderBy('comentarios.created_at ASC')
+            ->all();
+
+            if (count($comentarios)) {
                 return $this->render('_respuestas', [
-                    'comentarios' => $model->comentarios,
+                    'comentarios' => $comentarios,
                 ]);
             }
-            return '<div class="no-respuestas">No hay comentarios.</div>';
+            return '<div class="no-respuestas">' . Yii::t('app', 'No hay comentarios.') . '</div>';
         }
     }
 

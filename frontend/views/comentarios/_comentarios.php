@@ -3,8 +3,17 @@ use yii\widgets\LinkPager;
 use common\models\Comentarios;
 
 ?>
-<h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
+<?= LinkPager::widget([
+    'pagination' => $pagination,
+]);
+?>
 <div id="publicacion-comentarios">
+    <h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
+    <?php if (!$comentarios): ?>
+        <div class="comentario">
+            <?= Yii::t('frontend', 'Esta publicación no tiene ningún comentario.') ?>
+        </div>
+    <?php endif; ?>
     <?php foreach ($comentarios as $comentario) : ?>
         <?= $this->render('_comentario', [
             'comentario' => $comentario,
@@ -12,11 +21,11 @@ use common\models\Comentarios;
             'respuesta' => false,
             ]) ?>
     <?php endforeach; ?>
-    <?= LinkPager::widget([
-        'pagination' => $pagination,
-    ]);
-    ?>
 </div>
+<?= LinkPager::widget([
+    'pagination' => $pagination,
+]);
+?>
 <div id="nuevo-comentario">
     <h3><?= Yii::t('frontend', 'Publicar comentario') ?></h3>
     <div class="nuevo-comentario">

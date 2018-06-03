@@ -224,7 +224,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
      */
     public function getBlockButton()
     {
-        if (!$this->isSelf() && !$this->imBlocked()) {
+        if (!$this->isSelf() && !$this->imBlocked() && $this->isBlocked()) {
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .
@@ -283,5 +283,17 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             Html::a(Yii::t('app', 'Ver personajes'), ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-success']) .
             Html::endTag('p');
         }
+    }
+
+    /**
+     * Devuelve el avatar como una imagen
+     * @return [type] [description]
+     */
+    public function getImgAvatar()
+    {
+        return Html::img($this->avatar ?: '/uploads/default.png', [
+            'title' => $this->username . ' avatar',
+            'alt' => $this->username . ' avatar',
+        ]);
     }
 }

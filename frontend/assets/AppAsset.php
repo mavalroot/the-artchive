@@ -18,7 +18,8 @@ class AppAsset extends AssetBundle
         'css/forms.css',
         'css/flag-icon.css',
         'css/footer-with-button-logo.css',
-        'css/comments.css'
+        'css/comments.css',
+        'css/homelogged.css'
     ];
     public $js = [
         'js/plugins/jspdf.min.js',
@@ -30,6 +31,7 @@ class AppAsset extends AssetBundle
         'js/extra.js',
         'js/delete-account.js',
         'js/plugins/remaining_characters.min.js',
+        'js/fontawesome/fontawesome-all.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

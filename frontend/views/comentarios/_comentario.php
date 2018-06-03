@@ -6,7 +6,7 @@ use yii\helpers\Html;
 <div class="comentario" id="com<?= $comentario->id ?>">
     <div class="comentario-head">
         <div class="avatar">
-            <?= Html::img($comentario->avatar ?: '/uploads/default.jpg') ?>
+            <?= Html::img($comentario->avatar ?: '/uploads/default.png') ?>
         </div>
         <span class="username">
             <?= Html::a($comentario->username, ['/usuarios-completo/view', 'username' => $comentario->username]) ?> ha comentado:

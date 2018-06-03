@@ -4,11 +4,11 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,23 +20,22 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/homeguests.css">
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?= $this->render('_navbar') ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+    <div id="particles-js"></div>
+    <div id="home-guest" class="container-fluid">
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
-<?= $this->render('_bigfooter') ?>
+<?= $this->render('_smallfooter') ?>
+<script src="js/plugins/particles.min.js" charset="utf-8"></script>
+<script src="js/plugins/myparticles.js" charset="utf-8"></script>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -24,7 +24,8 @@
         "kartik-v/yii2-markdown": "dev-master",
         "bizley/podium": "*",
         "kartik-v/yii2-widget-select2": "@dev",
-        "gugglegum/yii2-cookie-language-selector": "^1.0"
+        "gugglegum/yii2-cookie-language-selector": "^1.0",
+        "nirvana-msu/yii2-infinite-scroll": "1.0.*@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

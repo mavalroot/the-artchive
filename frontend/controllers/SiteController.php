@@ -5,20 +5,21 @@ use Yii;
 
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-
 use yii\filters\AccessControl;
-
+use yii\helpers\ArrayHelper;
 use common\models\LoginForm;
+use common\models\Seguidores;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\UsuariosCompleto;
+use common\models\Publicaciones;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends \yii\web\Controller
 {
     use \common\utilities\Permisos;
     /**
@@ -63,7 +64,28 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        if (Yii::$app->user->isGuest) {
+            $this->layout = 'homeguests';
+            return $this->render('index', [
+                'model' => new LoginForm(),
+            ]);
+        } else {
+            $this->layout = 'main-without-foot';
+            $publicaciones = Publicaciones::find()->where([
+                'usuario_id' => ArrayHelper::map(
+                    Seguidores::find()
+                    ->where([
+                        'seguidor_id' => Yii::$app->user->id
+                    ])
+                    ->all(),
+                    'id',
+                    'usuario_id'
+                )]);
+            return $this->render('index', [
+                'model' => UsuariosCompleto::findOne(['id' => Yii::$app->user->id]),
+                'publicaciones' => $publicaciones,
+            ]);
+        }
     }
 
     /**

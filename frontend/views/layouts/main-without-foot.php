@@ -4,7 +4,12 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use common\models\Notificaciones;
+use common\models\MensajesPrivados;
+
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
@@ -27,7 +32,6 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?= $this->render('_navbar') ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -36,7 +40,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-<?= $this->render('_bigfooter') ?>
 <?php $this->endBody() ?>
 </body>
 </html>
