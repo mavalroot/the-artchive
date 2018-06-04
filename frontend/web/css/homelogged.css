@@ -127,3 +127,38 @@ margin-bottom: 10px;
     border: 2px solid #7967a6;
     padding: 10px;
 }
+
+
+* {
+  word-break: break-all;
+}
+
+.relaciones-relacion {
+  background: #fff;
+  border: 2px solid #7967a6;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.relaciones-relacion > h3 {
+ margin: 0px;
+  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  padding: 10px;
+  width: 100%;
+}
+
+.relaciones-relacion > .relacion {
+  padding: 10px;
+  margin: 5px;
+  background: rgba(0,0,0,.1);
+  text-align: center;
+  width: 200px;
+}
+
+.relaciones-relacion > .no-relacion {
+    padding: 10px;
+    margin: 5px;
+    background: rgba(0,0,0,.1);
+    text-align: center;
+    width: 100%;
+}

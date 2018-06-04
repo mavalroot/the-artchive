@@ -9,11 +9,13 @@ use yii\widgets\LinkPager;
 /* @var $relaciones array de common\models\Relaciones */
 ?>
 
-<h2><?= Yii::t('frontend', 'Relaciones') ?></h2>
 
 <div class="relaciones-relacion">
+    <h3><?= Yii::t('frontend', 'Relaciones') ?></h3>
     <?php if (!$relaciones) : ?>
-        <?= Yii::t('frontend', 'No se ha creado ninguna relación.') ?>
+        <div class="no-relacion">
+            <?= Yii::t('frontend', 'No se ha creado ninguna relación.') ?>
+        </div>
     <?php endif; ?>
     <?php foreach ($relaciones as $relacion) : ?>
         <div class="relacion">
