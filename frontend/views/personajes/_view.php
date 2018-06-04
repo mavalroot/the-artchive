@@ -24,6 +24,12 @@ use yii\helpers\Html;
                 <?= $model->getButtons() ?>
             </div>
         <?php endif; ?>
+        <?php if ($model->fecha_nac) : ?>
+            <h3><?= $model->getAttributeLabel('fecha_nac') ?></h3>
+            <div class="contenido-grande">
+                <?= Yii::$app->formatter->asDate($model->fecha_nac) ?>
+            </div>
+        <?php endif; ?>
         <?php if ($model->historia) : ?>
             <h3><?= $model->getAttributeLabel('historia') ?></h3>
             <div class="contenido-grande">
