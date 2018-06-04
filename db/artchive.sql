@@ -347,7 +347,7 @@ CREATE TABLE reportes (
  */
 CREATE OR REPLACE VIEW usuarios_completo AS
 WITH uc as (
-    SELECT u.id, u.username, u.email, u.status, ud.aficiones, ud.tematica_favorita, ud.bio, ud.pagina_web, ud.avatar, tu.tipo
+    SELECT u.id, u.username, u.email, u.status, u.created_at, u.updated_at, ud.aficiones, ud.tematica_favorita, ud.bio, ud.pagina_web, ud.avatar, tu.tipo
     FROM "user" u
     JOIN usuarios_datos ud ON u.id = ud.usuario_id
     JOIN tipos_usuario tu ON tu.id = u.tipo_usuario
@@ -355,21 +355,21 @@ WITH uc as (
     SELECT uc.*, count(seg.id) as seguidores
     FROM uc
     LEFT JOIN seguidores seg ON seg.usuario_id = uc.id
-    GROUP BY uc.id, uc.username, uc.email, uc.status, uc.aficiones, uc.tematica_favorita, uc.bio, uc.pagina_web, uc.avatar, uc.tipo
+    GROUP BY uc.id, uc.username, uc.email, uc.status, uc.created_at, uc.updated_at, uc.aficiones, uc.tematica_favorita, uc.bio, uc.pagina_web, uc.avatar, uc.tipo
 ), ucsig as (
     select ucseg.*, count(sig.id) as siguiendo
     FROM ucseg
     LEFT JOIN seguidores sig ON sig.seguidor_id = ucseg.id
-    GROUP BY ucseg.id, ucseg.username, ucseg.email, ucseg.status, ucseg.aficiones, ucseg.tematica_favorita, ucseg.bio, ucseg.pagina_web, ucseg.avatar, ucseg.tipo, ucseg.seguidores
+    GROUP BY ucseg.id, ucseg.username, ucseg.email, ucseg.status, ucseg.created_at, ucseg.updated_at, ucseg.aficiones, ucseg.tematica_favorita, ucseg.bio, ucseg.pagina_web, ucseg.avatar, ucseg.tipo, ucseg.seguidores
 ), ucpj as (
     select ucsig.*, count(pj.id) as personajes
     FROM ucsig
     LEFT JOIN personajes pj ON pj.usuario_id = ucsig.id
-    GROUP BY ucsig.id, ucsig.username, ucsig.email, ucsig.status, ucsig.aficiones, ucsig.tematica_favorita, ucsig.bio, ucsig.pagina_web, ucsig.avatar, ucsig.tipo, ucsig.seguidores, ucsig.siguiendo
+    GROUP BY ucsig.id, ucsig.username, ucsig.email, ucsig.status, ucsig.created_at, ucsig.updated_at, ucsig.aficiones, ucsig.tematica_favorita, ucsig.bio, ucsig.pagina_web, ucsig.avatar, ucsig.tipo, ucsig.seguidores, ucsig.siguiendo
 ), ucpb as (
     select ucpj.*, count(pb.id) as publicaciones
     FROM ucpj
     LEFT JOIN publicaciones pb ON pb.usuario_id = ucpj.id
-    GROUP BY ucpj.id, ucpj.username, ucpj.email, ucpj.status, ucpj.aficiones, ucpj.tematica_favorita, ucpj.bio, ucpj.pagina_web, ucpj.avatar, ucpj.tipo, ucpj.seguidores, ucpj.siguiendo, ucpj.personajes
+    GROUP BY ucpj.id, ucpj.username, ucpj.email, ucpj.status, ucpj.created_at, ucpj.updated_at, ucpj.aficiones, ucpj.tematica_favorita, ucpj.bio, ucpj.pagina_web, ucpj.avatar, ucpj.tipo, ucpj.seguidores, ucpj.siguiendo, ucpj.personajes
 )
 SELECT * from ucpb;

@@ -69,8 +69,10 @@ class RelacionesController extends Controller
         $pj = $model->personaje_id;
         if ($model->referencia) {
             $solicitud = Solicitudes::findOne(['relacion_id' => $id]);
-            $solicitud->relacion_id = null;
-            $solicitud->update();
+            if ($solicitud) {
+                $solicitud->relacion_id = null;
+                $solicitud->save();
+            }
         }
         $model->delete();
 

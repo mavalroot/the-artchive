@@ -44,7 +44,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     {
         if ($this->isMine()) {
             $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
-            return Html::button(Yii::t('app', 'Guardar como pdf'), ['id' => 'export', 'data-name' => $data, 'class' => 'btn btn-sm btn-primary']);
+            return Html::a('<i class="fas fa-save"></i> ' . Yii::t('app', 'Guardar como pdf'), ['#'], ['id' => 'export', 'data-name' => $data]);
         }
     }
 

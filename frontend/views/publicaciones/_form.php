@@ -7,11 +7,6 @@ use kartik\markdown\MarkdownEditor;
 /* @var $this yii\web\View */
 /* @var $model common\models\Publicaciones */
 /* @var $form yii\widgets\ActiveForm */
-
-$custom = [
-
-];
-
 ?>
 
 <div class="estandar-form">

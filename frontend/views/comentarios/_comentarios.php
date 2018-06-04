@@ -2,6 +2,10 @@
 use yii\widgets\LinkPager;
 use common\models\Comentarios;
 
+/* @var $this yii\web\View */
+/* @var $comentarios array de common\models\Comentarios */
+/* @var $pagination yii\data\Pagination */
+/* @var $publicacion int */
 ?>
 <?= LinkPager::widget([
     'pagination' => $pagination,
@@ -9,7 +13,7 @@ use common\models\Comentarios;
 ?>
 <div id="publicacion-comentarios">
     <h3><?= Yii::t('frontend', 'Comentarios') ?></h3>
-    <?php if (!$comentarios): ?>
+    <?php if (!$comentarios) : ?>
         <div class="comentario">
             <?= Yii::t('frontend', 'Esta publicación no tiene ningún comentario.') ?>
         </div>

@@ -4,10 +4,13 @@ use yii\helpers\Html;
 use common\models\UsuariosCompleto;
 use kartik\markdown\Markdown;
 
+/* @var $this yii\web\View */
+/* @var $model common\models\Publicaciones */
+
 $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
 ?>
 
-<div class="publicacion" style="min-height: 400px;">
+<div class="publicacion">
     <div class="publicacion-header">
         <div class="user">
             <div class="avatar">
@@ -20,6 +23,11 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
     <div class="publicacion-body">
+        <?php if ($model->getButtons()) : ?>
+            <div class="buttons">
+                <?= $model->getButtons() ?>
+            </div>
+        <?php endif; ?>
         <div class="contenido">
             <?= Yii::$app->formatter->asHtml(Markdown::convert($model->contenido)) ?>
         </div>

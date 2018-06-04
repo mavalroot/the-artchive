@@ -1,8 +1,4 @@
 <?php
-
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-use kartik\markdown\Markdown;
 use common\models\UsuariosCompleto;
 
 /* @var $this yii\web\View */
@@ -18,9 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php if ($usuario->isApto()) : ?>
 <div class="publicaciones-view">
 
-    <?php $model->getButtons() ?>
-
-    <?= $this->render('_publicaciones.php', ['model' => $model]) ?>
+    <?= $this->render('_publicaciones', ['model' => $model]) ?>
 
     <?= $this->render('/comentarios/_comentarios', [
         'comentarios' => $comentarios,

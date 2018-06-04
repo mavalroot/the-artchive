@@ -3,8 +3,6 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-use common\models\MensajesPrivados;
-
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\MensajesPrivadosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -14,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mensajes-privados-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="title-index"><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>

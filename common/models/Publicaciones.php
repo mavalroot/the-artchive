@@ -124,17 +124,17 @@ class Publicaciones extends \common\utilities\ArtchiveBase
      */
     public function getButtons()
     {
-        if ($this->isMine()) : ?>
-            <p>
-                <?= Html::a(Yii::t('app', 'Modificar'), ['update', 'id' => $this->id], ['class' => 'btn btn-success']) ?>
-                <?= Html::a(Yii::t('app', 'Borrar'), ['delete', 'id' => $this->id], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => Yii::t('app', '¿Seguro que desea borrar la publicación? No podrá ser recuperada.'),
-                        'method' => 'post',
-                    ],
-                ]) ?>
-            </p>
-        <?php endif;
+        if ($this->isMine()) {
+            $botones =
+            Html::a('<i class="fas fa-pen-square"></i> ' . Yii::t('app', 'Modificar'), ['/publicaciones/update', 'id' => $this->id]) .
+            Html::a('<i class="fas fa-trash-alt"></i> ' . Yii::t('app', 'Borrar'), ['/publicaciones/delete', 'id' => $this->id], [
+                'data' => [
+                    'confirm' => Yii::t('app', '¿Seguro que desea borrar la publicación? No podrá ser recuperada.'),
+                    'method' => 'post',
+                ],
+            ]);
+            return $botones;
+        }
+        return false;
     }
 }

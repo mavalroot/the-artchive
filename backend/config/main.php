@@ -10,9 +10,14 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'cookieLanguageSelector'],
     'modules' => [],
     'components' => [
+        'cookieLanguageSelector' => [
+            'class' => 'gugglegum\Yii2\Extension\CookieLanguageSelector\Component',
+            'defaultLanguage' => 'es-ES',
+            'validLanguages' => ['en-EN', 'es-ES'],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],

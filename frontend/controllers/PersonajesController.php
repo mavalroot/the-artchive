@@ -148,7 +148,7 @@ class PersonajesController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index', 'username' => Yii::$app->user->identity->username]);
+        return $this->redirect(['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]);
     }
 
     /**

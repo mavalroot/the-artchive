@@ -51,10 +51,10 @@ use yii\widgets\ActiveForm;
         <h3><?= Yii::t('frontend', 'Únete ya') ?></h3>
         <ul>
             <li>
-                <a class="join-button" href="/site/login"><i class="fas fa-user-plus"></i> <?= Yii::t('frontend', 'Registrarse') ?></a>
+                <a class="join-button" href="/site/signup"><i class="fas fa-user-plus"></i> <?= Yii::t('frontend', 'Registrarse') ?></a>
             </li>
             <li>
-                <a class="join-button" href="/site/signup"><i class="fas fa-sign-in-alt"></i> <?= Yii::t('frontend', 'Conectarse') ?></a>
+                <a class="join-button" href="/site/login"><i class="fas fa-sign-in-alt"></i> <?= Yii::t('frontend', 'Conectarse') ?></a>
             </li>
         </ul>
     </div>

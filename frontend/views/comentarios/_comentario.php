@@ -1,6 +1,10 @@
 <?php
 use yii\helpers\Html;
 
+/* @var $this yii\web\View */
+/* @var $comentario common\models\Comentarios */
+/* @var $publicacion int */
+/* @var $respuesta bool */
 ?>
 
 <div class="comentario" id="com<?= $comentario->id ?>">
