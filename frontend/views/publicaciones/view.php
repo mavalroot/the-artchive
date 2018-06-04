@@ -1,8 +1,4 @@
 <?php
-
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-use kartik\markdown\Markdown;
 use common\models\UsuariosCompleto;
 
 /* @var $this yii\web\View */

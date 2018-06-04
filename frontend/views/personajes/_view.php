@@ -1,21 +1,16 @@
 <?php
-
 use kartik\markdown\Markdown;
-
 use yii\helpers\Html;
-
-use common\models\UsuariosCompleto;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
-$owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
 ?>
 
 <div class="personaje">
     <div class="personaje-header">
         <div class="user">
             <div class="avatar">
-                <?= Html::a($owner->getImgAvatar(), ['/usuarios-completo/view', 'username' => $owner->username])  ?>
+                <?= Html::a($usuario->getImgAvatar(), ['/usuarios-completo/view', 'username' => $usuario->username])  ?>
             </div>
         </div>
         <div class="nombre">
@@ -26,7 +21,7 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
     <div class="personaje-body">
         <?php if ($model->getButtons()): ?>
             <div class="buttons">
-                <?= $model->getButtons() ?> 
+                <?= $model->getButtons() ?>
             </div>
         <?php endif; ?>
         <?php if ($model->historia): ?>

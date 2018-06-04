@@ -3,6 +3,10 @@ use yii\helpers\Html;
 
 use yii\widgets\LinkPager;
 
+/* @var $this yii\web\View */
+/* @var $model common\models\Personajes */
+/* @var $pagination yii\data\Pagination */
+/* @var $relaciones array de common\models\Relaciones */
 ?>
 
 <h2><?= Yii::t('frontend', 'Relaciones') ?></h2>
