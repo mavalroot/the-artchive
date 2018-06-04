@@ -15,12 +15,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Personajes de')
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="personajes-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <div class="btn-group">
-        <?= $model->getButtons() ?>
-    </div>
-
+    
     <?= $this->render('_view', ['model' => $model])?>
 
     <?= $this->render('_relaciones', [

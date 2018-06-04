@@ -24,6 +24,11 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
     <div class="personaje-body">
+        <?php if ($model->getButtons()): ?>
+            <div class="buttons">
+                <?= $model->getButtons() ?> 
+            </div>
+        <?php endif; ?>
         <?php if ($model->historia): ?>
             <h3><?= $model->getAttributeLabel('historia') ?></h3>
             <div class="contenido-grande">

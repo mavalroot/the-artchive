@@ -292,8 +292,8 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getImgAvatar()
     {
         return Html::img($this->avatar ?: '/uploads/default.png', [
-            'title' => $this->username . ' avatar',
-            'alt' => $this->username . ' avatar',
+            'title' => $this->username,
+            'alt' => $this->username,
         ]);
     }
 }

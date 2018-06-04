@@ -20,6 +20,11 @@ $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
     <div class="publicacion-body">
+        <?php if ($model->getButtons()): ?>
+            <div class="buttons">
+                <?= $model->getButtons() ?>
+            </div>
+        <?php endif; ?>
         <div class="contenido">
             <?= Yii::$app->formatter->asHtml(Markdown::convert($model->contenido)) ?>
         </div>

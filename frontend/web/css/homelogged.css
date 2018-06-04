@@ -107,8 +107,18 @@ margin-bottom: 10px;
     border-top: 2px solid #7967a6;
 }
 
+.publicacion > .publicacion-body > .buttons,
+.personaje > .personaje-body > .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: 2px solid #7967a6;
+}
+
 .publicacion > .publicacion-footer > div,
-.personaje > .personaje-footer > div {
+.personaje > .personaje-footer > div,
+.personaje > .personaje-body > .buttons > a,
+.publicacion > .publicacion-body > .buttons > a {
     padding: 10px;
 }
 

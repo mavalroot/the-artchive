@@ -132,9 +132,8 @@ class Personajes extends \common\utilities\ArtchiveBase
     {
         if ($this->isMine()) {
             $botones =
-            Html::a(Yii::t('app', 'Modificar'), ['update', 'id' => $this->id], ['class' => 'btn btn-sm btn-success']) .
-            Html::a(Yii::t('app', 'Borrar'), ['delete', 'id' => $this->id], [
-                'class' => 'btn btn-sm btn-danger',
+            Html::a('<i class="fas fa-pen-square"></i> ' . Yii::t('app', 'Modificar'), ['/personajes/update', 'id' => $this->id]) .
+            Html::a('<i class="fas fa-trash-alt"></i> ' . Yii::t('app', 'Borrar'), ['/personajes/delete', 'id' => $this->id], [
                 'data' => [
                     'confirm' => Yii::t('app', '¿Seguro que desea borrar el personaje? No podrá ser recuperado.'),
                     'method' => 'post',
@@ -142,5 +141,6 @@ class Personajes extends \common\utilities\ArtchiveBase
             ]);
             return $botones;
         }
+        return false;
     }
 }
