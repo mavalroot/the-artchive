@@ -10,7 +10,7 @@ use kartik\markdown\Markdown;
 $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
 ?>
 
-<div class="publicacion" style="min-height: 400px;">
+<div class="publicacion">
     <div class="publicacion-header">
         <div class="user">
             <div class="avatar">
