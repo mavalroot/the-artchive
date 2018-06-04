@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use common\models\UsuariosCompleto;
 use kartik\markdown\Markdown;
 
+/* @var $this yii\web\View */
+/* @var $model common\models\Publicaciones */
+
 $owner = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
 ?>
 

@@ -2,6 +2,10 @@
 use yii\widgets\LinkPager;
 use common\models\Comentarios;
 
+/* @var $this yii\web\View */
+/* @var $comentarios array de common\models\Comentarios */
+/* @var $pagination yii\data\Pagination */
+/* @var $publicacion int */
 ?>
 <?= LinkPager::widget([
     'pagination' => $pagination,

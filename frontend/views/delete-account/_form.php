@@ -3,6 +3,9 @@ use yii\helpers\Html;
 
 use yii\widgets\ActiveForm;
 
+/* @var $this yii\web\View */
+/* @var $model common\models\DeleteAccountForm */
+/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <?php $form = ActiveForm::begin(['action' => ['delete-account/delete'], 'id' => 'delete-form']); ?>

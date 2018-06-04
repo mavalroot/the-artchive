@@ -3,10 +3,14 @@ use yii\helpers\Html;
 
 use yii\widgets\ActiveForm;
 
+/* @var $this yii\web\View */
+/* @var $model common\models\Comentarios */
+/* @var $comentario bool */
+/* @var $publicacion int */
 ?>
 
 
-    <?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'publicacion_id')->hiddenInput(['value'=> $publicacion])->label(false); ?>
 
@@ -23,8 +27,5 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton(Yii::t('frontend', 'Enviar'), ['class' => 'btn btn-success']) ?>
     </div>
 
-    <div class="error">
-
-    </div>
-
-    <?php ActiveForm::end(); ?>
+    <div class="error"></div>
+<?php ActiveForm::end(); ?>

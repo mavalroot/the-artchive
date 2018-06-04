@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php if ($usuario->isApto()) : ?>
 <div class="publicaciones-view">
 
-    <?= $this->render('_publicaciones.php', ['model' => $model]) ?>
+    <?= $this->render('_publicaciones', ['model' => $model]) ?>
 
     <?= $this->render('/comentarios/_comentarios', [
         'comentarios' => $comentarios,

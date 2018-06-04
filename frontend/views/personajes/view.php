@@ -1,8 +1,8 @@
 <?php
+use common\models\UsuariosCompleto;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Personajes */
-use common\models\UsuariosCompleto;
 
 $usuario = UsuariosCompleto::findOne(['id' => $model->usuario_id]);
 $owner = $usuario->username;
