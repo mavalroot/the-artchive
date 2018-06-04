@@ -58,36 +58,40 @@ margin-bottom: 10px;
     left: 0px;
 }
 
- .publicacion {
+.publicacion,
+.personaje {
     margin-bottom: 20px;
     background: white;
     border: 2px solid #7967a6;
 }
 
- .publicacion > .publicacion-header {
+.publicacion > .publicacion-header,
+.personaje > .personaje-header {
     background: linear-gradient(-90deg, #a367a6, #7967a6);
     padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
- .publicacion > .publicacion-header > .user > .avatar img {
+.publicacion > .publicacion-header > .user > .avatar img,
+.personaje > .personaje-header > .user > .avatar img {
     width: 50px;
     border-radius: 100px;
     margin-right: 10px;
 }
 
- .publicacion > .publicacion-header {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
- .publicacion > .publicacion-header > small {
+.publicacion > .publicacion-header > small,
+.personaje > .personaje-header > small {
     width: 100%;
 }
 
- .publicacion > .publicacion-body {
+.publicacion > .publicacion-body,
+.personaje > .personaje-body {
 }
 
- .publicacion > .publicacion-body > .contenido {
+.publicacion > .publicacion-body > .contenido,
+.personaje > .personaje-body > .contenido-grande {
     max-width: 700px;
     margin: auto;
     padding: 20px;
@@ -95,14 +99,16 @@ margin-bottom: 10px;
     line-height: 25px;
 }
 
- .publicacion > .publicacion-footer {
+.publicacion > .publicacion-footer,
+.personaje > .personaje-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     border-top: 2px solid #7967a6;
 }
 
-.publicacion > .publicacion-footer > div {
+.publicacion > .publicacion-footer > div,
+.personaje > .personaje-footer > div {
     padding: 10px;
 }
 

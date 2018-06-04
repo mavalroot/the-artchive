@@ -50,7 +50,8 @@ function table(doc, columns, data) {
 }
 
 $(document).ready(function() {
-    $('#export').on('click', function() {
+    $('#export').on('click', function(e) {
+        e.preventDefault();
         let nombre = $(this).data('name');
         guardar(nombre);
     });

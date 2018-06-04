@@ -21,46 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->getButtons() ?>
     </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'nombre',
-            'fecha_nac:date',
-            [
-                'attribute' => 'historia',
-                'format' => 'html',
-                'value' => function ($model) {
-                    return Markdown::convert($model->historia);
-                }
-            ],
-            [
-                'attribute' => 'personalidad',
-                'format' => 'html',
-                'value' => function ($model) {
-                    return Markdown::convert($model->personalidad);
-                }
-            ],
-            [
-                'attribute' => 'apariencia',
-                'format' => 'html',
-                'value' => function ($model) {
-                    return Markdown::convert($model->apariencia);
-                }
-            ],
-            [
-                'attribute' => 'hechos_destacables',
-                'format' => 'html',
-                'value' => function ($model) {
-                    return Markdown::convert($model->hechos_destacables);
-                }
-            ],
-            'created_at:date',
-            'updated_at:relativeTime',
-        ],
-    ]) ?>
-    <?= $model->getExportButton() ?>
-
-    <?= Html::a('Añadir relación', ['relaciones/create', 'id' => $model->id]) ?>
+    <?= $this->render('_view', ['model' => $model])?>
 
     <?= $this->render('_relaciones', [
         'model' => $model,
