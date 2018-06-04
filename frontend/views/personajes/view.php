@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => $owner, 'url' => ['/usuarios-comple
 $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Personajes de') . ' ' . $owner, 'url' => ['index', 'username' => $owner]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php if ($usuario->isApto()): ?>
+<?php if ($usuario->isApto()) : ?>
 
 <div class="personajes-view">
     <?= $this->render('_view', [
@@ -36,6 +36,6 @@ JS;
 
 $this->registerJs($js);
 ?>
-<?php else: ?>
+<?php else : ?>
     <h2>No puedes ver este personaje.</h2>
 <?php endif; ?>

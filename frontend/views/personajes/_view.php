@@ -19,30 +19,30 @@ use yii\helpers\Html;
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
     <div class="personaje-body">
-        <?php if ($model->getButtons()): ?>
+        <?php if ($model->getButtons()) : ?>
             <div class="buttons">
                 <?= $model->getButtons() ?>
             </div>
         <?php endif; ?>
-        <?php if ($model->historia): ?>
+        <?php if ($model->historia) : ?>
             <h3><?= $model->getAttributeLabel('historia') ?></h3>
             <div class="contenido-grande">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->historia)) ?>
             </div>
         <?php endif; ?>
-        <?php if ($model->personalidad): ?>
+        <?php if ($model->personalidad) : ?>
             <h3><?= $model->getAttributeLabel('personalidad') ?></h3>
             <div class="contenido-grande">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->personalidad)) ?>
             </div>
         <?php endif; ?>
-        <?php if ($model->apariencia): ?>
+        <?php if ($model->apariencia) : ?>
             <h3><?= $model->getAttributeLabel('apariencia') ?></h3>
             <div class="contenido-grande">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->apariencia)) ?>
             </div>
         <?php endif; ?>
-        <?php if ($model->hechos_destacables): ?>
+        <?php if ($model->hechos_destacables) : ?>
             <h3><?= $model->getAttributeLabel('hechos_destacables') ?></h3>
             <div class="contenido-grande">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->hechos_destacables)) ?>
