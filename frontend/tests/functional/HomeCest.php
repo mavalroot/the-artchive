@@ -33,7 +33,7 @@ class HomeCest
         $I->fillField(['name' => 'LoginForm[password]'], 'No existo');
         $I->click('Conectarte');
         $I->see('Login', 'h1');
-        // $I->see('Nombre de usuario o contraseña incorrecta', '.help-block');
+        $I->see('Nombre de usuario o contraseña incorrecta', '.help-block');
     }
 
     public function loginDesdeHomeExitoso(FunctionalTester $I)
@@ -59,5 +59,12 @@ class HomeCest
         $I->amOnRoute('site/index');
         $I->click('Registrarse');
         $I->see('Signup', 'h1');
+    }
+
+    public function irARecuperarContraseña(FunctionalTester $I)
+    {
+        $I->amOnRoute('site/index');
+        $I->click('¿Has olvidado tu contraseña?');
+        $I->see('Recuperar contraseña', 'h1');
     }
 }
