@@ -32,3 +32,4 @@ exclude_paths:
 - frontend/web/js/fontawesome
 - requirements.php
 - environments
+- common/widget
