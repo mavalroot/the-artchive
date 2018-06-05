@@ -25,11 +25,12 @@ ratings:
   - "**.js"
   - "**.php"
 exclude_paths:
-- views/
-- tests/
 - docs/
 - frontend/web/js/plugins
 - frontend/web/js/fontawesome
 - requirements.php
 - environments
 - common/widget
+- frontend/tests
+- backend/tests
+- common/tests
