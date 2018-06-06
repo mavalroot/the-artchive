@@ -48,8 +48,18 @@
 <a class="list-group-item" href="#navigation-140" data-toggle="collapse" data-parent="#navigation">Conclusiones <b class="caret"></b></a><div id="navigation-140" class="submenu panel-collapse collapse"><a class="list-group-item" href="./conclusiones.html">Conclusiones</a></div>
 <a class="list-group-item" href="#navigation-141" data-toggle="collapse" data-parent="#navigation">Anexos <b class="caret"></b></a><div id="navigation-141" class="submenu panel-collapse collapse"><a class="list-group-item" href="./anexos.html">Anexos</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <h1>Dificultades encontradas <span id="dificultades-encontradas"></span><a href="#dificultades-encontradas" class="hashlink">&para;</a></h1><p>Explicar, indicando también las soluciones adoptadas en cada caso.</p>
-<p>Incluir aquí el elemento de innovación que se indicó en la propuesta.</p>
+        <h1>Dificultades encontradas <span id="dificultades-encontradas"></span><a href="#dificultades-encontradas" class="hashlink">&para;</a></h1><ol>
+<li><p>A la hora de desplegar la aplicación en Heroku, y usando la plantilla avanzada, comenzó a presentar grandes problemas de configuración, que finalmente fueron solventados con el paquete de composer <code>purrweb/yii2-heroku</code> (<a href="https://github.com/PurrWeb/yii2-heroku">link</a>), que automatiza todo el proceso y deja los entornos preparados para el despliegue. </p>
+</li>
+<li><p>Para implementar el elemento de innovación de Foro, hubieron dificultades en cuanto a la elección de un módulo que se adecuara a las necesidades de la aplicación. Finalmente se optó por implementar <code>bizley/yii2-podium</code> (<a href="https://github.com/bizley/yii2-podium">link</a>).</p>
+</li>
+<li><p>Para implementar el elemento de innovación de Multi idioma, de nuevo se presentó el problema de la plantilla avanzada. Se implementó además <code>gugglegum/yii2-cookie-language-selector</code>(<a href="https://github.com/gugglegum/yii2-cookie-language-selector">link</a>) para posteriormente manejar los idiomas.</p>
+</li>
+<li><p>Una vez más, la plantilla avanzada dio algunos problemas a la hora de implementar los test funcionales con Codeception, pero gracias a alguna que otra guia en internet pudo ser configurado y utilizado correctamente.</p>
+</li>
+<li><p>Para generar la documentación, y al no haber estado utilizando la plantilla facilitada por el profesor, hubo que hacer unos ligeros cambios, tomando como referencia la plantilla básica. El problema pudo ser solucionado gracias a un PR (<a href="https://github.com/mavalroot/the-artchive/pull/130">#140</a>), y algunos cambios posteriores para reflejar la actualización desde la plantilla básica custom.</p>
+</li>
+</ol>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
 </div>
@@ -58,7 +68,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Mon, 21 May 2018 21:36:50 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 22:25:31 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {
