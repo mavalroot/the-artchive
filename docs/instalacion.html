@@ -51,8 +51,41 @@
         <h1>Instrucciones de instalación y despliegue <span id="instrucciones-de-instalacion-y-despliegue"></span><a href="#instrucciones-de-instalacion-y-despliegue" class="hashlink">&para;</a></h1>
 <div class="toc"><ol><li><a href="#en-local">En local</a></li>
 <li><a href="#en-la-nube">En la nube</a></li></ol></div>
-<h2>En local <span id="en-local"></span><a href="#en-local" class="hashlink">&para;</a></h2><p>Explicar.</p>
-<h2>En la nube <span id="en-la-nube"></span><a href="#en-la-nube" class="hashlink">&para;</a></h2><p>Explicar.</p>
+<h2>En local <span id="en-local"></span><a href="#en-local" class="hashlink">&para;</a></h2><p>Requisitos:</p>
+<ul>
+<li>PHP 7.1.</li>
+<li>PostgreSQL.</li>
+<li>Composer.</li>
+<li>Servidor Apache.</li>
+<li>Una cuenta de correo de gmail.</li>
+</ul>
+<p>Pasos:</p>
+<ul>
+<li>Clonar o descargar el proyecto.</li>
+<li>Hacer <code>composer install</code>.</li>
+<li>Para las bases de datos, hacer <code>./db/create.sh</code> y <code>./db/load.sh</code>.</li>
+<li>Cambiar el correo electrónico del administrador en <code>common/config/params.php</code>.</li>
+<li>Crear la variable de entorno STMP_PASS con la clave de aplicación del correo electrónico.</li>
+<li>Configurar el servidor apache con un nombre de dominio para frontend (por ejemplo: artchive-front.local) y enlazarlo a frontend/web.</li>
+<li>Configurar el servidor apache con un nombre de dominio para el backend (por ejemplo: artchive-back.local) y enlazarlo a backend/web.</li>
+</ul>
+<h2>En la nube <span id="en-la-nube"></span><a href="#en-la-nube" class="hashlink">&para;</a></h2><p>Para la instalación de la aplicación en la nube usaremos Heroku, por lo que una cuénta en dicha plataforma será necesaria para continuar.</p>
+<p>Con nuestra cuenta de Heroku, realizaremos los siguientes pasos:</p>
+<ul>
+<li><p>Con nuestra cuenta de Heroku deberemos crear una aplicación. Además, necesitaremos el comando <code>heroku</code> para consola y poder así con la consola.</p>
+</li>
+<li><p>Añadir la extensión para postgres y cargar la base de datos.</p>
+</li>
+</ul>
+<p>Comandos: 
+<code>heroku login
+heroku apps:create nombreAplicacion --region eu
+heroku addons:create heroku-postgresql
+heroku pg:psql &lt; db/load.sql
+heroku pg:psql
+create extension pgcrypto;
+heroku config:set SMTP_PASS=clave       
+git push -u heroku master</code></p>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
 </div>
@@ -61,7 +94,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Mon, 21 May 2018 21:36:50 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 22:25:31 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {

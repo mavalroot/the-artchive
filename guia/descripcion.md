@@ -17,7 +17,7 @@ También se da la posibilidad de compartir las creaciones con otros usuarios, a 
 - Gestionar árboles genealógicos, que además puedan estar vinculados a otros personajes.
 - Seguir a otros usuarios y que éstos también puedan seguirnos.
 - Gestionar publicaciones, que generalmente serán de carácter personal o artístico.
-- Uso de una bio de foro para una comunicación más fluída entre usuarios.
+- Uso de una plataforma de foro para una comunicación más fluída entre usuarios.
 
 ## URL del repositorio
 
