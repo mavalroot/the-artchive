@@ -2,8 +2,6 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "tipos_usuario".
  *
@@ -71,6 +69,10 @@ class TiposUsuario extends \yii\db\ActiveRecord
         return $this->hasMany(UsuariosDatos::className(), ['tipo_usuario' => 'id']);
     }
 
+    /**
+     * Devuelve todos los tipos de usuario como un array.
+     * @return array
+     */
     public static function getAll()
     {
         $all = static::find()->all();
@@ -81,6 +83,11 @@ class TiposUsuario extends \yii\db\ActiveRecord
         return $result;
     }
 
+    /**
+     * Devuelve el id de un tipo de usuario.
+     * @param  string $value
+     * @return int|bool
+     */
     public static function getOne($value)
     {
         $all = static::getAll();

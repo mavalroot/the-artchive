@@ -3,13 +3,11 @@
 namespace common\models;
 
 use Yii;
-
 use yii\data\ActiveDataProvider;
-
 use yii\helpers\Html;
 
 /**
- * This is the model class for table "usuarios_completo".
+ * This is the model class for table "usuarios_completo".d
  *
  * @property int $id
  * @property string $username

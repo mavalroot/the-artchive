@@ -33,7 +33,7 @@ class SolicitudesController extends Controller
 
     /**
      * Displays a single Solicitudes model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -44,6 +44,11 @@ class SolicitudesController extends Controller
         ]);
     }
 
+    /**
+     * Acepta una solicitud.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionAceptar($id)
     {
         $model = $this->findModel($id);
@@ -52,6 +57,11 @@ class SolicitudesController extends Controller
         }
     }
 
+    /**
+     * Rechaza una solicitud.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionRechazar($id)
     {
         $model = $this->findModel($id);
@@ -63,6 +73,12 @@ class SolicitudesController extends Controller
         }
     }
 
+    /**
+     * Cambia la respuesta de la solicitud.
+     * @param  Solicitudes $model
+     * @param  bool $bool
+     * @return bool
+     */
     public function respuesta($model, $bool)
     {
         if ($model->isMine() && !$model->respondida) {
@@ -74,7 +90,7 @@ class SolicitudesController extends Controller
     /**
      * Finds the Solicitudes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Solicitudes the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

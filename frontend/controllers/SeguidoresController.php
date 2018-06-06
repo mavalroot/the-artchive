@@ -9,7 +9,6 @@ use common\models\SeguidoresSearch;
 use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * SeguidoresController implements the CRUD actions for Seguidores model.
@@ -35,6 +34,7 @@ class SeguidoresController extends Controller
 
     /**
      * Lists all Seguidores models.
+     * @param string $username Nombre de usuario.
      * @return mixed
      */
     public function actionIndex($username)
@@ -59,6 +59,11 @@ class SeguidoresController extends Controller
         throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 
+    /**
+     * Hace que un usuario siga a otro.
+     * @param  string $username Nombre de usuario.
+     * @return mixed
+     */
     public function actionFollowing($username)
     {
         $user = User::findOne(['username' => $username]);
@@ -84,7 +89,7 @@ class SeguidoresController extends Controller
     /**
      * Finds the Seguidores model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Seguidores the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

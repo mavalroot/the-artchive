@@ -11,6 +11,11 @@ use common\models\UsuariosCompleto;
  */
 trait Apto
 {
+    /**
+     * Indica si el usuario es apto o no (es decir, que no haya sido eliminado
+     * ni esté bloqueado o haya sido bloqueado por el usuario actual).
+     * @return bool
+     */
     public function isApto()
     {
         if ($this->usuario_id) {

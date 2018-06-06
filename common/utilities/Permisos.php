@@ -12,7 +12,7 @@ use common\models\MensajesPrivados;
 use common\models\Publicaciones;
 
 /**
- *
+ * Trait para manejar los permisos.
  */
 trait Permisos
 {

@@ -7,11 +7,17 @@ use Yii;
 use common\models\ActividadReciente;
 
 /**
- * Clase para implementar la creación del historial de actividad reciente
+ * Trait para implementar la creación del historial de actividad reciente
  * antes de cualquier acción.
  */
 trait Historial
 {
+    /**
+     * Crea una entrada en el historial.
+     * @param  string $message Mensaje.
+     * @param  string $url     Link.
+     * @return bool
+     */
     public static function crearHistorial($message, $url)
     {
         $actividad = new ActividadReciente();

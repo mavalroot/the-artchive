@@ -13,8 +13,20 @@ use common\models\UsuariosDatos;
  */
 class SignupForm extends Model
 {
+    /**
+     * Nombre de usuario.
+     * @var string
+     */
     public $username;
+    /**
+     * Email.
+     * @var string
+     */
     public $email;
+    /**
+     * Contraseña.
+     * @var string
+     */
     public $password;
 
 

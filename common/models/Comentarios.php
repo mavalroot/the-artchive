@@ -33,8 +33,16 @@ class Comentarios extends \common\utilities\ArtchiveBase
      */
     public $quoted;
 
+    /**
+     * Avatar del usuario que hizo el comentario.
+     * @var string
+     */
     public $avatar;
 
+    /**
+     * Nombre de usuario del usuario que hizo el comentario.
+     * @var string
+     */
     public $username;
     /**
      * {@inheritdoc}
@@ -150,12 +158,20 @@ class Comentarios extends \common\utilities\ArtchiveBase
         return $user->username;
     }
 
+    /**
+     * Devuelve el avatar (como una imagen) del usuario al que pertenece el comentario.
+     * @return [type] [description]
+     */
     public function getAvatar()
     {
         $user = UsuariosCompleto::findOne(['id' => $this->usuario_id]);
         return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.png');
     }
 
+    /**
+     * Devuelve el botón de responder.
+     * @return string
+     */
     public function getResponderButton()
     {
         if (!$this->comentario_id) {
@@ -167,20 +183,21 @@ class Comentarios extends \common\utilities\ArtchiveBase
         }
     }
 
+    /**
+     * Devuelve el botón de borrar.
+     * @return string
+     */
     public function getBorrarButton()
     {
         if ($this->isMine() && !$this->isDeleted()) {
             return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
-            // return Html::a(Yii::t('frontend', 'Borrar'), ['delete', 'id' => $this->id], [
-            //     'class' => 'btn btn-danger',
-            //     'data' => [
-            //         'confirm' => Yii::t('app', '¿Seguro que desea borrar el comentario?'),
-            //         'method' => 'post',
-            //     ],
-            // ]);
         }
     }
 
+    /**
+     * Devuelve el botón de mostrar respuestas.
+     * @return string
+     */
     public function getMostrarRespuestasButton()
     {
         return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);

@@ -95,6 +95,10 @@ class Reportes extends \common\utilities\ArtchiveBase
         return 'referencia';
     }
 
+    /**
+     * Devuelve los tipos posibles de reporte.
+     * @return array
+     */
     public function getTipos()
     {
         return [
@@ -105,6 +109,10 @@ class Reportes extends \common\utilities\ArtchiveBase
         ];
     }
 
+    /**
+     * Devuelve los estados posibles del reporte.
+     * @return array
+     */
     public function getEstados()
     {
         return [
@@ -120,6 +128,10 @@ class Reportes extends \common\utilities\ArtchiveBase
         return Yii::t('app', 'un reporte');
     }
 
+    /**
+     * Devuelve el receptor de la Notificación
+     * @return int
+     */
     public function getNotificacionReceptor()
     {
         return $this->created_by;

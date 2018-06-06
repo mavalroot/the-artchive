@@ -103,6 +103,10 @@ class UsuariosCompletoController extends Controller
         }
     }
 
+    /**
+     * Deja de seguir a un usuario.
+     * @return bool
+     */
     public function actionUnfollow()
     {
         $id = Yii::$app->request->post('id');
@@ -115,6 +119,10 @@ class UsuariosCompletoController extends Controller
         }
     }
 
+    /**
+     * Bloquea a un usuario.
+     * @return bool
+     */
     public function actionBlock()
     {
         $id = Yii::$app->request->post('id');
@@ -134,6 +142,10 @@ class UsuariosCompletoController extends Controller
         return false;
     }
 
+    /**
+     * Desloquea a un usuario.
+     * @return bool
+     */
     public function actionUnblock()
     {
         $id = Yii::$app->request->post('id');
@@ -146,6 +158,9 @@ class UsuariosCompletoController extends Controller
         }
     }
 
+    /**
+     * Devuelve el número de alertas (notificaciones y mensajes privados).
+     */
     public function actionNumalerts()
     {
         $model = $this->findModel(Yii::$app->user->identity->username);
