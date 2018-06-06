@@ -281,7 +281,7 @@ in the request.</td>
     </tr>
             <tr id="actionSearch()">
         <td><a href="frontend-controllers-searchcontroller.html#actionSearch()-detail">actionSearch()</a></td>
-        <td></td>
+        <td>Busca un usuario o personaje.</td>
         <td><a href="frontend-controllers-searchcontroller.html">frontend\controllers\SearchController</a></td>
     </tr>
             <tr class="inherited" id="actions()">
@@ -583,7 +583,7 @@ in the request.</td>
 </tr>
                                                                                                                 <tr id="findModel()">
         <td><a href="frontend-controllers-searchcontroller.html#findModel()-detail">findModel()</a></td>
-        <td></td>
+        <td>Crea un nuevo Search con el término de búsqueda.</td>
         <td><a href="frontend-controllers-searchcontroller.html">frontend\controllers\SearchController</a></td>
     </tr>
                                                                                                                                                             </table>
@@ -640,22 +640,24 @@ in the request.</td>
 
     
     <div class="doc-description">
-        <p><strong></strong></p>
+        <p><strong>Busca un usuario o personaje.</strong></p>
 
         
             </div>
 
     <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="frontend-controllers-searchcontroller.html#actionSearch()-detail">actionSearch</a></strong> ( <span style="color: #0000BB">$st&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span>, <span style="color: #0000BB">$src&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'user'</span> )</td></tr>
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">mixed</span> <strong><a href="frontend-controllers-searchcontroller.html#actionSearch()-detail">actionSearch</a></strong> ( <span style="color: #0000BB">$st&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span>, <span style="color: #0000BB">$src&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'user'</span> )</td></tr>
                                     <tr>
                   <td class="param-name-col"><span style="color: #0000BB">$st</span></td>
-                  <td class="param-type-col"></td>
-                  <td class="param-desc-col"></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Término de búsqueda.</p>
+</td>
                 </tr>
                             <tr>
                   <td class="param-name-col"><span style="color: #0000BB">$src</span></td>
-                  <td class="param-type-col"></td>
-                  <td class="param-desc-col"></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Qué busca ('user' o 'pj')</p>
+</td>
                 </tr>
                                                 </table>
 
@@ -696,16 +698,16 @@ in the request.</td>
 
     
     <div class="doc-description">
-        <p><strong></strong></p>
+        <p><strong>Crea un nuevo Search con el término de búsqueda.</strong></p>
 
         
             </div>
 
     <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="frontend-controllers-searchcontroller.html#findModel()-detail">findModel</a></strong> ( <span style="color: #0000BB">$st</span> )</td></tr>
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="frontend-models-search.html">frontend\models\Search</a></span> <strong><a href="frontend-controllers-searchcontroller.html#findModel()-detail">findModel</a></strong> ( <span style="color: #0000BB">$st</span> )</td></tr>
                                     <tr>
                   <td class="param-name-col"><span style="color: #0000BB">$st</span></td>
-                  <td class="param-type-col"></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
                   <td class="param-desc-col"></td>
                 </tr>
                                                 </table>
@@ -750,7 +752,7 @@ in the request.</td>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 22:25:24 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 23:06:24 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {
