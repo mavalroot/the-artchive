@@ -165,7 +165,14 @@ class SiteController extends \yii\web\Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-            $this->sendMail($model);
+            $email = $this->sendMail($model);
+
+            if ($email) {
+                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
+            } else {
+                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
+            }
+            return $this->goHome();
         }
         return $this->render('signup', [
             'model' => $model,
@@ -190,12 +197,7 @@ class SiteController extends \yii\web\Controller
              ->setTextBody($mensaje)
              ->send();
 
-            if ($email) {
-                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
-            } else {
-                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
-            }
-            return $this->goHome();
+            return $email;
         }
     }
 
