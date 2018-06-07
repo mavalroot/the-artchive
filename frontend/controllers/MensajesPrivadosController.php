@@ -26,8 +26,8 @@ class MensajesPrivadosController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    $this->mustBeLoggedForAll(),
                     $this->mustBeMyMessage(['view', 'delete']),
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];

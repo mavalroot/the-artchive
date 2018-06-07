@@ -30,8 +30,8 @@ class PublicacionesController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    $this->mustBeLoggedForAll(),
                     $this->mustBeMyContent(['update', 'delete']),
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];

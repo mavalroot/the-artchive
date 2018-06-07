@@ -31,8 +31,8 @@ class PersonajesController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    $this->mustBeLoggedForAll(),
                     $this->mustBeMyCharacter(['update', 'delete']),
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];
