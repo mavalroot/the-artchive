@@ -137,4 +137,9 @@ class Publicaciones extends \common\utilities\ArtchiveBase
         }
         return false;
     }
+
+    public function getUnName()
+    {
+        return Yii::t('app', 'una publicación');
+    }
 }
