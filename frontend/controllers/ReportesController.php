@@ -7,14 +7,14 @@ use yii\filters\AccessControl;
 
 use common\models\Reportes;
 use common\models\ReportesSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\utilities\ArtchiveCBase;
 
 /**
  * ReportesController implements the CRUD actions for Reportes model.
  */
-class ReportesController extends Controller
+class ReportesController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -38,33 +38,22 @@ class ReportesController extends Controller
         ];
     }
 
+    public function init()
+    {
+        $this->class = new Reportes();
+        $this->search = new ReportesSearch();
+        parent::init();
+    }
+
     /**
      * Lists all Reportes models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ReportesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        $dataProvider->query->where(['created_by' => Yii::$app->user->id]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Reportes model.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+        return $this->commonIndex([
+            'search' => $this->search,
+            'where' => ['created_by' => Yii::$app->user->id],
         ]);
     }
 
@@ -75,30 +64,7 @@ class ReportesController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Reportes();
-        $model->created_by = Yii::$app->user->id;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Finds the Reportes model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Reportes the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Reportes::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        $this->class->created_by = Yii::$app->user->id;
+        return parent::actionCreate();
     }
 }

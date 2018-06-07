@@ -7,14 +7,16 @@ use yii\filters\AccessControl;
 
 use common\models\Personajes;
 use common\models\Relaciones;
+use common\models\RelacionesSearch;
 use common\models\Solicitudes;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * RelacionesController implements the CRUD actions for Relaciones model.
  */
-class RelacionesController extends Controller
+class RelacionesController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
 
@@ -33,6 +35,13 @@ class RelacionesController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new Relaciones();
+        $this->search = new RelacionesSearch();
+        parent::init();
     }
 
 
@@ -85,21 +94,5 @@ class RelacionesController extends Controller
             return $this->redirect(['/personajes/view', 'id' => $pj]);
         }
         return true;
-    }
-
-    /**
-     * Finds the Relaciones model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Relaciones the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Relaciones::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

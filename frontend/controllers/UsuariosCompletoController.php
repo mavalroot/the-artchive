@@ -17,10 +17,12 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use common\models\Bloqueos;
 
+use common\utilities\ArtchiveCBase;
+
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
  */
-class UsuariosCompletoController extends Controller
+class UsuariosCompletoController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
 
@@ -39,19 +41,11 @@ class UsuariosCompletoController extends Controller
         ];
     }
 
-    /**
-     * Lists all UsuariosCompleto models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function init()
     {
-        $searchModel = new UsuariosCompletoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $this->class = new UsuariosCompleto();
+        $this->search = new UsuariosCompletoSearch();
+        parent::init();
     }
 
     /**
@@ -171,21 +165,5 @@ class UsuariosCompletoController extends Controller
 
         header('Content-type: application/json');
         echo json_encode($data);
-    }
-
-    /**
-     * Finds the UsuariosCompleto model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $username
-     * @return UsuariosCompleto the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($username)
-    {
-        if (($model = UsuariosCompleto::findOne(['username' => $username])) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

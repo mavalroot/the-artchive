@@ -11,13 +11,14 @@ use common\models\User;
 use common\models\Comentarios;
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * PublicacionesController implements the CRUD actions for Publicaciones model.
  */
-class PublicacionesController extends Controller
+class PublicacionesController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -37,6 +38,13 @@ class PublicacionesController extends Controller
         ];
     }
 
+    public function init()
+    {
+        $this->class = new Publicaciones();
+        $this->search = new PublicacionesSearch();
+        parent::init();
+    }
+
     /**
      * Lists all Publicaciones models.
      * @param  string $username Nombre de usuario del propietario de
@@ -51,15 +59,9 @@ class PublicacionesController extends Controller
             $id = $user->id;
         }
         if (isset($id)) {
-            $searchModel = new PublicacionesSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-            $dataProvider->query->where(['usuario_id' => $id]);
-
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
+            return $this->commonIndex([
+                'search' => $this->search,
+                'where' => ['usuario_id' => $id],
             ]);
         }
     }
@@ -102,36 +104,9 @@ class PublicacionesController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Publicaciones();
-        $model->usuario_id = Yii::$app->user->id;
+        $this->class->usuario_id = Yii::$app->user->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Publicaciones model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return parent::actionCreate();
     }
 
     /**
@@ -146,21 +121,5 @@ class PublicacionesController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]);
-    }
-
-    /**
-     * Finds the Publicaciones model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Publicaciones the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Publicaciones::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

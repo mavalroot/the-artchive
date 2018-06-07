@@ -12,10 +12,12 @@ use common\models\UsuariosDatos;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
+use common\utilities\ArtchiveCBase;
+
 /**
  * UsuariosDatosController implements the CRUD actions for UsuariosDatos model.
  */
-class UsuariosDatosController extends Controller
+class UsuariosDatosController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
 
@@ -33,6 +35,13 @@ class UsuariosDatosController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new UsuariosDatos();
+        $this->search = null;
+        parent::init();
     }
 
     /**
