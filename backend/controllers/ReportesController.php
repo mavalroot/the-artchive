@@ -15,8 +15,6 @@ use yii\web\Controller;
 class ReportesController extends Controller
 {
     use \common\utilities\Permisos;
-    use \common\utilities\CommonActions;
-
     /**
      * {@inheritdoc}
      */

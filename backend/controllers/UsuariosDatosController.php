@@ -2,17 +2,17 @@
 
 namespace backend\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
-
 use common\models\UsuariosDatos;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use common\models\UsuariosDatosSearch;
+use common\utilities\ArtchiveCBase;
 
 /**
  * UsuariosDatosController implements the CRUD actions for UsuariosDatos model.
+ *
+ * UPDATE
  */
-class UsuariosDatosController extends Controller
+class UsuariosDatosController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -30,39 +30,10 @@ class UsuariosDatosController extends Controller
         ];
     }
 
-    /**
-     * Updates an existing UsuariosDatos model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
+    public function init()
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->usuario_id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Finds the UsuariosDatos model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return UsuariosDatos the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = UsuariosDatos::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        $this->class = new UsuariosDatos();
+        $this->search = new UsuariosDatosSearch();
+        parent::init();
     }
 }
