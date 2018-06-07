@@ -48,11 +48,11 @@ class RelacionesController extends ArtchiveCBase
     /**
      * Creates a new Relaciones model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @param int $id Id del personaje al que se le crea la relación.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate()
     {
+        $id = Yii::$app->request->get('id');
         $model = new Relaciones();
 
         if (!is_numeric($id) || !$personaje = Personajes::findOne($id)) {
@@ -76,7 +76,7 @@ class RelacionesController extends ArtchiveCBase
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete()
+    public function actionDelete($id = '')
     {
         $id = Yii::$app->request->post('id');
         $model = $this->findModel($id);
