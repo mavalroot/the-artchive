@@ -64,12 +64,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
             ['deleted', 'boolean'],
-            [['usuario_id', 'publicacion_id', 'comentario_id']],
+            [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer'],
             [['contenido'], 'string', 'max' => 500],
             [['created_at', 'updated_at'], 'safe'],
-            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
-            [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
-            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
+            // [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
+            // [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
+            // [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
