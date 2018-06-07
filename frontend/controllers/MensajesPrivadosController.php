@@ -16,6 +16,8 @@ use yii\web\NotFoundHttpException;
 class MensajesPrivadosController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\CommonIndex;
+    use \common\traitrollers\CommonFindModel;
     /**
      * @inheritdoc
      */
@@ -39,13 +41,12 @@ class MensajesPrivadosController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new MensajesPrivadosSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id, 'del_r' => false]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'model' => new MensajesPrivadosSearch(),
+            'where' => [
+                'receptor_id' => Yii::$app->user->id,
+                'del_r' => false],
+            'name' => 'index'
         ]);
     }
 
@@ -73,7 +74,7 @@ class MensajesPrivadosController extends Controller
      */
     public function actionView($id)
     {
-        $mensaje = $this->findModel($id);
+        $mensaje = $this->findModel($id, new MensajesPrivados());
 
         if (($mensaje->imEmisor() && $mensaje->del_e) || ($mensaje->imReceptor() && $mensaje->del_r)) {
             return $this->redirect(['index']);
@@ -117,7 +118,7 @@ class MensajesPrivadosController extends Controller
      */
     public function actionDelete($id)
     {
-        $mensaje = $this->findModel($id);
+        $mensaje = $this->findModel($id, new MensajesPrivados());
 
         if ($mensaje->imEmisor()) {
             $mensaje->del_e = true;
@@ -133,21 +134,5 @@ class MensajesPrivadosController extends Controller
         }
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the MensajesPrivados model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return MensajesPrivados the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = MensajesPrivados::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }
