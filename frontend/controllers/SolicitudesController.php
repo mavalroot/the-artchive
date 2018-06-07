@@ -5,14 +5,15 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Solicitudes;
 use common\models\Relaciones;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * SolicitudesController implements the CRUD actions for Solicitudes model.
  */
-class SolicitudesController extends Controller
+class SolicitudesController extends ArtchiveCBase
 {
     /**
      * {@inheritdoc}
@@ -30,18 +31,11 @@ class SolicitudesController extends Controller
         ];
     }
 
-
-    /**
-     * Displays a single Solicitudes model.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
+    public function init()
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $this->class = new Relaciones();
+        $this->search = null;
+        parent::init();
     }
 
     /**
@@ -85,21 +79,5 @@ class SolicitudesController extends Controller
             return $model->responder($bool);
         }
         return false;
-    }
-
-    /**
-     * Finds the Solicitudes model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Solicitudes the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Solicitudes::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

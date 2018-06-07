@@ -7,13 +7,14 @@ use yii\filters\AccessControl;
 use common\models\Seguidores;
 use common\models\SeguidoresSearch;
 use common\models\User;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * SeguidoresController implements the CRUD actions for Seguidores model.
  */
-class SeguidoresController extends Controller
+class SeguidoresController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
 
@@ -32,6 +33,13 @@ class SeguidoresController extends Controller
         ];
     }
 
+    public function init()
+    {
+        $this->class = new Seguidores();
+        $this->search = new SeguidoresSearch();
+        parent::init();
+    }
+
     /**
      * Lists all Seguidores models.
      * @param string $username Nombre de usuario.
@@ -46,14 +54,9 @@ class SeguidoresController extends Controller
         }
 
         if (isset($id)) {
-            $searchModel = new SeguidoresSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            $dataProvider->query->where(['usuario_id' => $id]);
-
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
+            return $this->commonIndex([
+                'search' => $this->search,
+                'where' => ['usuario_id' => $id],
             ]);
         }
         throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
@@ -83,22 +86,6 @@ class SeguidoresController extends Controller
                 'dataProvider' => $dataProvider,
             ]);
         }
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
-    }
-
-    /**
-     * Finds the Seguidores model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Seguidores the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Seguidores::findOne($id)) !== null) {
-            return $model;
-        }
-
         throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

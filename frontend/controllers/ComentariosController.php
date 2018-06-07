@@ -5,13 +5,18 @@ namespace frontend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use common\models\Comentarios;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\models\ComentariosSearch;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * ComentariosController implements the CRUD actions for Comentarios model.
+ *
+ * FIND SOLO.
  */
-class ComentariosController extends Controller
+class ComentariosController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
 
@@ -28,6 +33,13 @@ class ComentariosController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new Comentarios();
+        $this->search = new ComentariosSearch();
+        parent::init();
     }
 
     /**
@@ -74,7 +86,7 @@ class ComentariosController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete()
+    public function actionDelete($id)
     {
         if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id');
@@ -114,21 +126,5 @@ class ComentariosController extends Controller
             }
             return '<div class="no-respuestas">' . Yii::t('app', 'No hay comentarios.') . '</div>';
         }
-    }
-
-    /**
-     * Finds the Comentarios model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Comentarios the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Comentarios::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

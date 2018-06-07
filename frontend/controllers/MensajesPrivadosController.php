@@ -7,13 +7,16 @@ use yii\filters\AccessControl;
 use common\models\MensajesPrivados;
 use common\models\MensajesPrivadosSearch;
 use common\models\User;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\utilities\ArtchiveCBase;
 
 /**
  * MensajesPrivadosController implements the CRUD actions for MensajesPrivados model.
+ *
+ * FIND
  */
-class MensajesPrivadosController extends Controller
+class MensajesPrivadosController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -33,19 +36,22 @@ class MensajesPrivadosController extends Controller
         ];
     }
 
+    public function init()
+    {
+        $this->class = new MensajesPrivados();
+        $this->search = new MensajesPrivadosSearch();
+        parent::init();
+    }
+
     /**
      * Lists all MensajesPrivados models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new MensajesPrivadosSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->where(['receptor_id' => Yii::$app->user->id, 'del_r' => false]);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'search' => $this->search,
+            'where' => ['receptor_id' => Yii::$app->user->id, 'del_r' => false],
         ]);
     }
 
@@ -99,13 +105,7 @@ class MensajesPrivadosController extends Controller
             $model->receptor_id = $receptor;
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->commonCreate($model);
     }
 
     /**
@@ -133,21 +133,5 @@ class MensajesPrivadosController extends Controller
         }
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the MensajesPrivados model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return MensajesPrivados the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = MensajesPrivados::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

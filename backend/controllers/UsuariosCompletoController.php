@@ -4,22 +4,23 @@ namespace backend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-
 use common\models\User;
 use common\models\TiposUsuario;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use common\models\ActividadRecienteSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+
+use common\utilities\ArtchiveCBase;
 
 use frontend\models\DeleteAccountForm;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
+ *
+ * INDEX, VIEW
  */
-class UsuariosCompletoController extends Controller
+class UsuariosCompletoController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -45,20 +46,13 @@ class UsuariosCompletoController extends Controller
         ];
     }
 
-    /**
-     * Lists all UsuariosCompleto models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function init()
     {
-        $searchModel = new UsuariosCompletoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $this->class = new UsuariosCompleto();
+        $this->search = new UsuariosCompletoSearch();
+        parent::init();
     }
+
 
     /**
      * Displays a single UsuariosCompleto model.
@@ -80,6 +74,11 @@ class UsuariosCompletoController extends Controller
         ]);
     }
 
+    /**
+     * Elimina un usuario.
+     * @param  int $id id del usuario
+     * @return mixed
+     */
     public function actionKickout($id)
     {
         $model = UsuariosCompleto::findOne(['id' => $id]);
@@ -117,21 +116,5 @@ class UsuariosCompletoController extends Controller
         $usuario = User::findOne($id);
         $usuario->setTipo(TiposUsuario::NORMAL);
         return $this->redirect(['view', 'username' => $usuario->username]);
-    }
-
-    /**
-     * Finds the UsuariosCompleto model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return UsuariosCompleto the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = UsuariosCompleto::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

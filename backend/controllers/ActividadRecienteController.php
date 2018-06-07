@@ -2,22 +2,20 @@
 
 namespace backend\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
 
-use common\models\ActividadReciente;
 use common\models\ActividadRecienteSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use common\models\ActividadReciente;
+use common\utilities\ArtchiveCBase;
 
 /**
  * ActividadRecienteController implements the CRUD actions for ActividadReciente model.
+ *
+ * INDEX.
  */
-class ActividadRecienteController extends Controller
+class ActividadRecienteController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
-
     /**
      * {@inheritdoc}
      */
@@ -30,8 +28,14 @@ class ActividadRecienteController extends Controller
                     $this->mustBeAdmin(['index']),
                 ],
             ],
-            'verbs' => $this->paramByPost(['delete']),
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new ActividadReciente();
+        $this->search = new ActividadRecienteSearch();
+        parent::init();
     }
 
     /**
@@ -40,31 +44,9 @@ class ActividadRecienteController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ActividadRecienteSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->sort = [
-            'defaultOrder' => ['created_at' => SORT_DESC]
-        ];
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'search' => $this->search,
+            'order' => 'created_at DESC',
         ]);
-    }
-
-    /**
-     * Finds the ActividadReciente model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return ActividadReciente the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = ActividadReciente::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

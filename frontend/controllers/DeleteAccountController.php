@@ -4,10 +4,13 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
+use common\utilities\ArtchiveCBase;
 use frontend\models\DeleteAccountForm;
 
-class DeleteAccountController extends Controller
+/**
+ * INDEX
+ */
+class DeleteAccountController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -25,6 +28,13 @@ class DeleteAccountController extends Controller
         ];
     }
 
+    public function init()
+    {
+        $this->class = new DeleteAccountForm();
+        $this->search = null;
+        parent::init();
+    }
+
     /**
      * Abre la ventana para gestionar la baja del usuario, y desde ahí la gestiona.
      *
@@ -35,10 +45,7 @@ class DeleteAccountController extends Controller
         if (!Yii::$app->request->get('primary')) {
             $this->layout = 'secondary';
         }
-        $model = new DeleteAccountForm();
-        return $this->render('index', [
-            'model' => $model,
-        ]);
+        parent::actionIndex();
     }
 
     /**
