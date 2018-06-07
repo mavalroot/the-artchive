@@ -138,9 +138,9 @@ trait Permisos
      */
     public function mustBeMyAccount($actions)
     {
-        return $this->denyActions($actions) + [
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
-                return !(Yii::$app->user->identity->username == Yii::$app->request->get('username'));
+                return Yii::$app->user->identity->username == Yii::$app->request->get('username');
             }
         ];
     }
