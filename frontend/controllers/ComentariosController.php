@@ -86,7 +86,7 @@ class ComentariosController extends ArtchiveCBase
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete()
+    public function actionDelete($id)
     {
         if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id');

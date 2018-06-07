@@ -51,8 +51,11 @@ class UsuariosDatosController extends ArtchiveCBase
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($username)
+    public function actionUpdate()
     {
+        if (!($username = Yii::$app->request->get('username'))) {
+            throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        }
         $model = $this->findModel($username);
 
         if ($model->load(Yii::$app->request->post())) {

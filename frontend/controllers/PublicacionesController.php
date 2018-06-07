@@ -47,12 +47,13 @@ class PublicacionesController extends ArtchiveCBase
 
     /**
      * Lists all Publicaciones models.
-     * @param  string $username Nombre de usuario del propietario de
-     * las publicaciones.
      * @return mixed
      */
-    public function actionIndex($username)
+    public function actionIndex()
     {
+        if (!($username = Yii::$app->request->get('username'))) {
+            throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        }
         $user = User::findOne(['username' => $username]);
 
         if ($user) {
