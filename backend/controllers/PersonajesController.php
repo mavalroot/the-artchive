@@ -9,6 +9,8 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * PersonajesController implements the CRUD actions for Personajes model.
+ *
+ * INDEX, VIEW, UPDATE, DELETE.
  */
 class PersonajesController extends ArtchiveCBase
 {

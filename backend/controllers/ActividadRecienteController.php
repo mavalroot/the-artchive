@@ -6,16 +6,17 @@ use Yii;
 use yii\filters\AccessControl;
 
 use common\models\ActividadRecienteSearch;
-use yii\web\Controller;
+use common\models\ActividadReciente;
+use common\utilities\ArtchiveCBase;
 
 /**
  * ActividadRecienteController implements the CRUD actions for ActividadReciente model.
+ *
+ * INDEX.
  */
-class ActividadRecienteController extends Controller
+class ActividadRecienteController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
-    use \common\utilities\CommonActions;
-
     /**
      * {@inheritdoc}
      */
@@ -28,8 +29,14 @@ class ActividadRecienteController extends Controller
                     $this->mustBeAdmin(['index']),
                 ],
             ],
-            'verbs' => $this->paramByPost(['delete']),
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new ActividadReciente();
+        $this->search = new ActividadRecienteSearch();
+        parent::init();
     }
 
     /**
@@ -38,15 +45,9 @@ class ActividadRecienteController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ActividadRecienteSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->sort = [
-            'defaultOrder' => ['created_at' => SORT_DESC]
-        ];
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'search' => $this->search,
+            'order' => 'created_at DESC',
         ]);
     }
 }

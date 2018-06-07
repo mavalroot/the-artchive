@@ -14,12 +14,14 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\utilities\ArtchiveCBase;
+
 use frontend\models\DeleteAccountForm;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
  */
-class UsuariosCompletoController extends Controller
+class UsuariosCompletoController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -43,6 +45,13 @@ class UsuariosCompletoController extends Controller
             ],
             'verbs' => $this->paramByPost(['kickout']),
         ];
+    }
+
+    public function init()
+    {
+        $this->class = new UsuariosCompleto();
+        $this->search = new UsuariosCompletoSearch();
+        parent::init();
     }
 
     /**

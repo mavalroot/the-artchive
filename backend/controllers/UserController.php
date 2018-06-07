@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use Yii;
 use common\models\User;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
+use common\utilities\ArtchiveCBase;
 
 /**
  * UserController implements the CRUD actions for User model.
+ *
+ * UPDATE
  */
-class UserController extends Controller
+class UserController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -29,39 +29,10 @@ class UserController extends Controller
         ];
     }
 
-    /**
-     * Updates an existing User model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
+    public function init()
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Finds the User model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return User the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = User::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        $this->class = new User();
+        $this->search = null;
+        parent::init();
     }
 }
