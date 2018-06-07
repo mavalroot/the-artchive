@@ -42,7 +42,7 @@ class ActividadReciente extends \yii\db\ActiveRecord
             [['mensaje', 'created_by'], 'required',
                 'message' => Yii::t('app', 'Campo requerido.')
             ],
-            [['created_at'], 'safe'],
+            [['created_at', 'referencia', 'tipo'], 'safe'],
             [['created_by'], 'default', 'value' => null],
             [['created_by'], 'integer',
                 'message' => Yii::t('app', 'Debe ser un número entero.')

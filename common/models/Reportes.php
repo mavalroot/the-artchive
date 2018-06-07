@@ -22,6 +22,7 @@ use yii\db\ActiveRecord;
  */
 class Reportes extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Creator;
     /**
      * Creador de la sugerencia.
      * @var string

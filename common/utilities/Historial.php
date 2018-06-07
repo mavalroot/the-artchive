@@ -18,14 +18,15 @@ trait Historial
      * @param  string $url     Link.
      * @return bool
      */
-    public static function crearHistorial($message, $url)
+    public function crearHistorial($message, $referencia, $tipo)
     {
         $actividad = new ActividadReciente();
         $actividad->mensaje = $message;
-        if ($url) {
-            $actividad->url = $url;
+        if ($referencia && $tipo) {
+            $actividad->referencia = $referencia;
+            $actividad->tipo = $tipo;
         }
         $actividad->created_by = Yii::$app->user->id;
-        return $actividad->validate() && $actividad->save();
+        return $actividad->save();
     }
 }

@@ -302,6 +302,8 @@ CREATE TABLE actividad_reciente (
       id            bigserial       PRIMARY KEY
     , mensaje       varchar(255)    NOT NULL
     , url           varchar(255)
+    , referencia    varchar(255)
+    , tipo          varchar(255)
     , created_at    timestamp(0)    NOT NULL DEFAULT localtimestamp
     , created_by    bigint          NOT NULL REFERENCES "user" (id)
 );

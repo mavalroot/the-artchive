@@ -3,6 +3,8 @@
 /* @var $this yii\web\View */
 use yii\grid\GridView;
 
+use yii\helpers\Html;
+
 $this->title = 'My Yii Application';
 
 ?>
@@ -30,8 +32,8 @@ $this->title = 'My Yii Application';
                                     'attribute' => 'mensaje',
                                     'format' => 'html',
                                     'value' => function ($model) {
-                                        if ($model->url) {
-                                            return "<a href=\"$model->url\">$model->mensaje</a>";
+                                        if (isset($model->referencia, $model->tipo)) {
+                                            return Html::a($model->mensaje, ["{$model->tipo}/view", 'id' => $model->referencia]);
                                         }
                                         return $model->mensaje;
                                     }

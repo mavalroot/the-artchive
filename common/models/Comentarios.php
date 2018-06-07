@@ -27,6 +27,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Apto;
     use \common\utilities\Notificacion;
+    use \common\utilities\Creator;
     /**
      * Indica si ha sido citado.
      * @var bool

@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'mensaje',
                 'format' => 'html',
                 'value' => function ($model) {
-                    if ($model->url) {
-                        return "<a href=\"$model->url\">$model->mensaje</a>";
+                    if (isset($model->referencia, $model->tipo)) {
+                        return Html::a($model->mensaje, ["{$model->tipo}/view", 'id' => $model->referencia]);
                     }
                     return $model->mensaje;
                 }

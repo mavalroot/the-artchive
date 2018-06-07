@@ -22,6 +22,7 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Creator;
     /**
      * Creador de la publicación.
      * @var string
