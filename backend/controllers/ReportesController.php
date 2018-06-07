@@ -17,6 +17,8 @@ use yii\filters\VerbFilter;
 class ReportesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\utilities\CommonActions;
+
     /**
      * {@inheritdoc}
      */
@@ -39,12 +41,8 @@ class ReportesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ReportesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'search' => new ReportesSearch(),
         ]);
     }
 
@@ -56,9 +54,7 @@ class ReportesController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        return $this->commonView($id);
     }
 
     /**
@@ -70,15 +66,7 @@ class ReportesController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $this->commonUpdate($id);
     }
 
     /**
@@ -90,9 +78,7 @@ class ReportesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return $this->commonDelete($id);
     }
 
     /**
@@ -104,10 +90,6 @@ class ReportesController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Reportes::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $this->commonFindModel($id, new Reportes());
     }
 }

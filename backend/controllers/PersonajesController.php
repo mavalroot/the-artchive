@@ -2,9 +2,7 @@
 
 namespace backend\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
-
 use common\models\Personajes;
 use common\models\PersonajesSearch;
 use yii\web\Controller;
@@ -16,6 +14,7 @@ use yii\web\NotFoundHttpException;
 class PersonajesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\utilities\CommonActions;
     /**
      * @inheritdoc
      */
@@ -38,12 +37,8 @@ class PersonajesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PersonajesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'search' => new PersonajesSearch(),
         ]);
     }
 
@@ -55,9 +50,7 @@ class PersonajesController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        return $this->commonView($id);
     }
 
     /**
@@ -69,15 +62,7 @@ class PersonajesController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $this->commonUpdate($id);
     }
 
     /**
@@ -89,9 +74,7 @@ class PersonajesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return $this->commonDelete($id);
     }
 
     /**
@@ -103,10 +86,6 @@ class PersonajesController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Personajes::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
+        return $this->commonFindModel($id, new Personajes());
     }
 }

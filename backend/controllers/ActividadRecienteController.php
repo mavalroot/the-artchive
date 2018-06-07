@@ -5,11 +5,8 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 
-use common\models\ActividadReciente;
 use common\models\ActividadRecienteSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * ActividadRecienteController implements the CRUD actions for ActividadReciente model.
@@ -17,6 +14,7 @@ use yii\filters\VerbFilter;
 class ActividadRecienteController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\utilities\CommonActions;
 
     /**
      * {@inheritdoc}
@@ -50,21 +48,5 @@ class ActividadRecienteController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
-
-    /**
-     * Finds the ActividadReciente model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return ActividadReciente the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = ActividadReciente::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }
