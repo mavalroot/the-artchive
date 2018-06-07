@@ -50,7 +50,7 @@ class ReportesController extends Controller
 
     /**
      * Displays a single Reportes model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -64,7 +64,7 @@ class ReportesController extends Controller
     /**
      * Updates an existing Reportes model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -84,7 +84,7 @@ class ReportesController extends Controller
     /**
      * Deletes an existing Reportes model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -98,7 +98,7 @@ class ReportesController extends Controller
     /**
      * Finds the Reportes model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Reportes the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

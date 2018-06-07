@@ -74,7 +74,8 @@ class PersonajesSearch extends Personajes
             ->andFilterWhere(['ilike', 'historia', $this->historia])
             ->andFilterWhere(['ilike', 'personalidad', $this->personalidad])
             ->andFilterWhere(['ilike', 'apariencia', $this->apariencia])
-            ->andFilterWhere(['ilike', 'hechos_destacables', $this->hechos_destacables]);
+            ->andFilterWhere(['ilike', 'hechos_destacables', $this->hechos_destacables])
+            ->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
     }

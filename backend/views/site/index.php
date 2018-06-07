@@ -125,10 +125,7 @@ $this->title = 'My Yii Application';
             <h2>Otras gestiones:</h2>
             <ul>
                 <li>
-                <a href="/reportes/index">Reportes</a>
-                </li>
-                <li>
-                    <a href="">Gestionar baneos</a>
+                    <a href="reportes/index">Reportes</a>
                 </li>
             </ul>
         </div>
