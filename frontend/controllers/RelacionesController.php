@@ -3,28 +3,33 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
+
 use common\models\Personajes;
 use common\models\Relaciones;
 use common\models\Solicitudes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * RelacionesController implements the CRUD actions for Relaciones model.
  */
 class RelacionesController extends Controller
 {
+    use \common\utilities\Permisos;
+
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    $this->mustBeMyCharacterOnRelas(['delete']),
+                    $this->mustBeMyCharacterForCR(['create']),
+                    $this->mustBeLoggedForAll(),
                 ],
             ],
         ];
@@ -34,6 +39,7 @@ class RelacionesController extends Controller
     /**
      * Creates a new Relaciones model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     * @param int $id Id del personaje al que se le crea la relación.
      * @return mixed
      */
     public function actionCreate($id)
@@ -58,7 +64,6 @@ class RelacionesController extends Controller
     /**
      * Deletes an existing Relaciones model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -85,7 +90,7 @@ class RelacionesController extends Controller
     /**
      * Finds the Relaciones model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Relaciones the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

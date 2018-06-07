@@ -10,8 +10,11 @@ use common\models\User;
  */
 class PasswordResetRequestForm extends Model
 {
+    /**
+     * Email
+     * @var string
+     */
     public $email;
-
 
     /**
      * {@inheritdoc}

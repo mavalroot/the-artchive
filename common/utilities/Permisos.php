@@ -10,9 +10,10 @@ use common\models\Personajes;
 use common\models\TiposUsuario;
 use common\models\MensajesPrivados;
 use common\models\Publicaciones;
+use common\models\Relaciones;
 
 /**
- *
+ * Trait para manejar los permisos.
  */
 trait Permisos
 {
@@ -82,11 +83,11 @@ trait Permisos
      */
     public function mustBeMyMessage($actions)
     {
-        return $this->mustBeLogged($actions) + [
+        return $this->denyActions($actions) + [
             'matchCallback' => function () {
                 $mensaje = MensajesPrivados::findOne(Yii::$app->request->get('id'));
                 $id = Yii::$app->user->id;
-                return $id == $mensaje->receptor_id || $id == $mensaje->emisor_id;
+                return !($id == $mensaje->receptor_id || $id == $mensaje->emisor_id);
             }
         ];
     }
@@ -99,11 +100,13 @@ trait Permisos
      */
     public function mustBeMyCharacter($actions)
     {
-        return $this->mustBeLogged($actions) + [
+        return [
+            'allow' => false,
+            'actions' => $actions,
             'matchCallback' => function () {
                 $personaje = Personajes::findOne(Yii::$app->request->get('id'));
                 if ($personaje) {
-                    return Yii::$app->user->id == $personaje->usuario_id;
+                    return !(Yii::$app->user->id == $personaje->usuario_id);
                 }
             }
         ];
@@ -117,11 +120,11 @@ trait Permisos
      */
     public function mustBeMyContent($actions)
     {
-        return $this->mustBeLogged($actions) + [
+        return $this->denyActions($actions) + [
             'matchCallback' => function () {
-                $personaje = Publicaciones::findOne(Yii::$app->request->get('id'));
-                if ($personaje) {
-                    return Yii::$app->user->id == $personaje->usuario_id;
+                $publicacion = Publicaciones::findOne(Yii::$app->request->get('id'));
+                if ($publicacion) {
+                    return !(Yii::$app->user->id == $publicacion->usuario_id);
                 }
             }
         ];
@@ -135,9 +138,43 @@ trait Permisos
      */
     public function mustBeMyAccount($actions)
     {
-        return $this->mustBeLogged($actions) + [
+        return $this->denyActions($actions) + [
             'matchCallback' => function () {
-                return Yii::$app->user->identity->username == Yii::$app->request->get('username');
+                return !(Yii::$app->user->identity->username == Yii::$app->request->get('username'));
+            }
+        ];
+    }
+
+    /**
+     * El Personaje al que se le crea la relación debe ser del usuario actual.
+     * @param  array $actions Acciones del controlador a las que afecta el
+     * permiso.
+     * @return array
+     */
+    public function mustBeMyCharacterForCR($actions)
+    {
+        return $this->denyActions($actions) + [
+            'matchCallback' => function () {
+                $character = Personajes::findOne(['id' => Yii::$app->request->get('id')]);
+                return !(isset($character) && $character->isMine());
+            }
+        ];
+    }
+
+    /**
+     * El Personaje al que se le modifica la relación debe ser del usuario
+     * actual.
+     * @param  array $actions Acciones del controlador a las que afecta el
+     * permiso.
+     * @return array
+     */
+    public function mustBeMyCharacterOnRelas($actions)
+    {
+        return $this->denyActions($actions) + [
+            'matchCallback' => function () {
+                $relas = Relaciones::findOne(['id' => Yii::$app->request->post('id')]);
+                $character = Personajes::findOne(['id' => $relas->personaje_id]);
+                return !(isset($character) && $character->isMine());
             }
         ];
     }
@@ -178,6 +215,14 @@ trait Permisos
         return [
             'allow' => true,
             'roles' => ['@'],
+        ];
+    }
+
+    public function denyActions($actions)
+    {
+        return [
+            'allow' => false,
+            'actions' => $actions,
         ];
     }
 

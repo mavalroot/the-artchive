@@ -7,22 +7,21 @@ use Yii;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
-use common\models\User;
-
 /**
  *
  */
 class ArtchiveBase extends \yii\db\ActiveRecord
 {
+    use \common\utilities\Historial;
     /**
      * Indica si se debe guardar el historial de insert, update y delete o no.
      *
-     * @return bool Por defecto guarda el historial, para que no lo guarde
-     * habría que devolver falso.
+     * @return bool Por defecto no guarda el historial, para que no lo guarde
+     * habría que devolver true.
      */
     public function isHistorialSaved()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -34,18 +33,6 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     public function getDataName()
     {
         return 'data-name';
-    }
-    /**
-     * Muestra el botón para exportar a pdf.
-     *
-     * @return string
-     */
-    public function getExportButton()
-    {
-        if ($this->isMine()) {
-            $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
-            return Html::a('<i class="fas fa-save"></i> ' . Yii::t('app', 'Guardar como pdf'), ['#'], ['id' => 'export', 'data-name' => $data]);
-        }
     }
 
     /**
@@ -95,50 +82,6 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     }
 
     /**
-     * Indica si esta instancia es propiedad del usuario conectado actualmente.
-     * Para ello primero se comprueba que exista la propiedad usuario_id, porque
-     * en caso contrario no es una clase que pueda tener pertenencia.
-     *
-     * @return bool
-     */
-    public function isMine()
-    {
-        if (isset($this->usuario_id)) {
-            return $this->usuario_id == Yii::$app->user->id;
-        }
-        return false;
-    }
-
-    /**
-     * Devuelve el creador de esta instancia.
-     * Para ello primero se comprueba que exista la propiedad usuario_id, porque
-     * en caso contrario no es una clase que pueda tener creador.
-     *
-     * @return User|null
-     */
-    public function getCreator()
-    {
-        if (isset($this->usuario_id)) {
-            return $this->hasOne(User::className(), ['id' => 'usuario_id']);
-        }
-        return null;
-    }
-
-    /**
-     * Muestra el creador del personaje como un link.
-     * Primero comprueba que la propiedad creator exista.
-     *
-     * @return string|bool
-     */
-    public function getUrlCreator()
-    {
-        if (isset($this->creator)) {
-            return Html::a($this->creator, ['/usuarios-completo/view', 'username' => $this->creator]);
-        }
-        return false;
-    }
-
-    /**
      * Devuelve el nombre para crear el historial o la notificación.
      * Por ejemplo: 'un mensaje privado', 'un comentario', 'un personaje'.
      *
@@ -167,6 +110,16 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         return Yii::t('app', 'Ha modificado ') . $this->getUnName() . '.';
     }
 
+    public function getHistorialTipo()
+    {
+        return str_replace('_', '-', static::tableName());
+    }
+
+    public function getHistorialReferencia()
+    {
+        return $this->id;
+    }
+
     /**
      * Recibe el mensaje de historial para delete.
      * @return string
@@ -181,9 +134,9 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
         if ($this->isHistorialSaved()) {
             if ($insert) {
-                Historial::crearHistorial($this->getInsertMessage(), $this->getRawUrl());
+                $this->crearHistorial($this->getInsertMessage(), $this->getHistorialReferencia(), $this->getHistorialTipo());
             } else {
-                Historial::crearHistorial($this->getUpdateMessage(), $this->getRawUrl());
+                $this->crearHistorial($this->getUpdateMessage(), $this->getHistorialReferencia(), $this->getHistorialTipo());
             }
         }
 
@@ -197,7 +150,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
         }
         $data = isset($this->{$this->getDataName()}) ? ': "' . $this->{$this->getDataName()} . '"' : '';
         if ($this->isHistorialSaved()) {
-            Historial::crearHistorial($this->getDeleteMessage() . "$data.", false);
+            $this->crearHistorial($this->getDeleteMessage() . "$data.", false, false);
         }
         return true;
     }

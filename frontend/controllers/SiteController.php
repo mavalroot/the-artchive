@@ -165,28 +165,38 @@ class SiteController extends \yii\web\Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                $mensaje = Yii::t('frontend', 'Para confirmar su cuenta haga click en el siguiente enlace:') . ' <a href="' . Yii::$app->urlManager->createAbsoluteUrl(
-                    ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
-                ).'">' . Yii::t('frontend', 'Confirmación') . '</a>';
-                $email = \Yii::$app->mailer->compose()
-                 ->setTo($user->email)
-                 ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
-                 ->setSubject(Yii::t('frontend', 'Confirmación de cuenta'))
-                 ->setTextBody($mensaje)
-                 ->send();
-
-                if ($email) {
-                    Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
-                } else {
-                    Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
-                }
-                return $this->goHome();
-            }
+            $this->sendMail($model);
         }
         return $this->render('signup', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * Manda el mail para confirmar la cuenta.
+     * @param  SignupForm $model
+     * @return mixed
+     */
+    private function sendMail($model)
+    {
+        if ($user = $model->signup()) {
+            $mensaje = Yii::t('frontend', 'Para confirmar su cuenta haga click en el siguiente enlace:') . ' <a href="' . Yii::$app->urlManager->createAbsoluteUrl(
+                ['site/confirm', 'id' => $user->id, 'key' => $user->auth_key]
+            ).'">' . Yii::t('frontend', 'Confirmación') . '</a>';
+            $email = \Yii::$app->mailer->compose()
+             ->setTo($user->email)
+             ->setFrom([Yii::$app->params[0]['adminEmail'] => Yii::$app->name . ' robot'])
+             ->setSubject(Yii::t('frontend', 'Confirmación de cuenta'))
+             ->setTextBody($mensaje)
+             ->send();
+
+            if ($email) {
+                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
+            } else {
+                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
+            }
+            return $this->goHome();
+        }
     }
 
     /**

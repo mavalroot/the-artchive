@@ -8,7 +8,7 @@ use common\models\Notificaciones;
 use common\models\TiposNotificaciones;
 
 /**
- * Clase para implementar la creación del historial de notificacion reciente
+ * Trait para implementar la creación del historial de notificacion reciente
  * antes de cualquier acción.
  */
 trait Notificacion

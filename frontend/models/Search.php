@@ -13,6 +13,10 @@ use common\models\UsuariosCompletoSearch;
  */
 class Search extends Model
 {
+    /**
+     * Término de búsqueda.
+     * @var string
+     */
     public $searchTerm;
 
     /**
@@ -27,6 +31,10 @@ class Search extends Model
         ];
     }
 
+    /**
+     * Busca por personaje.
+     * @return PersonajesSearch
+     */
     public function searchPj()
     {
         $searchModel = new PersonajesSearch();
@@ -37,6 +45,10 @@ class Search extends Model
         return $dataProvider;
     }
 
+    /**
+     * Devuelve las columnas de la tabla personajes que se mostrarán.
+     * @return array
+     */
     public function getPjColumns()
     {
         $columns = [];
@@ -59,6 +71,10 @@ class Search extends Model
         return $columns;
     }
 
+    /**
+     * Busca un usuario.
+     * @return UsuariosCompletoSearch
+     */
     public function searchUser()
     {
         $searchModel = new UsuariosCompletoSearch();
@@ -68,6 +84,10 @@ class Search extends Model
         return $dataProvider;
     }
 
+    /**
+     * Devuelve las columnas de la tabla usuarios que se mostrarán.
+     * @return array
+     */
     public static function getUserColumns()
     {
         $columns = [];

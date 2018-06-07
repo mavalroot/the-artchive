@@ -4,7 +4,6 @@ namespace backend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-
 use common\models\Publicaciones;
 use common\models\PublicacionesSearch;
 use yii\web\Controller;
@@ -49,7 +48,7 @@ class PublicacionesController extends Controller
 
     /**
      * Displays a single Publicaciones model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -63,7 +62,7 @@ class PublicacionesController extends Controller
     /**
      * Updates an existing Publicaciones model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -83,7 +82,7 @@ class PublicacionesController extends Controller
     /**
      * Deletes an existing Publicaciones model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -97,7 +96,7 @@ class PublicacionesController extends Controller
     /**
      * Finds the Publicaciones model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Publicaciones the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

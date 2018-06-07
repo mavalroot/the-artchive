@@ -53,29 +53,13 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
-            [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required',
-                'message' => Yii::t('app', 'Campo requerido.')
-            ],
+            [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required'],
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
-            [['emisor_id', 'receptor_id'], 'integer',
-                'message' => Yii::t('app', 'Debe ser un número entero.')
-            ],
+            [['emisor_id', 'receptor_id'], 'integer'],
             [['contenido', 'receptor_name', 'emisor_name'], 'string'],
             [['seen', 'del_e', 'del_r'], 'boolean'],
             [['created_at'], 'safe'],
-            [['asunto'], 'string', 'max' => 255,
-                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
-            ],
-            [['emisor_name'], 'exist', 'skipOnError' => true,
-                'targetClass' => User::className(),
-                'targetAttribute' => ['emisor_name' => 'username'],
-                'message' => Yii::t('app', 'El usuario no existe.')
-            ],
-            [['receptor_name'], 'exist', 'skipOnError' => true,
-                'targetClass' => User::className(),
-                'targetAttribute' => ['receptor_name' => 'username'],
-                'message' => Yii::t('app', 'El usuario no existe.')
-            ],
+            [['asunto'], 'string', 'max' => 255],
             [['emisor_id'], 'exist', 'skipOnError' => true,
                 'targetClass' => User::className(),
                 'targetAttribute' => ['emisor_id' => 'id'],
@@ -149,11 +133,6 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function imReceptor()
     {
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
-    }
-
-    public function isHistorialSaved()
-    {
-        return false;
     }
 
     public function getDataName()

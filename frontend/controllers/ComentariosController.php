@@ -88,6 +88,10 @@ class ComentariosController extends Controller
         return false;
     }
 
+    /**
+     * Muestra las respuestas del comentario.
+     * @return mixed
+     */
     public function actionMostrarRespuestas()
     {
         if (Yii::$app->request->isAjax) {

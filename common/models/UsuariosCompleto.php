@@ -3,13 +3,11 @@
 namespace common\models;
 
 use Yii;
-
 use yii\data\ActiveDataProvider;
-
 use yii\helpers\Html;
 
 /**
- * This is the model class for table "usuarios_completo".
+ * This is the model class for table "usuarios_completo".d
  *
  * @property int $id
  * @property string $username
@@ -156,19 +154,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function isApto()
     {
         return $this->status == User::STATUS_ACTIVE && !($this->isBlocked() || $this->imBlocked());
-    }
-
-    /**
-     * Devuelve las publicaciones del usuario.
-     */
-    public function getMisPublicaciones()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => $this->getPublicaciones()->orderBy(['updated_at' => SORT_DESC])->limit(3),
-            'pagination' => false,
-            'sort' => false,
-        ]);
-        return $dataProvider;
     }
 
     /**

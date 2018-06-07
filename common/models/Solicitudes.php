@@ -93,11 +93,6 @@ class Solicitudes extends \common\utilities\ArtchiveBase
         return $tipo->id;
     }
 
-    public function isHistorialSaved()
-    {
-        return false;
-    }
-
     /**
      * Devuelve los botones de la solicitud (aceptar y rechazar)
      * @return string
@@ -152,6 +147,10 @@ class Solicitudes extends \common\utilities\ArtchiveBase
         return true;
     }
 
+    /**
+     * Devuelve el mensaje de la solicitud
+     * @return string
+     */
     public function getMensajeSolicitud()
     {
         $relacion = $this->relacion;
@@ -166,6 +165,10 @@ class Solicitudes extends \common\utilities\ArtchiveBase
         Yii::t('app', '(personaje de') . ' ' . $user->getUrl() . ').';
     }
 
+    /**
+     * Devuelve el título de la solicitud.
+     * @return string
+     */
     public function getTituloSolicitud()
     {
         return Yii::t('app', 'Has recibido una solicitud para crear una relación.');

@@ -13,12 +13,24 @@ use common\models\Notificaciones;
 use common\models\MensajesPrivados;
 
 /**
- * Signup form
+ * Signup form.
  */
 class DeleteAccountForm extends Model
 {
+    /**
+     * Nombre de usuario.
+     * @var string
+     */
     public $username;
+    /**
+     * Si los personajes serán eliminados (verdadero o falso).
+     * @var bool
+     */
     public $personajes;
+    /**
+     * Si las publicaciones serán eliminadas (verdadero o falso).
+     * @var bool
+     */
     public $publicaciones;
 
     /**
@@ -49,6 +61,10 @@ class DeleteAccountForm extends Model
         ];
     }
 
+    /**
+     * Desactiva el usuario.
+     * @return bool
+     */
     public function desactivarUsuario()
     {
         $model = $this->getUser();
@@ -61,6 +77,9 @@ class DeleteAccountForm extends Model
         return $model->save();
     }
 
+    /**
+     * Borra todo lo relacionado con el usuario que se ha desactivado.
+     */
     public function borrarTodo()
     {
         $this->borrarPjs();
@@ -68,6 +87,9 @@ class DeleteAccountForm extends Model
         $this->borrarRastro();
     }
 
+    /**
+     * Borra los personajes del usuario.
+     */
     public function borrarPjs()
     {
         $model = $this->getUser();
@@ -76,6 +98,9 @@ class DeleteAccountForm extends Model
         }
     }
 
+    /**
+     * Borra las publicaciones del usuario.
+     */
     public function borrarPublicaciones()
     {
         $model = $this->getUser();
@@ -84,6 +109,9 @@ class DeleteAccountForm extends Model
         }
     }
 
+    /**
+     * Borra todo el rastro del usuario.
+     */
     public function borrarRastro()
     {
         $id = $this->getUser()->id;
@@ -96,6 +124,10 @@ class DeleteAccountForm extends Model
         Notificaciones::deleteAll(['usuario_id' => $id]);
     }
 
+    /**
+     * Devuelve el usuario que se va a eliminar.
+     * @return User
+     */
     public function getUser()
     {
         return User::findOne(['username' => $this->username]);

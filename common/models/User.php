@@ -223,11 +223,6 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    public function isHistorialSaved()
-    {
-        return false;
-    }
-
     public function getRawUrl()
     {
         return Url::to(['usuarios-completo/view', 'username' => $this->username]);

@@ -65,10 +65,7 @@ class Notificaciones extends \yii\db\ActiveRecord
 
     /**
      * Mensajes de notificación (traducibles).
-     * @param  array $conf  Configuración para las notificaciones.
-     * 'tipo' => (string|int)
-     * 'delante' => (string) iría delante del mensaje de notificación.
-     * 'detrás' => (string) iría detrás del mensaje de notificación.
+     * @param  string $tipo Tipo de la notificación.
      * @return string       Mensaje listo para mostrar.
      */
     public function mensajesDeNotificacion($tipo)
@@ -100,6 +97,10 @@ class Notificaciones extends \yii\db\ActiveRecord
         return $delante . $mensaje . $detras . '.';
     }
 
+    /**
+     * Devuelve el emisor de la notificación.
+     * @return User
+     */
     private function mensajeDeNotificacionEmisor()
     {
         return User::findOne($this->created_by)->username;

@@ -63,7 +63,9 @@ use yii\helpers\Html;
             <?= $model->getExportButton() ?>
         </div>
         <div class="relacion">
-            <?= Html::a('<i class="fas fa-user-friends"></i> ' . Yii::t('frontend', 'Añadir relación'), ['relaciones/create', 'id' => $model->id]) ?>
+            <?php if ($model->isMine()) : ?>
+                <?= Html::a('<i class="fas fa-user-friends"></i> ' . Yii::t('frontend', 'Añadir relación'), ['relaciones/create', 'id' => $model->id]) ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

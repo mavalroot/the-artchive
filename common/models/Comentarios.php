@@ -27,14 +27,23 @@ class Comentarios extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Apto;
     use \common\utilities\Notificacion;
+    use \common\utilities\Creator;
     /**
      * Indica si ha sido citado.
      * @var bool
      */
     public $quoted;
 
+    /**
+     * Avatar del usuario que hizo el comentario.
+     * @var string
+     */
     public $avatar;
 
+    /**
+     * Nombre de usuario del usuario que hizo el comentario.
+     * @var string
+     */
     public $username;
     /**
      * {@inheritdoc}
@@ -55,28 +64,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
             ['deleted', 'boolean'],
-            [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer',
-                'message' => Yii::t('app', 'Debe ser un número entero.')
-            ],
-            [['contenido'], 'string', 'max' => 500,
-                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
-            ],
+            [['usuario_id', 'publicacion_id', 'comentario_id']],
+            [['contenido'], 'string', 'max' => 500],
             [['created_at', 'updated_at'], 'safe'],
-            [['comentario_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => Comentarios::className(),
-                'targetAttribute' => ['comentario_id' => 'id'],
-                'message' => Yii::t('app', 'El comentario no existe.'),
-            ],
-            [['publicacion_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => Publicaciones::className(),
-                'targetAttribute' => ['publicacion_id' => 'id'],
-                'message' => Yii::t('app', 'La publicación no existe.')
-            ],
-            [['usuario_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => User::className(),
-                'targetAttribute' => ['usuario_id' => 'id'],
-                'message' => Yii::t('app', 'El usuario no existe.'),
-            ],
+            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
+            [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -150,45 +143,45 @@ class Comentarios extends \common\utilities\ArtchiveBase
         return $user->username;
     }
 
+    /**
+     * Devuelve el avatar (como una imagen) del usuario al que pertenece el comentario.
+     * @return [type] [description]
+     */
     public function getAvatar()
     {
         $user = UsuariosCompleto::findOne(['id' => $this->usuario_id]);
         return Html::img(isset($user->avatar) ? $user->avatar : '/uploads/default.png');
     }
 
+    /**
+     * Devuelve el botón de responder.
+     * @return string
+     */
     public function getResponderButton()
     {
         if (!$this->comentario_id) {
             return Html::button(Yii::t('frontend', 'Responder'), ['name' => 'responder-comentario', 'class' => 'btn btn-xs btn-info']);
-            // return Html::beginForm('', 'post', ['name' => 'responder-comentario']) .
-            // Html::hiddenInput('id', $this->id) .
-            // Html::submitButton(Yii::t('frontend', 'Responder'), ['class' => 'btn btn-xs btn-info']) .
-            // Html::endForm();
         }
     }
 
+    /**
+     * Devuelve el botón de borrar.
+     * @return string
+     */
     public function getBorrarButton()
     {
         if ($this->isMine() && !$this->isDeleted()) {
             return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
-            // return Html::a(Yii::t('frontend', 'Borrar'), ['delete', 'id' => $this->id], [
-            //     'class' => 'btn btn-danger',
-            //     'data' => [
-            //         'confirm' => Yii::t('app', '¿Seguro que desea borrar el comentario?'),
-            //         'method' => 'post',
-            //     ],
-            // ]);
         }
     }
 
+    /**
+     * Devuelve el botón de mostrar respuestas.
+     * @return string
+     */
     public function getMostrarRespuestasButton()
     {
         return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);
-    }
-
-    public function isMine()
-    {
-        return $this->usuario_id == Yii::$app->user->id;
     }
 
     /**
@@ -212,7 +205,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getRawUrl()
     {
-        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
+        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id]);
     }
 
     public function beforeSave($insert)
@@ -227,6 +220,11 @@ class Comentarios extends \common\utilities\ArtchiveBase
                 'user' => $this->publicacion->usuario_id,
             ]);
         }
+        return true;
+    }
+
+    public function isHistorialSaved()
+    {
         return true;
     }
 }

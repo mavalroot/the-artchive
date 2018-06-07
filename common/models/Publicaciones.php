@@ -22,6 +22,7 @@ use yii\helpers\Html;
  */
 class Publicaciones extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Creator;
     /**
      * Creador de la publicación.
      * @var string
@@ -136,5 +137,15 @@ class Publicaciones extends \common\utilities\ArtchiveBase
             return $botones;
         }
         return false;
+    }
+
+    public function getUnName()
+    {
+        return Yii::t('app', 'una publicación');
+    }
+
+    public function isHistorialSaved()
+    {
+        return true;
     }
 }

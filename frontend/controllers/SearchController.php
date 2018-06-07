@@ -25,6 +25,12 @@ class SearchController extends Controller
         ];
     }
 
+    /**
+     * Busca un usuario o personaje.
+     * @param  string $st  Término de búsqueda.
+     * @param  string $src Qué busca ('user' o 'pj')
+     * @return mixed
+     */
     public function actionSearch($st = '', $src = 'user')
     {
         $model = $this->findModel($st);
@@ -42,6 +48,11 @@ class SearchController extends Controller
         ]);
     }
 
+    /**
+     * Crea un nuevo Search con el término de búsqueda.
+     * @param  string $st
+     * @return Search
+     */
     protected function findModel($st)
     {
         return new Search(['searchTerm' => $st]);

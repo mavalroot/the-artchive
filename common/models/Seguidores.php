@@ -65,11 +65,6 @@ class Seguidores extends \common\utilities\ArtchiveBase
         return $this->hasOne(User::className(), ['id' => 'seguidor_id']);
     }
 
-    public function isHistorialSaved()
-    {
-        return false;
-    }
-
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {

@@ -28,6 +28,7 @@ use yii\helpers\Html;
  */
 class Personajes extends \common\utilities\ArtchiveBase
 {
+    use \common\utilities\Creator;
     /**
      * Creador del personaje
      * @var string
@@ -142,5 +143,15 @@ class Personajes extends \common\utilities\ArtchiveBase
             return $botones;
         }
         return false;
+    }
+
+    public function getUnName()
+    {
+        return 'un personaje';
+    }
+
+    public function isHistorialSaved()
+    {
+        return true;
     }
 }
