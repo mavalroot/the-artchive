@@ -38,9 +38,9 @@ trait Permisos
      */
     public function mustBeAdmin($actions)
     {
-        return $this->denyActions($actions) + [
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
-                return !(Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN));
+                return Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN);
             }
         ];
     }
@@ -53,9 +53,9 @@ trait Permisos
      */
     public function mustBeMod($actions)
     {
-        return $this->denyActions($actions) + [
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
-                return !(Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::MOD));
+                return Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::MOD);
             }
         ];
     }
@@ -68,9 +68,9 @@ trait Permisos
      */
     public function mustBeAdminOrMod($actions)
     {
-        return $this->denyActions($actions) + [
+        return $this->mustBeLogged($actions) + [
             'matchCallback' => function () {
-                return !(Yii::$app->user->identity->tipo_usuario != TiposUsuario::getOne(TiposUsuario::NORMAL));
+                return Yii::$app->user->identity->tipo_usuario != TiposUsuario::getOne(TiposUsuario::NORMAL);
             }
         ];
     }

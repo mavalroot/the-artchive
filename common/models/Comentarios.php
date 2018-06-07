@@ -177,10 +177,6 @@ class Comentarios extends \common\utilities\ArtchiveBase
     {
         if (!$this->comentario_id) {
             return Html::button(Yii::t('frontend', 'Responder'), ['name' => 'responder-comentario', 'class' => 'btn btn-xs btn-info']);
-            // return Html::beginForm('', 'post', ['name' => 'responder-comentario']) .
-            // Html::hiddenInput('id', $this->id) .
-            // Html::submitButton(Yii::t('frontend', 'Responder'), ['class' => 'btn btn-xs btn-info']) .
-            // Html::endForm();
         }
     }
 
@@ -204,11 +200,6 @@ class Comentarios extends \common\utilities\ArtchiveBase
         return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);
     }
 
-    public function isMine()
-    {
-        return $this->usuario_id == Yii::$app->user->id;
-    }
-
     /**
      * Indica si el comentario ha sido "borrado".
      * @return bool
@@ -230,7 +221,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getRawUrl()
     {
-        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id, '#' => 'com' . $this->id]);
+        return Url::to(['publicaciones/view', 'id' => $this->publicacion_id]);
     }
 
     public function beforeSave($insert)
@@ -245,6 +236,11 @@ class Comentarios extends \common\utilities\ArtchiveBase
                 'user' => $this->publicacion->usuario_id,
             ]);
         }
+        return true;
+    }
+
+    public function isHistorialSaved()
+    {
         return true;
     }
 }

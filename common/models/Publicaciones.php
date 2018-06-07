@@ -143,4 +143,9 @@ class Publicaciones extends \common\utilities\ArtchiveBase
     {
         return Yii::t('app', 'una publicación');
     }
+
+    public function isHistorialSaved()
+    {
+        return true;
+    }
 }

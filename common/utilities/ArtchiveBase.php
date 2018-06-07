@@ -7,8 +7,6 @@ use Yii;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
-use common\models\User;
-
 /**
  *
  */
@@ -18,12 +16,12 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     /**
      * Indica si se debe guardar el historial de insert, update y delete o no.
      *
-     * @return bool Por defecto guarda el historial, para que no lo guarde
-     * habría que devolver falso.
+     * @return bool Por defecto no guarda el historial, para que no lo guarde
+     * habría que devolver true.
      */
     public function isHistorialSaved()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -35,18 +33,6 @@ class ArtchiveBase extends \yii\db\ActiveRecord
     public function getDataName()
     {
         return 'data-name';
-    }
-    /**
-     * Muestra el botón para exportar a pdf.
-     *
-     * @return string
-     */
-    public function getExportButton()
-    {
-        if ($this->isMine()) {
-            $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
-            return Html::a('<i class="fas fa-save"></i> ' . Yii::t('app', 'Guardar como pdf'), ['#'], ['id' => 'export', 'data-name' => $data]);
-        }
     }
 
     /**
@@ -93,21 +79,6 @@ class ArtchiveBase extends \yii\db\ActiveRecord
             "$name/view",
             $this->getUrlParam() => $this->{$this->getUrlParam()}
         ]);
-    }
-
-    /**
-     * Indica si esta instancia es propiedad del usuario conectado actualmente.
-     * Para ello primero se comprueba que exista la propiedad usuario_id, porque
-     * en caso contrario no es una clase que pueda tener pertenencia.
-     *
-     * @return bool
-     */
-    public function isMine()
-    {
-        if (isset($this->usuario_id)) {
-            return $this->usuario_id == Yii::$app->user->id;
-        }
-        return false;
     }
 
     /**

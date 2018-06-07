@@ -54,4 +54,17 @@ trait Creator
         }
         return false;
     }
+
+    /**
+     * Muestra el botón para exportar a pdf.
+     *
+     * @return string
+     */
+    public function getExportButton()
+    {
+        if ($this->isMine()) {
+            $data = isset($this->{$this->getDataName()}) ? $this->{$this->getDataName()} : '';
+            return Html::a('<i class="fas fa-save"></i> ' . Yii::t('app', 'Guardar como pdf'), ['#'], ['id' => 'export', 'data-name' => $data]);
+        }
+    }
 }

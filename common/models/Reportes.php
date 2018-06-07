@@ -137,4 +137,9 @@ class Reportes extends \common\utilities\ArtchiveBase
     {
         return $this->created_by;
     }
+
+    public function isHistorialSaved()
+    {
+        return true;
+    }
 }

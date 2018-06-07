@@ -151,11 +151,6 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
         return $this->getReceptor()->one()->id == Yii::$app->user->id;
     }
 
-    public function isHistorialSaved()
-    {
-        return false;
-    }
-
     public function getDataName()
     {
         return 'asunto';

@@ -93,11 +93,6 @@ class Solicitudes extends \common\utilities\ArtchiveBase
         return $tipo->id;
     }
 
-    public function isHistorialSaved()
-    {
-        return false;
-    }
-
     /**
      * Devuelve los botones de la solicitud (aceptar y rechazar)
      * @return string

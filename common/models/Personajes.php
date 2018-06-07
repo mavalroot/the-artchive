@@ -149,4 +149,9 @@ class Personajes extends \common\utilities\ArtchiveBase
     {
         return 'un personaje';
     }
+
+    public function isHistorialSaved()
+    {
+        return true;
+    }
 }
