@@ -12,7 +12,7 @@ use yii\base\Model;
 trait CommonFindModel
 {
     /**
-     * Finds the Comentarios model based on its primary key value.
+     * Finds the model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id
      * @return Comentarios the loaded model

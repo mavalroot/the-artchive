@@ -4,8 +4,6 @@ namespace common\traitrollers;
 
 use Yii;
 
-use yii\base\Model;
-
 /**
  *
  */
@@ -13,19 +11,25 @@ trait CommonIndex
 {
     /**
      * En común con la acción index y sent.
-     * @param  Model  $model Modelo de búsqueda
-     * @param  array  $where where de la query
-     * @param  string $name  nombre de la acción
+     * @param  array $config Configuración: model, where, name
+     * (obligatorios) y order.
      * @return mixed
      */
-    private function commonIndex($model, $where, $name)
+    private function commonIndex($config)
     {
-        $searchModel = $model;
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        extract($config);
+        if (!isset($model, $where, $name)) {
+            return false;
+        }
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
         $dataProvider->query->where($where);
 
+        if (isset($order)) {
+            $dataProvider->query->orderBy($order);
+        }
+
         return $this->render($name, [
-            'searchModel' => $searchModel,
+            'searchModel' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }

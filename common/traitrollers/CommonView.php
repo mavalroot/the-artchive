@@ -12,15 +12,15 @@ use yii\base\Model;
 trait CommonView
 {
     /**
-     * Displays a single Personajes model.
+     * Displays a single model.
      * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function commonView($id, $tipo)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id, $tipo),
         ]);
     }
 }

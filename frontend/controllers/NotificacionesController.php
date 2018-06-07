@@ -16,6 +16,7 @@ use yii\web\NotFoundHttpException;
 class NotificacionesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\CommonIndex;
 
     /**
      * @inheritdoc
@@ -39,92 +40,13 @@ class NotificacionesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new NotificacionesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        $dataProvider->query->where(['usuario_id' => Yii::$app->user->id])->orderBy('created_at DESC');
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        return $this->commonIndex([
+            'model' => new NotificacionesSearch(),
+            'where' => [
+                'usuario_id' => Yii::$app->user->id,
+            ],
+            'name' => 'index',
+            'order' => 'created_at DESC',
         ]);
-    }
-
-    /**
-     * Displays a single Notificaciones model.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Notificaciones model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Notificaciones();
-
-        if ($model->load(Yii::$app->request->post())) {
-            $model->created_by = Yii::$app->user->identity->id;
-            return $model->save();
-        }
-    }
-
-    /**
-     * Updates an existing Notificaciones model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Notificaciones model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Notificaciones model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id
-     * @return Notificaciones the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Notificaciones::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
     }
 }

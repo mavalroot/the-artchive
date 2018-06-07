@@ -20,6 +20,7 @@ use yii\web\NotFoundHttpException;
 class PersonajesController extends Controller
 {
     use \common\utilities\Permisos;
+    use \common\traitrollers\CommonIndex;
 
     /**
      * @inheritdoc
