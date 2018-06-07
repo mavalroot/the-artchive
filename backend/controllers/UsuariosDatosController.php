@@ -4,7 +4,6 @@ namespace backend\controllers;
 
 use yii\filters\AccessControl;
 use common\models\UsuariosDatos;
-use common\models\UsuariosDatosSearch;
 use common\utilities\ArtchiveCBase;
 
 /**
@@ -33,7 +32,7 @@ class UsuariosDatosController extends ArtchiveCBase
     public function init()
     {
         $this->class = new UsuariosDatos();
-        $this->search = new UsuariosDatosSearch();
+        $this->search = null;
         parent::init();
     }
 }
