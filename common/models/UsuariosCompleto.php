@@ -157,19 +157,6 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     }
 
     /**
-     * Devuelve las publicaciones del usuario.
-     */
-    public function getMisPublicaciones()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => $this->getPublicaciones()->orderBy(['updated_at' => SORT_DESC])->limit(3),
-            'pagination' => false,
-            'sort' => false,
-        ]);
-        return $dataProvider;
-    }
-
-    /**
      * Indica si el usuario actual está siguiendo a este usuario.
      * @return bool True si ya lo está siguiendo o false si no.
      */

@@ -83,31 +83,13 @@ class Relaciones extends \yii\db\ActiveRecord
                 }, 'targetAttribute' => ['referencia', 'tipo_relacion_id', 'personaje_id'],
                 'message' => Yii::t('app', 'Esta relación ya existe.')
             ],
-            [['personaje_id', 'tipo_relacion_id'], 'required',
-                'message' => Yii::t('app', 'Campo requerido.'),
-            ],
+            [['personaje_id', 'tipo_relacion_id'], 'required'],
             [['personaje_id', 'referencia', 'tipo_relacion_id'], 'default', 'value' => null],
-            [['personaje_id', 'referencia', 'tipo_relacion_id'], 'integer',
-                'message' => Yii::t('app', 'Debe ser un número entero.'),
-            ],
-            [['nombre'], 'string', 'max' => 255,
-                'message' => Yii::t('app', 'No puede superar los 255 carácteres.'),
-            ],
-            [['personaje_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => Personajes::className(),
-                'targetAttribute' => ['personaje_id' => 'id'],
-                'message' => Yii::t('app', 'El personaje no existe.')
-            ],
-            [['referencia'], 'exist', 'skipOnError' => true,
-                'targetClass' => Personajes::className(),
-                'targetAttribute' => ['referencia' => 'id'],
-                'message' => Yii::t('app', 'El personaje no existe.')
-            ],
-            [['tipo_relacion_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => TiposRelaciones::className(),
-                'targetAttribute' => ['tipo_relacion_id' => 'id'],
-                'message' => Yii::t('app', 'La relación no existe.')
-            ],
+            [['personaje_id', 'referencia', 'tipo_relacion_id'], 'integer'],
+            [['nombre'], 'string', 'max' => 255],
+            [['personaje_id'], 'exist', 'skipOnError' => true, 'targetClass' => Personajes::className(), 'targetAttribute' => ['personaje_id' => 'id']],
+            [['referencia'], 'exist', 'skipOnError' => true, 'targetClass' => Personajes::className(), 'targetAttribute' => ['referencia' => 'id']],
+            [['tipo_relacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => TiposRelaciones::className(), 'targetAttribute' => ['tipo_relacion_id' => 'id']],
         ];
     }
 

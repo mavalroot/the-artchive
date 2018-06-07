@@ -64,28 +64,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'default', 'value' => null],
             [['deleted'], 'default', 'value' => false],
             ['deleted', 'boolean'],
-            [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer',
-                'message' => Yii::t('app', 'Debe ser un número entero.')
-            ],
-            [['contenido'], 'string', 'max' => 500,
-                'message' => Yii::t('app', 'No puede superar los 255 carácteres.')
-            ],
+            [['usuario_id', 'publicacion_id', 'comentario_id']],
+            [['contenido'], 'string', 'max' => 500],
             [['created_at', 'updated_at'], 'safe'],
-            [['comentario_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => Comentarios::className(),
-                'targetAttribute' => ['comentario_id' => 'id'],
-                'message' => Yii::t('app', 'El comentario no existe.'),
-            ],
-            [['publicacion_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => Publicaciones::className(),
-                'targetAttribute' => ['publicacion_id' => 'id'],
-                'message' => Yii::t('app', 'La publicación no existe.')
-            ],
-            [['usuario_id'], 'exist', 'skipOnError' => true,
-                'targetClass' => User::className(),
-                'targetAttribute' => ['usuario_id' => 'id'],
-                'message' => Yii::t('app', 'El usuario no existe.'),
-            ],
+            [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
+            [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
