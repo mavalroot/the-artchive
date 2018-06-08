@@ -166,7 +166,7 @@ class SiteController extends \yii\web\Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-            $enmail = $this->sendMail($model);
+            $email = $this->sendMail($model);
             if ($email) {
                 Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
             } else {
