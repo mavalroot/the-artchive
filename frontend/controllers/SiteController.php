@@ -196,7 +196,10 @@ class SiteController extends \yii\web\Controller
              ->setSubject(Yii::t('frontend', 'Confirmación de cuenta'))
              ->setTextBody($mensaje)
              ->send();
+
+            return $email;
         }
+        return false;
     }
 
     /**
