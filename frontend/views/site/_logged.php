@@ -25,7 +25,7 @@ use nirvana\infinitescroll\InfiniteScrollPager;
             </ul>
         </div>
         <div id="random-artist">
-            <?= Yii::t('frontend', 'Conoce un artista al azar') ?>
+            <?= Html::a(Yii::t('frontend', 'Conoce un artista al azar'), ['site/random-artist']) ?>
         </div>
         <div id="lateral-footer">
             <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>

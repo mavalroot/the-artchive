@@ -268,7 +268,7 @@ class SiteController extends \yii\web\Controller
     public function actionResetPassword($token)
     {
         $this->layout = 'homeguests';
-        
+
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {
@@ -295,5 +295,14 @@ class SiteController extends \yii\web\Controller
         if (!Yii::$app->request->isAjax) {
             $this->redirect(Yii::$app->request->post('redirectTo', ['site/index']));
         }
+    }
+
+    public function actionRandomArtist()
+    {
+        $query = UsuariosCompleto::find()->orderBy('id ASC')->all();
+        $helper = ArrayHelper::map($query, 'username', 'id');
+        $randomArtist = array_rand($helper, 1);
+
+        return $this->redirect(['usuarios-completo/view', 'username' => $randomArtist]);
     }
 }
