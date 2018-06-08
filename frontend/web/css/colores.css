@@ -1,9 +1,20 @@
 :root {
-    --color-principal: #fff;
-    --color-secundario: #7967a6;
-    --color-destacado: linear-gradient(-90deg, #a367a6, #7967a6);
-    --color-oscuro: #201a29;
-    --borde-comun: 5px solid #7967a6;
-    --fondo-principal: url('/img/textura.png') #433c4d;
-    --radius-comun: 20px;
+    --color-principal: #f7f7f7;
+    --color-secundario: #1991be;
+    --color-secundario2: #8fcee6;
+    --color-destacado: linear-gradient(-90deg, #8fcee6, #1991be);
+    --color-oscuro: #114e86;
+    --color-oscuro2: #303030;
+    --borde-comun: 2px solid #1991be;
+    --fondo-principal: url('/img/textura.png') #e6e6e6;
+    --radius-comun: 0px;
+}
+
+a {
+    /* color: #785195; */
+}
+
+a:hover {
+  /* color: #8c7c98; */
+  text-decoration: none;
 }

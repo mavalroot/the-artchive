@@ -1,5 +1,6 @@
 #me-home {
 border: var(--borde-comun);
+border-radius: var(--radius-comun);
 background: var(--color-principal);
 text-align: center;
 margin-bottom: 10px;
@@ -48,6 +49,7 @@ margin-bottom: 10px;
 #lateral-footer {
     background: var(--color-principal);
     border: var(--borde-comun);
+    border-radius: var(--radius-comun);
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -63,6 +65,7 @@ margin-bottom: 10px;
     margin-bottom: 20px;
     background: var(--color-principal);
     border: var(--borde-comun);
+    border-radius: var(--radius-comun);
 }
 
 .publicacion > .publicacion-header,
@@ -122,9 +125,10 @@ margin-bottom: 10px;
     padding: 10px;
 }
 
-#feed > .empty {
+#feed > .empty, .no-entry {
     background: var(--color-principal);
     border: var(--borde-comun);
+    border-radius: var(--radius-comun);
     padding: 10px;
 }
 
@@ -186,6 +190,7 @@ margin-bottom: 10px;
 
 .artchive-table tr {
   border: var(--borde-comun);
+  border-radius: var(--radius-comun);
 }
 
 .title-index {

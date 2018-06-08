@@ -1,5 +1,6 @@
 .estandar-action {
   border: var(--borde-comun);
+  border-radius: var(--radius-comun);
   background: var(--color-principal);
 }
 
@@ -36,11 +37,11 @@
   top: 0;
 }
 .estandar-action > .estandar-form label:after {
-  border-color: transparent transparent transparent white;
+  border-color: transparent transparent transparent var(--color-principal);
   left: 0;
 }
 
 .estandar-action > .estandar-form label:before {
-  border-color: transparent white transparent transparent;
+  border-color: transparent var(--color-principal) transparent transparent;
   right: 0;
 }

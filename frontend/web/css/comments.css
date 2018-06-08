@@ -58,6 +58,7 @@
 #nuevo-comentario {
   background: var(--color-principal);
   border: var(--borde-comun);
+  border-radius: var(--radius-comun);
 }
 
 #nuevo-comentario > h3 {

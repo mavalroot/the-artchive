@@ -47,10 +47,8 @@ use yii\widgets\LinkPager;
                     <?= $this->render('/publicaciones/_publicaciones', ['model' => $value]) ?>
                 <?php endforeach; ?>
             <?php else : ?>
-                <div class="entry">
-                    <p>
-                        <?= Yii::t('frontend', 'Este usuario no ha hecho ninguna publicación.') ?>
-                    </p>
+                <div class="no-entry">
+                    <?= Yii::t('frontend', 'Este usuario no ha hecho ninguna publicación.') ?>
                 </div>
             <?php endif; ?>
         <?= LinkPager::widget([

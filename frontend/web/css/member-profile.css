@@ -74,6 +74,7 @@
 
 #profile-content #profile-details {
   border: var(--borde-comun);
+  border-radius: var(--radius-comun);
   background: var(--color-principal);
 }
 
@@ -92,6 +93,7 @@
 
 #profile-content #profile-entries {
   border: var(--borde-comun);
+  border-radius: var(--radius-comun);
   background: var(--color-principal);
 }
 
