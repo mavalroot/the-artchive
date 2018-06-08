@@ -120,3 +120,11 @@ footer.oneline > ul > li {
   margin-left: -20px;
   margin-bottom: -30px;
 }
+
+.site-contact {
+    max-width: 600px;
+    background: rgba(0,0,0,.4);
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
