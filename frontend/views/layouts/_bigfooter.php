@@ -8,8 +8,8 @@ use yii\helpers\Html;
         <div class="row">
             <div class="col-sm-6">
                 <a href="/">
-                <h2 class="logo"> THE ARTCHIVE </h2>
-                <img src="img/artchive.svg" width="200px" height="200px" alt="">
+                    <h2 class="logo"> THE ARTCHIVE </h2>
+                    <img src="/img/artchive.svg" width="200px" height="200px" alt="">
                 </a>
             </div>
 
@@ -17,7 +17,6 @@ use yii\helpers\Html;
                 <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
                 <ul>
                     <li><a href="/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
-                    <li><a href="/site/artchive"><?= Yii::t('frontend', 'Sobre The Artchive') ?></a></li>
                     <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
                 </ul>
             </div>
@@ -25,8 +24,6 @@ use yii\helpers\Html;
                 <h5><?= Yii::t('frontend', 'Soporte') ?></h5>
                 <ul>
                     <li><a href="/podium/home"><?= Yii::t('frontend', 'Foro') ?></a></li>
-                    <li><a href="/site/faq"><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
-                    <li><a href="/site/terms"><?= Yii::t('frontend', 'Términos y condiciones de uso') ?></a></li>
                     <li><a href="/reportes/create"><?= Yii::t('frontend', 'Reporta un problema') ?></a></li>
                     <li><a href="/reportes/index"><?= Yii::t('frontend', 'Tus reportes') ?></a></li>
                 </ul>

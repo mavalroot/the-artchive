@@ -21,7 +21,7 @@ $this->title = Yii::t('frontend', 'Sobre nosotros');
             </p>
         </div>
         <div class="text-right">
-            <img src="img/artchive.svg" height="300px" width="300px" alt="The Artchive" itemprop="logo">
+            <img src="/img/artchive.svg" height="300px" width="300px" alt="The Artchive" itemprop="logo">
         </div>
     </div>
 </div>
