@@ -22,7 +22,6 @@ use yii\helpers\Html;
                 <em class="text-danger"><?= Yii::t('frontend', 'Este comentario ha sido eliminado.') ?></em>
             <?php elseif (!$comentario->isApto()) : ?>
                 <em class="text-danger"><?= Yii::t('frontend', 'No puedes ver este comentario.') ?></em><br />
-                <small><a href="">¿Por qué?</a></small>
             <?php else : ?>
                 <?= Yii::$app->formatter->asnText($comentario->contenido) ?>
             <?php endif; ?>
