@@ -153,6 +153,7 @@ class SiteController extends \yii\web\Controller
      */
     public function actionAbout()
     {
+        $this->layout = 'homeguests';
         return $this->render('about');
     }
 
