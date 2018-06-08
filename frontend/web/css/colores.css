@@ -1,0 +1,7 @@
+:root {
+    --color-principal: #fff;
+    --color-secundario: #7967a6;
+    --color-destacado: linear-gradient(-90deg, #a367a6, #7967a6);
+    --color-oscuro: #392b4f;
+    --borde-comun: 2px solid #7967a6;
+}

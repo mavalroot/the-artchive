@@ -297,6 +297,9 @@ class SiteController extends \yii\web\Controller
         }
     }
 
+    /**
+     * Nos redirige al perfil de un artista al azar.
+     */
     public function actionRandomArtist()
     {
         $query = UsuariosCompleto::find()->orderBy('id ASC')->all();
