@@ -19,7 +19,8 @@ class AppAsset extends AssetBundle
         'css/flag-icon.css',
         'css/footer-with-button-logo.css',
         'css/comments.css',
-        'css/homelogged.css'
+        'css/homelogged.css',
+        'css/colores.css',
     ];
     public $js = [
         'js/plugins/jspdf.min.js',

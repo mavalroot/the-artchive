@@ -38,13 +38,14 @@
 }
 
 #publicacion-comentarios {
-  background: #fff;
-  border: 2px solid #7967a6;
+  background: var(--color-principal);
+  border: var(--borde-comun);
+  border-radius: var(--radius-comun);
 }
 
 #publicacion-comentarios > h3 {
   margin: 0px;
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
   padding: 10px;
 }
 
@@ -55,12 +56,12 @@
 }
 
 #nuevo-comentario {
-  background: #fff;
-  border: 2px solid #7967a6;
+  background: var(--color-principal);
+  border: var(--borde-comun);
 }
 
 #nuevo-comentario > h3 {
-   background: linear-gradient(-90deg, #a367a6, #7967a6);
+   background: var(--color-destacado);
   margin: 0px;
   padding: 10px;
 }

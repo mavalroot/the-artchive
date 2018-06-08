@@ -2,6 +2,8 @@
     --color-principal: #fff;
     --color-secundario: #7967a6;
     --color-destacado: linear-gradient(-90deg, #a367a6, #7967a6);
-    --color-oscuro: #392b4f;
-    --borde-comun: 2px solid #7967a6;
+    --color-oscuro: #201a29;
+    --borde-comun: 5px solid #7967a6;
+    --fondo-principal: url('/img/textura.png') #433c4d;
+    --radius-comun: 20px;
 }

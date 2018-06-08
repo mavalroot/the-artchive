@@ -46,7 +46,7 @@ border-radius: 0px 20px 20px 0px;
 }
 
 .wrap > nav {
-    background: #392b4f;
+    background: var(--color-oscuro);
 }
 
 .wrap > nav li.active {
@@ -71,12 +71,12 @@ a:hover {
 }
 
 .footer {
-    background: #392b4f;
+    background: var(--color-oscuro);
     color: #f4f4f4;
 }
 
 .wrap {
-  background: url(/img/textura.png) #1e162a;
+  background: var(--fondo-principal);
 }
 
 #change-language > .flag-button {

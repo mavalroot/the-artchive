@@ -70,7 +70,7 @@ a.join-button:hover {
 footer.oneline {
   z-index: 1;
   position: relative;
-  background: #fff;
+  background: var(--color-principal);
   padding: 5px 0px;
 }
 
@@ -91,7 +91,7 @@ footer.oneline > ul > li {
   height: 100%;
   width: 100%;
   z-index: 1;
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
 }
 
 @media (max-width: 576px) {

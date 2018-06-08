@@ -1,10 +1,10 @@
 .estandar-action {
-  border: 2px solid #7967a6;
-  background: white;
+  border: var(--borde-comun);
+  background: var(--color-principal);
 }
 
 .estandar-action > h1, .estandar-action > h3 {
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
   color: white;
   text-align: center;
   margin: 0px;
@@ -17,7 +17,7 @@
 }
 
 .estandar-action > .estandar-form label {
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
   width: 100%;
   text-align: center;
   height: 24px;
