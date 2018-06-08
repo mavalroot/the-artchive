@@ -130,6 +130,8 @@ class SiteController extends \yii\web\Controller
      */
     public function actionContact()
     {
+        $this->layout = 'homeguests';
+        
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -153,6 +155,7 @@ class SiteController extends \yii\web\Controller
      */
     public function actionAbout()
     {
+        $this->layout = 'homeguests';
         return $this->render('about');
     }
 
@@ -165,7 +168,13 @@ class SiteController extends \yii\web\Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-            $this->sendMail($model);
+            $email = $this->sendMail($model);
+            if ($email) {
+                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
+            } else {
+                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
+            }
+            return $this->goHome();
         }
         return $this->render('signup', [
             'model' => $model,
@@ -185,18 +194,14 @@ class SiteController extends \yii\web\Controller
             ).'">' . Yii::t('frontend', 'Confirmación') . '</a>';
             $email = \Yii::$app->mailer->compose()
              ->setTo($user->email)
-             ->setFrom([Yii::$app->params[0]['adminEmail'] => Yii::$app->name . ' robot'])
+             ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
              ->setSubject(Yii::t('frontend', 'Confirmación de cuenta'))
              ->setTextBody($mensaje)
              ->send();
 
-            if ($email) {
-                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
-            } else {
-                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
-            }
-            return $this->goHome();
+            return $email;
         }
+        return false;
     }
 
     /**

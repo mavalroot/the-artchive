@@ -39,7 +39,6 @@ return [
                 '/' => 'site/index',
                 'login' => 'site/login',
                 'about' => 'site/about',
-                'about' => 'site/about',
                 'error' => 'site/error',
                 'contact' => 'site/contact',
                 'signup' => 'site/signup',

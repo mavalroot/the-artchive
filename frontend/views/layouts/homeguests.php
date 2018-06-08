@@ -34,8 +34,8 @@ AppAsset::register($this);
     </div>
 </div>
 <?= $this->render('_smallfooter') ?>
-<script src="js/plugins/particles.min.js" charset="utf-8"></script>
-<script src="js/plugins/myparticles.js" charset="utf-8"></script>
+<script src="/js/plugins/particles.min.js" charset="utf-8"></script>
+<script src="/js/plugins/myparticles.js" charset="utf-8"></script>
 <?php $this->endBody() ?>
 </body>
 </html>
