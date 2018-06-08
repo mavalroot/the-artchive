@@ -16,7 +16,7 @@ use yii\helpers\Html;
             <div class="col-sm-3">
                 <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
                 <ul>
-                    <li><a href="/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
+                    <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
                     <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
                 </ul>
             </div>

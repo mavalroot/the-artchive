@@ -15,7 +15,7 @@ $language = '<div id="change-language"><button title="Change language to english
             <?= $language ?>
         </li>
         <li><a href="/">Home</a></li>
-        <li><a href="/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
+        <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
         <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
         <li>© <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?> by <a href="http://www.mavalroot.es/">mavalroot</a></li>
     </ul>
