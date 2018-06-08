@@ -104,3 +104,36 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+#lateral-footer > h5 {
+  font-weight: bold;
+}
+
+#me-home > .username > h3 > a,
+.breadcrumb > li,
+.breadcrumb > li.active,
+.breadcrumb > li.active:before,
+#random-artist > a,
+.publicacion-header > .titulo > h2 > a {
+  color: #fff;
+}
+
+#me-home > .username > h3 > a:hover,
+#random-artist > a:hover,
+.publicacion-header > .titulo > h2 > a:hover {
+  color: #e1e1e1;
+}
+
+.btn-link:hover {
+    background: rgba(255,255,255,.9);
+}
+.btn-link {
+    background: rgba(255,255,255,.7);
+    border-radius: 10px;
+    margin: 1px;
+}
+
+.nav-follow h4 > a > small {
+  color: #dddddd;
+  font-size: 14px;
+}

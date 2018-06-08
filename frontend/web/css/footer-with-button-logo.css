@@ -12,7 +12,7 @@
 }
 
 #myFooter .row {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 #myFooter .navbar-brand {
@@ -86,4 +86,9 @@ body{
 #myFooter{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
+}
+
+h2.logo + img {
+   max-width: 200px;
+   max-height: 200px;
 }

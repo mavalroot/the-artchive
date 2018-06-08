@@ -57,10 +57,6 @@ ul.breadcrumb {
   background: var(--color-secundario2);
 }
 
-ul.breadcrumb > li.active {
-  color: #bdbdbd;
-}
-
 .footer {
     background: var(--color-oscuro);
     color: #f4f4f4;
