@@ -121,7 +121,7 @@ footer.oneline > ul > li {
   margin-bottom: -30px;
 }
 
-.site-contact {
+.default-form {
     max-width: 600px;
     background: rgba(0,0,0,.4);
     margin: auto;

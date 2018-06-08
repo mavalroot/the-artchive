@@ -7,34 +7,32 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('frontend', 'Conectarse');
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container">
+    <div class="default-form">
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend', 'Por favor, rellena los siguientes apartados para conectarte:') ?></p>
+        <p><?= Yii::t('frontend', 'Por favor, rellena los siguientes apartados para conectarte:') ?></p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <div style="color:#999;margin:1em 0">
-                    <?= Yii::t('frontend', 'Si has olvidado tu contraseña puedes') ?>
-                    <?= Html::a(Yii::t('frontend', 'resetearla'), ['site/request-password-reset']) ?>.
-                </div>
+            <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
+            <div style="color:#999;margin:1em 0">
+                <?= Yii::t('frontend', 'Si has olvidado tu contraseña puedes') ?>
+                <?= Html::a(Yii::t('frontend', 'resetearla'), ['site/request-password-reset']) ?>.
+            </div>
 
-            <?php ActiveForm::end(); ?>
-        </div>
+            <div class="form-group text-center">
+                <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+            </div>
+
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

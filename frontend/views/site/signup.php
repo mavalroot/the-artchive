@@ -7,31 +7,28 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('frontend', 'Registrarse');
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container">
+    <div class="default-form">
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Yii::t('frontend', 'Por favor, rellena los siguientes apartados para registrarte:') ?>
-    </p>
+        <p>
+            <?= Yii::t('frontend', 'Por favor, rellena los siguientes apartados para registrarte:') ?>
+        </p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+        <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton(Yii::t('frontend', 'Registrarte'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
+            <div class="form-group text-center">
+                <?= Html::submitButton(Yii::t('frontend', 'Registrarte'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+            </div>
 
-            <?php ActiveForm::end(); ?>
-        </div>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

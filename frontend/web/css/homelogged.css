@@ -128,11 +128,6 @@ margin-bottom: 10px;
     padding: 10px;
 }
 
-
-* {
-  word-break: break-all;
-}
-
 .personaje > .personaje-body > h3 {
   max-width: 800px;
   margin: 15px auto 0px auto ;

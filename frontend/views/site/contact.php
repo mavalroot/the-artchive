@@ -12,7 +12,7 @@ $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container">
-    <div class="site-contact">
+    <div class="default-form">
         <h1><?= Html::encode($this->title) ?></h1>
 
         <div class="contact-form">
