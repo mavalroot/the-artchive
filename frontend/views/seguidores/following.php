@@ -15,13 +15,24 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="seguidores-siguiendo">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);?>
+        <h1><?= Html::encode($this->title) ?></h1>
+        <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            'usuario_id',
-        ],
-    ]); ?>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                [
+                    'attribute' => 'signame',
+                    'label' => 'Siguiendo',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        return Html::a(
+                            Html::img($model->sigavatar ?: '/uploads/default.png') . $model->signame,
+                            ['/usuarios-completo/view', 'username' => $model->signame],
+                            ['class' => 'follow-thing']
+                        );
+                    }
+                ]
+            ],
+        ]); ?>
 </div>

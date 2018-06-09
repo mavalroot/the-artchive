@@ -53,6 +53,7 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
     public function rules()
     {
         return [
+            [['receptor_id'], 'validateNotBlocked'],
             [['emisor_id', 'receptor_id', 'asunto', 'contenido'], 'required'],
             [['emisor_id', 'receptor_id'], 'default', 'value' => null],
             [['emisor_id', 'receptor_id'], 'integer'],
@@ -71,6 +72,18 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
                 'message' => Yii::t('app', 'El usuario no existe.')
             ],
         ];
+    }
+
+    /**
+     * Valida que el usuario al que se le envía el mp no nos tenga bloqueados.
+     * @param  string $attribute
+     */
+    public function validateNotBlocked($attribute)
+    {
+        $usuario = UsuariosCompleto::findOne(['id' => $this->receptor_id]);
+        if ($usuario->imBlocked() || $usuario->isBlocked()) {
+            $this->addError($attribute, Yii::t('app', 'No puedes enviar un mensaje privado a esa persona.'));
+        }
     }
 
     /**

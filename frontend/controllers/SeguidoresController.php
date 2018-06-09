@@ -42,11 +42,11 @@ class SeguidoresController extends ArtchiveCBase
 
     /**
      * Lists all Seguidores models.
-     * @param string $username Nombre de usuario.
      * @return mixed
      */
-    public function actionIndex($username)
+    public function actionIndex()
     {
+        $username = Yii::$app->request->get('username');
         $user = User::findOne(['username' => $username]);
 
         if ($user) {

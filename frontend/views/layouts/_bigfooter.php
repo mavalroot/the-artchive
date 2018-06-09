@@ -9,7 +9,7 @@ use yii\helpers\Html;
             <div class="col-sm-6">
                 <a href="/">
                     <h2 class="logo"> THE ARTCHIVE </h2>
-                    <img src="/img/artchive.svg" width="200px" height="200px" alt="">
+                    <img src="/img/artchive.svg" alt="The Artchive">
                 </a>
             </div>
 

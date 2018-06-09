@@ -1,12 +1,13 @@
 #me-home {
-border: 2px solid #7967a6;
-background: #fff;
+border: var(--borde-comun);
+border-radius: var(--radius-comun);
+background: var(--color-principal);
 text-align: center;
 margin-bottom: 10px;
 }
 
 #me-home > .username {
-    background: linear-gradient(-90deg, #a367a6, #7967a6);
+    background: var(--color-destacado);
     padding: 20px;
     text-align: center;
 }
@@ -38,7 +39,7 @@ margin-bottom: 10px;
 }
 
 #random-artist {
-    background: #7967a6;
+    background: var(--color-secundario);
     padding: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -46,8 +47,9 @@ margin-bottom: 10px;
 }
 
 #lateral-footer {
-    background: #fff;
-    border: 2px solid #7967a6;
+    background: var(--color-principal);
+    border: var(--borde-comun);
+    border-radius: var(--radius-comun);
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -61,13 +63,14 @@ margin-bottom: 10px;
 .publicacion,
 .personaje {
     margin-bottom: 20px;
-    background: white;
-    border: 2px solid #7967a6;
+    background: var(--color-principal);
+    border: var(--borde-comun);
+    border-radius: var(--radius-comun);
 }
 
 .publicacion > .publicacion-header,
 .personaje > .personaje-header {
-    background: linear-gradient(-90deg, #a367a6, #7967a6);
+    background: var(--color-destacado);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -104,7 +107,7 @@ margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-top: 2px solid #7967a6;
+    border-top: var(--borde-comun);
 }
 
 .publicacion > .publicacion-body > .buttons,
@@ -112,7 +115,7 @@ margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    border-bottom: 2px solid #7967a6;
+    border-bottom: var(--borde-comun);
 }
 
 .publicacion > .publicacion-footer > div,
@@ -122,15 +125,11 @@ margin-bottom: 10px;
     padding: 10px;
 }
 
-#feed > .empty {
-    background: #fff;
-    border: 2px solid #7967a6;
+#feed > .empty, .no-entry {
+    background: var(--color-principal);
+    border: var(--borde-comun);
+    border-radius: var(--radius-comun);
     padding: 10px;
-}
-
-
-* {
-  word-break: break-all;
 }
 
 .personaje > .personaje-body > h3 {
@@ -139,15 +138,15 @@ margin-bottom: 10px;
 }
 
 .relaciones-relacion {
-  background: #fff;
-  border: 2px solid #7967a6;
+  background: var(--color-principal);
+  border: var(--borde-comun);
   display: flex;
   flex-wrap: wrap;
 }
 
 .relaciones-relacion > h3 {
  margin: 0px;
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
   padding: 10px;
   width: 100%;
 }
@@ -169,11 +168,11 @@ margin-bottom: 10px;
 }
 
 .artchive-table {
-  background: #fff;
+  background: var(--color-principal);
 }
 
 .artchive-table > thead {
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
 }
 
 .artchive-table > thead > tr > th {
@@ -190,15 +189,16 @@ margin-bottom: 10px;
 }
 
 .artchive-table tr {
-  border: 2px solid #7967a6;
+  border: var(--borde-comun);
+  border-radius: var(--radius-comun);
 }
 
 .title-index {
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
   position: relative;
   text-align: center;
   padding: 0px 20px;
   color: white;
   font-weight: bold;
-  border-radius: 100px;
+  /* border-radius: 100px; */
 }

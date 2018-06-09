@@ -46,7 +46,7 @@ border-radius: 0px 20px 20px 0px;
 }
 
 .wrap > nav {
-    background: #392b4f;
+    background: var(--color-oscuro);
 }
 
 .wrap > nav li.active {
@@ -54,29 +54,16 @@ border-radius: 0px 20px 20px 0px;
 }
 
 ul.breadcrumb {
-  background: #978db0;
-}
-
-ul.breadcrumb > li.active {
-  color: #bdbdbd;
-}
-
-a {
-    color: #785195;
-}
-
-a:hover {
-  color: #8c7c98;
-  text-decoration: none;
+  background: var(--color-secundario2);
 }
 
 .footer {
-    background: #392b4f;
+    background: var(--color-oscuro);
     color: #f4f4f4;
 }
 
 .wrap {
-  background: url(https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png) #f1f1f1;
+  background: var(--fondo-principal);
 }
 
 #change-language > .flag-button {
@@ -121,4 +108,11 @@ a:hover {
 .new-alert {
   background: rgba(255,0,0,.7);
   color: white;
+}
+
+.kv-md-editor textarea {
+  min-height: 300px;
+}
+.kv-md-container {
+  margin-bottom: 10px;
 }

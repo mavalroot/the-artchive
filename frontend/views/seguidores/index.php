@@ -21,7 +21,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            'seguidor_id',
+            [
+                'attribute' => 'segname',
+                'label' => 'Seguidores',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a(
+                        Html::img($model->segavatar ?: '/uploads/default.png') . $model->segname,
+                        ['/usuarios-completo/view', 'username' => $model->segname],
+                        ['class' => 'follow-thing']
+                    );
+                }
+            ]
         ],
     ]); ?>
 </div>

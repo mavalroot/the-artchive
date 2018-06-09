@@ -7,27 +7,24 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Recuperar contraseña';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('frontend', 'Recuperar contraseña');
 ?>
-<div class="site-request-password-reset">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container">
+    <div class="default-form">
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Yii::t('frontend', 'Por favor, introduce tu email. Se enviará un link para resetear la contraseña.') ?>
-    </p>
+        <p>
+            <?= Yii::t('frontend', 'Por favor, introduce tu email. Se enviará un link para resetear la contraseña.') ?>
+        </p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
+        <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
-                <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton(Yii::t('frontend', 'Enviar'), ['class' => 'btn btn-primary']) ?>
-                </div>
+            <div class="form-group text-center">
+                <?= Html::submitButton(Yii::t('frontend', 'Enviar'), ['class' => 'btn btn-primary']) ?>
+            </div>
 
-            <?php ActiveForm::end(); ?>
-        </div>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

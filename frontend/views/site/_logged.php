@@ -25,20 +25,17 @@ use nirvana\infinitescroll\InfiniteScrollPager;
             </ul>
         </div>
         <div id="random-artist">
-            <?= Yii::t('frontend', 'Conoce un artista al azar') ?>
+            <?= Html::a(Yii::t('frontend', 'Conoce un artista al azar'), ['site/random-artist']) ?>
         </div>
         <div id="lateral-footer">
             <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
             <ul>
                 <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
-                <li><a href="#"><?= Yii::t('frontend', 'Sobre The Artchive') ?></a></li>
                 <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
             </ul>
             <h5><?= Yii::t('frontend', 'Soporte') ?></h5>
             <ul>
                 <li><a href="/podium/home"><?= Yii::t('frontend', 'Foro') ?></a></li>
-                <li><a href="#"><?= Yii::t('frontend', 'Preguntas frecuentes') ?></a></li>
-                <li><a href="#"><?= Yii::t('frontend', 'Términos y condiciones de uso') ?></a></li>
                 <li><a href="/reportes/create"><?= Yii::t('frontend', 'Reporta un problema') ?></a></li>
                 <li><a href="/reportes/index"><?= Yii::t('frontend', 'Tus reportes') ?></a></li>
             </ul>

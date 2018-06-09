@@ -54,13 +54,13 @@ a.join-button {
   padding: 5px 50px;
   border-radius: 100px;
   margin: 10px;
-  background: purple;
+  background: var(--color-oscuro);
   color: white;
   font-size: 18px;
 }
 
 a.join-button:hover {
-  background: violet;
+  background: var(--color-secundario2);
 }
 
 #summary > ul > li {
@@ -70,7 +70,7 @@ a.join-button:hover {
 footer.oneline {
   z-index: 1;
   position: relative;
-  background: #fff;
+  background: var(--color-principal);
   padding: 5px 0px;
 }
 
@@ -91,7 +91,7 @@ footer.oneline > ul > li {
   height: 100%;
   width: 100%;
   z-index: 1;
-  background: linear-gradient(-90deg, #a367a6, #7967a6);
+  background: var(--color-destacado);
 }
 
 @media (max-width: 576px) {
@@ -121,7 +121,7 @@ footer.oneline > ul > li {
   margin-bottom: -30px;
 }
 
-.site-contact {
+.default-form {
     max-width: 600px;
     background: rgba(0,0,0,.4);
     margin: auto;

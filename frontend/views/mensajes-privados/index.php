@@ -16,15 +16,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p>
-        <?= Html::a(Yii::t('frontend', 'Enviar mensaje privado'), ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a(Yii::t('frontend', 'Ver mensajes enviados'), ['sent'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a(Yii::t('frontend', 'Enviar mensaje privado'), ['create'], ['class' => 'btn btn-link']) ?>
+        <?= Html::a(Yii::t('frontend', 'Ver mensajes enviados'), ['sent'], ['class' => 'btn btn-link']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-
-            'emisor_name',
+            [
+                'attribute' => 'emisor_name',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a($model->emisor_name, ['/usuarios-completo/view', 'username' => $model->emisor_name]);
+                }
+            ],
             [
                 'attribute' => 'asunto',
                 'format' => 'html',

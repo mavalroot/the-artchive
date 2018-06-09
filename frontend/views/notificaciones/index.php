@@ -14,11 +14,8 @@ Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
 <div class="notificaciones-index">
 
     <h1 class="title-index"><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        // 'filterModel' => $searchModel,
         'columns' => [
             [
                 'label' => Yii::t('frontend', 'Notificación'),
@@ -30,7 +27,6 @@ Yii::$app->user->identity->setSeenAllAlerts(new Notificaciones(), 'usuario_id');
                     return $model->mensajesDeNotificacion($model->tipo_notificacion_id);
                 }
             ],
-            'tipo_notificacion_id',
             'created_at:relativetime',
         ],
     ]); ?>

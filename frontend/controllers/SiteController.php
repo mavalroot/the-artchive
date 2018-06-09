@@ -95,6 +95,7 @@ class SiteController extends \yii\web\Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'homeguests';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -131,7 +132,7 @@ class SiteController extends \yii\web\Controller
     public function actionContact()
     {
         $this->layout = 'homeguests';
-        
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -166,6 +167,7 @@ class SiteController extends \yii\web\Controller
      */
     public function actionSignup()
     {
+        $this->layout = 'homeguests';
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             $email = $this->sendMail($model);
@@ -238,6 +240,8 @@ class SiteController extends \yii\web\Controller
      */
     public function actionRequestPasswordReset()
     {
+        $this->layout = 'homeguests';
+
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -263,6 +267,8 @@ class SiteController extends \yii\web\Controller
      */
     public function actionResetPassword($token)
     {
+        $this->layout = 'homeguests';
+
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {
@@ -289,5 +295,17 @@ class SiteController extends \yii\web\Controller
         if (!Yii::$app->request->isAjax) {
             $this->redirect(Yii::$app->request->post('redirectTo', ['site/index']));
         }
+    }
+
+    /**
+     * Nos redirige al perfil de un artista al azar.
+     */
+    public function actionRandomArtist()
+    {
+        $query = UsuariosCompleto::find()->orderBy('id ASC')->all();
+        $helper = ArrayHelper::map($query, 'username', 'id');
+        $randomArtist = array_rand($helper, 1);
+
+        return $this->redirect(['usuarios-completo/view', 'username' => $randomArtist]);
     }
 }

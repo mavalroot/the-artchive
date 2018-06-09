@@ -39,7 +39,10 @@ class SeguidoresSearch extends Seguidores
      */
     public function search($params)
     {
-        $query = Seguidores::find();
+        $query = Seguidores::find()
+        ->select('seguidores.*, uc.username as segname, uc.avatar as segavatar, uc2.username as signame, uc2.avatar as sigavatar')
+        ->leftJoin('usuarios_completo uc', 'seguidores.seguidor_id = uc.id')
+        ->leftJoin('usuarios_completo uc2', 'seguidores.usuario_id = uc2.id');
 
         // add conditions that should always apply here
 

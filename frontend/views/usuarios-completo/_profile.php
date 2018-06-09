@@ -38,8 +38,11 @@ use yii\widgets\LinkPager;
                     <?= Yii::$app->formatter->asEmail($model->email) ?>
                 </p>
             <?php endif; ?>
-            <?= $model->getCharactersButton() ?>
+            <?php if (!isset($model->bio, $model->aficiones, $model->tematica_favorita, $model->pagina_web)) : ?>
+                <div style="padding: 10px"><?= Yii::t('frontend', 'El usuario no ha escrito nada en su perfil.') ?></div>
+            <?php endif; ?>
         </div>
+        <?= $model->getCharactersButton() ?>
     </div>
     <div class="col-sm-8">
             <?php if ($publicaciones) : ?>
@@ -47,10 +50,8 @@ use yii\widgets\LinkPager;
                     <?= $this->render('/publicaciones/_publicaciones', ['model' => $value]) ?>
                 <?php endforeach; ?>
             <?php else : ?>
-                <div class="entry">
-                    <p>
-                        <?= Yii::t('frontend', 'Este usuario no ha hecho ninguna publicación.') ?>
-                    </p>
+                <div class="no-entry">
+                    <?= Yii::t('frontend', 'Este usuario no ha hecho ninguna publicación.') ?>
                 </div>
             <?php endif; ?>
         <?= LinkPager::widget([

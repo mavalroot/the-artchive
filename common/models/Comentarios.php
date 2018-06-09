@@ -181,7 +181,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
      */
     public function getMostrarRespuestasButton()
     {
-        return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-link']);
+        return Html::button(count($this->comentarios) . ' ' . Yii::t('app', 'respuestas'), ['name' => 'mostrar-respuestas', 'class' => 'btn btn-xs btn-link']);
     }
 
     /**
