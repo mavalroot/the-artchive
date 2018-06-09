@@ -1,7 +1,7 @@
 window.setInterval(function(){
-  if ($('span.num-alerts-notis').length) {
-    reloadAlerts();
-  }
+    if ($('span.num-alerts-notis').length) {
+        reloadAlerts();
+    }
 }, 10000);
 
 function reloadAlerts() {
@@ -12,18 +12,18 @@ function reloadAlerts() {
 }
 
 function refresh(selector, data) {
-  if (data != $(selector).text()) {
-    selector.empty();
-    $(selector).append(data);
-    $(selector).addClass('new-alert');
-  }
+    if (data != $(selector).text()) {
+        selector.empty();
+        $(selector).append(data);
+        $(selector).addClass('new-alert');
+    }
 }
 
 $(document).ready(function() {
     $('#change-language button').on('click', function() {
-      let value = $(this).val();
-      $.post('/site/switch-language', {language: value}, function(data) {
-        location.reload();
-      });
+        let value = $(this).val();
+        $.post('/site/switch-language', {language: value}, function(data) {
+            location.reload();
+        });
     });
 });

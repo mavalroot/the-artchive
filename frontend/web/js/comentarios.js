@@ -24,7 +24,7 @@ function responder() {
             if ($(comId).find('.respuesta').length) {
                 $(comId).find('.respuesta').remove();
             }
-             $(comId).children('.comentario-botones').after('<div class="respuesta">' + data + '</div>');
+            $(comId).children('.comentario-botones').after('<div class="respuesta">' + data + '</div>');
         });
     });
 }
