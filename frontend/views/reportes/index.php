@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>
 
     <p class="text-right">
-        <?= Html::a('<i class="fas fa-exclamation-triangle"></i> ' . Yii::t('app', 'Reportar un problema'), ['create'], ['class' => 'btn btn-link']) ?>
+        <?= Html::a('<i class="fas fa-exclamation-triangle"></i> ' . Yii::t('app', 'Reportar un problema'), ['create'], ['class' => 'btn btn-link especial especial']) ?>
     </p>
 
     <?= GridView::widget([

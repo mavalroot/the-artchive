@@ -116,7 +116,8 @@ margin-bottom: 10px;
 }
 
 .publicacion > .publicacion-body > .buttons,
-.personaje > .personaje-body > .buttons {
+.personaje > .personaje-body > .buttons,
+.mensajes-privados > .mensajes-privados-body > .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;

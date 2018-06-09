@@ -212,13 +212,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             return
             Html::beginForm('block.php', 'post', ['name' => 'unblock']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton(Yii::t('app', 'Desbloquear'), ['class' => 'btn btn-sm btn-link']) .
+            Html::submitButton(Yii::t('app', 'Desbloquear'), ['class' => 'btn btn-sm btn-link especial']) .
             Html::endForm();
         } elseif (!$this->isSelf() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'block']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton(Yii::t('app', 'Bloquear'), ['class' => 'btn btn-sm btn-link']) .
+            Html::submitButton(Yii::t('app', 'Bloquear'), ['class' => 'btn btn-sm btn-link especial']) .
             Html::endForm();
         }
     }
@@ -230,7 +230,7 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
     public function getMpButton()
     {
         if (!$this->isSelf() && $this->isApto()) {
-            return Html::a(Yii::t('app', 'Mandar MP'), ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-link']);
+            return Html::a(Yii::t('app', 'Mandar MP'), ['/mensajes-privados/create', 'username' => $this->username], ['class' => 'btn btn-sm btn-link especial']);
         }
     }
 
@@ -244,13 +244,13 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
             return
             Html::beginForm('', 'post', ['name' => 'unfollow']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton(Yii::t('app', 'Dejar de seguir'), ['class' => 'btn btn-sm btn-link']) .
+            Html::submitButton(Yii::t('app', 'Dejar de seguir'), ['class' => 'btn btn-sm btn-link especial']) .
             Html::endForm();
         } elseif (!$this->isSelf() && !$this->siguiendo() && $this->isApto()) {
             return
             Html::beginForm('', 'post', ['name' => 'follow']) .
             Html::hiddenInput('id', $this->id) .
-            Html::submitButton(Yii::t('app', 'Seguir'), ['class' => 'btn btn-sm btn-link']) .
+            Html::submitButton(Yii::t('app', 'Seguir'), ['class' => 'btn btn-sm btn-link especial']) .
             Html::endForm();
         }
     }
@@ -264,8 +264,8 @@ class UsuariosCompleto extends \yii\db\ActiveRecord
         if ($this->isApto()) {
             return
             Html::beginTag('p', ['class' => 'text-center']) .
-            Html::a(Yii::t('app', 'Ver personajes'), ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-link']) .
-            Html::a(Yii::t('app', 'Ver publicaciones'), ['publicaciones/index', 'username' => $this->username], ['class' => 'btn btn-link']) .
+            Html::a(Yii::t('app', 'Ver personajes'), ['personajes/index', 'username' => $this->username], ['class' => 'btn btn-link especial']) .
+            Html::a(Yii::t('app', 'Ver publicaciones'), ['publicaciones/index', 'username' => $this->username], ['class' => 'btn btn-link especial']) .
             Html::endTag('p');
         }
     }
