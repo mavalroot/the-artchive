@@ -17,13 +17,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->getMensajeSolicitud() ?>
     </p>
     <?php if ($model->respondida) : ?>
-        <b>
-            <?= ($model->aceptada ? Yii::t('frontend', 'Aceptaste') : Yii::t('frontend', 'Rechazaste')) ?>
-            <?= Yii::t('frontend', 'esta solicitud.') ?>
-        </b>
+        <p class="text-center">
+            <b>
+                <?= ($model->aceptada ? Yii::t('frontend', 'Aceptaste') : Yii::t('frontend', 'Rechazaste')) ?>
+                <?= Yii::t('frontend', 'esta solicitud.') ?>
+            </b>
+        </p>
     <?php endif; ?>
-    <p>
+    <div class="form-group text-center">
         <?= $model->getButtons() ?>
-    </p>
+    </div>
 
 </div>
