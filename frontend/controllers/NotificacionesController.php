@@ -40,6 +40,11 @@ class NotificacionesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
     /**
      * Lists all Notificaciones models.
      * @return mixed

@@ -8,8 +8,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * UserController implements the CRUD actions for User model.
- *
- * UPDATE
  */
 class UserController extends ArtchiveCBase
 {
@@ -34,5 +32,10 @@ class UserController extends ArtchiveCBase
         $this->class = new User();
         $this->search = null;
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['update', 'find'];
     }
 }

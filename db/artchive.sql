@@ -245,6 +245,7 @@ CREATE TABLE solicitudes (
       id            bigserial       PRIMARY KEY
     , usuario_id    bigint          NOT NULL REFERENCES "user" (id)
     , relacion_id   bigint          UNIQUE REFERENCES relaciones (id)
+                                    ON DELETE SET NULL ON UPDATE CASCADE
     , aceptada      boolean         DEFAULT FALSE
     , respondida    boolean         DEFAULT FALSE
 );
@@ -336,7 +337,7 @@ CREATE TABLE reportes (
     , referencia varchar(255) NOT NULL
     , estado varchar(255) DEFAULT 'En revisión'
     , respuesta varchar(255)
-    , created_by bigint NOT NULL REFERENCES "user"
+    , created_by bigint NOT NULL REFERENCES "user" (id)
     , created_at timestamp(0) DEFAULT localtimestamp
 );
 

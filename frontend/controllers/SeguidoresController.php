@@ -40,6 +40,11 @@ class SeguidoresController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
     /**
      * Lists all Seguidores models.
      * @return mixed

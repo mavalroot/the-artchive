@@ -44,6 +44,11 @@ class RelacionesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
 
     /**
      * Creates a new Relaciones model.
@@ -73,6 +78,7 @@ class RelacionesController extends ArtchiveCBase
     /**
      * Deletes an existing Relaciones model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */

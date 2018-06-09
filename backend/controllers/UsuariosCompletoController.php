@@ -10,15 +10,11 @@ use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use common\models\ActividadRecienteSearch;
 use yii\web\NotFoundHttpException;
-
 use common\utilities\ArtchiveCBase;
-
 use frontend\models\DeleteAccountForm;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
- *
- * INDEX, VIEW
  */
 class UsuariosCompletoController extends ArtchiveCBase
 {
@@ -51,6 +47,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         $this->class = new UsuariosCompleto();
         $this->search = new UsuariosCompletoSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'find'];
     }
 
 
@@ -97,6 +98,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $delete->username]);
     }
 
+    /**
+     * Da permisos de moderador al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionMod($id)
     {
         $usuario = User::findOne($id);
@@ -104,6 +110,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $usuario->username]);
     }
 
+    /**
+     * Da permisos de admin al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionAdmin($id)
     {
         $usuario = User::findOne($id);
@@ -111,6 +122,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $usuario->username]);
     }
 
+    /**
+     * Quita los permisos al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionDowngrade($id)
     {
         $usuario = User::findOne($id);

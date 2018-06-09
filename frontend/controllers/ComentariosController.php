@@ -13,8 +13,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * ComentariosController implements the CRUD actions for Comentarios model.
- *
- * FIND SOLO.
  */
 class ComentariosController extends ArtchiveCBase
 {
@@ -26,6 +24,7 @@ class ComentariosController extends ArtchiveCBase
     public function behaviors()
     {
         return [
+            'verbs' => $this->paramByPost(['delete']),
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
@@ -40,6 +39,11 @@ class ComentariosController extends ArtchiveCBase
         $this->class = new Comentarios();
         $this->search = new ComentariosSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['find'];
     }
 
     /**
@@ -83,10 +87,11 @@ class ComentariosController extends ArtchiveCBase
     /**
      * Deletes an existing Comentarios model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id = '')
     {
         if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id');

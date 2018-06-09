@@ -4,14 +4,10 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\web\UploadedFile;
-
 use yii\filters\AccessControl;
-
 use common\models\User;
 use common\models\UsuariosDatos;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-
 use common\utilities\ArtchiveCBase;
 
 /**
@@ -42,6 +38,11 @@ class UsuariosDatosController extends ArtchiveCBase
         $this->class = new UsuariosDatos();
         $this->search = null;
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['find'];
     }
 
     /**

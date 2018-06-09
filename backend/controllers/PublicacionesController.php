@@ -10,8 +10,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * PublicacionesController implements the CRUD actions for Publicaciones model.
- *
- * INDEX, VIEW, UPDATE, DELETE
  */
 class PublicacionesController extends ArtchiveCBase
 {
@@ -38,5 +36,10 @@ class PublicacionesController extends ArtchiveCBase
         $this->class = new Publicaciones();
         $this->search = new PublicacionesSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'view', 'update', 'delete', 'find'];
     }
 }

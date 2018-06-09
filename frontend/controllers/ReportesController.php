@@ -4,10 +4,8 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-
 use common\models\Reportes;
 use common\models\ReportesSearch;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\utilities\ArtchiveCBase;
 
@@ -43,6 +41,11 @@ class ReportesController extends ArtchiveCBase
         $this->class = new Reportes();
         $this->search = new ReportesSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['update', 'create', 'find'];
     }
 
     /**

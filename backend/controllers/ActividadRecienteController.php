@@ -10,8 +10,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * ActividadRecienteController implements the CRUD actions for ActividadReciente model.
- *
- * INDEX.
  */
 class ActividadRecienteController extends ArtchiveCBase
 {
@@ -36,6 +34,11 @@ class ActividadRecienteController extends ArtchiveCBase
         $this->class = new ActividadReciente();
         $this->search = new ActividadRecienteSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['find'];
     }
 
     /**

@@ -5,14 +5,12 @@ namespace backend\controllers;
 use yii\filters\AccessControl;
 use common\models\Reportes;
 use common\models\ReportesSearch;
-use yii\web\Controller;
+use common\utilities\ArtchiveCBase;
 
 /**
  * ReportesController implements the CRUD actions for Reportes model.
- *
- * INDEX, VIEW, UPDATE, DELETE
  */
-class ReportesController extends Controller
+class ReportesController extends ArtchiveCBase
 {
     use \common\utilities\Permisos;
     /**
@@ -36,5 +34,10 @@ class ReportesController extends Controller
         $this->class = new Reportes();
         $this->search = new ReportesSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'view', 'update', 'find'];
     }
 }
