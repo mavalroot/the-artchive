@@ -8,45 +8,118 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
- *
+ * Clase base para los controladores
  */
 class ArtchiveCBase extends Controller
 {
+    /**
+     * @var \Yii\db\ActiveRecord
+     */
     protected $class;
+    /**
+     * @var \Yii\db\ActiveRecord
+     */
     protected $search;
 
+    /**
+     * Qué acciones hace. Por defecto hará todas. Se debe especificar de
+     * forma individual.
+     * @return [type] [description]
+     */
+    public function whatIDo()
+    {
+        return ['index', 'view', 'update', 'delete', 'create', 'find'];
+    }
+
+    /**
+     * Devuelve si debe hacer una determinada acción.
+     * @param  string $what la acción
+     * @return bool
+     */
+    public function getIfIDo($what)
+    {
+        $do = $this->whatIDo();
+
+        return in_array($what, $do);
+    }
+
+    /**
+     * Index.
+     * @return mixed
+     */
     public function actionIndex()
     {
-        return $this->commonIndex([
-            'search' => $this->search,
-        ]);
+        if ($this->getIfIDo('index')) {
+            return $this->commonIndex([
+                'search' => $this->search,
+            ]);
+        }
     }
 
+    /**
+     * View.
+     * @param  int|string $id Clave primaria distintiva.
+     * @return mixed
+     */
     public function actionView($id)
     {
-        return $this->commonView($id);
+        if ($this->getIfIDo('view')) {
+            return $this->commonView($id);
+        }
     }
 
+    /**
+     * Actualiza el modelo.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return mixed
+     */
     public function actionUpdate($id)
     {
-        return $this->commonUpdate($id);
+        if ($this->getIfIDo('update')) {
+            return $this->commonUpdate($id);
+        }
     }
 
+    /**
+     * Borra el modelo.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return mixed
+     */
     public function actionDelete($id)
     {
-        return $this->commonDelete($id);
+        if ($this->getIfIDo('delete')) {
+            return $this->commonDelete($id);
+        }
     }
 
+    /**
+     * Crea uno nuevo.
+     * @return mixed
+     */
     public function actionCreate()
     {
-        return $this->commonCreate($this->class);
+        if ($this->getIfIDo('create')) {
+            return $this->commonCreate($this->class);
+        }
     }
 
+    /**
+     * Encuentra un modelo.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return ActiveRecord
+     */
     public function findModel($id)
     {
-        return $this->commonFindModel($id, $this->class);
+        if ($this->getIfIDo('find')) {
+            return $this->commonFindModel($id, $this->class);
+        }
     }
 
+    /**
+     * Ayuda a crear el index
+     * @param  array $array Configuración.
+     * @return mixed
+     */
     protected function commonIndex($array)
     {
         extract($array);
@@ -70,6 +143,11 @@ class ArtchiveCBase extends Controller
         ]);
     }
 
+    /**
+     * Ayuda a crear la view.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return mixed
+     */
     protected function commonView($id)
     {
         return $this->render('view', [
@@ -77,6 +155,11 @@ class ArtchiveCBase extends Controller
         ]);
     }
 
+    /**
+     * Ayuda a crear el update.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return mixed
+     */
     protected function commonUpdate($id)
     {
         $model = $this->findModel($id);
@@ -89,7 +172,11 @@ class ArtchiveCBase extends Controller
             'model' => $model,
         ]);
     }
-
+    /**
+     * Ayuda a crear el delete.
+     * @param  string|int $id Clave primaria distintiva.
+     * @return mixed
+     */
     protected function commonDelete($id)
     {
         $this->findModel($id)->delete();
@@ -97,6 +184,11 @@ class ArtchiveCBase extends Controller
         return $this->redirect(['index']);
     }
 
+    /**
+     * Ayuda a crear el create.
+     * @param  ActiveRecord $model Modelo del que se creará.
+     * @return mixed
+     */
     protected function commonCreate($model)
     {
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -108,6 +200,13 @@ class ArtchiveCBase extends Controller
         ]);
     }
 
+    /**
+     * Ayuda a encontrar el modelo.
+     * @param  string|int $id Clave primaria distintiva.
+     * @param  ActiveRecord $class Tipo de modelo.
+     * @return mixed
+     * @throws NotFoundHttpException
+     */
     protected function commonFindModel($id, $class)
     {
         if (($model = $class->findOne($id)) !== null) {
