@@ -22,8 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Yii::t('frontend', 'esta solicitud.') ?>
         </b>
     <?php endif; ?>
-    <p>
+    <div class="form-group text-center">
         <?= $model->getButtons() ?>
-    </p>
+    </div>
 
 </div>

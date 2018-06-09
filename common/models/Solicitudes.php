@@ -177,6 +177,6 @@ class Solicitudes extends \common\utilities\ArtchiveBase
      */
     public function getTituloSolicitud()
     {
-        return Yii::t('app', 'Has recibido una solicitud para crear una relación.');
+        return Yii::t('app', 'Solicitud de relación');
     }
 }

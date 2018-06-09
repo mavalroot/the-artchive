@@ -59,6 +59,25 @@ margin-bottom: 10px;
     padding: 0px;
     left: 0px;
 }
+.solicitudes-view {
+    background: var(--color-principal);
+    border: var(--borde-comun);
+}
+
+.solicitudes-view > h1 {
+    margin: 0px;
+    padding: 10px;
+    background: var(--color-destacado);
+    color: #fff;
+}
+
+.solicitudes-view > p {
+    padding: 10px;
+}
+
+.solicitudes-view > .form-group > a {
+    margin: 2px;
+}
 
 .publicacion,
 .personaje,
@@ -66,7 +85,6 @@ margin-bottom: 10px;
     margin-bottom: 20px;
     background: var(--color-principal);
     border: var(--borde-comun);
-    border-radius: var(--radius-comun);
 }
 
 .publicacion > .publicacion-header,

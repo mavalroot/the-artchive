@@ -17,7 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Responder reporte: ' => 'Answer report',
+    'Solicitud de relación' => 'Relationship application',
+    '¿Seguro que desea borrar el mensaje privado? No podrá ser recuperado.' => 'Are you sure you want to delete the private message? It can not be recovered.',
     '(personaje de' => '(character of',
     '(tu personaje) es' => '(your character) is',
     'Acción' => 'Action',
@@ -58,7 +59,6 @@ return [
     'Has recibido un mensaje privado de' => 'You have received a private message from',
     'Has recibido una notificación' => 'You have received a notification',
     'Has recibido una solicitud para crear una relación' => 'You have received a solicitation to create a relationship',
-    'Has recibido una solicitud para crear una relación.' => 'You have received a new solicitation to create a relationship.',
     'Hechos destacables' => 'Highlights',
     'Historia' => 'Story',
     'La página requerida no existe.' => 'The requested page does not exist.',
@@ -89,6 +89,7 @@ return [
     'Reportes Traducciones' => 'Reports Translate',
     'Resetear' => 'Reset',
     'Responder' => 'Answer',
+    'Responder reporte: ' => 'Answer report: ',
     'Respuesta' => 'Answer',
     'Se solicita confirmación de que' => 'Confirmation is requested that',
     'Seguidores' => 'Followers',
