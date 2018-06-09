@@ -36,10 +36,3 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]); ?>
 </div>
-
-<style media="screen">
-    tbody {
-        display: flex;
-        flex-wrap: wrap;
-    }
-</style>

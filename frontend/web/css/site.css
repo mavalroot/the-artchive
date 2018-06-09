@@ -154,3 +154,9 @@ a.desc:after {
   justify-content: center;
   align-items: center;
 }
+
+.seguidores-siguiendo tbody,
+.seguidores-index tbody {
+    display: flex;
+    flex-wrap: wrap;
+}

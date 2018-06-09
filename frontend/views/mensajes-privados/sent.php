@@ -25,7 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 
-            'receptor_name',
+            [
+                'attribute' => 'emisor_name',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a($model->emisor_name, ['/usuarios-completo/view', 'username' => $model->emisor_name]);
+                }
+            ],
             [
                 'attribute' => 'asunto',
                 'format' => 'html',

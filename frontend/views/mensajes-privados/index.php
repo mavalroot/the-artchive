@@ -23,8 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-
-            'emisor_name',
+            [
+                'attribute' => 'emisor_name',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a($model->emisor_name, ['/usuarios-completo/view', 'username' => $model->emisor_name]);
+                }
+            ],
             [
                 'attribute' => 'asunto',
                 'format' => 'html',

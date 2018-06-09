@@ -38,7 +38,7 @@ use yii\widgets\LinkPager;
                     <?= Yii::$app->formatter->asEmail($model->email) ?>
                 </p>
             <?php endif; ?>
-            <?php if (!isset($model->bio, $model->aficiones, $model->tematica_favorita, $model->pagina_web)): ?>
+            <?php if (!isset($model->bio, $model->aficiones, $model->tematica_favorita, $model->pagina_web)) : ?>
                 <div style="padding: 10px"><?= Yii::t('frontend', 'El usuario no ha escrito nada en su perfil.') ?></div>
             <?php endif; ?>
         </div>
