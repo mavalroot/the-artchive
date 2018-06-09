@@ -35,18 +35,18 @@ return [
                 ],
             ],
         ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'SMTP host',
-                'username' => 'SMTP username',
-                'password' => 'SMTP password',
-                'port' => 'SMTP port', // optional
-                'encryption' => 'SMTP encryption', // optional
-            ],
-        ],
+        // 'mailer' => [
+        //     'class' => 'yii\swiftmailer\Mailer',
+        //     'useFileTransport' => false,
+        //     'transport' => [
+        //         'class' => 'Swift_SmtpTransport',
+        //         'host' => 'SMTP host',
+        //         'username' => 'SMTP username',
+        //         'password' => 'SMTP password',
+        //         'port' => 'SMTP port', // optional
+        //         'encryption' => 'SMTP encryption', // optional
+        //     ],
+        // ],
     ],
     'params' => $params,
 ];

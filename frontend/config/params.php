@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'theartchiveapp@gmail.com',
     '@uploads' => '@app/web/uploads',
     'adminName' => 'Admin'
 ];
