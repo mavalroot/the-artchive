@@ -61,7 +61,8 @@ margin-bottom: 10px;
 }
 
 .publicacion,
-.personaje {
+.personaje,
+.mensajes-privados {
     margin-bottom: 20px;
     background: var(--color-principal);
     border: var(--borde-comun);
@@ -69,7 +70,8 @@ margin-bottom: 10px;
 }
 
 .publicacion > .publicacion-header,
-.personaje > .personaje-header {
+.personaje > .personaje-header,
+.mensajes-privados > .mensajes-privados-header {
     background: var(--color-destacado);
     padding: 10px;
     display: flex;
@@ -78,14 +80,16 @@ margin-bottom: 10px;
 }
 
 .publicacion > .publicacion-header > .user > .avatar img,
-.personaje > .personaje-header > .user > .avatar img {
+.personaje > .personaje-header > .user > .avatar img,
+.mensajes-privados > .mensajes-privados-header > .user > .avatar img  {
     width: 50px;
     border-radius: 100px;
     margin-right: 10px;
 }
 
 .publicacion > .publicacion-header > small,
-.personaje > .personaje-header > small {
+.personaje > .personaje-header > small,
+.mensajes-privados > .mensajes-privados-header > small {
     width: 100%;
 }
 
@@ -94,7 +98,8 @@ margin-bottom: 10px;
 }
 
 .publicacion > .publicacion-body > .contenido,
-.personaje > .personaje-body > .contenido-grande {
+.personaje > .personaje-body > .contenido-grande,
+.mensajes-privados > .mensajes-privados-body > .contenido  {
     max-width: 700px;
     margin: auto;
     padding: 20px;
@@ -132,7 +137,8 @@ margin-bottom: 10px;
     padding: 10px;
 }
 
-.personaje > .personaje-body > h3 {
+.personaje > .personaje-body > h3,
+.mensajes-privados > .mensajes-privados-body > h3  {
   max-width: 800px;
   margin: 15px auto 0px auto ;
 }

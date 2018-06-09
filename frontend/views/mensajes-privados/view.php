@@ -1,8 +1,5 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-
 /* @var $this yii\web\View */
 /* @var $model common\models\MensajesPrivados */
 
@@ -16,15 +13,8 @@ Yii::$app->user->identity->setSeen($model, 'receptor_id');
 ?>
 <div class="mensajes-privados-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= DetailView::widget([
+    <?= $this->render('_view', [
         'model' => $model,
-        'attributes' => [
-            'asunto',
-            'contenido:ntext',
-            'created_at:datetime',
-        ],
     ]) ?>
 
 </div>
