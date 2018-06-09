@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Aquí no hay nada :(. ¿Por qué no empiezas a seguir a algún usuario?' => '',
+    'Aquí no hay nada :(. ¿Por qué no empiezas a seguir a algún usuario?' => 'Nothing here :(. Why don\'t you follow someone?',
     'Añadir relación' => 'Add relationship',
     'Conoce un artista al azar' => 'Meet a random artist',
     'El usuario no ha escrito nada en su perfil.' => 'The user has not written anything in their profile.',
