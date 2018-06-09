@@ -24,7 +24,7 @@ class ArtchiveCBase extends Controller
     /**
      * Qué acciones hace. Por defecto hará todas. Se debe especificar de
      * forma individual.
-     * @return [type] [description]
+     * @return array
      */
     public function whatIDo()
     {

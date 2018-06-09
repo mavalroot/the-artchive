@@ -45,6 +45,11 @@ class PublicacionesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['create', 'update', 'find'];
+    }
+
     /**
      * Lists all Publicaciones models.
      * @return mixed

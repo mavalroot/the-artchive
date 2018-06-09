@@ -44,6 +44,11 @@ class RelacionesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
 
     /**
      * Creates a new Relaciones model.

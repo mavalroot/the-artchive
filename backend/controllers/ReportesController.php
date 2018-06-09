@@ -9,8 +9,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * ReportesController implements the CRUD actions for Reportes model.
- *
- * INDEX, VIEW, UPDATE, DELETE
  */
 class ReportesController extends ArtchiveCBase
 {
@@ -36,5 +34,10 @@ class ReportesController extends ArtchiveCBase
         $this->class = new Reportes();
         $this->search = new ReportesSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'view', 'update', 'find'];
     }
 }

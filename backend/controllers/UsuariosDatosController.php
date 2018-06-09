@@ -8,8 +8,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * UsuariosDatosController implements the CRUD actions for UsuariosDatos model.
- *
- * UPDATE
  */
 class UsuariosDatosController extends ArtchiveCBase
 {
@@ -34,5 +32,10 @@ class UsuariosDatosController extends ArtchiveCBase
         $this->class = new UsuariosDatos();
         $this->search = null;
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['update', 'find'];
     }
 }

@@ -44,6 +44,11 @@ class UsuariosDatosController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
     /**
      * Updates an existing UsuariosDatos model.
      * If update is successful, the browser will be redirected to the 'view' page.

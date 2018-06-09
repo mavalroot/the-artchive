@@ -18,6 +18,8 @@ use yii\helpers\Html;
 class Solicitudes extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Notificacion;
+    use \common\utilities\Creator;
+
 
     /**
      * {@inheritdoc}

@@ -10,15 +10,11 @@ use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
 use common\models\ActividadRecienteSearch;
 use yii\web\NotFoundHttpException;
-
 use common\utilities\ArtchiveCBase;
-
 use frontend\models\DeleteAccountForm;
 
 /**
  * UsuariosCompletoController implements the CRUD actions for UsuariosCompleto model.
- *
- * INDEX, VIEW
  */
 class UsuariosCompletoController extends ArtchiveCBase
 {
@@ -51,6 +47,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         $this->class = new UsuariosCompleto();
         $this->search = new UsuariosCompletoSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'find'];
     }
 
 

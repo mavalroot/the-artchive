@@ -9,8 +9,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * PersonajesController implements the CRUD actions for Personajes model.
- *
- * INDEX, VIEW, UPDATE, DELETE.
  */
 class PersonajesController extends ArtchiveCBase
 {
@@ -36,5 +34,10 @@ class PersonajesController extends ArtchiveCBase
         $this->class = new Personajes();
         $this->search = new PersonajesSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['index', 'view', 'update', 'delete', 'find'];
     }
 }

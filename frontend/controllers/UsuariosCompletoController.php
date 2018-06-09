@@ -48,6 +48,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['find'];
+    }
+
     /**
      * Displays a single UsuariosCompleto model.
      * @param string $username

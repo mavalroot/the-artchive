@@ -13,8 +13,6 @@ use common\utilities\ArtchiveCBase;
 
 /**
  * MensajesPrivadosController implements the CRUD actions for MensajesPrivados model.
- *
- * FIND
  */
 class MensajesPrivadosController extends ArtchiveCBase
 {
@@ -41,6 +39,11 @@ class MensajesPrivadosController extends ArtchiveCBase
         $this->class = new MensajesPrivados();
         $this->search = new MensajesPrivadosSearch();
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['find'];
     }
 
     /**

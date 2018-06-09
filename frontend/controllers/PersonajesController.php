@@ -46,6 +46,11 @@ class PersonajesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['create', 'update', 'find'];
+    }
+
     /**
      * Lists all Personajes models.
      * @param string $username

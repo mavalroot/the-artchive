@@ -2,10 +2,7 @@
 
 namespace frontend\controllers;
 
-use Yii;
 use common\models\Solicitudes;
-use common\models\Relaciones;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 use common\utilities\ArtchiveCBase;
@@ -33,9 +30,14 @@ class SolicitudesController extends ArtchiveCBase
 
     public function init()
     {
-        $this->class = new Relaciones();
+        $this->class = new Solicitudes();
         $this->search = null;
         parent::init();
+    }
+
+    public function whatIDo()
+    {
+        return ['view', 'find'];
     }
 
     /**

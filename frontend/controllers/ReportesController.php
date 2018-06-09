@@ -45,6 +45,11 @@ class ReportesController extends ArtchiveCBase
         parent::init();
     }
 
+    public function whatIDo()
+    {
+        return ['update', 'create', 'find'];
+    }
+
     /**
      * Lists all Reportes models.
      * @return mixed
