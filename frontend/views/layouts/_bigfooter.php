@@ -16,16 +16,16 @@ use yii\helpers\Html;
             <div class="col-sm-3">
                 <h5><?= Yii::t('frontend', 'Sobre nosotros') ?></h5>
                 <ul>
-                    <li><a href="/site/about"><?= Yii::t('frontend', 'Sobre nosotros') ?></a></li>
-                    <li><a href="/site/contact"><?= Yii::t('frontend', 'Contactar') ?></a></li>
+                    <li><?= Html::a(Yii::t('frontend', 'Sobre nosotros'), ['/site/about']) ?></li>
+                    <li><?= Html::a(Yii::t('frontend', 'Contactar'), ['/site/contact']) ?></li>
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5><?= Yii::t('frontend', 'Soporte') ?></h5>
                 <ul>
-                    <li><a href="/podium/home"><?= Yii::t('frontend', 'Foro') ?></a></li>
-                    <li><a href="/reportes/create"><?= Yii::t('frontend', 'Reporta un problema') ?></a></li>
-                    <li><a href="/reportes/index"><?= Yii::t('frontend', 'Tus reportes') ?></a></li>
+                    <li><?= Html::a(Yii::t('frontend', 'Foro'), ['/podium/home']) ?></li>
+                    <li><?= Html::a(Yii::t('frontend', 'Reporta un problema'), ['/reportes/create']) ?></li>
+                    <li><?= Html::a(Yii::t('frontend', 'Tus reportes'), ['/reportes/index']) ?></li>
                 </ul>
             </div>
         </div>

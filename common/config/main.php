@@ -64,7 +64,7 @@ return [
                 'u/<username>/following' => 'seguidores/following',
                 'u/<username>' => 'usuarios-completo/view',
                 'reports' => 'reportes/index',
-                'ceate/report' => 'reportes/create',
+                'create/report' => 'reportes/create',
             ],
 
         ],
