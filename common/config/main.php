@@ -13,6 +13,7 @@ return [
         'mailer' => [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
+                'useFileTransport' => false,
                 'host' => 'smtp.gmail.com',
                 'username' => Yii::$app->params['adminEmail'],
                 'password' => getenv(SMTP_PASS),
