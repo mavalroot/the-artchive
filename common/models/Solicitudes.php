@@ -101,7 +101,7 @@ class Solicitudes extends \common\utilities\ArtchiveBase
      */
     public function getButtons()
     {
-        if (!$this->respondida) {
+        if (!$this->respondida && $this->relacion_id) {
             return Html::a(Yii::t('app', 'Aceptar'), ['aceptar', 'id' => $this->id], [
                 'class' => 'btn btn-sm btn-success',
                 'data' => [
@@ -156,6 +156,9 @@ class Solicitudes extends \common\utilities\ArtchiveBase
     public function getMensajeSolicitud()
     {
         $relacion = $this->relacion;
+        if (!isset($relacion)) {
+            return Yii::t('frontend', 'Esta relación ha sido eliminada por el usuario que la creó.');
+        }
         $referencia = Personajes::findOne($relacion->referencia);
         $personaje = Personajes::findOne($relacion->personaje_id);
         $user = User::findOne($personaje->usuario_id);
