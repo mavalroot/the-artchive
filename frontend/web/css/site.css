@@ -137,3 +137,20 @@ a.desc:after {
   color: #dddddd;
   font-size: 14px;
 }
+
+.follow-thing img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 100px;
+}
+
+.follow-thing {
+  font-size: 18px;
+}
+
+.follow-thing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

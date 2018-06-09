@@ -16,6 +16,11 @@ class Seguidores extends \common\utilities\ArtchiveBase
 {
     use \common\utilities\Notificacion;
 
+    public $segname;
+    public $segavatar;
+    public $signame;
+    public $sigavatar;
+
     /**
      * @inheritdoc
      */
@@ -33,6 +38,7 @@ class Seguidores extends \common\utilities\ArtchiveBase
             [['usuario_id', 'seguidor_id'], 'required'],
             [['usuario_id', 'seguidor_id'], 'default', 'value' => null],
             [['usuario_id', 'seguidor_id'], 'integer'],
+            [['segname', 'segavatar', 'signame', 'sigavatar'], 'safe'],
             [['usuario_id', 'seguidor_id'], 'unique', 'targetAttribute' => ['usuario_id', 'seguidor_id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
             [['seguidor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['seguidor_id' => 'id']],
