@@ -16,7 +16,7 @@ return [
               'transport' => [
                   'class' => 'Swift_SmtpTransport',
                   'host' => 'smtp.gmail.com',
-                  'username' => Yii::$app->params['adminEmail'],
+                  'username' => $params['adminEmail'],
                   'password' => getenv(SMTP_PASS),
                   'port' => '587',
                   'encryption' => 'tls',
