@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\ReportesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Tus reportes');
+$this->title = Yii::t('app', 'Mis reportes');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reportes-index">

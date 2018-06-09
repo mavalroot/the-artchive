@@ -8,24 +8,25 @@ INSERT INTO tipos_usuario (tipo) VALUES
     , ('mod')
 ;
 
-INSERT INTO tipos_relaciones (tipo) VALUES
-      ('Padre')
-    , ('Madre')
-    , ('Hijo/a')
-    , ('Hermano/a')
-    , ('Tío')
-    , ('Tía')
-    , ('Primo/a')
-    , ('Abuelo')
-    , ('Abuela')
-    , ('Sobrino')
-    , ('Sobrina')
-    , ('Esposo')
-    , ('Esposa')
-    , ('Pareja')
-    , ('Cuñado')
-    , ('Cuñada')
-    , ('Otro')
+INSERT INTO tipos_relaciones (tipo_es, tipo_en) VALUES
+      ('Padre', 'Father')
+    , ('Madre', 'Mother')
+    , ('Hijo', 'Son')
+    , ('Hija', 'Daughter')
+    , ('Hermano/a', 'Sibling')
+    , ('Tío', 'Uncle')
+    , ('Tía', 'Aunt')
+    , ('Primo/a', 'Cousin')
+    , ('Abuelo', 'Grandfather')
+    , ('Abuela', 'Grandmother')
+    , ('Sobrino', 'Nephew')
+    , ('Sobrina', 'Niece')
+    , ('Esposo', 'Husband')
+    , ('Esposa', 'Wife')
+    , ('Pareja', 'Partner')
+    , ('Cuñado', 'Brother-in-law')
+    , ('Cuñada', 'Sister-in-law')
+    , ('Otro', 'Other')
 ;
 
 INSERT INTO tipos_notificaciones (tipo) VALUES

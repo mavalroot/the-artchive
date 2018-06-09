@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Reportes */
 
 $this->title = $model->referencia;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reportes Traducciones'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mis reportes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reportes-view">

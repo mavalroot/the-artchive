@@ -82,7 +82,7 @@ class PersonajesController extends ArtchiveCBase
     public function actionView($id)
     {
         $query = Relaciones::find()
-        ->select('r.id, r.nombre, r.referencia, mipj.nombre as mipj, mipj.id as mipjid, supj.nombre as supj, supj.id as supjid, tr.tipo as relacion, s.aceptada')
+        ->select('r.id, r.nombre, r.referencia, mipj.nombre as mipj, mipj.id as mipjid, supj.nombre as supj, supj.id as supjid, tr.tipo_es as relacion, tr.tipo_en relationship, s.aceptada')
         ->from('relaciones r')
         ->joinWith('personaje mipj')
         ->joinWith('referencia supj')

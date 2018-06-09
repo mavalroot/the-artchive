@@ -47,10 +47,16 @@ class Relaciones extends \yii\db\ActiveRecord
     public $supjid;
 
     /**
-     * Relación que mantienen.
+     * Relación que mantienen (español).
      * @var string
      */
     public $relacion;
+
+    /**
+     * Relación que mantienen (inglés).
+     * @var string
+     */
+    public $relationship;
 
     /**
      * Estado de la relación (aceptada o no).
