@@ -14,7 +14,7 @@ $language = '<div id="change-language"><button title="Change language to english
         <li>
             <?= $language ?>
         </li>
-        <li><a href="/">Home</a></li>
+        <li><?= Html::a(Yii::t('frontend', 'Inicio'), ['/site/home']) ?></li>
         <li><?= Html::a(Yii::t('frontend', 'Sobre nosotros'), ['/site/about']) ?></li>
         <li><?= Html::a(Yii::t('frontend', 'Contactar'), ['/site/contact']) ?></li>
         <li>© <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?> by <a href="http://www.mavalroot.es/">mavalroot</a></li>
