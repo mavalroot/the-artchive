@@ -10,7 +10,7 @@ $this->title = Yii::t('app', 'Responder sugerencia: ' . $model->referencia, [
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reportes Traducciones'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reportes-update">
 

@@ -5,6 +5,7 @@ use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosCompleto */
+$this->title = $model->username;
 ?>
 
 <div id="member-profile">
