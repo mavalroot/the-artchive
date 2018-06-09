@@ -98,6 +98,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $delete->username]);
     }
 
+    /**
+     * Da permisos de moderador al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionMod($id)
     {
         $usuario = User::findOne($id);
@@ -105,6 +110,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $usuario->username]);
     }
 
+    /**
+     * Da permisos de admin al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionAdmin($id)
     {
         $usuario = User::findOne($id);
@@ -112,6 +122,11 @@ class UsuariosCompletoController extends ArtchiveCBase
         return $this->redirect(['view', 'username' => $usuario->username]);
     }
 
+    /**
+     * Quita los permisos al usuario.
+     * @param  int $id
+     * @return mixed
+     */
     public function actionDowngrade($id)
     {
         $usuario = User::findOne($id);

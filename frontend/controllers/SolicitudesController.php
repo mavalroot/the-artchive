@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Relaciones;
 use common\models\Solicitudes;
 use yii\filters\VerbFilter;
 

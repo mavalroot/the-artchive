@@ -53,7 +53,6 @@ class PersonajesController extends ArtchiveCBase
 
     /**
      * Lists all Personajes models.
-     * @param string $username
      * @return mixed
      */
     public function actionIndex()

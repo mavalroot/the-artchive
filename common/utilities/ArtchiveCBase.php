@@ -106,7 +106,7 @@ class ArtchiveCBase extends Controller
     /**
      * Encuentra un modelo.
      * @param  string|int $id Clave primaria distintiva.
-     * @return ActiveRecord
+     * @return \Yii\db\ActiveRecord
      */
     public function findModel($id)
     {
@@ -186,7 +186,7 @@ class ArtchiveCBase extends Controller
 
     /**
      * Ayuda a crear el create.
-     * @param  ActiveRecord $model Modelo del que se creará.
+     * @param  \Yii\db\ActiveRecord $model Modelo del que se creará.
      * @return mixed
      */
     protected function commonCreate($model)
@@ -203,7 +203,7 @@ class ArtchiveCBase extends Controller
     /**
      * Ayuda a encontrar el modelo.
      * @param  string|int $id Clave primaria distintiva.
-     * @param  ActiveRecord $class Tipo de modelo.
+     * @param  \Yii\db\ActiveRecord $class Tipo de modelo.
      * @return mixed
      * @throws NotFoundHttpException
      */

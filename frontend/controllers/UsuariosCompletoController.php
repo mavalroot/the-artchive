@@ -4,19 +4,15 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\data\Pagination;
-
 use yii\filters\AccessControl;
-
 use common\models\Seguidores;
 use common\models\Publicaciones;
 use common\models\Notificaciones;
 use common\models\MensajesPrivados;
 use common\models\UsuariosCompleto;
 use common\models\UsuariosCompletoSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use common\models\Bloqueos;
-
 use common\utilities\ArtchiveCBase;
 
 /**
