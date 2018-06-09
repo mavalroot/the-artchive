@@ -157,7 +157,7 @@ class Solicitudes extends \common\utilities\ArtchiveBase
     {
         $relacion = $this->relacion;
         if (!isset($relacion)) {
-            return Yii::t('frontend', 'Esta relación ha sido eliminada por el usuario que la creó.');
+            return Yii::t('frontend', 'Esta relación ha sido eliminada.');
         }
         $referencia = Personajes::findOne($relacion->referencia);
         $personaje = Personajes::findOne($relacion->personaje_id);

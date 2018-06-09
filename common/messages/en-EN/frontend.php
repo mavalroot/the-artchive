@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Esta relación ha sido eliminada por el usuario que la creó.' => 'This relationship has been deleted by the user that created it.',
+    'Esta relación ha sido eliminada.' => 'This relationship has been deleted.',
     '(Pendiente de confirmación)' => '(Pending confirmation)',
     'Aceptaste' => 'You accepted',
     'Apariencia' => 'Physical appearance',
