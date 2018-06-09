@@ -116,7 +116,7 @@ margin-bottom: 10px;
 }
 
 .publicacion > .publicacion-body > .contenido,
-.personaje > .personaje-body > .contenido-grande,
+.personaje > .personaje-body > .contenido,
 .mensajes-privados > .mensajes-privados-body > .contenido  {
     max-width: 700px;
     margin: auto;

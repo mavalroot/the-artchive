@@ -26,31 +26,31 @@ use yii\helpers\Html;
         <?php endif; ?>
         <?php if ($model->fecha_nac) : ?>
             <h3><?= $model->getAttributeLabel('fecha_nac') ?></h3>
-            <div class="contenido-grande">
+            <div class="contenido">
                 <?= Yii::$app->formatter->asDate($model->fecha_nac) ?>
             </div>
         <?php endif; ?>
         <?php if ($model->historia) : ?>
             <h3><?= $model->getAttributeLabel('historia') ?></h3>
-            <div class="contenido-grande">
+            <div class="contenido">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->historia)) ?>
             </div>
         <?php endif; ?>
         <?php if ($model->personalidad) : ?>
             <h3><?= $model->getAttributeLabel('personalidad') ?></h3>
-            <div class="contenido-grande">
+            <div class="contenido">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->personalidad)) ?>
             </div>
         <?php endif; ?>
         <?php if ($model->apariencia) : ?>
             <h3><?= $model->getAttributeLabel('apariencia') ?></h3>
-            <div class="contenido-grande">
+            <div class="contenido">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->apariencia)) ?>
             </div>
         <?php endif; ?>
         <?php if ($model->hechos_destacables) : ?>
             <h3><?= $model->getAttributeLabel('hechos_destacables') ?></h3>
-            <div class="contenido-grande">
+            <div class="contenido">
                 <?= Yii::$app->formatter->asHtml(Markdown::convert($model->hechos_destacables)) ?>
             </div>
         <?php endif; ?>

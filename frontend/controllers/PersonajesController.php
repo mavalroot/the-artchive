@@ -57,12 +57,11 @@ class PersonajesController extends ArtchiveCBase
      */
     public function actionIndex()
     {
-        if (!($username = Yii::$app->request->get('username'))) {
+        if (!($username = Yii::$app->request->get('username')) || !($user = User::findOne(['username' => $username]))) {
             throw new NotFoundHttpException(Yii::t('app', 'La página requerida no existe.'));
         }
-        $user = User::findOne(['username' => $username]);
 
-        if ($user) {
+        if (isset($user)) {
             $id = $user->id;
         }
         if (isset($id)) {

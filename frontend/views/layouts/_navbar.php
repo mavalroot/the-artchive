@@ -38,6 +38,9 @@ if (Yii::$app->user->isGuest) {
         'items' => [
             ['label' => Yii::t('frontend', 'Ver mi Perfil'), 'url' => ['/usuarios-completo/view', 'username' => Yii::$app->user->identity->username]],
             ['label' => Yii::t('frontend', 'Modificar mi Perfil'), 'url' => ['/usuarios-datos/update', 'username' => Yii::$app->user->identity->username]],
+            ['label' => Yii::t('frontend', 'Ver mis personajes'), 'url' => ['/personajes/index', 'username' => Yii::$app->user->identity->username]],
+            ['label' => Yii::t('frontend', 'Ver mis publicaciones'), 'url' => ['/publicaciones/index', 'username' => Yii::$app->user->identity->username]],
+
             [
                 'label' => Yii::t('frontend', 'Salir'),
                 'url' => ['/site/logout'],
