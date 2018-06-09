@@ -112,10 +112,10 @@ a.desc:after {
 #me-home > .username > h3 > a,
 .breadcrumb > li,
 .breadcrumb > li.active,
-.breadcrumb > li.active:before,
+.breadcrumb > li:before,
 #random-artist > a,
 .publicacion-header > .titulo > h2 > a {
-  color: #fff;
+  color: #fff !important;
 }
 
 #me-home > .username > h3 > a:hover,
@@ -124,10 +124,10 @@ a.desc:after {
   color: #e1e1e1;
 }
 
-.btn-link:hover {
+.btn-link.especial:hover {
     background: rgba(255,255,255,.9);
 }
-.btn-link {
+.btn-link.especial {
     background: rgba(255,255,255,.7);
     border-radius: 10px;
     margin: 1px;

@@ -21,6 +21,20 @@ $usuario = UsuariosCompleto::findOne(['id' => $model->emisor_id])
         <small><?= Yii::$app->formatter->asDateTime($model->created_at) ?></small>
     </div>
     <div class="mensajes-privados-body">
+        <div class="buttons">
+            <?= Html::a('<i class="fas fa-trash-alt"></i> ' . Yii::t('app', 'Borrar'), ['/mensajes-privados/delete', 'id' => $model->id], [
+                'class' => 'btn btn-link',
+                'data' => [
+                    'confirm' => Yii::t('app', '¿Seguro que desea borrar el mensaje privado? No podrá ser recuperado.'),
+                    'method' => 'post',
+                ],
+            ]); ?>
+            <?= Html::beginForm('/mensajes-privados/create', 'post') .
+                Html::hiddenInput('receptor_id', $model->emisor_id) .
+                Html::hiddenInput('asunto', $model->asunto) .
+                Html::submitButton('<i class="fas fa-paper-plane"></i> ' . Yii::t('app', 'Responder'), ['class' => 'btn btn-link']) .
+                Html::endForm(); ?>
+        </div>
         <h3><?= $model->getAttributeLabel('contenido') ?></h3>
         <div class="contenido">
             <?= Yii::$app->formatter->asText($model->contenido) ?>

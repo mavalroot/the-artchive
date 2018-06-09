@@ -98,6 +98,7 @@ class MensajesPrivados extends \common\utilities\ArtchiveBase
             'created_at' => Yii::t('app', 'Fecha de envío'),
             'emisor_name' => Yii::t('app', 'Emisor'),
             'receptor_name' => Yii::t('app', 'Receptor'),
+            'receptor_id' => Yii::t('app', 'Receptor'),
         ];
     }
 

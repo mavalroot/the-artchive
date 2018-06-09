@@ -102,6 +102,8 @@ class MensajesPrivadosController extends ArtchiveCBase
         $model = new MensajesPrivados();
         $model->emisor_id = Yii::$app->user->id;
 
+        $this->responder($model);
+
         if (Yii::$app->request->get('username')) {
             $nombre = Yii::$app->request->get('username');
             $receptor = User::findOne(['username' => $nombre])->id;
@@ -136,5 +138,22 @@ class MensajesPrivadosController extends ArtchiveCBase
         }
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Responde a un comentario.
+     * @param  MensajesPrivados $model
+     */
+    public function responder($model)
+    {
+        $asunto = Yii::$app->request->post('asunto');
+        $receptor = Yii::$app->request->post('receptor_id');
+        if (isset($asunto, $receptor)) {
+            if (substr($asunto, 0, 4) !== 'RE: ') {
+                $asunto = 'RE: ' . $asunto;
+            }
+            $model->asunto = $asunto;
+            $model->receptor_id = $receptor;
+        }
     }
 }

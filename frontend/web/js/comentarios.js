@@ -59,7 +59,7 @@ function mostrarRespuestas() {
                 $(comId).find('button[name="ocultar-respuestas"]').remove();
             }
             $(comId).append(data);
-            $(comId).find('button[name="mostrar-respuestas"]').after('<button type="button" name="ocultar-respuestas" class="btn btn-link"><i class="fas fa-eye-slash"></i></button>')
+            $(comId).find('button[name="mostrar-respuestas"]').after('<button type="button" name="ocultar-respuestas" class="btn btn-link especial"><i class="fas fa-eye-slash"></i></button>')
         });
     });
 }
