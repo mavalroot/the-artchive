@@ -11,15 +11,17 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'mailer' => [
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'useFileTransport' => false,
-                'host' => 'smtp.gmail.com',
-                'username' => Yii::$app->params['adminEmail'],
-                'password' => getenv(SMTP_PASS),
-                'port' => '587',
-                'encryption' => 'tls',
-            ],
+             'class' => 'yii\swiftmailer\Mailer',
+              'viewPath' => '@common/mail',
+              'transport' => [
+                  'class' => 'Swift_SmtpTransport',
+                  'host' => 'smtp.gmail.com',
+                  'username' => Yii::$app->params['adminEmail'],
+                  'password' => getenv(SMTP_PASS),
+                  'port' => '587',
+                  'encryption' => 'tls',
+              ],
+              'useFileTransport' => false,
         ],
         'i18n' => [
             'translations' => [
