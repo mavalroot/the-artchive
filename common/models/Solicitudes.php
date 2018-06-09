@@ -160,9 +160,10 @@ class Solicitudes extends \common\utilities\ArtchiveBase
         $personaje = Personajes::findOne($relacion->personaje_id);
         $user = User::findOne($personaje->usuario_id);
         $tipo = TiposRelaciones::findOne($relacion->tipo_relacion_id);
+        $tipo = Yii::$app->language == 'es-ES' ? $tipo->tipo_es : $tipo->tipo_en;
         return Yii::t('app', 'Se solicita confirmación de que') .
         " <b>$referencia->nombre</b> " . Yii::t('app', '(tu personaje) es') .
-        ' ' . $tipo->tipo . ' ' . Yii::t('app', 'de') . ' ' .
+        ' ' . $tipo . ' ' . Yii::t('app', 'de') . ' ' .
         "<b>$personaje->nombre</b>" . ' ' .
         Yii::t('app', '(personaje de') . ' ' . $user->getUrl() . ').';
     }

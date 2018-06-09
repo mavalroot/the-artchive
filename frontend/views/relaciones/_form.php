@@ -11,6 +11,8 @@ use kartik\select2\Select2;
 /* @var $this yii\web\View */
 /* @var $model common\models\Relaciones */
 /* @var $form yii\widgets\ActiveForm */
+
+$tipo = Yii::$app->language == 'es-ES' ? 'tipo_es' : 'tipo_en';
 ?>
 
 <div class="estandar-form">
@@ -24,7 +26,7 @@ use kartik\select2\Select2;
     <?= Html::hiddenInput('Relaciones[personaje_id]', $personaje->id) ?>
 
         <?= $form->field($model, 'tipo_relacion_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(TiposRelaciones::find()->all(), 'id', 'tipo'),
+            'data' => ArrayHelper::map(TiposRelaciones::find()->all(), 'id', $tipo),
             'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
         ]); ?>
     <div class="col-sm-6">

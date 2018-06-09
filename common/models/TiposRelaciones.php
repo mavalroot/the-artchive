@@ -26,9 +26,9 @@ class TiposRelaciones extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tipo'], 'required'],
-            [['tipo'], 'string', 'max' => 255],
-            [['tipo'], 'unique'],
+            [['tipo_es', 'tipo_en'], 'required'],
+            [['tipo', 'tipo_en'], 'string', 'max' => 255],
+            [['tipo', 'tipo_en'], 'unique'],
         ];
     }
 
@@ -39,7 +39,8 @@ class TiposRelaciones extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'tipo' => 'Tipo',
+            'tipo_es' => 'Tipo',
+            'tipo_en' => 'Type'
         ];
     }
 

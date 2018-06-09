@@ -19,7 +19,11 @@ use yii\widgets\LinkPager;
     <?php endif; ?>
     <?php foreach ($relaciones as $relacion) : ?>
         <div class="relacion">
-            <?= $relacion->relacion ?>:
+            <?php if (Yii::$app->language == 'es-ES') : ?>
+                <?= $relacion->relacion ?>:
+            <?php else : ?>
+                <?= $relacion->relationship ?>:
+            <?php endif; ?>
             <?php if ($relacion->referencia) : ?>
                 <?= Html::a(Yii::$app->formatter->asText($relacion->supj), ['personajes/view', 'id' => $relacion->supjid]) ?>
                 <?php if ($relacion->getSolicitudes()->count() && !$relacion->aceptada) : ?>

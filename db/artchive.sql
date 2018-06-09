@@ -219,8 +219,9 @@ DROP TABLE IF EXISTS tipos_relaciones CASCADE;
  * Tipos de relaciones.
  */
 CREATE TABLE tipos_relaciones (
-      id    bigserial       PRIMARY KEY
-    , tipo  varchar(255)    UNIQUE NOT NULL
+      id       bigserial       PRIMARY KEY
+    , tipo_es  varchar(255)    UNIQUE NOT NULL
+    , tipo_en  varchar(255)    UNIQUE NOT NULL
 );
 
 DROP TABLE IF EXISTS relaciones CASCADE;
