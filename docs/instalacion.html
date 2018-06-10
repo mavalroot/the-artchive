@@ -68,6 +68,7 @@
 <li>Crear la variable de entorno STMP_PASS con la clave de aplicación del correo electrónico.</li>
 <li>Configurar el servidor apache con un nombre de dominio para frontend (por ejemplo: artchive-front.local) y enlazarlo a frontend/web.</li>
 <li>Configurar el servidor apache con un nombre de dominio para el backend (por ejemplo: artchive-back.local) y enlazarlo a backend/web.</li>
+<li>Entrar en artchive-front.local/podium/install para instalar la base de datos del foro.</li>
 </ul>
 <h2>En la nube <span id="en-la-nube"></span><a href="#en-la-nube" class="hashlink">&para;</a></h2><p>Para la instalación de la aplicación en la nube usaremos Heroku, por lo que una cuénta en dicha plataforma será necesaria para continuar.</p>
 <p>Con nuestra cuenta de Heroku, realizaremos los siguientes pasos:</p>
@@ -77,14 +78,14 @@
 <li><p>Añadir la extensión para postgres y cargar la base de datos.</p>
 </li>
 </ul>
-<p>Comandos: 
+<p>Comandos:
 <code>heroku login
 heroku apps:create nombreAplicacion --region eu
 heroku addons:create heroku-postgresql
 heroku pg:psql &lt; db/load.sql
 heroku pg:psql
 create extension pgcrypto;
-heroku config:set SMTP_PASS=clave       
+heroku config:set SMTP_PASS=clave
 git push -u heroku master</code></p>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
@@ -94,7 +95,7 @@ git push -u heroku master</code></p>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 22:25:31 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 10 Jun 2018 17:07:54 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {

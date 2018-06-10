@@ -76,6 +76,8 @@
 <a class="list-group-item" href="#navigation-461" data-toggle="collapse" data-parent="#navigation">common\utilities <b class="caret"></b></a><div id="navigation-461" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-utilities-alerts.html">Alerts</a>
 <a class="list-group-item" href="./common-utilities-apto.html">Apto</a>
 <a class="list-group-item" href="./common-utilities-artchivebase.html">ArtchiveBase</a>
+<a class="list-group-item" href="./common-utilities-artchivecbase.html">ArtchiveCBase</a>
+<a class="list-group-item" href="./common-utilities-creator.html">Creator</a>
 <a class="list-group-item" href="./common-utilities-historial.html">Historial</a>
 <a class="list-group-item" href="./common-utilities-notificacion.html">Notificacion</a>
 <a class="list-group-item" href="./common-utilities-permisos.html">Permisos</a></div>
@@ -226,12 +228,6 @@
         <td><a href="http://www.php.net/class.arrayiterator">ArrayIterator</a></td>
         <td>An iterator for traversing the items in the list.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
-    </tr>
-            <tr id="$misPublicaciones">
-        <td><a href="common-models-usuarioscompleto.html#$misPublicaciones-detail">$misPublicaciones</a></td>
-        <td></td>
-        <td></td>
-        <td><a href="common-models-usuarioscompleto.html">common\models\UsuariosCompleto</a></td>
     </tr>
             <tr id="$mpButton">
         <td><a href="common-models-usuarioscompleto.html#$mpButton-detail">$mpButton</a></td>
@@ -637,11 +633,6 @@
         <td><a href="yii-base-model.html#getIterator()-detail">getIterator()</a></td>
         <td>Returns an iterator for traversing the attributes in the model.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
-    </tr>
-            <tr id="getMisPublicaciones()">
-        <td><a href="common-models-usuarioscompleto.html#getMisPublicaciones()-detail">getMisPublicaciones()</a></td>
-        <td>Devuelve las publicaciones del usuario.</td>
-        <td><a href="common-models-usuarioscompleto.html">common\models\UsuariosCompleto</a></td>
     </tr>
             <tr id="getMpButton()">
         <td><a href="common-models-usuarioscompleto.html#getMpButton()-detail">getMpButton()</a></td>
@@ -1079,7 +1070,7 @@ The previous example would extract "id".</td>
         <td>Finds ActiveRecord instance(s) by the given condition.</td>
         <td><a href="yii-db-activerecord.html">yii\db\ActiveRecord</a></td>
     </tr>
-                                                                                                                                                                                                                <tr class="inherited" id="insertInternal()">
+                                                                                                                                                                                                            <tr class="inherited" id="insertInternal()">
         <td><a href="yii-db-activerecord.html#insertInternal()-detail">insertInternal()</a></td>
         <td>Inserts an ActiveRecord into DB without considering transaction.</td>
         <td><a href="yii-db-activerecord.html">yii\db\ActiveRecord</a></td>
@@ -1342,23 +1333,6 @@ This is a shortcut of the expression: OP_INSERT | OP_UPDATE | OP_DELETE.        
             </div>
 
     <div class="signature"><span class="signature-defs">public</span> <span class="signature-type">\common\models\[type]</span> <strong><a href="common-models-usuarioscompleto.html#getImgAvatar()-detail">getImgAvatar</a></strong> ( )</div>
-
-
-    <div class="detail-header h3" id="$misPublicaciones-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="common-models-usuarioscompleto.html#$misPublicaciones-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        $misPublicaciones        <span class="detail-header-tag small">
-            public                         <em>read-only</em>                         property
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        
-            </div>
-
-    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="common-models-usuarioscompleto.html#getMisPublicaciones()-detail">getMisPublicaciones</a></strong> ( )</div>
 
 
     <div class="detail-header h3" id="$mpButton-detail">
@@ -1639,29 +1613,6 @@ merge the parent labels with child labels using functions such as <code>array_me
 </td>
                 </tr>
                                     </table>
-
-<!--	-->
-
-    <div class="detail-header h3" id="getMisPublicaciones()-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="common-models-usuarioscompleto.html#getMisPublicaciones()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        getMisPublicaciones()
-        <span class="detail-header-tag small">
-            public                                    method
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        <p><strong>Devuelve las publicaciones del usuario.</strong></p>
-
-        
-            </div>
-
-    <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="common-models-usuarioscompleto.html#getMisPublicaciones()-detail">getMisPublicaciones</a></strong> ( )</td></tr>
-            </table>
 
 <!--	-->
 
@@ -2079,7 +2030,7 @@ if the table is not named after this convention.</p>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 23:06:24 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 10 Jun 2018 17:07:46 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {

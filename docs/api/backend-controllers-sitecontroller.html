@@ -76,6 +76,8 @@
 <a class="list-group-item" href="#navigation-41" data-toggle="collapse" data-parent="#navigation">common\utilities <b class="caret"></b></a><div id="navigation-41" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-utilities-alerts.html">Alerts</a>
 <a class="list-group-item" href="./common-utilities-apto.html">Apto</a>
 <a class="list-group-item" href="./common-utilities-artchivebase.html">ArtchiveBase</a>
+<a class="list-group-item" href="./common-utilities-artchivecbase.html">ArtchiveCBase</a>
+<a class="list-group-item" href="./common-utilities-creator.html">Creator</a>
 <a class="list-group-item" href="./common-utilities-historial.html">Historial</a>
 <a class="list-group-item" href="./common-utilities-notificacion.html">Notificacion</a>
 <a class="list-group-item" href="./common-utilities-permisos.html">Permisos</a></div>
@@ -364,6 +366,11 @@ in the request.</td>
         <td>Creates an action based on the given action ID.</td>
         <td><a href="yii-base-controller.html">yii\base\Controller</a></td>
     </tr>
+            <tr class="inherited" id="denyActions()">
+        <td><a href="common-utilities-permisos.html#denyActions()-detail">denyActions()</a></td>
+        <td></td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
+    </tr>
             <tr class="inherited" id="detachBehavior()">
         <td><a href="yii-base-component.html#detachBehavior()-detail">detachBehavior()</a></td>
         <td>Detaches a behavior from the component.</td>
@@ -487,6 +494,17 @@ in the request.</td>
             <tr class="inherited" id="mustBeMyCharacter()">
         <td><a href="common-utilities-permisos.html#mustBeMyCharacter()-detail">mustBeMyCharacter()</a></td>
         <td>El personaje debe ser propiedad del usuario.</td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
+    </tr>
+            <tr class="inherited" id="mustBeMyCharacterForCR()">
+        <td><a href="common-utilities-permisos.html#mustBeMyCharacterForCR()-detail">mustBeMyCharacterForCR()</a></td>
+        <td>El Personaje al que se le crea la relación debe ser del usuario actual.</td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
+    </tr>
+            <tr class="inherited" id="mustBeMyCharacterOnRelas()">
+        <td><a href="common-utilities-permisos.html#mustBeMyCharacterOnRelas()-detail">mustBeMyCharacterOnRelas()</a></td>
+        <td>El Personaje al que se le modifica la relación debe ser del usuario
+actual.</td>
         <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
     </tr>
             <tr class="inherited" id="mustBeMyContent()">
@@ -803,7 +821,7 @@ or be detached using <a href="yii-base-component.html#detachBehavior()-detail">d
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 23:06:23 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 10 Jun 2018 17:07:45 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {

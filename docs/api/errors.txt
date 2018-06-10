@@ -152,14 +152,14 @@ Array
 
     [25] => Array
         (
-            [line] => 46
+            [line] => 47
             [file] => ./common/models/ComentariosSearch.php
             [message] => Property $username conflicts with a defined getter getUsername in common\models\ComentariosSearch.
         )
 
     [26] => Array
         (
-            [line] => 40
+            [line] => 41
             [file] => ./common/models/ComentariosSearch.php
             [message] => Property $avatar conflicts with a defined getter getAvatar in common\models\ComentariosSearch.
         )
@@ -274,7 +274,7 @@ Array
 
     [45] => Array
         (
-            [line] => 35
+            [line] => 36
             [file] => ./common/models/Personajes.php
             [message] => Property $creator conflicts with a defined getter getCreator in common\models\Personajes.
         )
@@ -323,7 +323,7 @@ Array
 
     [53] => Array
         (
-            [line] => 29
+            [line] => 30
             [file] => ./common/models/Publicaciones.php
             [message] => Property $creator conflicts with a defined getter getCreator in common\models\Publicaciones.
         )
@@ -421,7 +421,7 @@ Array
 
     [69] => Array
         (
-            [line] => 29
+            [line] => 30
             [file] => ./common/models/Reportes.php
             [message] => Property $creator conflicts with a defined getter getCreator in common\models\Reportes.
         )
@@ -759,58 +759,58 @@ Array
 
     [125] => Array
         (
+            [line] => 21
+            [file] => ./common/utilities/Historial.php
+            [message] => Undefined parameter documented: $url in crearHistorial().
+        )
+
+    [126] => Array
+        (
             [line] => 50
             [file] => ./common/widgets/Alert.php
             [message] => Method run has no parent to inherit from in common\widgets\Alert.
         )
 
-    [126] => Array
+    [127] => Array
         (
             [file] => ./common/widgets/Alert.php
             [message] => broken link to \yii\bootstrap\Alert::closeButton in common\widgets\Alert
         )
 
-    [127] => Array
+    [128] => Array
         (
             [file] => ./frontend/controllers/ComentariosController.php
             [message] => broken link to \frontend\controllers\Behavior in frontend\controllers\ComentariosController
         )
 
-    [128] => Array
+    [129] => Array
         (
             [file] => ./frontend/controllers/DeleteAccountController.php
             [message] => broken link to \Behavior in frontend\controllers\DeleteAccountController
         )
 
-    [129] => Array
+    [130] => Array
         (
             [file] => ./frontend/controllers/MensajesPrivadosController.php
             [message] => broken link to \frontend\controllers\Behavior in frontend\controllers\MensajesPrivadosController
         )
 
-    [130] => Array
+    [131] => Array
         (
             [file] => ./frontend/controllers/NotificacionesController.php
             [message] => broken link to \frontend\controllers\Behavior in frontend\controllers\NotificacionesController
         )
 
-    [131] => Array
+    [132] => Array
         (
             [file] => ./frontend/controllers/PersonajesController.php
             [message] => broken link to \frontend\controllers\Behavior in frontend\controllers\PersonajesController
         )
 
-    [132] => Array
+    [133] => Array
         (
             [file] => ./frontend/controllers/PublicacionesController.php
             [message] => broken link to \frontend\controllers\Behavior in frontend\controllers\PublicacionesController
-        )
-
-    [133] => Array
-        (
-            [line] => 65
-            [file] => ./frontend/controllers/RelacionesController.php
-            [message] => Undefined parameter documented: $id in actionDelete().
         )
 
     [134] => Array
