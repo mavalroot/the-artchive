@@ -45,7 +45,7 @@ class ReportesController extends ArtchiveCBase
 
     public function whatIDo()
     {
-        return ['update', 'create', 'find'];
+        return ['update', 'view', 'create', 'find'];
     }
 
     /**
