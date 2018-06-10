@@ -60,7 +60,7 @@ a.join-button {
 }
 
 a.join-button:hover {
-  background: var(--color-secundario2);
+  background: #8fcee6;
 }
 
 #summary > ul > li {
