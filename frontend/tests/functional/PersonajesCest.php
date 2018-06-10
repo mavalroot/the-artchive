@@ -12,7 +12,7 @@ class PersonajesCest
     public function accederSinLoggear(FunctionalTester $I)
     {
         $I->amOnRoute('personajes/create');
-        $I->see('Login', 'h1');
+        $I->see('Conectarse', 'h1');
     }
 
     public function accederLoggeado(FunctionalTester $I)

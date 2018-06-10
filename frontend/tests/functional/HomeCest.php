@@ -32,7 +32,7 @@ class HomeCest
         $I->fillField(['name' => 'LoginForm[username]'], 'No existo');
         $I->fillField(['name' => 'LoginForm[password]'], 'No existo');
         $I->click('Conectarte');
-        $I->see('Login', 'h1');
+        $I->see('Conectarse', 'h1');
         $I->see('Nombre de usuario o contraseña incorrecta', '.help-block');
     }
 
@@ -51,14 +51,14 @@ class HomeCest
     {
         $I->amOnRoute('site/index');
         $I->click('Conectarse');
-        $I->see('Login', 'h1');
+        $I->see('Conectarse', 'h1');
     }
 
     public function irASignUp(FunctionalTester $I)
     {
         $I->amOnRoute('site/index');
         $I->click('Registrarse');
-        $I->see('Signup', 'h1');
+        $I->see('Registrarse', 'h1');
     }
 
     public function irARecuperarContraseña(FunctionalTester $I)
