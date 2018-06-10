@@ -54,7 +54,7 @@
 #member-profile > #top-bar > .user {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
     margin-top: 10px;
