@@ -16,13 +16,13 @@
 #member-profile > #top-bar > .avatar {
     width: 200px;
     height: 200px;
-    background: var(--color-principal);
+    background: #f7f7f7;
     border-radius: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 10px solid var(--color-secundario);
+    border: 10px solid #1991be;
     float: left;
 }
 #member-profile > #top-bar > .avatar > img {
@@ -31,7 +31,7 @@
 }
 
 #member-profile > #top-bar > .nav-follow {
-    background: var(--color-destacado);
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
     color: white;
     padding: 5px;
     margin-left:10px;
@@ -73,13 +73,13 @@
 }
 
 #profile-content #profile-details {
-  border: var(--borde-comun);
-  border-radius: var(--radius-comun);
-  background: var(--color-principal);
+  border: 2px solid #1991be;
+  border-radius: 0px;
+  background: #f7f7f7;
 }
 
 #profile-content #profile-details > h5 {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   padding: 2px;
   color: white;
   text-align: center;
@@ -92,15 +92,15 @@
 }
 
 #profile-content #profile-entries {
-  border: var(--borde-comun);
-  border-radius: var(--radius-comun);
-  background: var(--color-principal);
+  border: 2px solid #1991be;
+  border-radius: 0px;
+  background: #f7f7f7;
 }
 
 #profile-content #profile-entries > h2 {
   margin: 0px;
   padding: 3px;
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   color: white;
 }
 

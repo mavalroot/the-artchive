@@ -162,11 +162,11 @@ a.desc:after {
 }
 
 .reportes-view {
-  background: var(--color-principal);
+  background: #f7f7f7;
 }
 
 .reportes-view >.nombre {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   padding: 10px;
   text-align: center;
 }
@@ -184,7 +184,7 @@ a.desc:after {
 
 .reportes-view > .usuario {
   padding: 10px;
-  border-top: var(--borde-comun);
+  border-top: 2px solid #1991be;
   text-align: right;
 }
 
@@ -196,7 +196,7 @@ a.desc:after {
 }
 
 .reportes-view > .respuesta > h2 {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   margin: 0px;
   padding: 5px 10px;
 }

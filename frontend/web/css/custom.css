@@ -46,7 +46,7 @@ border-radius: 0px 20px 20px 0px;
 }
 
 .wrap > nav {
-    background: var(--color-oscuro);
+    background: #114e86;
 }
 
 .wrap > nav li.active {
@@ -58,12 +58,12 @@ ul.breadcrumb {
 }
 
 .footer {
-    background: var(--color-oscuro);
+    background: #114e86;
     color: #f4f4f4;
 }
 
 .wrap {
-  background: var(--fondo-principal);
+  background: url('/img/textura.png') #e6e6e6;
 }
 
 #change-language > .flag-button {
