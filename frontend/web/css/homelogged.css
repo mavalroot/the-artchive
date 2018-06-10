@@ -1,13 +1,13 @@
 #me-home {
-border: var(--borde-comun);
-border-radius: var(--radius-comun);
-background: var(--color-principal);
+border: 2px solid #1991be;
+border-radius: 0px;
+background: #f7f7f7;
 text-align: center;
 margin-bottom: 10px;
 }
 
 #me-home > .username {
-    background: var(--color-destacado);
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
     padding: 20px;
     text-align: center;
 }
@@ -39,7 +39,7 @@ margin-bottom: 10px;
 }
 
 #random-artist {
-    background: var(--color-secundario);
+    background: #1991be;
     padding: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -47,9 +47,9 @@ margin-bottom: 10px;
 }
 
 #lateral-footer {
-    background: var(--color-principal);
-    border: var(--borde-comun);
-    border-radius: var(--radius-comun);
+    background: #f7f7f7;
+    border: 2px solid #1991be;
+    border-radius: 0px;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -60,14 +60,14 @@ margin-bottom: 10px;
     left: 0px;
 }
 .solicitudes-view {
-    background: var(--color-principal);
-    border: var(--borde-comun);
+    background: #f7f7f7;
+    border: 2px solid #1991be;
 }
 
 .solicitudes-view > h1 {
     margin: 0px;
     padding: 10px;
-    background: var(--color-destacado);
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
     color: #fff;
 }
 
@@ -83,14 +83,14 @@ margin-bottom: 10px;
 .personaje,
 .mensajes-privados {
     margin-bottom: 20px;
-    background: var(--color-principal);
-    border: var(--borde-comun);
+    background: #f7f7f7;
+    border: 2px solid #1991be;
 }
 
 .publicacion > .publicacion-header,
 .personaje > .personaje-header,
 .mensajes-privados > .mensajes-privados-header {
-    background: var(--color-destacado);
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@ margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-top: var(--borde-comun);
+    border-top: 2px solid #1991be;
 }
 
 .publicacion > .publicacion-body > .buttons,
@@ -139,7 +139,7 @@ margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    border-bottom: var(--borde-comun);
+    border-bottom: 2px solid #1991be;
 }
 
 .publicacion > .publicacion-footer > div,
@@ -150,9 +150,9 @@ margin-bottom: 10px;
 }
 
 #feed > .empty, .no-entry {
-    background: var(--color-principal);
-    border: var(--borde-comun);
-    border-radius: var(--radius-comun);
+    background: #f7f7f7;
+    border: 2px solid #1991be;
+    border-radius: 0px;
     padding: 10px;
 }
 
@@ -163,15 +163,15 @@ margin-bottom: 10px;
 }
 
 .relaciones-relacion {
-  background: var(--color-principal);
-  border: var(--borde-comun);
+  background: #f7f7f7;
+  border: 2px solid #1991be;
   display: flex;
   flex-wrap: wrap;
 }
 
 .relaciones-relacion > h3 {
  margin: 0px;
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   padding: 10px;
   width: 100%;
 }
@@ -193,11 +193,11 @@ margin-bottom: 10px;
 }
 
 .artchive-table {
-  background: var(--color-principal);
+  background: #f7f7f7;
 }
 
 .artchive-table > thead {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
 }
 
 .artchive-table > thead > tr > th {
@@ -214,12 +214,12 @@ margin-bottom: 10px;
 }
 
 .artchive-table tr {
-  border: var(--borde-comun);
-  border-radius: var(--radius-comun);
+  border: 2px solid #1991be;
+  border-radius: 0px;
 }
 
 .title-index {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   position: relative;
   text-align: center;
   padding: 0px 20px;

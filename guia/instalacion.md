@@ -17,6 +17,7 @@ Pasos:
 - Crear la variable de entorno STMP_PASS con la clave de aplicación del correo electrónico.
 - Configurar el servidor apache con un nombre de dominio para frontend (por ejemplo: artchive-front.local) y enlazarlo a frontend/web.
 - Configurar el servidor apache con un nombre de dominio para el backend (por ejemplo: artchive-back.local) y enlazarlo a backend/web.
+- Entrar en artchive-front.local/podium/install para instalar la base de datos del foro.
 
 ## En la nube
 
@@ -28,7 +29,7 @@ Con nuestra cuenta de Heroku, realizaremos los siguientes pasos:
 
 - Añadir la extensión para postgres y cargar la base de datos.
 
-Comandos: 
+Comandos:
 ```
 heroku login
 heroku apps:create nombreAplicacion --region eu
@@ -36,6 +37,6 @@ heroku addons:create heroku-postgresql
 heroku pg:psql < db/load.sql
 heroku pg:psql
 create extension pgcrypto;
-heroku config:set SMTP_PASS=clave       
+heroku config:set SMTP_PASS=clave
 git push -u heroku master
 ```

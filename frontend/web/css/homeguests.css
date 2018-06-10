@@ -54,7 +54,7 @@ a.join-button {
   padding: 5px 50px;
   border-radius: 100px;
   margin: 10px;
-  background: var(--color-oscuro);
+  background: #114e86;
   color: white;
   font-size: 18px;
 }
@@ -70,7 +70,7 @@ a.join-button:hover {
 footer.oneline {
   z-index: 1;
   position: relative;
-  background: var(--color-principal);
+  background: #f7f7f7;
   padding: 5px 0px;
 }
 
@@ -91,7 +91,7 @@ footer.oneline > ul > li {
   height: 100%;
   width: 100%;
   z-index: 1;
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
 }
 
 @media (max-width: 576px) {

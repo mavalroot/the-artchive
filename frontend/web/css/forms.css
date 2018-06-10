@@ -1,11 +1,11 @@
 .estandar-action {
-  border: var(--borde-comun);
-  border-radius: var(--radius-comun);
-  background: var(--color-principal);
+  border: 2px solid #1991be;
+  border-radius: 0px;
+  background: #f7f7f7;
 }
 
 .estandar-action > h1, .estandar-action > h3 {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   color: white;
   text-align: center;
   margin: 0px;
@@ -18,7 +18,7 @@
 }
 
 .estandar-action > .estandar-form label {
-  background: var(--color-destacado);
+  background: linear-gradient(-90deg, #8fcee6, #1991be);
   width: 100%;
   text-align: center;
   height: 24px;
@@ -37,11 +37,11 @@
   top: 0;
 }
 .estandar-action > .estandar-form label:after {
-  border-color: transparent transparent transparent var(--color-principal);
+  border-color: transparent transparent transparent #f7f7f7;
   left: 0;
 }
 
 .estandar-action > .estandar-form label:before {
-  border-color: transparent var(--color-principal) transparent transparent;
+  border-color: transparent #f7f7f7 transparent transparent;
   right: 0;
 }
