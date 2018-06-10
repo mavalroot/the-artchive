@@ -35,7 +35,7 @@ use kartik\select2\Select2;
         </div>
         <div class="col-sm-6">
             <?= $form->field($model, 'estado')->widget(Select2::classname(), [
-                'data' => ['En revisión' => 'En revisión', 'Aceptada' => 'Aceptada', 'Rechazada' => 'Rechazada'],
+                'data' => $model->getEstados(),
                 'options' => ['placeholder' => Yii::t('frontend', 'Buscar al escribir...')],
             ]); ?>
         </div>
