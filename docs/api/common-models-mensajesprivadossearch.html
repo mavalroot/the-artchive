@@ -76,6 +76,8 @@
 <a class="list-group-item" href="#navigation-137" data-toggle="collapse" data-parent="#navigation">common\utilities <b class="caret"></b></a><div id="navigation-137" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-utilities-alerts.html">Alerts</a>
 <a class="list-group-item" href="./common-utilities-apto.html">Apto</a>
 <a class="list-group-item" href="./common-utilities-artchivebase.html">ArtchiveBase</a>
+<a class="list-group-item" href="./common-utilities-artchivecbase.html">ArtchiveCBase</a>
+<a class="list-group-item" href="./common-utilities-creator.html">Creator</a>
 <a class="list-group-item" href="./common-utilities-historial.html">Historial</a>
 <a class="list-group-item" href="./common-utilities-notificacion.html">Notificacion</a>
 <a class="list-group-item" href="./common-utilities-permisos.html">Permisos</a></div>
@@ -125,7 +127,7 @@
 <a href="yii-base-component.html">yii\base\Component</a> &raquo;
 <a href="yii-base-baseobject.html">yii\base\BaseObject</a></td></tr>
                 <tr><th>Implements</th><td><a href="http://www.php.net/class.arrayaccess">ArrayAccess</a>, <a href="http://www.php.net/class.iteratoraggregate">IteratorAggregate</a>, <a href="yii-base-arrayable.html">yii\base\Arrayable</a>, <a href="yii-base-configurable.html">yii\base\Configurable</a>, <a href="yii-base-staticinstanceinterface.html">yii\base\StaticInstanceInterface</a>, <a href="yii-db-activerecordinterface.html">yii\db\ActiveRecordInterface</a></td></tr>
-                    <tr><th>Uses Traits</th><td><a href="yii-base-arrayabletrait.html">yii\base\ArrayableTrait</a>, <a href="yii-base-staticinstancetrait.html">yii\base\StaticInstanceTrait</a></td></tr>
+                    <tr><th>Uses Traits</th><td><a href="common-utilities-historial.html">common\utilities\Historial</a>, <a href="yii-base-arrayabletrait.html">yii\base\ArrayableTrait</a>, <a href="yii-base-staticinstancetrait.html">yii\base\StaticInstanceTrait</a></td></tr>
                             </table>
 
 <div class="class-description">
@@ -168,12 +170,6 @@
         <td>List of behaviors attached to this component</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
     </tr>
-            <tr class="inherited" id="$creator">
-        <td><a href="common-utilities-artchivebase.html#$creator-detail">$creator</a></td>
-        <td><a href="common-models-user.html">common\models\User</a>|<a href="http://www.php.net/language.types.null">null</a></td>
-        <td></td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
             <tr class="inherited" id="$dataName">
         <td><a href="common-models-mensajesprivados.html#$dataName-detail">$dataName</a></td>
         <td></td>
@@ -210,17 +206,23 @@
         <td>Errors for all attributes or the specified attribute.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
     </tr>
-            <tr class="inherited" id="$exportButton">
-        <td><a href="common-utilities-artchivebase.html#$exportButton-detail">$exportButton</a></td>
-        <td><a href="http://www.php.net/language.types.string">string</a></td>
-        <td></td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
             <tr class="inherited" id="$firstErrors">
         <td><a href="yii-base-model.html#$firstErrors-detail">$firstErrors</a></td>
         <td><a href="http://www.php.net/language.types.array">array</a></td>
         <td>The first errors.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
+    </tr>
+            <tr class="inherited" id="$historialReferencia">
+        <td><a href="common-utilities-artchivebase.html#$historialReferencia-detail">$historialReferencia</a></td>
+        <td></td>
+        <td></td>
+        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
+    </tr>
+            <tr class="inherited" id="$historialTipo">
+        <td><a href="common-utilities-artchivebase.html#$historialTipo-detail">$historialTipo</a></td>
+        <td></td>
+        <td></td>
+        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
     </tr>
             <tr class="inherited" id="$insertMessage">
         <td><a href="common-utilities-artchivebase.html#$insertMessage-detail">$insertMessage</a></td>
@@ -303,12 +305,6 @@
             <tr class="inherited" id="$url">
         <td><a href="common-utilities-artchivebase.html#$url-detail">$url</a></td>
         <td><a href="http://www.php.net/language.types.string">string</a></td>
-        <td></td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
-            <tr class="inherited" id="$urlCreator">
-        <td><a href="common-utilities-artchivebase.html#$urlCreator-detail">$urlCreator</a></td>
-        <td><a href="http://www.php.net/language.types.string">string</a>|<a href="http://www.php.net/language.types.boolean">boolean</a></td>
         <td></td>
         <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
     </tr>
@@ -489,6 +485,11 @@
         <td>Removes errors for all attributes or a single attribute.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
     </tr>
+            <tr class="inherited" id="crearHistorial()">
+        <td><a href="common-utilities-historial.html#crearHistorial()-detail">crearHistorial()</a></td>
+        <td>Crea una entrada en el historial.</td>
+        <td><a href="common-utilities-historial.html">common\utilities\Historial</a></td>
+    </tr>
                 <tr class="inherited" id="createValidators()">
         <td><a href="yii-base-model.html#createValidators()-detail">createValidators()</a></td>
         <td>Creates validator objects based on the validation rules specified in <a href="yii-base-model.html#rules()-detail">rules()</a>.</td>
@@ -599,11 +600,6 @@
         <td>Returns all behaviors attached to this component.</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
     </tr>
-            <tr class="inherited" id="getCreator()">
-        <td><a href="common-utilities-artchivebase.html#getCreator()-detail">getCreator()</a></td>
-        <td>Devuelve el creador de esta instancia.</td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
             <tr class="inherited" id="getDataName()">
         <td><a href="common-models-mensajesprivados.html#getDataName()-detail">getDataName()</a></td>
         <td></td>
@@ -639,11 +635,6 @@
         <td>Returns the errors for all attributes or a single attribute.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
     </tr>
-            <tr class="inherited" id="getExportButton()">
-        <td><a href="common-utilities-artchivebase.html#getExportButton()-detail">getExportButton()</a></td>
-        <td>Muestra el botón para exportar a pdf.</td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
             <tr class="inherited" id="getFirstError()">
         <td><a href="yii-base-model.html#getFirstError()-detail">getFirstError()</a></td>
         <td>Returns the first error of the specified attribute.</td>
@@ -653,6 +644,16 @@
         <td><a href="yii-base-model.html#getFirstErrors()-detail">getFirstErrors()</a></td>
         <td>Returns the first error of every attribute in the model.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
+    </tr>
+            <tr class="inherited" id="getHistorialReferencia()">
+        <td><a href="common-utilities-artchivebase.html#getHistorialReferencia()-detail">getHistorialReferencia()</a></td>
+        <td></td>
+        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
+    </tr>
+            <tr class="inherited" id="getHistorialTipo()">
+        <td><a href="common-utilities-artchivebase.html#getHistorialTipo()-detail">getHistorialTipo()</a></td>
+        <td></td>
+        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
     </tr>
             <tr class="inherited" id="getInsertMessage()">
         <td><a href="common-utilities-artchivebase.html#getInsertMessage()-detail">getInsertMessage()</a></td>
@@ -732,11 +733,6 @@
             <tr class="inherited" id="getUrl()">
         <td><a href="common-utilities-artchivebase.html#getUrl()-detail">getUrl()</a></td>
         <td>Devuelve la url ya formateada en HTML del view correspondiente.</td>
-        <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
-    </tr>
-            <tr class="inherited" id="getUrlCreator()">
-        <td><a href="common-utilities-artchivebase.html#getUrlCreator()-detail">getUrlCreator()</a></td>
-        <td>Muestra el creador del personaje como un link.</td>
         <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
     </tr>
             <tr class="inherited" id="getUrlLabel()">
@@ -840,13 +836,8 @@
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
     </tr>
             <tr class="inherited" id="isHistorialSaved()">
-        <td><a href="common-models-mensajesprivados.html#isHistorialSaved()-detail">isHistorialSaved()</a></td>
-        <td></td>
-        <td><a href="common-models-mensajesprivados.html">common\models\MensajesPrivados</a></td>
-    </tr>
-            <tr class="inherited" id="isMine()">
-        <td><a href="common-utilities-artchivebase.html#isMine()-detail">isMine()</a></td>
-        <td>Indica si esta instancia es propiedad del usuario conectado actualmente.</td>
+        <td><a href="common-utilities-artchivebase.html#isHistorialSaved()-detail">isHistorialSaved()</a></td>
+        <td>Indica si se debe guardar el historial de insert, update y delete o no.</td>
         <td><a href="common-utilities-artchivebase.html">common\utilities\ArtchiveBase</a></td>
     </tr>
             <tr class="inherited" id="isPrimaryKey()">
@@ -1069,6 +1060,11 @@
         <td>Validates multiple models.</td>
         <td><a href="yii-base-model.html">yii\base\Model</a></td>
     </tr>
+            <tr class="inherited" id="validateNotBlocked()">
+        <td><a href="common-models-mensajesprivados.html#validateNotBlocked()-detail">validateNotBlocked()</a></td>
+        <td>Valida que el usuario al que se le envía el mp no nos tenga bloqueados.</td>
+        <td><a href="common-models-mensajesprivados.html">common\models\MensajesPrivados</a></td>
+    </tr>
     </table>
 </div>
 
@@ -1086,7 +1082,7 @@
 <tr>
   <th>Method</th><th>Description</th><th>Defined By</th>
 </tr>
-                                                                                                                        <tr class="inherited" id="createRelationQuery()">
+                                                                                                                            <tr class="inherited" id="createRelationQuery()">
         <td><a href="yii-db-baseactiverecord.html#createRelationQuery()-detail">createRelationQuery()</a></td>
         <td>Creates a query instance for <code>has-one</code> or <code>has-many</code> relation.</td>
         <td><a href="yii-db-baseactiverecord.html">yii\db\BaseActiveRecord</a></td>
@@ -1118,12 +1114,12 @@ The previous example would extract "id".</td>
         <td>Finds ActiveRecord instance(s) by the given condition.</td>
         <td><a href="yii-db-activerecord.html">yii\db\ActiveRecord</a></td>
     </tr>
-                                                                                                                                                                                                                                <tr class="inherited" id="insertInternal()">
+                                                                                                                                                                                                                            <tr class="inherited" id="insertInternal()">
         <td><a href="yii-db-activerecord.html#insertInternal()-detail">insertInternal()</a></td>
         <td>Inserts an ActiveRecord into DB without considering transaction.</td>
         <td><a href="yii-db-activerecord.html">yii\db\ActiveRecord</a></td>
     </tr>
-                                                                                                                            <tr class="inherited" id="refreshInternal()">
+                                                                                                                        <tr class="inherited" id="refreshInternal()">
         <td><a href="yii-db-baseactiverecord.html#refreshInternal()-detail">refreshInternal()</a></td>
         <td>Repopulates this active record with the latest data from a newly fetched instance.</td>
         <td><a href="yii-db-baseactiverecord.html">yii\db\BaseActiveRecord</a></td>
@@ -1138,7 +1134,7 @@ The previous example would extract "id".</td>
         <td></td>
         <td><a href="yii-db-baseactiverecord.html">yii\db\BaseActiveRecord</a></td>
     </tr>
-            </table>
+                </table>
 </div>
 
 <a id="events"></a>
@@ -1505,7 +1501,7 @@ are being validated by the validation rules that apply to the scenario.</p>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 23:06:23 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 10 Jun 2018 17:07:45 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {

@@ -76,6 +76,8 @@
 <a class="list-group-item" href="#navigation-53" data-toggle="collapse" data-parent="#navigation">common\utilities <b class="caret"></b></a><div id="navigation-53" class="submenu panel-collapse collapse"><a class="list-group-item" href="./common-utilities-alerts.html">Alerts</a>
 <a class="list-group-item" href="./common-utilities-apto.html">Apto</a>
 <a class="list-group-item" href="./common-utilities-artchivebase.html">ArtchiveBase</a>
+<a class="list-group-item" href="./common-utilities-artchivecbase.html">ArtchiveCBase</a>
+<a class="list-group-item" href="./common-utilities-creator.html">Creator</a>
 <a class="list-group-item" href="./common-utilities-historial.html">Historial</a>
 <a class="list-group-item" href="./common-utilities-notificacion.html">Notificacion</a>
 <a class="list-group-item" href="./common-utilities-permisos.html">Permisos</a></div>
@@ -116,6 +118,7 @@
         <col class="col-value" />
     </colgroup>
             <tr><th>Inheritance</th><td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a> &raquo;
+<a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a> &raquo;
 <a href="yii-web-controller.html">yii\web\Controller</a> &raquo;
 <a href="yii-base-controller.html">yii\base\Controller</a> &raquo;
 <a href="yii-base-component.html">yii\base\Component</a> &raquo;
@@ -164,7 +167,7 @@
         <td>List of behaviors attached to this component</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
     </tr>
-            <tr class="inherited" id="$defaultAction">
+                <tr class="inherited" id="$defaultAction">
         <td><a href="yii-base-controller.html#$defaultAction-detail">$defaultAction</a></td>
         <td><a href="http://www.php.net/language.types.string">string</a></td>
         <td>The ID of the action that is used when the action ID is not specified
@@ -207,7 +210,7 @@ in the request.</td>
         <td>The route (module ID, controller ID and action ID) of the current request.</td>
         <td><a href="yii-base-controller.html">yii\base\Controller</a></td>
     </tr>
-            <tr class="inherited" id="$uniqueId">
+                <tr class="inherited" id="$uniqueId">
         <td><a href="yii-base-controller.html#$uniqueId-detail">$uniqueId</a></td>
         <td><a href="http://www.php.net/language.types.string">string</a></td>
         <td>The controller ID that is prefixed with the module ID (if any).</td>
@@ -226,6 +229,36 @@ in the request.</td>
         <td><a href="yii-base-controller.html">yii\base\Controller</a></td>
     </tr>
     </table>
+</div>
+
+<div class="summary doc-property">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+                    <tr class="inherited" id="$class">
+        <td><a href="common-utilities-artchivecbase.html#$class-detail">$class</a></td>
+        <td>\Yii\db\ActiveRecord</td>
+        <td></td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+                                        <tr class="inherited" id="$search">
+        <td><a href="common-utilities-artchivecbase.html#$search-detail">$search</a></td>
+        <td>\Yii\db\ActiveRecord</td>
+        <td></td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+                </table>
 </div>
 
 <a id="methods"></a>
@@ -279,25 +312,30 @@ in the request.</td>
         <td>Sets an object property to null.</td>
         <td><a href="yii-base-baseobject.html">yii\base\BaseObject</a></td>
     </tr>
-            <tr id="actionDelete()">
-        <td><a href="backend-controllers-reportescontroller.html#actionDelete()-detail">actionDelete()</a></td>
-        <td>Deletes an existing Reportes model.</td>
-        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+            <tr class="inherited" id="actionCreate()">
+        <td><a href="common-utilities-artchivecbase.html#actionCreate()-detail">actionCreate()</a></td>
+        <td>Crea uno nuevo.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
-            <tr id="actionIndex()">
-        <td><a href="backend-controllers-reportescontroller.html#actionIndex()-detail">actionIndex()</a></td>
-        <td>Lists all Reportes models.</td>
-        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+            <tr class="inherited" id="actionDelete()">
+        <td><a href="common-utilities-artchivecbase.html#actionDelete()-detail">actionDelete()</a></td>
+        <td>Borra el modelo.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
-            <tr id="actionUpdate()">
-        <td><a href="backend-controllers-reportescontroller.html#actionUpdate()-detail">actionUpdate()</a></td>
-        <td>Updates an existing Reportes model.</td>
-        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+            <tr class="inherited" id="actionIndex()">
+        <td><a href="common-utilities-artchivecbase.html#actionIndex()-detail">actionIndex()</a></td>
+        <td>Index.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
-            <tr id="actionView()">
-        <td><a href="backend-controllers-reportescontroller.html#actionView()-detail">actionView()</a></td>
-        <td>Displays a single Reportes model.</td>
-        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+            <tr class="inherited" id="actionUpdate()">
+        <td><a href="common-utilities-artchivecbase.html#actionUpdate()-detail">actionUpdate()</a></td>
+        <td>Actualiza el modelo.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="actionView()">
+        <td><a href="common-utilities-artchivecbase.html#actionView()-detail">actionView()</a></td>
+        <td>View.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
             <tr class="inherited" id="actions()">
         <td><a href="yii-base-controller.html#actions()-detail">actions()</a></td>
@@ -364,10 +402,15 @@ in the request.</td>
         <td>Returns the fully qualified name of this class.</td>
         <td><a href="yii-base-baseobject.html">yii\base\BaseObject</a></td>
     </tr>
-            <tr class="inherited" id="createAction()">
+                                    <tr class="inherited" id="createAction()">
         <td><a href="yii-base-controller.html#createAction()-detail">createAction()</a></td>
         <td>Creates an action based on the given action ID.</td>
         <td><a href="yii-base-controller.html">yii\base\Controller</a></td>
+    </tr>
+            <tr class="inherited" id="denyActions()">
+        <td><a href="common-utilities-permisos.html#denyActions()-detail">denyActions()</a></td>
+        <td></td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
     </tr>
             <tr class="inherited" id="detachBehavior()">
         <td><a href="yii-base-component.html#detachBehavior()-detail">detachBehavior()</a></td>
@@ -389,7 +432,12 @@ in the request.</td>
         <td>Finds the applicable layout file.</td>
         <td><a href="yii-base-controller.html">yii\base\Controller</a></td>
     </tr>
-                <tr class="inherited" id="getBehavior()">
+            <tr class="inherited" id="findModel()">
+        <td><a href="common-utilities-artchivecbase.html#findModel()-detail">findModel()</a></td>
+        <td>Encuentra un modelo.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="getBehavior()">
         <td><a href="yii-base-component.html#getBehavior()-detail">getBehavior()</a></td>
         <td>Returns the named behavior object.</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
@@ -398,6 +446,11 @@ in the request.</td>
         <td><a href="yii-base-component.html#getBehaviors()-detail">getBehaviors()</a></td>
         <td>Returns all behaviors attached to this component.</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
+    </tr>
+            <tr class="inherited" id="getIfIDo()">
+        <td><a href="common-utilities-artchivecbase.html#getIfIDo()-detail">getIfIDo()</a></td>
+        <td>Devuelve si debe hacer una determinada acción.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
             <tr class="inherited" id="getModules()">
         <td><a href="yii-base-controller.html#getModules()-detail">getModules()</a></td>
@@ -449,10 +502,10 @@ in the request.</td>
         <td>Returns a value indicating whether a property is defined.</td>
         <td><a href="yii-base-baseobject.html">yii\base\BaseObject</a></td>
     </tr>
-            <tr class="inherited" id="init()">
-        <td><a href="yii-base-baseobject.html#init()-detail">init()</a></td>
-        <td>Initializes the object.</td>
-        <td><a href="yii-base-baseobject.html">yii\base\BaseObject</a></td>
+            <tr id="init()">
+        <td><a href="backend-controllers-reportescontroller.html#init()-detail">init()</a></td>
+        <td></td>
+        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
     </tr>
             <tr class="inherited" id="mustBeAdmin()">
         <td><a href="common-utilities-permisos.html#mustBeAdmin()-detail">mustBeAdmin()</a></td>
@@ -492,6 +545,17 @@ in the request.</td>
             <tr class="inherited" id="mustBeMyCharacter()">
         <td><a href="common-utilities-permisos.html#mustBeMyCharacter()-detail">mustBeMyCharacter()</a></td>
         <td>El personaje debe ser propiedad del usuario.</td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
+    </tr>
+            <tr class="inherited" id="mustBeMyCharacterForCR()">
+        <td><a href="common-utilities-permisos.html#mustBeMyCharacterForCR()-detail">mustBeMyCharacterForCR()</a></td>
+        <td>El Personaje al que se le crea la relación debe ser del usuario actual.</td>
+        <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
+    </tr>
+            <tr class="inherited" id="mustBeMyCharacterOnRelas()">
+        <td><a href="common-utilities-permisos.html#mustBeMyCharacterOnRelas()-detail">mustBeMyCharacterOnRelas()</a></td>
+        <td>El Personaje al que se le modifica la relación debe ser del usuario
+actual.</td>
         <td><a href="common-utilities-permisos.html">common\utilities\Permisos</a></td>
     </tr>
             <tr class="inherited" id="mustBeMyContent()">
@@ -579,6 +643,11 @@ in the request.</td>
         <td>Triggers an event.</td>
         <td><a href="yii-base-component.html">yii\base\Component</a></td>
     </tr>
+            <tr id="whatIDo()">
+        <td><a href="backend-controllers-reportescontroller.html#whatIDo()-detail">whatIDo()</a></td>
+        <td></td>
+        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+    </tr>
     </table>
 </div>
 
@@ -596,12 +665,37 @@ in the request.</td>
 <tr>
   <th>Method</th><th>Description</th><th>Defined By</th>
 </tr>
-                                                                                                                            <tr id="findModel()">
-        <td><a href="backend-controllers-reportescontroller.html#findModel()-detail">findModel()</a></td>
-        <td>Finds the Reportes model based on its primary key value.</td>
-        <td><a href="backend-controllers-reportescontroller.html">backend\controllers\ReportesController</a></td>
+                                                                                                            <tr class="inherited" id="commonCreate()">
+        <td><a href="common-utilities-artchivecbase.html#commonCreate()-detail">commonCreate()</a></td>
+        <td>Ayuda a crear el create.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
     </tr>
-                                                                                                                                                            </table>
+            <tr class="inherited" id="commonDelete()">
+        <td><a href="common-utilities-artchivecbase.html#commonDelete()-detail">commonDelete()</a></td>
+        <td>Ayuda a crear el delete.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="commonFindModel()">
+        <td><a href="common-utilities-artchivecbase.html#commonFindModel()-detail">commonFindModel()</a></td>
+        <td>Ayuda a encontrar el modelo.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="commonIndex()">
+        <td><a href="common-utilities-artchivecbase.html#commonIndex()-detail">commonIndex()</a></td>
+        <td>Ayuda a crear el index</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="commonUpdate()">
+        <td><a href="common-utilities-artchivecbase.html#commonUpdate()-detail">commonUpdate()</a></td>
+        <td>Ayuda a crear el update.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+            <tr class="inherited" id="commonView()">
+        <td><a href="common-utilities-artchivecbase.html#commonView()-detail">commonView()</a></td>
+        <td>Ayuda a crear la view.</td>
+        <td><a href="common-utilities-artchivecbase.html">common\utilities\ArtchiveCBase</a></td>
+    </tr>
+                                                                                                                                                                                                        </table>
 </div>
 
 <a id="events"></a>
@@ -642,133 +736,6 @@ in the request.</td>
 <h2>Method Details</h2>
 
 <div class="method-doc">
-
-    <div class="detail-header h3" id="actionDelete()-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#actionDelete()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        actionDelete()
-        <span class="detail-header-tag small">
-            public                                    method
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        <p><strong>Deletes an existing Reportes model.</strong></p>
-
-        <p>If deletion is successful, the browser will be redirected to the 'index' page.</p>
-
-            </div>
-
-    <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">mixed</span> <strong><a href="backend-controllers-reportescontroller.html#actionDelete()-detail">actionDelete</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
-                                    <tr>
-                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
-                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
-                  <td class="param-desc-col"></td>
-                </tr>
-                                                    <tr>
-                  <th class="param-name-col">throws</th>
-                  <td class="param-type-col"><a href="yii-web-notfoundhttpexception.html">yii\web\NotFoundHttpException</a></td>
-                  <td class="param-desc-col"><p>if the model cannot be found</p>
-</td>
-                </tr>
-                        </table>
-
-<!--	-->
-
-    <div class="detail-header h3" id="actionIndex()-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#actionIndex()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        actionIndex()
-        <span class="detail-header-tag small">
-            public                                    method
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        <p><strong>Lists all Reportes models.</strong></p>
-
-        
-            </div>
-
-    <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">mixed</span> <strong><a href="backend-controllers-reportescontroller.html#actionIndex()-detail">actionIndex</a></strong> ( )</td></tr>
-            </table>
-
-<!--	-->
-
-    <div class="detail-header h3" id="actionUpdate()-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#actionUpdate()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        actionUpdate()
-        <span class="detail-header-tag small">
-            public                                    method
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        <p><strong>Updates an existing Reportes model.</strong></p>
-
-        <p>If update is successful, the browser will be redirected to the 'view' page.</p>
-
-            </div>
-
-    <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">mixed</span> <strong><a href="backend-controllers-reportescontroller.html#actionUpdate()-detail">actionUpdate</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
-                                    <tr>
-                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
-                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
-                  <td class="param-desc-col"></td>
-                </tr>
-                                                    <tr>
-                  <th class="param-name-col">throws</th>
-                  <td class="param-type-col"><a href="yii-web-notfoundhttpexception.html">yii\web\NotFoundHttpException</a></td>
-                  <td class="param-desc-col"><p>if the model cannot be found</p>
-</td>
-                </tr>
-                        </table>
-
-<!--	-->
-
-    <div class="detail-header h3" id="actionView()-detail">
-        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#actionView()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
-        
-        actionView()
-        <span class="detail-header-tag small">
-            public                                    method
-                    </span>
-    </div>
-
-    
-    <div class="doc-description">
-        <p><strong>Displays a single Reportes model.</strong></p>
-
-        
-            </div>
-
-    <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">mixed</span> <strong><a href="backend-controllers-reportescontroller.html#actionView()-detail">actionView</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
-                                    <tr>
-                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
-                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
-                  <td class="param-desc-col"></td>
-                </tr>
-                                                    <tr>
-                  <th class="param-name-col">throws</th>
-                  <td class="param-type-col"><a href="yii-web-notfoundhttpexception.html">yii\web\NotFoundHttpException</a></td>
-                  <td class="param-desc-col"><p>if the model cannot be found</p>
-</td>
-                </tr>
-                        </table>
-
-<!--	-->
 
     <div class="detail-header h3" id="behaviors()-detail">
         <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
@@ -813,44 +780,49 @@ or be detached using <a href="yii-base-component.html#detachBehavior()-detail">d
 
 <!--	-->
 
-    <div class="detail-header h3" id="findModel()-detail">
+    <div class="detail-header h3" id="init()-detail">
         <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#findModel()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#init()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
         
-        findModel()
+        init()
         <span class="detail-header-tag small">
-            protected                                    method
+            public                                    method
                     </span>
     </div>
 
     
     <div class="doc-description">
-        <p><strong>Finds the Reportes model based on its primary key value.</strong></p>
+        <p><strong></strong></p>
 
-        <p>If the model is not found, a 404 HTTP exception will be thrown.</p>
-
+        
             </div>
 
     <table class="detail-table table table-striped table-bordered table-hover">
-        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="common-models-reportes.html">common\models\Reportes</a></span> <strong><a href="backend-controllers-reportescontroller.html#findModel()-detail">findModel</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
-                                    <tr>
-                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
-                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
-                  <td class="param-desc-col"></td>
-                </tr>
-                                        <tr>
-                  <th class="param-name-col">return</th>
-                  <td class="param-type-col"><a href="common-models-reportes.html">common\models\Reportes</a></td>
-                  <td class="param-desc-col"><p>The loaded model</p>
-</td>
-                </tr>
-                                        <tr>
-                  <th class="param-name-col">throws</th>
-                  <td class="param-type-col"><a href="yii-web-notfoundhttpexception.html">yii\web\NotFoundHttpException</a></td>
-                  <td class="param-desc-col"><p>if the model cannot be found</p>
-</td>
-                </tr>
-                        </table>
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="backend-controllers-reportescontroller.html#init()-detail">init</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="whatIDo()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="backend-controllers-reportescontroller.html#whatIDo()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        whatIDo()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="backend-controllers-reportescontroller.html#whatIDo()-detail">whatIDo</a></strong> ( )</td></tr>
+            </table>
 
 <!--	-->
 </div>
@@ -892,7 +864,7 @@ or be detached using <a href="yii-base-component.html#detachBehavior()-detail">d
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 06 Jun 2018 23:06:23 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 10 Jun 2018 17:07:45 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script>jQuery(function ($) {
