@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Reportes */
@@ -11,18 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mis reportes'), 'url
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reportes-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= DetailView::widget([
+    <?= $this->render('_view', [
         'model' => $model,
-        'attributes' => [
-            'referencia',
-            'contenido:ntext',
-            'estado',
-            'respuesta',
-            'created_at:datetime',
-        ],
     ]) ?>
-
 </div>
