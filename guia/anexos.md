@@ -19,13 +19,24 @@
 
 #### Validación HTML5
 
+![Validacion HTML5](images/html.png)
+
 #### Validación CSS3
+
+![Validacion CSS3](images/css.png)
 
 #### Validación de accesibilidad
 
 #### Vistas en diferentes navegadores
 
+![Explorer](images/explorer.png)
+
+![Firefox](images/firefox.png)
+
+![Chrome](images/chrome.png)
 
 ## (R24) Uso de Codeception
 
 #### Pruebas funcionales
+
+![Pruebas funcionales](images/codeception.png)
