@@ -27,13 +27,27 @@
 
 #### Validación de accesibilidad
 
+![Accesibilidad](images/accesibilidad.png)
+
+*Los errores encontrados son dos botones que tienen iconos dentro y no los reconoce, no voy a arreglarlo.*
+
 #### Vistas en diferentes navegadores
+
+##### Explorer
 
 ![Explorer](images/explorer.png)
 
+##### Firefox
+
 ![Firefox](images/firefox.png)
 
+##### Chrome
+
 ![Chrome](images/chrome.png)
+
+##### Opera
+
+![Opera](images/opera.png)
 
 ## (R24) Uso de Codeception
 
