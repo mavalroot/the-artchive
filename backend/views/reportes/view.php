@@ -3,12 +3,16 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use common\models\UsuariosCompleto;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Reportes */
 
 $this->title = $model->referencia;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reportes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$user = UsuariosCompleto::findOne(['id' => $model->created_by]);
 ?>
 <div class="reportes-view">
 
@@ -26,7 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'referencia',
             'contenido:ntext',
             'respuesta',
-            'created_by',
+            [
+                'attribute' => 'creator',
+                'format' => 'html',
+                'value' => $user->getUrl(),
+            ],
             'created_at:datetime',
         ],
     ]) ?>

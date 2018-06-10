@@ -22,9 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            'referencia',
+            [
+                'attribute' => 'referencia',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return $model->getUrl();
+                }
+            ],
             'estado',
-            'created_at',
+            'created_at:relativetime',
         ],
     ]); ?>
 </div>

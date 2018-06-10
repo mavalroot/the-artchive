@@ -160,3 +160,49 @@ a.desc:after {
     display: flex;
     flex-wrap: wrap;
 }
+
+.reportes-view {
+  background: var(--color-principal);
+}
+
+.reportes-view >.nombre {
+  background: var(--color-destacado);
+  padding: 10px;
+  text-align: center;
+}
+
+.reportes-view > .nombre > h1 {
+  margin: 0px;
+  color: #fff;
+}
+
+.reportes-view > .contenido {
+  max-width: 700px;
+  padding: 10px;
+  margin: auto;
+}
+
+.reportes-view > .usuario {
+  padding: 10px;
+  border-top: var(--borde-comun);
+  text-align: right;
+}
+
+.reportes-view > .usuario > a > img {
+  max-width: 30px;
+  max-height: 30px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+
+.reportes-view > .respuesta > h2 {
+  background: var(--color-destacado);
+  margin: 0px;
+  padding: 5px 10px;
+}
+
+.reportes-view > .respuesta > p {
+  padding: 10px;
+  max-width: 700px;
+  margin: auto;
+}
