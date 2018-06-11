@@ -68,7 +68,7 @@ return [
     'Foro' => 'Forum',
     'Gracias por contactarnos. Responderemos lo más pronto posible.' => 'Thank you for contacting us. We will respond to you as soon as possible.',
     'Guardar' => 'Save',
-    'Ha habido un error, conctacte con el administrador.' => 'There was an error, please contact with the administrator.',
+    'Ha habido un error, contacte con el administrador.' => 'There was an error, please contact with the administrator.',
     'Hechos destacables' => 'HIghlights',
     'Historia' => 'Story',
     'Hubo un error enviando tu mensaje.' => 'There was an error sending your message.',

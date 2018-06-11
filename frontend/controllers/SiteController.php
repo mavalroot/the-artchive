@@ -174,7 +174,7 @@ class SiteController extends \yii\web\Controller
             if ($email) {
                 Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
             } else {
-                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, conctacte con el administrador.'));
+                Yii::$app->getSession()->setFlash('warning', Yii::t('frontend', 'Ha habido un error, contacte con el administrador.'));
             }
             return $this->goHome();
         }
