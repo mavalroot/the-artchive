@@ -170,7 +170,7 @@ class SiteController extends \yii\web\Controller
     {
         $this->layout = 'homeguests';
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $email = $this->sendMail($model);
             if ($email) {
                 Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha enviado un correo de confirmación.'));
