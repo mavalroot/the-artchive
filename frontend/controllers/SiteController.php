@@ -135,6 +135,7 @@ class SiteController extends \yii\web\Controller
         $this->layout = 'homeguests';
 
         $model = new ContactForm();
+        $this->fillIfLogged($model);
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', Yii::t('frontend', 'Gracias por contactarnos. Responderemos lo más pronto posible.'));
@@ -147,6 +148,19 @@ class SiteController extends \yii\web\Controller
             return $this->render('contact', [
                 'model' => $model,
             ]);
+        }
+    }
+
+    /**
+     * Si el usuario está conectado, rellena los campos "Nombre" y "Email" del
+     * modelo contactar.
+     * @param  ContactForm $model
+     */
+    private function fillIfLogged($model)
+    {
+        if (!Yii::$app->user->isGuest) {
+            $model->name = Yii::$app->user->identity->username;
+            $model->email = Yii::$app->user->identity->email;
         }
     }
 
