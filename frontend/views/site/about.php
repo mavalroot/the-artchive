@@ -23,5 +23,11 @@ $this->title = Yii::t('frontend', 'Sobre nosotros');
         <div class="text-right">
             <img src="/img/artchive.svg" height="300px" width="300px" alt="The Artchive" itemprop="logo">
         </div>
+        <div class="about-video">
+            <h2>
+                <?= Yii::t('frontend', 'Y recuerda, ¡se amable!') ?>
+            </h2>
+            <iframe src="https://www.youtube.com/embed/_Wdkbp0FfLk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
 </div>
