@@ -56,6 +56,10 @@ class DeleteAccountController extends Controller
         return false;
     }
 
+    /**
+     * Devuelve mensaje según true o false.
+     * @param  bool $bool
+     */
     private function returnMessage($bool)
     {
         if ($bool) {
