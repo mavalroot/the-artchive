@@ -141,7 +141,7 @@ class Publicaciones extends \common\utilities\ArtchiveBase
 
     public function getUnName()
     {
-        return Yii::t('app', 'una publicación');
+        return 'una publicación';
     }
 
     public function isHistorialSaved()

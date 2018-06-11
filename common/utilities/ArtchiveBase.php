@@ -98,7 +98,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getInsertMessage()
     {
-        return Yii::t('app', 'Ha creado ') . $this->getUnName() . '.';
+        return 'Ha creado ' . $this->getUnName() . '.';
     }
 
     /**
@@ -107,14 +107,22 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getUpdateMessage()
     {
-        return Yii::t('app', 'Ha modificado ') . $this->getUnName() . '.';
+        return 'Ha modificado ' . $this->getUnName() . '.';
     }
 
+    /**
+     * Devuelve el tipo de historial.
+     * @return string
+     */
     public function getHistorialTipo()
     {
         return str_replace('_', '-', static::tableName());
     }
 
+    /**
+     * Devuelve la referencia del historial.
+     * @return int|string
+     */
     public function getHistorialReferencia()
     {
         return $this->id;
@@ -126,7 +134,7 @@ class ArtchiveBase extends \yii\db\ActiveRecord
      */
     public function getDeleteMessage()
     {
-        return Yii::t('app', 'Ha eliminado ') . $this->getUnName();
+        return 'Ha eliminado ' . $this->getUnName();
     }
 
     public function afterSave($insert, $changedAttributes)

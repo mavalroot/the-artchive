@@ -126,7 +126,7 @@ class Reportes extends \common\utilities\ArtchiveBase
 
     public function getUnName()
     {
-        return Yii::t('app', 'un reporte');
+        return 'un reporte';
     }
 
     /**

@@ -129,6 +129,9 @@ $this->title = 'My Yii Application';
                 <li>
                     <a href="reportes/index">Reportes</a>
                 </li>
+                <li>
+                    <a href="comentarios/index">Comentarios</a>
+                </li>
             </ul>
         </div>
     </div>

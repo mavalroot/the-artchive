@@ -13,19 +13,22 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
+    <h1>
+        <?= Html::encode($this->title) ?>
     <?php if ($model->status == User::STATUS_ACTIVE) : ?>
-        <?= $this->render('_active', [
-            'model' => $model,
-            'reciente' => $reciente,
-        ]) ?>
+        (Activo)
     <?php elseif ($model->status == User::STATUS_DELETED) : ?>
-        <h2>Este usuario ha sido eliminado.</h2>
+        (Eliminado)
     <?php elseif ($model->status == User::STATUS_WAITING) : ?>
-        <h2>Este usuario espera confirmación.</h2>
+        (Esperando confirmación)
     <?php elseif ($model->status == User::STATUS_BANNED) : ?>
-        <h2>Este usuario está baneado.</h2>
+        (Baneado)
     <?php endif; ?>
+    </h1>
 
+    <?= $this->render('_active', [
+        'model' => $model,
+        'reciente' => $reciente,
+    ]) ?>
 </div>

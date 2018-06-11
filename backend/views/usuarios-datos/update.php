@@ -2,13 +2,16 @@
 
 use yii\helpers\Html;
 
+use common\models\User;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\UsuariosDatos */
 
-$this->title = 'Update Usuarios Datos: ' . $model->usuario_id;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios Datos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->usuario_id, 'url' => ['view', 'id' => $model->usuario_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$username = User::findOne($model->usuario_id)->username;
+$this->title = 'Editar datos personales: ' . $username;
+$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['/usuarios-completo/index']];
+$this->params['breadcrumbs'][] = ['label' => $username, 'url' => ['/usuarios-completo/view', 'username' => $username]];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-datos-update">
 

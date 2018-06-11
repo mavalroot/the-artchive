@@ -196,12 +196,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getUnName()
     {
-        return Yii::t('app', 'un comentario');
+        return 'un comentario';
     }
 
     public function getUpdateMessage()
     {
-        return Yii::t('app', 'Ha eliminado ') . $this->getUnName() . '.';
+        return 'Ha eliminado' . $this->getUnName() . '.';
     }
 
     public function getRawUrl()
