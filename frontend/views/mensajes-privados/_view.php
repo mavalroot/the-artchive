@@ -29,11 +29,13 @@ $usuario = UsuariosCompleto::findOne(['id' => $model->emisor_id])
                     'method' => 'post',
                 ],
             ]); ?>
-            <?= Html::beginForm('/mensajes-privados/create', 'post') .
-                Html::hiddenInput('receptor_id', $model->emisor_id) .
-                Html::hiddenInput('asunto', $model->asunto) .
-                Html::submitButton('<i class="fas fa-paper-plane"></i> ' . Yii::t('app', 'Responder'), ['class' => 'btn btn-link']) .
-                Html::endForm(); ?>
+            <?php if ($model->emisor_id !== Yii::$app->user->id) : ?>
+                <?= Html::beginForm('/mensajes-privados/create', 'post') .
+                    Html::hiddenInput('receptor_id', $model->emisor_id) .
+                    Html::hiddenInput('asunto', $model->asunto) .
+                    Html::submitButton('<i class="fas fa-paper-plane"></i> ' . Yii::t('app', 'Responder'), ['class' => 'btn btn-link']) .
+                    Html::endForm(); ?>
+            <?php endif; ?>
         </div>
         <h3><?= $model->getAttributeLabel('contenido') ?></h3>
         <div class="contenido">
