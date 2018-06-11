@@ -205,7 +205,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getUpdateMessage()
     {
-        return 'Ha eliminado' . $this->getUnName() . '.';
+        return 'Ha eliminado ' . $this->getUnName() . '.';
     }
 
     public function getRawUrl()
