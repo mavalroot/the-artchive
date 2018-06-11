@@ -5,7 +5,7 @@ use yii\grid\GridView;
 
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'The Artchive: Backend';
 
 ?>
 <div class="site-index">

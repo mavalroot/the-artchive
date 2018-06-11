@@ -219,3 +219,7 @@ a.desc:after {
     height: 315px;
     max-width: 100%;
 }
+
+select.btn.hidden-sm {
+  background: #8fcee6;
+}
