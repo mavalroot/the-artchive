@@ -9,8 +9,8 @@ function deleteAccount() {
                 e.preventDefault();
                 $.post('/delete-account/delete', $(deleteform).serialize(), function (data) {
                     if (data != false) {
-                        w.opener.location.reload();
                         w.close();
+                        window.location.href = '/';
                     }
                 });
             });

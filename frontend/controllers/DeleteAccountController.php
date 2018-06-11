@@ -46,18 +46,22 @@ class DeleteAccountController extends Controller
         $model = new DeleteAccountForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->borrarTodo();
-            if ($result = $model->desactivarUsuario()) {
-                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha dado de baja satisfactoriamente.'));
-            } else {
-                Yii::$app->getSession()->setFlash('error', Yii::t('frontend', 'No se pudo dar de baja.'));
-            }
+            $result = $model->desactivarUsuario();
+            $this->returnMessage($result);
             if (Yii::$app->request->isAjax) {
                 return $result;
             }
             return $this->goHome();
         }
-        if (Yii::$app->request->isAjax) {
-            return false;
+        return false;
+    }
+
+    private function returnMessage($bool)
+    {
+        if ($bool) {
+            Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Se ha dado de baja satisfactoriamente.'));
+        } else {
+            Yii::$app->getSession()->setFlash('error', Yii::t('frontend', 'No se pudo dar de baja.'));
         }
     }
 }
