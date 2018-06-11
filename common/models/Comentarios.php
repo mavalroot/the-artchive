@@ -170,7 +170,8 @@ class Comentarios extends \common\utilities\ArtchiveBase
      */
     public function getBorrarButton()
     {
-        if ($this->isMine() && !$this->isDeleted()) {
+        $imAdmin = Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN);
+        if (($this->isMine() || $imAdmin) && !$this->isDeleted()) {
             return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
         }
     }
