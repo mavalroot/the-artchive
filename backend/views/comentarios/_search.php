@@ -14,26 +14,16 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
+    <div class="col-sm-6">
+        <?= $form->field($model, 'id') ?>
+    </div>
+    <div class="col-sm-6">
+        <?= $form->field($model, 'username') ?>
+    </div>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'usuario_id') ?>
-
-    <?= $form->field($model, 'publicacion_id') ?>
-
-    <?= $form->field($model, 'contenido') ?>
-
-    <?= $form->field($model, 'comentario_id') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
-
-    <?php // echo $form->field($model, 'deleted')->checkbox() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    <div class="form-group text-center">
+        <?= Html::submitButton(Yii::t('app', 'Buscar'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Borrar'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -13,26 +13,38 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="comentarios-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Comentarios', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= $this->render('_search', ['model' => $searchModel]);?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
-            'usuario_id',
-            'publicacion_id',
-            'contenido',
-            'comentario_id',
-            //'created_at',
-            //'updated_at',
-            //'deleted:boolean',
+            [
+                'attribute' => 'username',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a($model->username, ['/usuarios-completo/view', 'username' => $model->username]);
+                }
+            ],
+            [
+                'attribute' => 'publicacion_id',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a('Publicación', ['/publicacion/view', 'id' => $model->publicacion_id]);
+                }
+            ],
+            [
+                'attribute' => 'comentario_id',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if ($model->comentario_id) {
+                        return Html::a('Comentario id', ['view', 'id' => $model->comentario_id]);
+                    }
+                    return null;
+                }
+            ],
+            'deleted:boolean',
+            'created_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

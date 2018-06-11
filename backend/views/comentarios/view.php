@@ -3,23 +3,26 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use common\models\User;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Comentarios */
 
-$this->title = $model->id;
+$this->title = '#' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Comentarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+$username = User::findOne($model->usuario_id)->username;
 ?>
 <div class="comentarios-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '¿Seguro?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -29,13 +32,31 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'usuario_id',
-            'publicacion_id',
+            [
+                'attribute' => 'username',
+                'format' => 'html',
+                'value' => Html::a($username, ['/usuarios-completo/view', 'username' => $username]),
+            ],
+            [
+                'attribute' => 'publicacion_id',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a('Publicación', ['/publicacion/view', 'id' => $model->publicacion_id]);
+                }
+            ],
+            [
+                'attribute' => 'comentario_id',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if ($model->comentario_id) {
+                        return Html::a('Comentario id', ['view', 'id' => $model->comentario_id]);
+                    }
+                    return null;
+                }
+            ],
             'contenido',
-            'comentario_id',
-            'created_at',
-            'updated_at',
             'deleted:boolean',
+            'created_at:datetime',
         ],
     ]) ?>
 

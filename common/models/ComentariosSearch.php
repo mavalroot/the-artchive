@@ -40,7 +40,7 @@ class ComentariosSearch extends Comentarios
      */
     public function search($params)
     {
-        $query = Comentarios::find();
+        $query = Comentarios::find()->select('comentarios.*, us.username')->joinWith('usuario us');
 
         // add conditions that should always apply here
 
@@ -55,7 +55,10 @@ class ComentariosSearch extends Comentarios
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        $dataProvider->sort->attributes['username'] = [
+            'asc' => ['username' => SORT_ASC],
+            'desc' => ['username' => SORT_DESC],
+        ];
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -67,6 +70,7 @@ class ComentariosSearch extends Comentarios
         ]);
 
         $query->andFilterWhere(['ilike', 'contenido', $this->contenido]);
+        $query->andFilterWhere(['ilike', 'user.username', $this->creator]);
 
         return $dataProvider;
     }
