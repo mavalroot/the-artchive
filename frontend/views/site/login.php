@@ -33,6 +33,10 @@ $this->title = Yii::t('frontend', 'Conectarse');
                 <?= Html::submitButton(Yii::t('frontend', 'Conectarte'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
 
+            <p>
+                <?= Html::a(Yii::t('frontend', '¿Aún no tienes cuenta? Regístrate aquí.'), ['/site/signup']) ?>
+            </p>
+
         <?php ActiveForm::end(); ?>
     </div>
 </div>
