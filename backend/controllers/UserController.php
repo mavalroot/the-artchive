@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use Yii;
 use common\models\User;
 use yii\filters\AccessControl;
 use common\utilities\ArtchiveCBase;
@@ -36,6 +37,19 @@ class UserController extends ArtchiveCBase
 
     public function whatIDo()
     {
-        return ['update', 'find'];
+        return ['find'];
+    }
+
+    public function actionUpdate($id)
+    {
+        $model = User::findOne($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['/usuarios-completo/view', 'username' => $model->username]);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 }

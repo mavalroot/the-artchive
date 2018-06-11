@@ -88,6 +88,8 @@ class User extends \common\utilities\ArtchiveBase implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_WAITING],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_WAITING, self::STATUS_BANNED]],
             [['tipo_usuario'], 'default', 'value' => 1],
+            [['username'], 'string'],
+            [['email'], 'email'],
             [['tipo_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => TiposUsuario::className(), 'targetAttribute' => ['tipo_usuario' => 'id']],
         ];
     }
