@@ -66,7 +66,7 @@ class Comentarios extends \common\utilities\ArtchiveBase
             ['deleted', 'boolean'],
             [['usuario_id', 'publicacion_id', 'comentario_id'], 'integer'],
             [['contenido'], 'string', 'max' => 500],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'username'], 'safe'],
             [['comentario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['comentario_id' => 'id']],
             [['publicacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => Publicaciones::className(), 'targetAttribute' => ['publicacion_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
@@ -93,8 +93,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
     {
         return [
             'contenido' => Yii::t('app', 'Contenido'),
+            'deleted' => 'Eliminado',
             'created_at' => Yii::t('app', 'Fecha de creación'),
             'updated_at' => Yii::t('app', 'Última actualización'),
+            'comentario_id' => 'Responde a',
+            'publicacion_id' => 'Hecho en',
+            'username' => 'Creador',
         ];
     }
 
@@ -170,7 +174,8 @@ class Comentarios extends \common\utilities\ArtchiveBase
      */
     public function getBorrarButton()
     {
-        if ($this->isMine() && !$this->isDeleted()) {
+        $imAdmin = Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN);
+        if (($this->isMine() || $imAdmin) && !$this->isDeleted()) {
             return Html::button(Yii::t('frontend', 'Borrar'), ['name' => 'borrar-comentario', 'class' => 'btn btn-xs btn-danger']);
         }
     }
@@ -195,12 +200,12 @@ class Comentarios extends \common\utilities\ArtchiveBase
 
     public function getUnName()
     {
-        return Yii::t('app', 'un comentario');
+        return 'un comentario';
     }
 
     public function getUpdateMessage()
     {
-        return Yii::t('app', 'Ha eliminado ') . $this->getUnName() . '.';
+        return 'Ha eliminado ' . $this->getUnName() . '.';
     }
 
     public function getRawUrl()

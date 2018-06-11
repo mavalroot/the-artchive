@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\UsuariosCompletoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Usuarios Completos';
+$this->title = 'Usuarios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuarios-completo-index">
@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getUrl();
                 }
             ],
+            'tipo',
             'status',
             'email:email',
         ],

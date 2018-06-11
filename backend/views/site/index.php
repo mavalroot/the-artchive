@@ -5,7 +5,7 @@ use yii\grid\GridView;
 
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'The Artchive: Backend';
 
 ?>
 <div class="site-index">
@@ -128,6 +128,9 @@ $this->title = 'My Yii Application';
             <ul>
                 <li>
                     <a href="reportes/index">Reportes</a>
+                </li>
+                <li>
+                    <a href="comentarios/index">Comentarios</a>
                 </li>
             </ul>
         </div>

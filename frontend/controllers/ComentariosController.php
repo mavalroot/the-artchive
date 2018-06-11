@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use common\models\Comentarios;
 use yii\web\NotFoundHttpException;
 
+use common\models\TiposUsuario;
 use common\models\ComentariosSearch;
 
 use common\utilities\ArtchiveCBase;
@@ -96,7 +97,8 @@ class ComentariosController extends ArtchiveCBase
         if (Yii::$app->request->isAjax) {
             $id = Yii::$app->request->post('id');
             $model = $this->findModel($id);
-            if ($model->isMine() && !$model->isDeleted()) {
+            $imAdmin = Yii::$app->user->identity->tipo_usuario == TiposUsuario::getOne(TiposUsuario::ADMIN);
+            if (($model->isMine() || $imAdmin) && !$model->isDeleted()) {
                 $model->contenido = '--Comentario eliminado--';
                 $model->deleted = true;
                 return $model->save();

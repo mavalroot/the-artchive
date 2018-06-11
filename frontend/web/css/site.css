@@ -106,7 +106,7 @@ a.desc:after {
 }
 
 #lateral-footer > h5 {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 #me-home > .username > h3 > a,
@@ -115,13 +115,13 @@ a.desc:after {
 .breadcrumb > li:before,
 #random-artist > a,
 .publicacion-header > .titulo > h2 > a {
-  color: #fff !important;
+    color: #fff !important;
 }
 
 #me-home > .username > h3 > a:hover,
 #random-artist > a:hover,
 .publicacion-header > .titulo > h2 > a:hover {
-  color: #e1e1e1;
+    color: #e1e1e1;
 }
 
 .btn-link.especial:hover {
@@ -134,25 +134,25 @@ a.desc:after {
 }
 
 .nav-follow h4 > a > small {
-  color: #dddddd;
-  font-size: 14px;
+    color: #dddddd;
+    font-size: 14px;
 }
 
 .follow-thing img {
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 100px;
 }
 
 .follow-thing {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .follow-thing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .seguidores-siguiendo tbody,
@@ -162,47 +162,64 @@ a.desc:after {
 }
 
 .reportes-view {
-  background: #f7f7f7;
+    background: #f7f7f7;
 }
 
 .reportes-view >.nombre {
-  background: linear-gradient(-90deg, #8fcee6, #1991be);
-  padding: 10px;
-  text-align: center;
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
+    padding: 10px;
+    text-align: center;
 }
 
 .reportes-view > .nombre > h1 {
-  margin: 0px;
-  color: #fff;
+    margin: 0px;
+    color: #fff;
 }
 
 .reportes-view > .contenido {
-  max-width: 700px;
-  padding: 10px;
-  margin: auto;
+    max-width: 700px;
+    padding: 10px;
+    margin: auto;
 }
 
 .reportes-view > .usuario {
-  padding: 10px;
-  border-top: 2px solid #1991be;
-  text-align: right;
+    padding: 10px;
+    border-top: 2px solid #1991be;
+    text-align: right;
 }
 
 .reportes-view > .usuario > a > img {
-  max-width: 30px;
-  max-height: 30px;
-  margin-right: 10px;
-  border-radius: 100px;
+    max-width: 30px;
+    max-height: 30px;
+    margin-right: 10px;
+    border-radius: 100px;
 }
 
 .reportes-view > .respuesta > h2 {
-  background: linear-gradient(-90deg, #8fcee6, #1991be);
-  margin: 0px;
-  padding: 5px 10px;
+    background: linear-gradient(-90deg, #8fcee6, #1991be);
+    margin: 0px;
+    padding: 5px 10px;
 }
 
 .reportes-view > .respuesta > p {
-  padding: 10px;
-  max-width: 700px;
-  margin: auto;
+    padding: 10px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.about-video {
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.about-video > iframe {
+    width: 560px;
+    height: 315px;
+    max-width: 100%;
+}
+
+select.btn.hidden-sm {
+  background: #8fcee6;
 }

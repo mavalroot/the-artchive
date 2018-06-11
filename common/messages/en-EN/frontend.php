@@ -17,7 +17,15 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Esta relación ha sido eliminada.' => 'This relationship has been deleted.',
+    'Gracias por contactar con nosotros. Revisaremos tu reporte lo más pronto posible.' => 'Thanks for contact us. We will check your report as soon as possible.',
+    'Personajes de ' => 'Character of ',
+    'Publicaciones de ' => 'Publications of ',
+    'Respuesta' => 'Answer',
+    'Ver mis personajes' => 'View my characters',
+    'Ver mis publicaciones' => 'View my publications',
+    'Y recuerda, ¡se amable!' => 'And remember to be nice!',
+    '¿Aún no tienes cuenta? Regístrate aquí.' => 'Yo do not have an account yet? Signup here.',
+    '¿Ya tienes cuenta? Conéctate aquí.' => 'You have an account? Login here.',
     '(Pendiente de confirmación)' => '(Pending confirmation)',
     'Aceptaste' => 'You accepted',
     'Apariencia' => 'Physical appearance',
@@ -57,6 +65,7 @@ return [
     'Enviar' => 'Send',
     'Enviar mensaje privado' => 'Send private message',
     'Esta publicación no tiene ningún comentario.' => 'This publication has no comments.',
+    'Esta relación ha sido eliminada.' => 'This relationship has been deleted.',
     'Este comentario ha sido eliminado.' => 'This comment has been deleted.',
     'Este error ocurrió mientras el servidor procesaba tu respuesta.' => 'The above error occurred while the Web server was processing your request.',
     'Este usuario aún no ha confirmado su cuenta.' => 'This user has not confirmed his account yet.',
@@ -68,7 +77,7 @@ return [
     'Foro' => 'Forum',
     'Gracias por contactarnos. Responderemos lo más pronto posible.' => 'Thank you for contacting us. We will respond to you as soon as possible.',
     'Guardar' => 'Save',
-    'Ha habido un error, conctacte con el administrador.' => 'There was an error, please contact with the administrator.',
+    'Ha habido un error, contacte con el administrador.' => 'There was an error, please contact with the administrator.',
     'Hechos destacables' => 'HIghlights',
     'Historia' => 'Story',
     'Hubo un error enviando tu mensaje.' => 'There was an error sending your message.',

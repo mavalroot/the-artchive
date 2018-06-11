@@ -79,6 +79,7 @@ class Relaciones extends \yii\db\ActiveRecord
     {
         return [
             ['referencia', 'validateReferencia'],
+            ['referencia', 'validateNotBlocked'],
             ['referencia', 'validateRequired', 'skipOnEmpty' => false],
             ['nombre', 'validateRequired', 'skipOnEmpty' => false],
             ['referencia', 'validateOneOrAnother', 'skipOnEmpty' => false],
@@ -97,6 +98,19 @@ class Relaciones extends \yii\db\ActiveRecord
             [['referencia'], 'exist', 'skipOnError' => true, 'targetClass' => Personajes::className(), 'targetAttribute' => ['referencia' => 'id']],
             [['tipo_relacion_id'], 'exist', 'skipOnError' => true, 'targetClass' => TiposRelaciones::className(), 'targetAttribute' => ['tipo_relacion_id' => 'id']],
         ];
+    }
+
+    /**
+     * Valida que el usuario al que se le pide relación no nos tenga bloqueados.
+     * @param  string $attribute
+     */
+    public function validateNotBlocked($attribute)
+    {
+        $personaje = Personajes::findOne($this->$attribute);
+        $usuario = UsuariosCompleto::findOne(['id' => $personaje->usuario_id]);
+        if ($usuario->imBlocked() || $usuario->isBlocked()) {
+            $this->addError($attribute, Yii::t('app', 'No puedes solicitar relación a ese personaje.'));
+        }
     }
 
     /**
