@@ -80,7 +80,8 @@ class SiteController extends \yii\web\Controller
                     ->all(),
                     'id',
                     'usuario_id'
-                )]);
+                )])
+                ->orWhere(['usuario_id' => Yii::$app->user->id]);
             return $this->render('index', [
                 'model' => UsuariosCompleto::findOne(['id' => Yii::$app->user->id]),
                 'publicaciones' => $publicaciones,
