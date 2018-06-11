@@ -7,14 +7,11 @@ function deleteAccount() {
             let boton = $(deleteform).find('button');
             $(boton).on('click', function (e) {
                 e.preventDefault();
-                w.close();
-                $.post('/delete-account/delete', $(deleteform).serialize())
-                .done(function() {
-                    w.opener.location.reload();
-                    w.close();
-                })
-                .fail(function() {
-                    // Si fallara.
+                $.post('/delete-account/delete', $(deleteform).serialize(), function (data) {
+                    if (data != false) {
+                        w.opener.location.reload();
+                        w.close();
+                    }
                 });
             });
         };
